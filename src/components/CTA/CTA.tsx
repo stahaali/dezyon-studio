@@ -26,7 +26,7 @@ export function CTA() {
                 height={254}
                 className={styles.illustration}
               />
-            </div>eeeeeee
+            </div>
 
             <div className={styles.content}>
               <SplitTitle
