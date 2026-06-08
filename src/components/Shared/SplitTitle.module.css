@@ -1,0 +1,65 @@
+.title {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.accent {
+  color: #abf503;
+}
+
+.lightOnDark {
+  color: #ffffff;
+}
+
+.lightOnLight {
+  color: #000200;
+}
+
+.sizeHero {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+}
+
+.sizeSection {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.sizePanel {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.sizeCard {
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.break {
+  display: none;
+}
+
+.breakVisible {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .sizeHero {
+    font-size: clamp(36px, 4.5vw, 56px);
+  }
+
+  .breakOnSm {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sizeHero {
+    font-size: clamp(48px, 4vw, 72px);
+    line-height: 1.05;
+  }
+}

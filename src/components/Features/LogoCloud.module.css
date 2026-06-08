@@ -1,0 +1,51 @@
+.section {
+  padding-block: 48px;
+  background-color: var(--color-white);
+}
+
+.logoRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 32px 56px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logoItem {
+  opacity: 0.35;
+  transition: opacity var(--transition-base);
+}
+
+.logoItem:hover {
+  opacity: 0.55;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 56px;
+  }
+
+  .logoRow {
+    gap: 40px 72px;
+  }
+
+  .logoText {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    padding-block: 64px;
+  }
+}

@@ -1,0 +1,242 @@
+.section {
+  background-color: var(--color-white);
+  padding-bottom: 56px;
+  padding-top:0px;
+}
+
+.header {
+  max-width: 700px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.tabBar {
+  display: flex;
+  width: 100%;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabBar::-webkit-scrollbar {
+  display: none;
+}
+
+.tabList {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  gap: 0;
+  margin: 0;
+  padding: 12px 25px 0 25px;
+  list-style: none;
+  background-color: #000200;
+  border-radius: var(--radius-lg);
+}
+
+.tabList li {
+  flex: 1;
+  display: flex;
+}
+
+.tabBtn {
+  flex: 1;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 600;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.tabBtn:hover {
+  color: var(--color-accent);
+}
+
+.tabBtnActive {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.panel {
+  width: 100%;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.imageCol {
+  width: 100%;
+}
+
+.imageFigure {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.trafficOverlay {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: min(180px, 45%);
+  padding: 12px 14px;
+  background: rgba(20, 40, 32, 0.92);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.trafficTitle {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 10px;
+}
+
+.trafficRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.trafficRow:last-child {
+  margin-bottom: 0;
+}
+
+.trafficIcon {
+  font-size: 12px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.trafficBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.trafficFill {
+  display: block;
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.panelTitle {
+  margin: 0 0 16px;
+}
+
+.panelDesc {
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0 0 20px;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: gap var(--transition-fast);
+}
+
+.ctaLink:hover {
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .tabBar {
+    margin-bottom: 32px;
+  }
+
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .textCol {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .tabBar {
+    margin-bottom: 40px;
+  }
+
+  .split {
+    gap: 48px;
+  }
+
+  .textCol {
+    padding: 24px 16px;
+  }
+
+  .trafficOverlay {
+    top: 24px;
+    right: 24px;
+    padding: 14px 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .split {
+    gap: 64px;
+  }
+
+  .imageFigure {
+    border-radius: var(--radius-xl);
+  }
+}

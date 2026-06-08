@@ -1,0 +1,29 @@
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.slide {
+  width: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandImage {
+  height: 40px;
+  width: auto;
+  filter: brightness(0);
+  opacity: 0.55;
+}
+
+@media (min-width: 1280px) {
+  .brandImage {
+    height: 44px;
+  }
+}

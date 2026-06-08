@@ -1,0 +1,299 @@
+/* Lexend home-01 hero — pixel match */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--header-height) + 36px);
+  padding-bottom: 48px;
+}
+
+.heroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 500px;
+  background-color: #000200;
+  z-index: 0;
+}
+
+.floatingLayer {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  min-height: calc(100vh - var(--header-height));
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  display: none;
+}
+
+.floatingIcon {
+  position: absolute;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.filterStarWhite {
+  filter: brightness(0) invert(1);
+}
+
+/* Exact lexend positions */
+.starOne {
+  top: 40%;
+  left: 25%;
+  width: 32px;
+  transform: rotate(45deg);
+}
+
+.starTwo {
+  top: 25%;
+  right: 12%;
+  width: 24px;
+  transform: rotate(45deg);
+}
+
+.iconTrophy {
+  top: 12%;
+  left: 6%;
+  width: 56px;
+  transform: translateY(-50%) rotate(-12deg);
+}
+
+.iconLocation {
+  top: 35%;
+  left: 0;
+  width: 56px;
+  margin-left: -12px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.iconGlobe {
+  top: 80%;
+  left: 4%;
+  width: 56px;
+  transform: translateY(-50%);
+}
+
+.iconCrown {
+  top: 53%;
+  right: 18%;
+  width: 56px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.iconDiamond {
+  top: 80%;
+  right: 8%;
+  width: 56px;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.iconChat {
+  top: 35%;
+  right: 0;
+  width: 56px;
+  margin-right: -12px;
+  transform: translateY(-50%) rotate(-12deg);
+}
+
+.heroOuter {
+  position: relative;
+  z-index: 2;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 850px;
+  margin-inline: auto;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+}
+
+.title {
+  margin: 0 0 8px;
+}
+
+.cta {
+  min-width: 150px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.members {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.avatarStack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #000200;
+  object-fit: cover;
+  margin-left: -8px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.membersText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.mediaPanel {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+.mediaFigure {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--color-dark-secondary);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.mediaImage {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-primary);
+  border: none;
+  box-shadow: var(--shadow-md);
+  padding-left: 4px;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.playButton:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: var(--shadow-lg);
+}
+
+.brandsPanel {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  margin-top: 8px;
+  padding: 8px 0 4px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 640px) {
+  .hero {
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 56px;
+  }
+
+  .title {
+    margin-top: 0;
+  }
+
+  .cta {
+    margin-top: 12px;
+  }
+
+  .members {
+    margin-top: 12px;
+  }
+
+  .membersText {
+    font-size: 15px;
+  }
+
+  .heroInner {
+    gap: 40px;
+  }
+
+  .mediaFigure {
+    border-radius: 20px;
+  }
+
+  .playButton {
+    width: 80px;
+    height: 80px;
+  }
+
+  .brandsPanel {
+    margin-top: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroBg {
+    height: 100vh;
+  }
+
+  .floatingLayer {
+    display: block;
+  }
+
+  .cta {
+    margin-top: 16px;
+    padding: 16px 36px !important;
+    font-size: 16px;
+  }
+
+  .iconTrophy,
+  .iconLocation,
+  .iconGlobe,
+  .iconCrown,
+  .iconDiamond,
+  .iconChat {
+    width: 64px;
+  }
+
+  .brandsPanel {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    padding-bottom: 72px;
+  }
+}

@@ -1,0 +1,259 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-height);
+  padding-top: 0;
+  background-color: #000200;
+  transition:
+    background-color var(--transition-base),
+    box-shadow var(--transition-base),
+    backdrop-filter var(--transition-base);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0;
+  gap: 16px;
+  max-width: 1280px;
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 168px;
+  height: 50px;
+  line-height: 0;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.links {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 0;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links li {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 400;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-full);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.scrolled .link,
+.menuOpen .link {
+  color: var(--color-text-muted);
+}
+
+.scrolled .link:hover,
+.menuOpen .link:hover {
+  color: var(--color-text);
+  background-color: var(--color-border-light);
+}
+
+.actions {
+  display: none;
+  align-items: center;
+  gap: 20px;
+}
+
+.signInLink {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.signInLink:hover {
+  color: var(--color-white);
+}
+
+.scrolled .signInLink,
+.menuOpen .signInLink {
+  color: var(--color-text-muted);
+}
+
+.scrolled .signInLink:hover,
+.menuOpen .signInLink:hover {
+  color: var(--color-text);
+}
+
+.ctaButton {
+  flex-shrink: 0;
+}
+
+.menuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.menuToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.scrolled .menuToggle,
+.menuOpen .menuToggle {
+  color: var(--color-text);
+}
+
+.scrolled .menuToggle:hover,
+.menuOpen .menuToggle:hover {
+  background-color: var(--color-border-light);
+}
+
+.scrolled,
+.menuOpen {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-white);
+  padding: 24px var(--container-padding);
+  transform: translateX(100%);
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+  z-index: 99;
+}
+
+.mobileMenuOpen {
+  transform: translateX(0);
+}
+
+.mobileLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileLink {
+  display: block;
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border-light);
+  transition: color var(--transition-fast);
+}
+
+.mobileLink:hover {
+  color: var(--color-primary);
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.signInMobile {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.demoLinkMobile {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.mobileCta {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .links {
+    display: flex;
+  }
+
+  .logo {
+    width: 296px;
+    height: 88px;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .link {
+    padding: 8px 8px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 148px;
+    height: 44px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .actions {
+    display: none;
+  }
+}
