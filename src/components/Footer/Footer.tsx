@@ -37,7 +37,7 @@ const socialIcons = {
 export function Footer() {
   return (
     <footer id="contact" className={`page-section ${styles.footer}`}>
-      <Container>
+      <Container className={styles.footerContainer}>
         <div className={styles.grid}>
           <div className={styles.brandCol}>
             <Logo className={styles.footerLogo} />

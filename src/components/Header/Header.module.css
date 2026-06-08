@@ -126,6 +126,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  margin-left: auto;
+  position: relative;
+  z-index: 3;
   width: 44px;
   height: 44px;
   border: none;
@@ -135,6 +139,12 @@
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast);
+}
+
+.menuToggle svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .menuToggle:hover {
@@ -164,16 +174,23 @@
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  max-width: 100vw;
   background-color: var(--color-white);
   padding: 24px var(--container-padding);
   transform: translateX(100%);
   transition: transform var(--transition-base);
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 99;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .mobileMenuOpen {
   transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .mobileLinks {

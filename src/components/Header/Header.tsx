@@ -14,35 +14,37 @@ export function Header() {
   useLockBodyScroll(mobileOpen);
 
   return (
-    <header
-      className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${mobileOpen ? styles.menuOpen : ""}`}
-    >
-      <Container as="nav" className={styles.nav} aria-label="Main navigation">
-        <Logo
-          variant={isScrolled || mobileOpen ? "dark" : "light"}
-          className={styles.logo}
-        />
+    <>
+      <header
+        className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${mobileOpen ? styles.menuOpen : ""}`}
+      >
+        <Container as="nav" className={styles.nav} aria-label="Main navigation">
+          <Logo
+            variant={isScrolled || mobileOpen ? "dark" : "light"}
+            className={styles.logo}
+          />
 
-        <ul className={styles.links}>
-          {navLinks.map((link) => (
-            <li key={link.href + link.label}>
-              <a href={link.href} className={styles.link}>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+          <ul className={styles.links}>
+            {navLinks.map((link) => (
+              <li key={link.href + link.label}>
+                <a href={link.href} className={styles.link}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <button
-          type="button"
-          className={styles.menuToggle}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-expanded={mobileOpen}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </Container>
+          <button
+            type="button"
+            className={styles.menuToggle}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X size={24} strokeWidth={2} /> : <Menu size={24} strokeWidth={2} />}
+          </button>
+        </Container>
+      </header>
 
       <div
         className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileMenuOpen : ""}`}
@@ -62,6 +64,6 @@ export function Header() {
           ))}
         </ul>
       </div>
-    </header>
+    </>
   );
 }
