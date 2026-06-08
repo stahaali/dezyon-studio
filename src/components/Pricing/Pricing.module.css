@@ -153,13 +153,18 @@
   }
 
   .moneyIllustration {
-    width: 120px;
+    display: none;
   }
 }
 
 @media (min-width: 1024px) {
   .plan {
     padding: 44px 40px;
+  }
+
+  .moneyIllustration {
+    display: block;
+    width: 120px;
   }
 
   .feature {

@@ -200,6 +200,31 @@
   gap: 10px;
 }
 
+@media (max-width: 576px) {
+  .tabBar {
+    overflow-x: visible;
+  }
+
+  .tabList {
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
+    padding: 8px 8px 0;
+    gap: 4px;
+  }
+
+  .tabList li {
+    flex: 1 1 calc(50% - 2px);
+    min-width: calc(50% - 2px);
+  }
+
+  .tabBtn {
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+}
+
 @media (min-width: 640px) {
   .title {
     white-space: nowrap;
