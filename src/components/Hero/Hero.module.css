@@ -71,7 +71,7 @@
 }
 
 .iconGlobe {
-  top: 80%;
+  top: 60%;
   left: 4%;
   width: 56px;
   transform: translateY(-50%);
@@ -102,6 +102,12 @@
 .heroOuter {
   position: relative;
   z-index: 2;
+  max-width: 1280px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 }
 
 .heroInner {
@@ -128,7 +134,9 @@
 
 .cta {
   min-width: 150px;
-  margin-top: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-block: 14px;
   font-weight: 500;
 }
 
@@ -167,8 +175,9 @@
 .mediaPanel {
   position: relative;
   width: 100%;
-  max-width: var(--container-max);
+  max-width: 1280px;
   margin-inline: auto;
+  margin-top: 64px;
 }
 
 .mediaFigure {
@@ -215,7 +224,7 @@
 
 .brandsPanel {
   width: 100%;
-  max-width: var(--container-max);
+  max-width: 1280px;
   margin-inline: auto;
   margin-top: 8px;
   padding: 8px 0 4px;
@@ -234,7 +243,8 @@
   }
 
   .cta {
-    margin-top: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .members {
@@ -245,7 +255,7 @@
     font-size: 15px;
   }
 
-  .heroInner {
+  .heroOuter {
     gap: 40px;
   }
 
@@ -273,7 +283,8 @@
   }
 
   .cta {
-    margin-top: 16px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     padding: 16px 36px !important;
     font-size: 16px;
   }

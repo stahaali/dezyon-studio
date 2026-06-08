@@ -73,30 +73,30 @@ export function Hero() {
               <span className={styles.membersText}>4.6k Hardworking Members</span>
             </div>
           </div>
+        </div>
 
-          <div className={styles.mediaPanel}>
-            <figure className={styles.mediaFigure}>
-              <Image
-                src={HERO_POSTER}
-                alt="Dezyon Studio team collaborating in office"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
-                className={styles.mediaImage}
-              />
-            </figure>
-            <button
-              type="button"
-              className={styles.playButton}
-              aria-label="Play demo video"
-            >
-              <Play size={28} fill="currentColor" strokeWidth={0} />
-            </button>
-          </div>
+        <div className={styles.mediaPanel}>
+          <figure className={styles.mediaFigure}>
+            <Image
+              src={HERO_POSTER}
+              alt="Dezyon Studio team collaborating in office"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
+              className={styles.mediaImage}
+            />
+          </figure>
+          <button
+            type="button"
+            className={styles.playButton}
+            aria-label="Play demo video"
+          >
+            <Play size={28} fill="currentColor" strokeWidth={0} />
+          </button>
+        </div>
 
-          <div className={styles.brandsPanel}>
-            <BrandSlider />
-          </div>
+        <div className={styles.brandsPanel}>
+          <BrandSlider />
         </div>
       </Container>
     </section>
