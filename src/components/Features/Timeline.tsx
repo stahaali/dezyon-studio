@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "@/lib/swiper-react";
 import { timeline } from "@/data/site";
@@ -19,9 +19,14 @@ type SwiperInstance = {
 const defaultActiveIndex = timeline.findIndex((item) => "active" in item && item.active);
 
 export function Timeline() {
+  const [mounted, setMounted] = useState(false);
   const [activeIndex, setActiveIndex] = useState(
     defaultActiveIndex >= 0 ? defaultActiveIndex : 0,
   );
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSlideChange = (swiper: SwiperInstance) => {
     setActiveIndex(swiper.activeIndex);
@@ -44,12 +49,14 @@ export function Timeline() {
         </ScrollReveal>
       </Container>
 
-      <ScrollReveal delay={0.1}>
-        <div className={styles.sliderOuter}>
+      <div className={styles.sliderOuter}>
+        {mounted ? (
           <Swiper
             slidesPerView="auto"
             centeredSlides
             slideToClickedSlide
+            observer
+            observeParents
             initialSlide={defaultActiveIndex >= 0 ? defaultActiveIndex : 0}
             spaceBetween={0}
             onSlideChange={handleSlideChange}
@@ -82,8 +89,8 @@ export function Timeline() {
               );
             })}
           </Swiper>
-        </div>
-      </ScrollReveal>
+        ) : null}
+      </div>
     </section>
   );
 }
