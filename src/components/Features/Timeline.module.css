@@ -15,7 +15,12 @@
 
 .swiper {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
+}
+
+.swiper :global(.swiper-slide) {
+  width: 220px;
+  height: auto;
 }
 
 .slide {
@@ -130,6 +135,7 @@
 }
 
 @media (min-width: 768px) {
+  .swiper :global(.swiper-slide),
   .slide {
     width: 240px;
   }

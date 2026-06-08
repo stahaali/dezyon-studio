@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../styles/variables.css";
+@import "swiper/css";
 
 @theme inline {
   --color-background: var(--color-white);

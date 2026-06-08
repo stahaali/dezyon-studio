@@ -1,37 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "@/lib/swiper-react";
-import { timeline } from "@/data/site";
+import dynamic from "next/dynamic";
 import { Container } from "@/components/Shared/Container";
 import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import styles from "./Timeline.module.css";
 
-import "swiper/css";
-
-type SwiperInstance = {
-  activeIndex: number;
-  clickedIndex: number;
-};
-
-const defaultActiveIndex = timeline.findIndex((item) => "active" in item && item.active);
+const TimelineSlider = dynamic(
+  () => import("./TimelineSlider").then((mod) => mod.TimelineSlider),
+  { ssr: false },
+);
 
 export function Timeline() {
-  const [mounted, setMounted] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(
-    defaultActiveIndex >= 0 ? defaultActiveIndex : 0,
-  );
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const handleSlideChange = (swiper: SwiperInstance) => {
-    setActiveIndex(swiper.activeIndex);
-  };
-
   return (
     <section
       id="timeline"
@@ -50,46 +30,7 @@ export function Timeline() {
       </Container>
 
       <div className={styles.sliderOuter}>
-        {mounted ? (
-          <Swiper
-            slidesPerView="auto"
-            centeredSlides
-            slideToClickedSlide
-            observer
-            observeParents
-            initialSlide={defaultActiveIndex >= 0 ? defaultActiveIndex : 0}
-            spaceBetween={0}
-            onSlideChange={handleSlideChange}
-            onSwiper={handleSlideChange}
-            className={styles.swiper}
-          >
-            {timeline.map((item, index) => {
-              const isActive = index === activeIndex;
-
-              return (
-                <SwiperSlide key={item.year} className={styles.slide}>
-                  <article
-                    className={`${styles.box} ${isActive ? styles.boxActive : ""}`}
-                  >
-                    <div className={styles.imageWrap}>
-                      <Image
-                        src={item.image}
-                        alt={item.description}
-                        width={400}
-                        height={400}
-                        className={styles.image}
-                      />
-                    </div>
-                    <div className={styles.content}>
-                      <h3 className={styles.year}>{item.year}</h3>
-                      <p className={styles.description}>{item.description}</p>
-                    </div>
-                  </article>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        ) : null}
+        <TimelineSlider />
       </div>
     </section>
   );
