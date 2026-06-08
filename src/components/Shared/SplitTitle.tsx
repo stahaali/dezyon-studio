@@ -50,8 +50,7 @@ export function SplitTitle({
       <span className={styles.accent}>{parts.accent}</span>
       {parts.light ? (
         <>
-          <br className={lineBreak ? styles.breakOnSm : styles.break} />
-          {!lineBreak && " "}
+          {lineBreak ? <br className={styles.breakOnSm} /> : " "}
           <span className={lightClass}>{parts.light}</span>
         </>
       ) : null}

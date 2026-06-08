@@ -10,6 +10,7 @@ interface SectionHeadingProps {
   description?: string;
   align?: "left" | "center";
   light?: boolean;
+  lineBreak?: boolean;
   className?: string;
   children?: ReactNode;
 }
@@ -22,6 +23,7 @@ export function SectionHeading({
   description,
   align = "center",
   light = false,
+  lineBreak = true,
   className = "",
 }: SectionHeadingProps) {
   return (
@@ -35,6 +37,7 @@ export function SectionHeading({
         light={titleLight}
         theme={light ? "dark" : "light"}
         size="section"
+        lineBreak={lineBreak}
         className={styles.title}
       />
       {description && <p className={styles.description}>{description}</p>}

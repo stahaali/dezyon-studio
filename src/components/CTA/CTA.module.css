@@ -1,5 +1,9 @@
 .section {
-  padding:0;
+  padding:0 0 56px;
+}
+
+.ctaContainer {
+  max-width: 1280px;
 }
 
 .banner {
@@ -7,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-cream-dark);
+  background: #000200;
   border-radius: var(--radius-2xl);
   padding: 48px 24px;
   overflow: hidden;
@@ -32,7 +36,7 @@
 .subtitle {
   font-size: 15px;
   line-height: 1.55;
-  color: var(--color-text-muted);
+  color: #ffffff;
   margin: 0 0 8px;
   max-width: 360px;
 }
@@ -47,7 +51,7 @@
 .note {
   font-size: 13px;
   line-height: 1.5;
-  color: var(--color-text-muted);
+  color: #ffffff;
   margin: 0;
 }
 

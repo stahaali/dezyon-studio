@@ -15,6 +15,7 @@ export function Integrations() {
           <SectionHeading
             className={styles.sectionHeading}
             light
+            lineBreak={false}
             title="Boost your efficiency with integrations"
             description="Connect every part of your business with integrations that will simplify your workflow."
           />

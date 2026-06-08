@@ -12,6 +12,7 @@ export function Team() {
         <ScrollReveal>
           <SectionHeading
             className={styles.sectionHeading}
+            lineBreak={false}
             title="Our Executive Team"
           />
         </ScrollReveal>

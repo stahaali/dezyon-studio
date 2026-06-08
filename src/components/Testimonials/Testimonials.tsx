@@ -13,6 +13,7 @@ export function Testimonials() {
         <ScrollReveal>
           <SectionHeading
             className={styles.sectionHeading}
+            lineBreak={false}
             title="Don't just take our words"
           />
         </ScrollReveal>

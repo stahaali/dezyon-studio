@@ -1,9 +1,14 @@
 .section {
   background-color: var(--color-white);
+  padding:56px 0;
 }
 
 .sectionHeading {
   max-width: 100%;
+}
+
+.sectionHeading h2 span:first-child {
+  color: #000200;
 }
 
 .pricingBox {
@@ -34,7 +39,7 @@
   right: 24px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--color-white);
+  color: #000200;
   background: var(--color-primary);
   padding: 4px 12px;
   border-radius: var(--radius-button);

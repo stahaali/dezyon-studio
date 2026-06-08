@@ -15,7 +15,7 @@ export function CTA() {
       className={`page-section ${styles.section}`}
       aria-labelledby="cta-heading"
     >
-      <Container>
+      <Container className={styles.ctaContainer}>
         <ScrollReveal>
           <div className={styles.banner}>
             <div className={styles.illustrationLeft} aria-hidden="true">
@@ -32,7 +32,9 @@ export function CTA() {
               <SplitTitle
                 id="cta-heading"
                 title="Prevent costly mistakes"
+                theme="dark"
                 size="section"
+                lineBreak={false}
                 className={styles.title}
               />
               <p className={styles.subtitle}>

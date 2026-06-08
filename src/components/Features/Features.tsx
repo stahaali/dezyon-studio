@@ -21,6 +21,7 @@ export function Features() {
             <SplitTitle
               title={smartFeaturesSection.title}
               size="section"
+              lineBreak={false}
               className={styles.title}
             />
             <p className={styles.subtitle}>{smartFeaturesSection.description}</p>

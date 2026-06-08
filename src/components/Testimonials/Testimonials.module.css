@@ -1,9 +1,14 @@
 .section {
   background-color: var(--color-white);
+  padding:0 0 56px;
 }
 
 .sectionHeading {
   max-width: 100%;
+}
+
+.sectionHeading h2 span {
+  color: #000200;
 }
 
 .grid {

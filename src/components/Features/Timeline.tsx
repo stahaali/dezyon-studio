@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperType } from "swiper";
+import { Swiper, SwiperSlide } from "@/lib/swiper-react";
 import { timeline } from "@/data/site";
 import { Container } from "@/components/Shared/Container";
 import { SectionHeading } from "@/components/Shared/SectionHeading";
@@ -12,6 +11,11 @@ import styles from "./Timeline.module.css";
 
 import "swiper/css";
 
+type SwiperInstance = {
+  activeIndex: number;
+  clickedIndex: number;
+};
+
 const defaultActiveIndex = timeline.findIndex((item) => "active" in item && item.active);
 
 export function Timeline() {
@@ -19,7 +23,7 @@ export function Timeline() {
     defaultActiveIndex >= 0 ? defaultActiveIndex : 0,
   );
 
-  const handleSlideChange = (swiper: SwiperType) => {
+  const handleSlideChange = (swiper: SwiperInstance) => {
     setActiveIndex(swiper.activeIndex);
   };
 
@@ -31,7 +35,12 @@ export function Timeline() {
     >
       <Container>
         <ScrollReveal>
-          <SectionHeading title="How we got here" />
+          <SectionHeading
+            title="How we got here"
+            light
+            lineBreak={false}
+            className={styles.sectionHeading}
+          />
         </ScrollReveal>
       </Container>
 
@@ -45,18 +54,6 @@ export function Timeline() {
             spaceBetween={0}
             onSlideChange={handleSlideChange}
             onSwiper={handleSlideChange}
-            breakpoints={{
-              640: {
-                slidesPerView: "auto",
-                centeredSlides: true,
-                spaceBetween: 0,
-              },
-              1280: {
-                slidesPerView: 6,
-                centeredSlides: false,
-                spaceBetween: 0,
-              },
-            }}
             className={styles.swiper}
           >
             {timeline.map((item, index) => {

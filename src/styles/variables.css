@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #006b5d;
+  --color-primary: #abf503;
   --color-primary-hover: #005a4e;
   --color-primary-light: #e6f3f0;
   --color-accent: #abf503;
@@ -47,7 +47,7 @@
 
 @media (min-width: 1024px) {
   :root {
-    --header-height: 96px;
+    --header-height: 80px;
   }
 }
 

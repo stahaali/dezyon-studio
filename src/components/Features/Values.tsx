@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { values, stats } from "@/data/site";
 import { Container } from "@/components/Shared/Container";
+import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { SplitTitle } from "@/components/Shared/SplitTitle";
 import styles from "./Values.module.css";
@@ -9,6 +10,14 @@ export function Values() {
   return (
     <section className={`page-section ${styles.section}`} aria-labelledby="values-heading">
       <Container>
+        <ScrollReveal>
+          <SectionHeading
+            className={styles.sectionHeading}
+            lineBreak={false}
+            title="Our Values it's Simple!"
+          />
+        </ScrollReveal>
+
         <div className={styles.valuesGrid}>
           {values.map((item, index) => (
             <ScrollReveal key={item.title} delay={index * 0.08} as="article">

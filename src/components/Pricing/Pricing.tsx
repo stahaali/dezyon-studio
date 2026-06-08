@@ -16,6 +16,7 @@ export function Pricing() {
         <ScrollReveal>
           <SectionHeading
             className={styles.sectionHeading}
+            lineBreak={false}
             title="Price plans as per your needs"
             description="No extra charges. No hidden fees."
           />
