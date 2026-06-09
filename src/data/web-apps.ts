@@ -60,9 +60,9 @@ export const webAppsB2B = {
 } as const;
 
 export const webAppsDevelopment = {
-  titlePrefix: "A trusted source of ",
+  titlePrefix: "Expert ",
   titleHighlight: "web portal development",
-  titleSuffix: " that keeps you ahead.",
+  titleSuffix: " for your growth.",
   description:
     "Dezyon Digital is certain to give you eCommerce solutions and web apps that are visually and technically above the normal no-brainers in the business, regardless of project complexity or customer needs.",
   cards: [
@@ -96,9 +96,9 @@ export const webAppsDevelopment = {
 export const webAppsTechnologies = {
   image: "/assets/img/web-app/mobile-app-img2.jpg",
   imageAlt: "Designer sketching mobile app wireframes at a workspace desk",
-  titlePrefix: "A modern ",
-  titleHighlight: "portal development hub",
-  titleSuffix: " for ecommerce and web apps.",
+  titlePrefix: "Your ",
+  titleHighlight: "portal hub",
+  titleSuffix: " for web apps.",
   intro:
     "Dezyon Digital has been working in the digital market for over ten years. Our clients come to us for a variety of services aimed at improving their brand's online reputation and expanding their customer base.",
   segments: [
