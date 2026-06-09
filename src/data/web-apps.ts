@@ -61,8 +61,8 @@ export const webAppsB2B = {
 
 export const webAppsDevelopment = {
   titlePrefix: "Expert ",
-  titleHighlight: "web portal development",
-  titleSuffix: " for your growth.",
+  titleHighlight: "web portals",
+  titleSuffix: " built for growth.",
   description:
     "Dezyon Digital is certain to give you eCommerce solutions and web apps that are visually and technically above the normal no-brainers in the business, regardless of project complexity or customer needs.",
   cards: [
