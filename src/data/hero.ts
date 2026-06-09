@@ -1,72 +1,4 @@
-import { flaticonIcons } from "@/data/icons";
-
 export const HERO_ASSETS = "/assets/img/homebanner";
-
-export type HeroIconFilter = "none" | "starWhite";
-
-export const heroFloatingStars = [
-  {
-    src: `${HERO_ASSETS}/star-1.svg`,
-    alt: "",
-    width: 193,
-    height: 216,
-    className: "starOne",
-    filter: "starWhite" as HeroIconFilter,
-  },
-  {
-    src: `${HERO_ASSETS}/star-2.svg`,
-    alt: "",
-    width: 69,
-    height: 95,
-    className: "starTwo",
-    filter: "starWhite" as HeroIconFilter,
-  },
-] as const;
-
-export const heroFloatingThemeIcons = [
-  {
-    src: flaticonIcons.trophyLime,
-    alt: "",
-    width: 64,
-    height: 64,
-    className: "iconTrophy",
-  },
-  {
-    src: flaticonIcons.locationLime,
-    alt: "",
-    width: 64,
-    height: 64,
-    className: "iconLocation",
-  },
-  {
-    src: flaticonIcons.globeLime,
-    alt: "",
-    width: 64,
-    height: 64,
-    className: "iconGlobe",
-  },
-  {
-    src: flaticonIcons.crownLime,
-    alt: "",
-    width: 64,
-    height: 64,
-    className: "iconCrown",
-  },
-  {
-    src: flaticonIcons.diamondLime,
-    alt: "",
-    width: 64,
-    height: 64,
-    className: "iconDiamond",
-  },
-  {
-    src: flaticonIcons.chatLime,
-    alt: "",
-    width: 64,
-    height: 64,
-    className: "iconChat",
-  },
-] as const;
 
 export const heroAvatars = [
   { src: `${HERO_ASSETS}/03.png`, alt: "Member avatar" },
@@ -88,7 +20,83 @@ export const heroBrands = [
 export const HERO_POSTER = `${HERO_ASSETS}/home-01-hero-cover.webp`;
 export const HERO_VIDEO = "/assets/img/media/lexend_vid.webm";
 
-export const heroIconFilters: Record<HeroIconFilter, string> = {
-  none: "",
-  starWhite: "filterStarWhite",
+export const heroRating = {
+  value: "4.9",
+  label: "Google rating",
+} as const;
+
+export const heroContent = {
+  titlePrefix: "Easy project ",
+  titleHighlight: "management",
+  titleSuffix: " of any complexity",
+  subtitle:
+    "We design, build, and grow websites, brands, and digital products for teams that want to stand out online.",
+  form: {
+    placeholder: "yourwebsite.com",
+    submitLabel: "Get free audit",
+    note: "Free website audit. Done in under 2 minutes.",
+  },
+  membersLabel: "4.6k Hardworking Members",
+} as const;
+
+export type HeroSliderImage = {
+  src: string;
+  alt: string;
 };
+
+export const heroSliderColumns: HeroSliderImage[][] = [
+  [
+    {
+      src: "/assets/img/web-app/mobile-app-img1.jpg",
+      alt: "Nova Commerce web application preview",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+      alt: "Pulse Analytics dashboard design",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+      alt: "Ledger Finance fintech platform",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+      alt: "Launchpad startup landing page",
+    },
+  ],
+  [
+    {
+      src: "/assets/img/web-app/mobile-app-img2.jpg",
+      alt: "Custom web portal interface",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80",
+      alt: "Studio Maven creative agency website",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=600&q=80",
+      alt: "Orbit Mobile app landing page",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+      alt: "SaaS analytics product showcase",
+    },
+  ],
+  [
+    {
+      src: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80",
+      alt: "Creative agency portfolio project",
+    },
+    {
+      src: "/assets/img/web-app/mobile-app-img1.jpg",
+      alt: "E-commerce web application design",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=600&q=80",
+      alt: "Mobile app marketing website",
+    },
+    {
+      src: "/assets/img/web-app/mobile-app-img2.jpg",
+      alt: "B2B portal development preview",
+    },
+  ],
+] as const;

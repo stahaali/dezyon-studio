@@ -1,0 +1,126 @@
+.slider {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 420px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  height: 100%;
+}
+
+.column {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  will-change: transform;
+}
+
+.trackUp {
+  animation: scrollUp 28s linear infinite;
+}
+
+.trackDown {
+  animation: scrollDown 32s linear infinite;
+}
+
+.card {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-dark-secondary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.cardImage {
+  object-fit: cover;
+  object-position: center center;
+}
+
+@keyframes scrollUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollDown {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .slider {
+    min-height: 480px;
+  }
+
+  .columns {
+    gap: 14px;
+  }
+
+  .track {
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slider {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .columns {
+    gap: 16px;
+  }
+
+  .track {
+    gap: 16px;
+  }
+
+  .card {
+    border-radius: var(--radius-xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trackUp,
+  .trackDown {
+    animation: none;
+  }
+}
