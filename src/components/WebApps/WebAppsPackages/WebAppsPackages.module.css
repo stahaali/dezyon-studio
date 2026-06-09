@@ -9,13 +9,8 @@
   text-align: center;
 }
 
-.title {
+.sectionTitle {
   margin: 0 0 16px;
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--color-primary);
 }
 
 .description {

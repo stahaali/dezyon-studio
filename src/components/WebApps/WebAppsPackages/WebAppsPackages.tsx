@@ -4,6 +4,7 @@ import { webAppsPackages } from "@/data/web-apps";
 import { packagesActions } from "@/data/packages";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import { WebAppsSectionHeading } from "@/components/WebApps/WebAppsSectionHeading/WebAppsSectionHeading";
 import catalogStyles from "@/components/Packages/PackagesCatalog/PackagesCatalog.module.css";
 import styles from "./WebAppsPackages.module.css";
 
@@ -20,9 +21,14 @@ export function WebAppsPackages() {
       <Container className={catalogStyles.container}>
         <ScrollReveal>
           <header className={styles.header}>
-            <h2 id="web-apps-packages-heading" className={styles.title}>
-              {webAppsPackages.title}
-            </h2>
+            <WebAppsSectionHeading
+              id="web-apps-packages-heading"
+              prefix={webAppsPackages.titlePrefix}
+              highlight={webAppsPackages.titleHighlight}
+              suffix={webAppsPackages.titleSuffix}
+              centered
+              className={styles.sectionTitle}
+            />
             <p className={styles.description}>{webAppsPackages.description}</p>
           </header>
         </ScrollReveal>

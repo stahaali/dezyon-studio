@@ -40,18 +40,6 @@
   line-height: 1.2;
 }
 
-.wordHighlight {
-  display: inline-block;
-  padding: 0.06em 0.32em 0.1em;
-  margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
-  color: #000200;
-  transform: rotate(-2.5deg);
-  transform-origin: center center;
-  vertical-align: baseline;
-}
-
 .starLeft,
 .starRight {
   flex-shrink: 0;
@@ -177,11 +165,4 @@
     margin-top: -4px;
   }
 
-  .wordHighlight {
-    display: inline-block;
-    padding: 0.06em 0.34em 0.1em;
-    transform: rotate(-2.5deg);
-    transform-origin: center center;
-    vertical-align: baseline;
-  }
 }

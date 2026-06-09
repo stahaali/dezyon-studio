@@ -38,34 +38,8 @@
   max-width: 640px;
 }
 
-.title {
+.sectionTitle {
   margin: 0 0 20px;
-  overflow: visible;
-  font-size: clamp(26px, 2.8vw, 36px);
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-}
-
-.titleLight,
-.wordHighlight {
-  font: inherit;
-  letter-spacing: inherit;
-}
-
-.titleLight {
-  color: #ffffff;
-}
-
-.wordHighlight {
-  display: inline;
-  padding: 0.08em 0.28em 0.08em;
-  margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
-  color: #000200;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .intro {

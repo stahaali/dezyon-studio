@@ -1,0 +1,21 @@
+.title {
+  margin: 0;
+  overflow: visible;
+  line-height: 1.2;
+}
+
+.titleCenter {
+  text-align: center;
+}
+
+.wordHighlight {
+  display: inline-block;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+}

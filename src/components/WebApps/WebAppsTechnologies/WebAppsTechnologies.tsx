@@ -2,7 +2,7 @@ import Image from "next/image";
 import { webAppsTechnologies } from "@/data/web-apps";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import { WebAppsSectionHeading } from "@/components/WebApps/WebAppsSectionHeading/WebAppsSectionHeading";
 import styles from "./WebAppsTechnologies.module.css";
 
 export function WebAppsTechnologies() {
@@ -27,20 +27,13 @@ export function WebAppsTechnologies() {
 
           <ScrollReveal delay={0.08} className={styles.contentCol}>
             <div className={styles.content}>
-              <h2
+              <WebAppsSectionHeading
                 id="web-apps-technologies-heading"
-                className={`${splitTitleStyles.title} ${styles.title}`}
-              >
-                <span className={styles.titleLight}>
-                  {webAppsTechnologies.titlePrefix}
-                </span>
-                <span className={styles.wordHighlight}>
-                  {webAppsTechnologies.titleHighlight}
-                </span>
-                <span className={styles.titleLight}>
-                  {webAppsTechnologies.titleSuffix}
-                </span>
-              </h2>
+                prefix={webAppsTechnologies.titlePrefix}
+                highlight={webAppsTechnologies.titleHighlight}
+                suffix={webAppsTechnologies.titleSuffix}
+                className={styles.sectionTitle}
+              />
 
               <p className={styles.intro}>{webAppsTechnologies.intro}</p>
 

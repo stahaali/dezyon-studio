@@ -61,7 +61,7 @@ export const webAppsB2B = {
 
 export const webAppsDevelopment = {
   titlePrefix: "An unrivaled source of ",
-  titleHighlights: ["web portal development", "services"] as const,
+  titleHighlight: "web portal development services",
   titleSuffix: " ready to keep you ahead of the competition.",
   description:
     "Dezyon Digital is certain to give you eCommerce solutions and web apps that are visually and technically above the normal no-brainers in the business, regardless of project complexity or customer needs.",
@@ -128,7 +128,9 @@ export const webAppsTechnologies = {
 } as const;
 
 export const webAppsPackages = {
-  title: "Our Packages",
+  titlePrefix: "Our ",
+  titleHighlight: "Packages",
+  titleSuffix: "",
   description:
     "With the best web portal development, Dezyon Digital leaves an enduring impression on the experience of customers.",
   plans: [

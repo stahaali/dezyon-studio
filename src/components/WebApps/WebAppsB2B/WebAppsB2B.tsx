@@ -5,7 +5,7 @@ import { webAppsB2B } from "@/data/web-apps";
 import { packagesActions } from "@/data/packages";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import { WebAppsSectionHeading } from "@/components/WebApps/WebAppsSectionHeading/WebAppsSectionHeading";
 import catalogStyles from "@/components/Packages/PackagesCatalog/PackagesCatalog.module.css";
 import styles from "./WebAppsB2B.module.css";
 
@@ -28,20 +28,13 @@ export function WebAppsB2B() {
 
           <ScrollReveal delay={0.08} className={styles.contentCol}>
             <div className={styles.content}>
-              <h2
+              <WebAppsSectionHeading
                 id="web-apps-b2b-heading"
-                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
-              >
-                <span className={styles.titleLight}>
-                  {webAppsB2B.titlePrefix}
-                </span>
-                <span className={styles.wordHighlight}>
-                  {webAppsB2B.titleHighlight}
-                </span>
-                <span className={styles.titleLight}>
-                  {webAppsB2B.titleSuffix}
-                </span>
-              </h2>
+                prefix={webAppsB2B.titlePrefix}
+                highlight={webAppsB2B.titleHighlight}
+                suffix={webAppsB2B.titleSuffix}
+                className={styles.sectionTitle}
+              />
 
               {webAppsB2B.paragraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 32)} className={styles.paragraph}>

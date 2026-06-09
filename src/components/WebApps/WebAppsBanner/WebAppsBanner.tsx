@@ -3,6 +3,7 @@ import { webAppsBanner } from "@/data/web-apps";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import headingStyles from "@/components/WebApps/WebAppsSectionHeading/WebAppsSectionHeading.module.css";
 import styles from "./WebAppsBanner.module.css";
 
 export function WebAppsBanner() {
@@ -29,7 +30,7 @@ export function WebAppsBanner() {
                 >
                   <span className={splitTitleStyles.lightOnDark}>
                     {webAppsBanner.titlePrefix}
-                    <span className={styles.wordHighlight}>
+                    <span className={headingStyles.wordHighlight}>
                       {webAppsBanner.titleHighlight}
                     </span>
                   </span>
