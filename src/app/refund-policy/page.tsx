@@ -1,12 +1,32 @@
-import type { Metadata } from "next";
 import { RefundContent } from "@/components/Legal/RefundContent/RefundContent";
-import { SITE_NAME } from "@/lib/constants";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import {
+  getBreadcrumbJsonLd,
+  getWebPageJsonLd,
+} from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: `Refund Policy | ${SITE_NAME}`,
-  description: "Read the refund policy for design and development services at Dezyon Studio.",
-};
+export const metadata = createPageMetadata("refundPolicy");
 
 export default function RefundPolicyPage() {
-  return <RefundContent />;
+  const refundSeo = PAGE_SEO.refundPolicy;
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          getBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Refund Policy", path: "/refund-policy" },
+          ]),
+          getWebPageJsonLd({
+            name: refundSeo.title,
+            description: refundSeo.description,
+            path: refundSeo.path,
+          }),
+        ]}
+      />
+      <RefundContent />
+    </>
+  );
 }

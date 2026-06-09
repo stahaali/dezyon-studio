@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { AboutCareers } from "@/components/About/AboutCareers/AboutCareers";
 import { AboutHelps } from "@/components/About/AboutHelps/AboutHelps";
 import { AboutHero } from "@/components/About/AboutHero/AboutHero";
@@ -7,17 +6,33 @@ import { Team } from "@/components/Features/Team";
 import { AboutTestimonials } from "@/components/About/AboutTestimonials/AboutTestimonials";
 import { Timeline } from "@/components/Features/Timeline";
 import { AboutValues } from "@/components/About/AboutValues/AboutValues";
-import { SITE_NAME } from "@/lib/constants";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import {
+  getBreadcrumbJsonLd,
+  getWebPageJsonLd,
+} from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: `About | ${SITE_NAME}`,
-  description:
-    "Learn about Dezyon Studio — our story, values, team, and how we help teams manage projects of any complexity.",
-};
+export const metadata = createPageMetadata("about");
 
 export default function AboutPage() {
+  const aboutSeo = PAGE_SEO.about;
+
   return (
     <>
+      <JsonLd
+        data={[
+          getBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+          getWebPageJsonLd({
+            name: aboutSeo.title,
+            description: aboutSeo.description,
+            path: aboutSeo.path,
+          }),
+        ]}
+      />
       <AboutHero />
       <AboutShowcase />
       <AboutHelps />

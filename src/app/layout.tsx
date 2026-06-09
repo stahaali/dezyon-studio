@@ -3,7 +3,6 @@ import { Lexend } from "next/font/google";
 import { siteMetadata } from "@/lib/metadata";
 import {
   getOrganizationJsonLd,
-  getSoftwareApplicationJsonLd,
   getWebSiteJsonLd,
 } from "@/lib/structured-data";
 import { AppShell } from "@/components/Shared/AppShell";
@@ -23,11 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = [
-    getOrganizationJsonLd(),
-    getWebSiteJsonLd(),
-    getSoftwareApplicationJsonLd(),
-  ];
+  const jsonLd = [getOrganizationJsonLd(), getWebSiteJsonLd()];
 
   return (
     <html lang="en" className={`${lexend.variable} h-full scroll-smooth`}>

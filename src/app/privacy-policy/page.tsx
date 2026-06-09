@@ -1,12 +1,32 @@
-import type { Metadata } from "next";
 import { PrivacyContent } from "@/components/Legal/PrivacyContent/PrivacyContent";
-import { SITE_NAME } from "@/lib/constants";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import {
+  getBreadcrumbJsonLd,
+  getWebPageJsonLd,
+} from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: `Privacy Policy | ${SITE_NAME}`,
-  description: "Read the privacy policy for Dezyon Studio.",
-};
+export const metadata = createPageMetadata("privacyPolicy");
 
 export default function PrivacyPolicyPage() {
-  return <PrivacyContent />;
+  const privacySeo = PAGE_SEO.privacyPolicy;
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          getBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Privacy Policy", path: "/privacy-policy" },
+          ]),
+          getWebPageJsonLd({
+            name: privacySeo.title,
+            description: privacySeo.description,
+            path: privacySeo.path,
+          }),
+        ]}
+      />
+      <PrivacyContent />
+    </>
+  );
 }
