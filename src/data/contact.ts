@@ -35,7 +35,9 @@ export const contactHero = {
 } as const;
 
 export const contactReach = {
-  title: "Other ways to reach us",
+  titlePrefix: "Other ways to ",
+  titleHighlight: "reach",
+  titleSuffix: " us",
   items: [
     {
       icon: flaticonIcons.location,
@@ -65,7 +67,9 @@ export const contactReach = {
 } as const;
 
 export const contactFaq = {
-  title: "Frequently asked questions:",
+  titlePrefix: "Frequently asked ",
+  titleHighlight: "questions",
+  titleSuffix: ":",
   items: [
     {
       question: "Do I need to know about how to code?",

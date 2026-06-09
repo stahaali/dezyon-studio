@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { contactReach } from "@/data/contact";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./ContactReach.module.css";
 
 export function ContactReach() {
@@ -12,11 +12,16 @@ export function ContactReach() {
     <section className={styles.section} aria-labelledby="contact-reach-heading">
       <Container className={styles.container}>
         <ScrollReveal>
-          <SectionHeading
-            title={contactReach.title}
-            lineBreak={false}
-            className={styles.sectionHeading}
-          />
+          <h2
+            id="contact-reach-heading"
+            className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+          >
+            {contactReach.titlePrefix}
+            <span className={styles.wordHighlight}>
+              {contactReach.titleHighlight}
+            </span>
+            {contactReach.titleSuffix}
+          </h2>
         </ScrollReveal>
 
         <div className={styles.grid}>

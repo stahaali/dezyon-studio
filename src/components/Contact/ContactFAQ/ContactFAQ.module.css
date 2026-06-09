@@ -3,13 +3,24 @@
   padding: 0 0 56px;
 }
 
-.sectionHeading {
-  max-width: 100%;
-  margin-bottom: 32px;
+.title {
+  margin: 0 0 32px;
+  text-align: center;
+  color: #000200;
+  overflow: visible;
+  line-height: 1.2;
 }
 
-.sectionHeading h2 span {
+.wordHighlight {
+  display: inline-block;
+  padding: 0.1em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
   color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
 }
 
 .list {

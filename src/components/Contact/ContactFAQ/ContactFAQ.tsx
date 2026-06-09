@@ -5,7 +5,7 @@ import { Minus, Plus } from "lucide-react";
 import { contactFaq } from "@/data/contact";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./ContactFAQ.module.css";
 
 export function ContactFAQ() {
@@ -15,11 +15,16 @@ export function ContactFAQ() {
     <section className={styles.section} aria-labelledby="contact-faq-heading">
       <Container>
         <ScrollReveal>
-          <SectionHeading
-            title={contactFaq.title}
-            lineBreak={false}
-            className={styles.sectionHeading}
-          />
+          <h2
+            id="contact-faq-heading"
+            className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+          >
+            {contactFaq.titlePrefix}
+            <span className={styles.wordHighlight}>
+              {contactFaq.titleHighlight}
+            </span>
+            {contactFaq.titleSuffix}
+          </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
