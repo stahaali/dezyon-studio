@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import Image from "next/image";
 import { portfolioBanner } from "@/data/portfolio";
 import { Container } from "@/components/Shared/Container";
@@ -6,41 +5,11 @@ import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./PortfolioBanner.module.css";
 
-const positionClasses: Record<string, string> = {
-  one: styles.previewOne,
-  two: styles.previewTwo,
-  three: styles.previewThree,
-  four: styles.previewFour,
-  five: styles.previewFive,
-  six: styles.previewSix,
-};
-
 export function PortfolioBanner() {
-  const { stars, previews } = portfolioBanner;
+  const { stars } = portfolioBanner;
 
   return (
     <section className={styles.section} aria-labelledby="portfolio-banner-heading">
-      <div className={styles.floatingLayer} aria-hidden="true">
-        {previews.map((preview) => (
-          <div
-            key={preview.id}
-            className={`${styles.previewCard} ${positionClasses[preview.position]}`}
-            style={{ "--tilt": `${preview.tilt}deg` } as CSSProperties}
-          >
-            <div className={styles.previewInner}>
-              <Image
-                src={preview.src}
-                alt=""
-                fill
-                sizes="220px"
-                className={styles.previewImage}
-              />
-              <div className={styles.previewOverlay} />
-            </div>
-          </div>
-        ))}
-      </div>
-
       <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.content}>
