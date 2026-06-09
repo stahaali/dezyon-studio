@@ -79,17 +79,17 @@ export const services = [
     description:
       "Distinctive logo systems crafted to capture your brand essence, ensure memorability, and work seamlessly across every touchpoint.",
     icon: flaticonIcons.diamondColor,
-    iconWidth: 48,
-    iconHeight: 48,
+    iconWidth: 56,
+    iconHeight: 56,
   },
   {
     id: "branding-design",
     title: "Branding Design",
     description:
       "Complete brand identities with cohesive visuals, tone, and guidelines that build recognition and trust across all channels.",
-    icon: flaticonIcons.crown,
-    iconWidth: 48,
-    iconHeight: 48,
+    icon: flaticonIcons.crownColor,
+    iconWidth: 56,
+    iconHeight: 56,
   },
   {
     id: "website-development",
@@ -97,8 +97,8 @@ export const services = [
     description:
       "High-performance websites built for speed, accessibility, and conversion — from sleek landing pages to full-scale digital platforms.",
     icon: flaticonIcons.internetColor,
-    iconWidth: 48,
-    iconHeight: 48,
+    iconWidth: 56,
+    iconHeight: 56,
   },
   {
     id: "mobile-app-development",
@@ -106,8 +106,8 @@ export const services = [
     description:
       "Intuitive mobile applications with polished interfaces and reliable functionality, designed to engage users on iOS and Android.",
     icon: flaticonIcons.chatColor,
-    iconWidth: 48,
-    iconHeight: 48,
+    iconWidth: 56,
+    iconHeight: 56,
   },
   {
     id: "animation",
@@ -115,8 +115,8 @@ export const services = [
     description:
       "Compelling motion graphics and 3D visuals that explain ideas, elevate storytelling, and bring your brand to life with dynamic energy.",
     icon: flaticonIcons.trophyColor,
-    iconWidth: 48,
-    iconHeight: 48,
+    iconWidth: 56,
+    iconHeight: 56,
   },
   {
     id: "digital-marketing",
@@ -124,7 +124,7 @@ export const services = [
     description:
       "Data-driven campaigns across search, social, and content channels to grow visibility, generate leads, and maximize your return on investment.",
     icon: flaticonIcons.globeColor,
-    iconWidth: 48,
-    iconHeight: 48,
+    iconWidth: 56,
+    iconHeight: 56,
   },
 ] as const;

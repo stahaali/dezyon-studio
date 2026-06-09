@@ -16,22 +16,20 @@ export function ServiceCard({
   description,
   icon,
   index,
-  iconWidth = 48,
-  iconHeight = 48,
+  iconWidth = 56,
+  iconHeight = 56,
 }: ServiceCardProps) {
   return (
     <article className={styles.card}>
       <div className={styles.cardHeader}>
-        <div className={styles.iconWrap}>
-          <Image
-            src={icon}
-            alt=""
-            width={iconWidth}
-            height={iconHeight}
-            className={styles.icon}
-            aria-hidden="true"
-          />
-        </div>
+        <Image
+          src={icon}
+          alt=""
+          width={iconWidth}
+          height={iconHeight}
+          className={styles.icon}
+          aria-hidden="true"
+        />
         <span className={styles.index}>{index}</span>
       </div>
 

@@ -25,24 +25,10 @@
   margin-bottom: 24px;
 }
 
-.iconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  background: rgba(171, 245, 3, 0.14);
-  border-radius: 12px;
-  transition: background var(--transition-base);
-}
-
-.card:hover .iconWrap {
-  background: rgba(171, 245, 3, 0.28);
-}
-
 .icon {
-  width: 28px;
-  height: auto;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
 }
 
 .index {
@@ -101,15 +87,6 @@
 
   .card {
     padding: 32px 30px;
-  }
-
-  .iconWrap {
-    width: 56px;
-    height: 56px;
-  }
-
-  .icon {
-    width: 30px;
   }
 
   .title {
