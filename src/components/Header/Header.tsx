@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { footerSocialLinks, navLinks } from "@/data/site";
 import { useMobileMenu } from "@/context/MobileMenuContext";
@@ -49,9 +50,15 @@ export function Header() {
           <ul className={styles.links}>
             {navLinks.map((link) => (
               <li key={link.href + link.label}>
-                <a href={link.href} className={styles.link}>
-                  {link.label}
-                </a>
+                {link.href.startsWith("/") ? (
+                  <Link href={link.href} className={styles.link}>
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a href={link.href} className={styles.link}>
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -98,13 +105,23 @@ export function Header() {
           <ul className={styles.mobileLinks}>
             {navLinks.map((link) => (
               <li key={link.href + link.label}>
-                <a
-                  href={link.href}
-                  className={styles.mobileLink}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </a>
+                {link.href.startsWith("/") ? (
+                  <Link
+                    href={link.href}
+                    className={styles.mobileLink}
+                    onClick={closeMenu}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    className={styles.mobileLink}
+                    onClick={closeMenu}
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
