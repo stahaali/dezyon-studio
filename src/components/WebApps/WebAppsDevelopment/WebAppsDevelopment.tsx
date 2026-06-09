@@ -23,7 +23,11 @@ export function WebAppsDevelopment() {
               </span>
               {webAppsDevelopment.titleHighlights.map((phrase, index) => (
                 <span key={phrase}>
-                  <span className={styles.wordHighlight}>{phrase}</span>
+                  <span
+                    className={`${styles.wordHighlight} ${index % 2 === 1 ? styles.wordHighlightAlt : ""}`}
+                  >
+                    {phrase}
+                  </span>
                   {index < webAppsDevelopment.titleHighlights.length - 1
                     ? " "
                     : null}
