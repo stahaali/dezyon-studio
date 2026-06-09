@@ -145,13 +145,30 @@
     max-width: min(1192px, calc(100vw - 88px));
   }
 
+  .content {
+    max-width: none;
+  }
+
   .titleRow {
+    flex-wrap: nowrap;
+    align-items: center;
     gap: 24px;
   }
 
   .title {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
     font-size: 72px;
-    line-height: 1.05;
+    line-height: 1;
+  }
+
+  .starLeft,
+  .starRight {
+    align-self: center;
+    margin-top: 0;
   }
 
   .starLeft {
@@ -160,10 +177,13 @@
 
   .starRight {
     width: 48px;
-    margin-top: -4px;
   }
 
   .wordHighlight {
+    display: inline-flex;
+    align-items: center;
     padding: 0.06em 0.34em 0.1em;
+    transform: none;
+    vertical-align: middle;
   }
 }
