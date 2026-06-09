@@ -152,7 +152,7 @@
   .titleRow {
     flex-wrap: nowrap;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
   }
 
   .title {
@@ -162,28 +162,26 @@
     justify-content: center;
     white-space: nowrap;
     font-size: 72px;
-    line-height: 1;
-  }
-
-  .starLeft,
-  .starRight {
-    align-self: center;
-    margin-top: 0;
+    line-height: 1.05;
   }
 
   .starLeft {
     width: 22px;
+    align-self: center;
+    margin-top: 0;
   }
 
   .starRight {
     width: 48px;
+    align-self: flex-start;
+    margin-top: -4px;
   }
 
   .wordHighlight {
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
     padding: 0.06em 0.34em 0.1em;
-    transform: none;
-    vertical-align: middle;
+    transform: rotate(-2.5deg);
+    transform-origin: center center;
+    vertical-align: baseline;
   }
 }
