@@ -1,13 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const SCROLL_DELTA = 8;
 
 export function useStickyHeader(threshold = 20) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > threshold);
+      const currentScrollY = window.scrollY;
+      const scrollDiff = currentScrollY - lastScrollY.current;
+
+      setIsScrolled(currentScrollY > threshold);
+
+      if (currentScrollY <= threshold) {
+        setIsHeaderVisible(true);
+      } else if (scrollDiff > SCROLL_DELTA) {
+        setIsHeaderVisible(false);
+      } else if (scrollDiff < -SCROLL_DELTA) {
+        setIsHeaderVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
     handleScroll();
@@ -15,7 +32,7 @@ export function useStickyHeader(threshold = 20) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [threshold]);
 
-  return isScrolled;
+  return { isScrolled, isHeaderVisible };
 }
 
 export function useMediaQuery(query: string) {

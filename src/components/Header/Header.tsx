@@ -32,22 +32,20 @@ const socialIcons = {
 } as const;
 
 export function Header() {
-  const isScrolled = useStickyHeader();
+  const { isScrolled, isHeaderVisible } = useStickyHeader();
   const [mobileOpen, setMobileOpen] = useState(false);
   useLockBodyScroll(mobileOpen);
 
   const closeMenu = () => setMobileOpen(false);
+  const showHeader = isHeaderVisible || mobileOpen;
 
   return (
     <>
       <header
-        className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${mobileOpen ? styles.menuOpen : ""}`}
+        className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${mobileOpen ? styles.menuOpen : ""} ${showHeader ? "" : styles.headerHidden}`}
       >
         <Container as="nav" className={styles.nav} aria-label="Main navigation">
-          <Logo
-            variant={isScrolled || mobileOpen ? "dark" : "light"}
-            className={styles.logo}
-          />
+          <Logo variant="light" className={styles.logo} />
 
           <ul className={styles.links}>
             {navLinks.map((link) => (

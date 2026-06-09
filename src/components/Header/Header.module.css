@@ -7,10 +7,27 @@
   height: var(--header-height);
   padding-top: 0;
   background-color: #000200;
+  transform: translateY(0);
   transition:
+    transform 0.35s ease,
     background-color var(--transition-base),
     box-shadow var(--transition-base),
     backdrop-filter var(--transition-base);
+}
+
+.headerHidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition:
+      transform 0.15s ease,
+      background-color var(--transition-base),
+      box-shadow var(--transition-base);
+  }
 }
 
 .nav {
@@ -81,13 +98,13 @@
 
 .scrolled .link,
 .menuOpen .link {
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .scrolled .link:hover,
 .menuOpen .link:hover {
-  color: var(--color-text);
-  background-color: var(--color-border-light);
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .actions {
@@ -110,12 +127,12 @@
 
 .scrolled .signInLink,
 .menuOpen .signInLink {
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .scrolled .signInLink:hover,
 .menuOpen .signInLink:hover {
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 .ctaButton {
@@ -153,19 +170,22 @@
 
 .scrolled .menuToggle,
 .menuOpen .menuToggle {
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 .scrolled .menuToggle:hover,
 .menuOpen .menuToggle:hover {
-  background-color: var(--color-border-light);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.scrolled,
+.scrolled {
+  background-color: #000200;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
 .menuOpen {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-sm);
+  background-color: #000200;
+  box-shadow: none;
 }
 
 .mobileBackdrop {
