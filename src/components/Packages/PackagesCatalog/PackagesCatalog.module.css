@@ -104,6 +104,12 @@
   text-decoration: line-through;
 }
 
+.priceSubtitle {
+  margin: -14px 0 22px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .featuresLabel {
   margin: 0 0 14px;
   font-size: 14px;

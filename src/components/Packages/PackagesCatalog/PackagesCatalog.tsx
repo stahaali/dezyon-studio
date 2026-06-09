@@ -54,11 +54,20 @@ export function PackagesCatalog() {
                 <h3 className={styles.cardTitle}>{plan.name}</h3>
 
                 <div className={styles.priceRow}>
-                  <span className={styles.price}>{formatPrice(plan.price)}</span>
-                  <span className={styles.wasPrice}>
-                    was <s>{formatPrice(plan.wasPrice)}</s>
+                  <span className={styles.price}>
+                    {plan.price % 1 === 0
+                      ? `$${plan.price}`
+                      : formatPrice(plan.price)}
                   </span>
+                  {!plan.hideWasPrice && (
+                    <span className={styles.wasPrice}>
+                      was <s>{formatPrice(plan.wasPrice)}</s>
+                    </span>
+                  )}
                 </div>
+                {plan.priceSubtitle ? (
+                  <p className={styles.priceSubtitle}>{plan.priceSubtitle}</p>
+                ) : null}
 
                 <p className={styles.featuresLabel}>Plan includes:</p>
                 <ul className={styles.features}>

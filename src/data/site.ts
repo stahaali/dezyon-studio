@@ -6,8 +6,8 @@ export const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Packages", href: "/packages" },
-  { label: "Combo Packages", href: "#" },
-  { label: "Web Apps", href: "#" },
+  { label: "Combo Packages", href: "/combo-packages" },
+  { label: "Web Apps", href: "/web-apps" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -20,8 +20,8 @@ export const footerInformationLinks = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Packages", href: "/packages" },
-  { label: "Combo Packages", href: "#" },
-  { label: "Web Apps", href: "#" },
+  { label: "Combo Packages", href: "/combo-packages" },
+  { label: "Web Apps", href: "/web-apps" },
   { label: "Contact Us", href: "/contact" },
 ] as const;
 
