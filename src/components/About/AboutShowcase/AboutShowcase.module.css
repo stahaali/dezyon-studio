@@ -1,0 +1,157 @@
+.section {
+  background-color: var(--color-white);
+  padding: 0 0 56px;
+  overflow: visible;
+}
+
+.container {
+  max-width: 1280px;
+  overflow: visible;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: stretch;
+  overflow: visible;
+}
+
+.leftCol,
+.rightCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.figure {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background-color: var(--color-border-light);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.leftCol .figure {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+}
+
+.rightCol .figure {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+.illustrationLeft,
+.illustrationRight {
+  position: absolute;
+  pointer-events: none;
+  width: auto;
+  height: auto;
+  z-index: 2;
+}
+
+.illustrationLeft {
+  left: -10%;
+  top: -14%;
+  width: clamp(108px, 34%, 140px);
+}
+
+.illustrationRight {
+  right: -12%;
+  bottom: -14%;
+  width: clamp(140px, 42%, 220px);
+}
+
+.brandSlider {
+  width: 100%;
+  margin-top: 32px;
+  padding: 8px 0 4px;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .brandSlider {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .brandSlider {
+    margin-top: 48px;
+  }
+}
+
+@media (min-width: 640px) {
+  .grid {
+    gap: 24px;
+  }
+
+  .illustrationLeft {
+    left: -12%;
+    top: -16%;
+    width: clamp(118px, 32%, 148px);
+  }
+
+  .illustrationRight {
+    right: -14%;
+    bottom: -16%;
+    width: clamp(156px, 38%, 208px);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    gap: 24px;
+  }
+
+  .leftCol .figure {
+    aspect-ratio: 3 / 4;
+    flex: none;
+  }
+
+  .rightCol .figure {
+    aspect-ratio: unset;
+    flex: 1;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .illustrationLeft {
+    left: -52px;
+    top: -58px;
+    width: 132px;
+  }
+
+  .illustrationRight {
+    right: -56px;
+    bottom: -48px;
+    width: 196px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 0;
+  }
+
+  .illustrationLeft {
+    left: -60px;
+    top: -64px;
+    width: 140px;
+  }
+
+  .illustrationRight {
+    right: -64px;
+    bottom: -52px;
+    width: 212px;
+  }
+}

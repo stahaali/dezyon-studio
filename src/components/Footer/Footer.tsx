@@ -102,7 +102,12 @@ export function Footer() {
           </p>
           <nav className={styles.legal} aria-label="Legal">
             {footerBottomLinks.map((link) => (
-              <Link key={link.label} href={link.href} className={styles.legalLink}>
+              <Link
+                key={link.label}
+                href={link.href}
+                className={styles.legalLink}
+                prefetch={false}
+              >
                 {link.label}
               </Link>
             ))}

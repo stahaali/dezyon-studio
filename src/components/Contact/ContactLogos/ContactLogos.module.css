@@ -1,0 +1,14 @@
+.section {
+  background-color: var(--color-white);
+  padding: 0 0 56px;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.brandSlider {
+  width: 100%;
+  padding: 8px 0 4px;
+  overflow: hidden;
+}

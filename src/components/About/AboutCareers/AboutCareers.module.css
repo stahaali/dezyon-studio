@@ -1,0 +1,226 @@
+.section {
+  width: 100%;
+  background-color: var(--color-cream);
+  padding: 0 0 56px;
+  overflow: visible;
+}
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 260px;
+  padding: 48px 0;
+  overflow: visible;
+}
+
+.careersContainer {
+  max-width: 1280px;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 520px;
+  padding-inline: 24px;
+}
+
+.title {
+  margin: 0;
+}
+
+.title span {
+  color: #000200;
+}
+
+.subtitle {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+  max-width: 400px;
+}
+
+.button {
+  margin-top: 4px;
+  min-width: 210px;
+  height: 48px;
+  padding-inline: 32px;
+  background-color: var(--color-accent);
+  color: #000200;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.button:hover {
+  background-color: var(--color-accent-hover);
+  color: #000200;
+  box-shadow: 0 4px 16px rgba(171, 245, 3, 0.35);
+}
+
+.illustrationLeft,
+.illustrationRight,
+.starOne,
+.starTwo {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+}
+
+.illustrationLeft {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.illustrationRight {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.illustrationLeftImg,
+.illustrationRightImg {
+  display: block;
+  height: auto;
+}
+
+.illustrationLeftImg {
+  width: 190px;
+}
+
+.illustrationRightImg {
+  width: 210px;
+}
+
+.starOne,
+.starTwo {
+  z-index: 1;
+  height: auto;
+}
+
+.starOne {
+  left: 27%;
+  top: 54%;
+  width: 26px;
+  transform: translate(-50%, -50%);
+}
+
+.starTwo {
+  right: 27%;
+  top: 60%;
+  width: 20px;
+  transform: translate(50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .banner {
+    min-height: 280px;
+    padding: 56px 0;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .button {
+    height: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careersContainer {
+    padding-inline: 0;
+    margin-inline: auto;
+  }
+
+  .banner {
+    min-height: 300px;
+    padding: 60px 0;
+  }
+
+  .content {
+    max-width: 560px;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .illustrationLeft,
+  .illustrationRight,
+  .starOne,
+  .starTwo {
+    display: block;
+  }
+
+  .illustrationLeftImg {
+    width: 210px;
+  }
+
+  .illustrationRightImg {
+    width: 230px;
+  }
+
+  .starOne {
+    left: 28%;
+    top: 53%;
+    width: 30px;
+  }
+
+  .starTwo {
+    right: 28%;
+    top: 59%;
+    width: 22px;
+  }
+
+  .button {
+    height: 52px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .banner {
+    min-height: 320px;
+    padding: 68px 0;
+  }
+
+  .content {
+    max-width: 580px;
+  }
+
+  .illustrationLeftImg {
+    width: 228px;
+  }
+
+  .illustrationRightImg {
+    width: 252px;
+  }
+
+  .starOne {
+    left: 27.5%;
+    top: 52%;
+    width: 32px;
+  }
+
+  .starTwo {
+    right: 27.5%;
+    top: 58%;
+    width: 24px;
+  }
+
+  .button {
+    height: 54px;
+    min-width: 220px;
+  }
+}

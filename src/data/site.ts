@@ -1,12 +1,12 @@
 export const navLinks = [
   { label: "Home", href: "#" },
-  { label: "About", href: "#team" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "#features" },
   { label: "Portfolio", href: "#" },
   { label: "Packages", href: "#pricing" },
   { label: "Combo Packages", href: "#" },
   { label: "Web Apps", href: "#" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const footerAbout =
@@ -20,7 +20,7 @@ export const footerInformationLinks = [
   { label: "Packages", href: "#pricing" },
   { label: "Combo Packages", href: "#" },
   { label: "Web Apps", href: "#" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Contact Us", href: "/contact" },
 ] as const;
 
 export const footerContact = {
@@ -38,9 +38,9 @@ export const footerSocialLinks = [
 ] as const;
 
 export const footerBottomLinks = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms and Conditions", href: "#" },
-  { label: "Refund Policy", href: "#" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms and Conditions", href: "/terms-and-conditions" },
+  { label: "Refund Policy", href: "/refund-policy" },
 ] as const;
 
 export const trustedLogos = [
