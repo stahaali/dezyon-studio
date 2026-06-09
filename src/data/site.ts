@@ -196,56 +196,39 @@ export const standardFeatures = [
   "Salesforce integration*",
 ] as const;
 
-const FEEDBACK_ASSETS = "/assets/img/feedback";
-
 const feedbackBase = [
   {
-    company: "Boltshift",
     quote:
-      "We're looking for people who share our vision! Most of our time used to be taken up by alternate administrative work whereas now we can focus on building out to help our employees.",
-    name: "Mark Zellers",
-    role: "CEO, Co-Founder",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80",
+      "We're looking for people who share our vision! most of our time used to be taken up by most of alternate administrative work whereas now we can focus on building out to help our employees.",
+    name: "Anna Yon",
+    role: "Senior UI/UX Designer",
   },
   {
-    company: "Lightbox",
     quote:
       "This powerful tool eliminates the need to leave Salesforce to get things done as I can create a custom proposal with dynamic pricing tables, and get approval from my boss all within 36 minutes.",
     name: "Natalia Larsson",
     role: "Director of Sales",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80",
   },
   {
-    company: "Interlock",
     quote:
-      "We are based in Europe and the latest Data Protection Regulation forces us to look for service suppliers that comply with this regulation and as we look to create our website and this builder just outstanding!",
+      "We are based in Europe and the latest Data Protection Regulation forces us to look for service suppliers than comply with this regulation and as we look to create our website and this builder just outstanding!",
     name: "Sarah Edrissi",
     role: "Lead Marketing",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80",
   },
   {
-    company: "Capsule",
     quote:
       "We're looking for people who share our vision! Most of our time used to be taken up by alternate administrative work whereas now we can focus on building out to help our employees.",
-    name: "Anna Yon",
-    role: "Senior UI/UX Designer",
-    avatar:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80",
+    name: "Mark Zellers",
+    role: "CEO, Co-Founder",
   },
 ] as const;
 
 export const testimonials = [
-  { ...feedbackBase[0], logo: `${FEEDBACK_ASSETS}/brand-01.svg` },
-  { ...feedbackBase[1], logo: `${FEEDBACK_ASSETS}/brand-02.svg` },
-  { ...feedbackBase[2], logo: `${FEEDBACK_ASSETS}/brand-03.svg` },
-  { ...feedbackBase[3], logo: `${FEEDBACK_ASSETS}/brand-04.svg` },
-  { ...feedbackBase[0], logo: `${FEEDBACK_ASSETS}/brand-05.svg` },
-  { ...feedbackBase[1], logo: `${FEEDBACK_ASSETS}/brand-06.svg` },
-  { ...feedbackBase[2], logo: `${FEEDBACK_ASSETS}/brand-07.svg` },
-  { ...feedbackBase[3], logo: `${FEEDBACK_ASSETS}/brand-08.svg` },
+  ...feedbackBase,
+  feedbackBase[0],
+  feedbackBase[1],
+  feedbackBase[2],
+  feedbackBase[3],
 ] as const;
 
 const PROCESS_ASSETS = "/assets/img/process";

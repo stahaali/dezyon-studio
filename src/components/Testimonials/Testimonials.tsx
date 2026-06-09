@@ -1,10 +1,8 @@
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { testimonials } from "@/data/site";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
+import { TestimonialsSlider } from "./TestimonialsSlider";
 import styles from "./Testimonials.module.css";
 
 export function Testimonials() {
@@ -23,52 +21,11 @@ export function Testimonials() {
             </h2>
           </div>
         </ScrollReveal>
-
-        <div className={styles.grid}>
-          {testimonials.map((item, index) => (
-            <ScrollReveal key={`${item.company}-${index}`} delay={index * 0.04} as="article">
-              <article className={styles.card}>
-                <div className={styles.companyRow}>
-                  <Image
-                    src={item.logo}
-                    alt={item.company}
-                    width={165}
-                    height={48}
-                    className={styles.companyLogo}
-                  />
-                </div>
-
-                <blockquote className={styles.quote}>
-                  <p>&ldquo;{item.quote}&rdquo;</p>
-                </blockquote>
-
-                <footer className={styles.author}>
-                  <Image
-                    src={item.avatar}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className={styles.avatar}
-                  />
-                  <div>
-                    <cite className={styles.name}>{item.name}</cite>
-                    <span className={styles.role}>{item.role}</span>
-                  </div>
-                </footer>
-              </article>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        <ScrollReveal delay={0.2}>
-          <div className={styles.ctaWrapper}>
-            <a href="#testimonials" className={styles.seeAll}>
-              See all feedbacks
-              <ArrowRight size={16} />
-            </a>
-          </div>
-        </ScrollReveal>
       </Container>
+
+      <div className={styles.sliderWrap}>
+        <TestimonialsSlider />
+      </div>
     </section>
   );
 }
