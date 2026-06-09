@@ -2,6 +2,7 @@ import { services, servicesGrid } from "@/data/services";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { ServiceCard } from "@/components/Services/ServiceCard/ServiceCard";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./ServicesGrid.module.css";
 
 export function ServicesGrid() {
@@ -10,8 +11,13 @@ export function ServicesGrid() {
       <Container className={styles.container}>
         <ScrollReveal>
           <header className={styles.sectionHeading}>
-            <h2 className={styles.title}>
-              {servicesGrid.titleDark} {servicesGrid.titleAccent}
+            <h2
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              {servicesGrid.titleDark}{" "}
+              <span className={styles.wordHighlight}>
+                {servicesGrid.titleAccent}
+              </span>
             </h2>
             <p className={styles.description}>{servicesGrid.description}</p>
           </header>

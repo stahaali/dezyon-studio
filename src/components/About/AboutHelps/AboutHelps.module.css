@@ -107,8 +107,18 @@
 }
 
 @media (min-width: 1024px) {
+  .section {
+    padding-inline: 44px;
+  }
+
+  .wrapper {
+    width: min(1192px, calc(100vw - 88px));
+    margin-inline: auto;
+  }
+
   .container {
-    padding-inline: 0;
+    max-width: 100%;
+    padding-inline: 24px;
   }
 
   .paragraph:last-of-type {
@@ -117,6 +127,7 @@
 
   .illustration {
     display: block;
+    left: 12px;
     width: 190px;
   }
 }

@@ -21,9 +21,22 @@
   color: #ffffff;
 }
 
+.wordHighlight {
+  display: inline-block;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+}
+
 .typewriter {
-  display: inline;
-  color: #abf503;
+  display: inline-block;
+  color: #000200;
+  text-align: left;
 }
 
 .typewriterText {
@@ -32,7 +45,7 @@
 
 .cursor {
   display: inline;
-  color: #abf503;
+  color: #000200;
   font-weight: 400;
   animation: blink 1s step-end infinite;
 }

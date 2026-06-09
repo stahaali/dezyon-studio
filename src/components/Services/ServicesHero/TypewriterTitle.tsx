@@ -70,13 +70,15 @@ export function TypewriterTitle({
       <span className={styles.prefix}>{prefix}</span>
       <span className={styles.secondLine}>
         {suffix ? <span className={styles.suffix}>{suffix} </span> : null}
-        <span
-          className={styles.typewriter}
-          style={{ minWidth: `${longestPhrase.length}ch` }}
-          aria-live="polite"
-        >
-          <span className={styles.typewriterText}>{displayText}</span>
-          <span className={styles.cursor}>|</span>
+        <span className={styles.wordHighlight}>
+          <span
+            className={styles.typewriter}
+            style={{ minWidth: `${longestPhrase.length}ch` }}
+            aria-live="polite"
+          >
+            <span className={styles.typewriterText}>{displayText}</span>
+            <span className={styles.cursor}>|</span>
+          </span>
         </span>
       </span>
     </h1>
