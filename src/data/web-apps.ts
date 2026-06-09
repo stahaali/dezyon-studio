@@ -44,9 +44,9 @@ export const webAppsTrust = [
 export const webAppsB2B = {
   image: "/assets/img/web-app/mobile-app-img1.jpg",
   imageAlt: "Developer reviewing application code on a smartphone",
-  titlePrefix: "For all major industries, a comprehensive set of ",
-  titleHighlight: "B2B portal creation services",
-  titleSuffix: " is available.",
+  titlePrefix: "For every industry, ",
+  titleHighlight: "B2B portal services",
+  titleSuffix: " built to scale.",
   paragraphs: [
     "Dezyon Digital incorporates B2B communication skills and what it takes to maintain a smooth software development life cycle and produce powerful B2B tools that lift the client's business above the competition.",
     "We recognize the significant shift in B2B e-commerce and provide clients with top-notch web apps to simplify e-cooperation with their customers and partners by first understanding your business objectives.",
@@ -60,9 +60,9 @@ export const webAppsB2B = {
 } as const;
 
 export const webAppsDevelopment = {
-  titlePrefix: "An unrivaled source of ",
-  titleHighlight: "web portal development services",
-  titleSuffix: " ready to keep you ahead of the competition.",
+  titlePrefix: "A trusted source of ",
+  titleHighlight: "web portal development",
+  titleSuffix: " that keeps you ahead.",
   description:
     "Dezyon Digital is certain to give you eCommerce solutions and web apps that are visually and technically above the normal no-brainers in the business, regardless of project complexity or customer needs.",
   cards: [
@@ -96,10 +96,9 @@ export const webAppsDevelopment = {
 export const webAppsTechnologies = {
   image: "/assets/img/web-app/mobile-app-img2.jpg",
   imageAlt: "Designer sketching mobile app wireframes at a workspace desk",
-  titlePrefix: "A technologically endowed ",
-  titleHighlight: "portal development technologies hub",
-  titleSuffix:
-    " that offers the most up-to-date ecommerce portals and web app solutions.",
+  titlePrefix: "A modern ",
+  titleHighlight: "portal development hub",
+  titleSuffix: " for ecommerce and web apps.",
   intro:
     "Dezyon Digital has been working in the digital market for over ten years. Our clients come to us for a variety of services aimed at improving their brand's online reputation and expanding their customer base.",
   segments: [
