@@ -62,8 +62,8 @@ export function Pricing() {
                   <Image
                     src={MONEY_ILLUSTRATION}
                     alt=""
-                    width={120}
-                    height={120}
+                    width={257}
+                    height={187}
                     className={styles.moneyIllustration}
                     aria-hidden="true"
                   />

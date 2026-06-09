@@ -1,5 +1,6 @@
+import { flaticonIcons } from "@/data/icons";
+
 export const HERO_ASSETS = "/assets/img/homebanner";
-export const HERO_FLATICON_ASSETS = `${HERO_ASSETS}/flaticon`;
 
 export type HeroIconFilter = "none" | "starWhite";
 
@@ -24,42 +25,42 @@ export const heroFloatingStars = [
 
 export const heroFloatingThemeIcons = [
   {
-    src: `${HERO_FLATICON_ASSETS}/icon-trophy.svg`,
+    src: flaticonIcons.trophyLime,
     alt: "",
     width: 64,
     height: 64,
     className: "iconTrophy",
   },
   {
-    src: `${HERO_FLATICON_ASSETS}/icon-location.svg`,
+    src: flaticonIcons.locationLime,
     alt: "",
     width: 64,
     height: 64,
     className: "iconLocation",
   },
   {
-    src: `${HERO_FLATICON_ASSETS}/icon-globe.svg`,
+    src: flaticonIcons.globeLime,
     alt: "",
     width: 64,
     height: 64,
     className: "iconGlobe",
   },
   {
-    src: `${HERO_FLATICON_ASSETS}/icon-crown.svg`,
+    src: flaticonIcons.crownLime,
     alt: "",
     width: 64,
     height: 64,
     className: "iconCrown",
   },
   {
-    src: `${HERO_FLATICON_ASSETS}/icon-diamond.svg`,
+    src: flaticonIcons.diamondLime,
     alt: "",
     width: 64,
     height: 64,
     className: "iconDiamond",
   },
   {
-    src: `${HERO_FLATICON_ASSETS}/icon-chat.svg`,
+    src: flaticonIcons.chatLime,
     alt: "",
     width: 64,
     height: 64,
@@ -85,6 +86,7 @@ export const heroBrands = [
 ] as const;
 
 export const HERO_POSTER = `${HERO_ASSETS}/home-01-hero-cover.webp`;
+export const HERO_VIDEO = "/assets/img/media/lexend_vid.webm";
 
 export const heroIconFilters: Record<HeroIconFilter, string> = {
   none: "",

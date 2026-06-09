@@ -36,6 +36,7 @@ export function Values() {
                   as="h3"
                   title={item.title}
                   size="card"
+                  lineBreak={false}
                   className={styles.cardTitle}
                 />
                 <p className={styles.cardDesc}>{item.description}</p>

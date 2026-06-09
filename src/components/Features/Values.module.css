@@ -52,6 +52,7 @@
 
 .cardTitle {
   margin: 0 0 12px;
+  white-space: nowrap;
 }
 
 .cardTitle span {

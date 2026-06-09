@@ -1,3 +1,5 @@
+import { flaticonIcons } from "@/data/icons";
+
 const CONTACT_ASSETS = "/assets/img/contact";
 
 export const contactBanner = {
@@ -35,25 +37,25 @@ export const contactReach = {
   title: "Other ways to reach us",
   items: [
     {
-      icon: `${CONTACT_ASSETS}/icon-location.svg`,
+      icon: flaticonIcons.location,
       title: "Visit us",
       description: "Don Valley, Toronto, CA",
       link: { label: "View on maps", href: "#" },
     },
     {
-      icon: `${CONTACT_ASSETS}/icon-chat.svg`,
+      icon: flaticonIcons.chat,
       title: "Via chat",
       description: "Get instant answers.",
       link: { label: "Let's chat", href: "#" },
     },
     {
-      icon: `${CONTACT_ASSETS}/icon-internet.svg`,
+      icon: flaticonIcons.internet,
       title: "Report Issue",
       description: "Get priority support.",
       link: { label: "Send report", href: "#" },
     },
     {
-      icon: `${CONTACT_ASSETS}/icon-community.svg`,
+      icon: flaticonIcons.community,
       title: "Our community",
       description: "Connect with users.",
       link: { label: "Join us now", href: "#" },

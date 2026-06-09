@@ -1,3 +1,5 @@
+import { flaticonIcons } from "@/data/icons";
+
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -102,19 +104,19 @@ export const values = [
     title: "Make an impact",
     description:
       "We're building something big. Something that has the power to change the trajectory of any sized business for the better.",
-    icon: "/assets/img/our-values/1.svg",
+    icon: flaticonIcons.diamondColor,
   },
   {
     title: "Learn",
     description:
       "Teams are masters of their craft though we're all experts in our respective fields, we always make time to expand our minds.",
-    icon: "/assets/img/our-values/2.svg",
+    icon: flaticonIcons.trophyColor,
   },
   {
     title: "Empathy",
     description:
       "We strive to be empathetic to every customer and colleague and by doing so we provide a better experience for all.",
-    icon: "/assets/img/our-values/3.svg",
+    icon: flaticonIcons.crownColor,
   },
 ] as const;
 

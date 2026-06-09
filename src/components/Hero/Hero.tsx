@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Play } from "lucide-react";
+import { Play, X } from "lucide-react";
 import {
   HERO_POSTER,
+  HERO_VIDEO,
   heroAvatars,
   heroFloatingStars,
   heroFloatingThemeIcons,
@@ -16,6 +18,30 @@ import { SplitTitle } from "@/components/Shared/SplitTitle";
 import styles from "./Hero.module.css";
 
 export function Hero() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (!isVideoOpen) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsVideoOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    videoRef.current?.play().catch(() => {});
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isVideoOpen]);
+
   return (
     <section className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.heroBg} aria-hidden="true" />
@@ -99,13 +125,22 @@ export function Hero() {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
               className={styles.mediaImage}
             />
+            <span className={styles.mediaOverlay} aria-hidden="true" />
           </figure>
           <button
             type="button"
-            className={styles.playButton}
+            className={styles.playButtonWrap}
             aria-label="Play demo video"
+            onClick={() => setIsVideoOpen(true)}
           >
-            <Play size={28} fill="currentColor" strokeWidth={0} />
+            <span className={styles.playRipple} aria-hidden="true" />
+            <span
+              className={`${styles.playRipple} ${styles.playRippleDelay}`}
+              aria-hidden="true"
+            />
+            <span className={styles.playButton}>
+              <Play size={28} fill="currentColor" strokeWidth={0} />
+            </span>
           </button>
         </div>
 
@@ -113,6 +148,41 @@ export function Hero() {
           <BrandSlider />
         </div>
       </Container>
+
+      {isVideoOpen && (
+        <div
+          className={styles.videoModalOverlay}
+          onClick={() => setIsVideoOpen(false)}
+          role="presentation"
+        >
+          <div
+            className={styles.videoModalDialog}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Demo video"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className={styles.videoModalClose}
+              aria-label="Close video"
+              onClick={() => setIsVideoOpen(false)}
+            >
+              <X size={28} strokeWidth={2} />
+            </button>
+            <div className={styles.videoModalFrame}>
+              <video
+                ref={videoRef}
+                className={styles.videoModalPlayer}
+                src={HERO_VIDEO}
+                controls
+                autoPlay
+                playsInline
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

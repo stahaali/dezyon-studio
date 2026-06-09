@@ -1,3 +1,5 @@
+import { flaticonIcons } from "@/data/icons";
+
 const ABOUT_ASSETS = "/assets/about";
 
 export const aboutHero = {
@@ -15,16 +17,16 @@ export const aboutShowcase = {
     image: `${ABOUT_ASSETS}/hero-about-01.jpg`,
     illustration: {
       src: `${ABOUT_ASSETS}/hand-pencil.svg`,
-      width: 154,
-      height: 309,
+      width: 140,
+      height: 281,
     },
   },
   right: {
     image: `${ABOUT_ASSETS}/hero-about-02.jpg`,
     illustration: {
       src: `${ABOUT_ASSETS}/empathing.svg`,
-      width: 278,
-      height: 229,
+      width: 212,
+      height: 175,
     },
   },
 } as const;
@@ -53,7 +55,7 @@ export const aboutValues = [
     title: "Make an impact",
     description:
       "We're building something big. Something that has the power to change the trajectory of any sized business for the better.",
-    icon: `${ABOUT_ASSETS}/icon-diamond.svg`,
+    icon: flaticonIcons.diamondColor,
     iconWidth: 56,
     iconHeight: 56,
   },
@@ -61,7 +63,7 @@ export const aboutValues = [
     title: "Learn",
     description:
       "Lexend team are masters of their craft. Even though we're all experts in our respective fields, we always make time to expand our minds.",
-    icon: `${ABOUT_ASSETS}/icon-trophy.svg`,
+    icon: flaticonIcons.trophyColor,
     iconWidth: 56,
     iconHeight: 56,
   },
@@ -69,7 +71,7 @@ export const aboutValues = [
     title: "Have fun",
     description:
       "We work hard and play harder. We believe in the importance of celebrating wins big or small, for the business or individuals.",
-    icon: `${ABOUT_ASSETS}/icon-globe.svg`,
+    icon: flaticonIcons.globeColor,
     iconWidth: 56,
     iconHeight: 56,
   },
@@ -77,7 +79,7 @@ export const aboutValues = [
     title: "Empathy",
     description:
       "We strive to be empathetic to every customer and colleague and by doing so we can provide a better experience for all.",
-    icon: `${ABOUT_ASSETS}/icon-crown.svg`,
+    icon: flaticonIcons.crownColor,
     iconWidth: 56,
     iconHeight: 56,
   },
@@ -86,12 +88,12 @@ export const aboutValues = [
 export const aboutFloatingIcons = [
   { src: `${ABOUT_ASSETS}/star-1.svg`, className: "starOne", width: 32, height: 32 },
   { src: `${ABOUT_ASSETS}/star-2.svg`, className: "starTwo", width: 24, height: 24 },
-  { src: `${ABOUT_ASSETS}/icon-trophy.svg`, className: "iconTrophy", width: 56, height: 56 },
-  { src: `${ABOUT_ASSETS}/icon-globe.svg`, className: "iconGlobe", width: 56, height: 56 },
-  { src: `${ABOUT_ASSETS}/icon-crown.svg`, className: "iconCrown", width: 56, height: 56 },
-  { src: `${ABOUT_ASSETS}/icon-diamond.svg`, className: "iconDiamond", width: 56, height: 56 },
-  { src: `${ABOUT_ASSETS}/thinking.svg`, className: "iconThinking", width: 56, height: 56 },
-  { src: `${ABOUT_ASSETS}/send-message.svg`, className: "iconMessage", width: 56, height: 56 },
+  { src: flaticonIcons.trophyLime, className: "iconTrophy", width: 56, height: 56 },
+  { src: flaticonIcons.globeLime, className: "iconGlobe", width: 56, height: 56 },
+  { src: flaticonIcons.crownLime, className: "iconCrown", width: 56, height: 56 },
+  { src: flaticonIcons.diamondLime, className: "iconDiamond", width: 56, height: 56 },
+  { src: flaticonIcons.thinkingLime, className: "iconThinking", width: 56, height: 56 },
+  { src: flaticonIcons.messageLime, className: "iconMessage", width: 56, height: 56 },
 ] as const;
 
 export const aboutTestimonials = [

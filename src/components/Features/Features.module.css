@@ -192,8 +192,12 @@
   gap: 6px;
   font-size: 15px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: #000200;
   transition: gap var(--transition-fast);
+}
+
+.ctaLink svg {
+  color: #000200;
 }
 
 .ctaLink:hover {

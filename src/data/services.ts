@@ -1,5 +1,5 @@
-const SERVICES_ASSETS = "/assets/img/about";
-const CONTACT_ASSETS = "/assets/img/contact";
+import { flaticonIcons } from "@/data/icons";
+
 const INTEGRATIONS_ASSETS = "/assets/img/integrations";
 
 export const servicesHero = {
@@ -78,7 +78,7 @@ export const services = [
     title: "Logo Design",
     description:
       "Distinctive logo systems crafted to capture your brand essence, ensure memorability, and work seamlessly across every touchpoint.",
-    icon: `${SERVICES_ASSETS}/icon-diamond.svg`,
+    icon: flaticonIcons.diamondColor,
     iconWidth: 48,
     iconHeight: 48,
   },
@@ -87,7 +87,7 @@ export const services = [
     title: "Branding Design",
     description:
       "Complete brand identities with cohesive visuals, tone, and guidelines that build recognition and trust across all channels.",
-    icon: `${SERVICES_ASSETS}/icon-crown.svg`,
+    icon: flaticonIcons.crown,
     iconWidth: 48,
     iconHeight: 48,
   },
@@ -96,7 +96,7 @@ export const services = [
     title: "Website Development",
     description:
       "High-performance websites built for speed, accessibility, and conversion — from sleek landing pages to full-scale digital platforms.",
-    icon: `${CONTACT_ASSETS}/icon-internet.svg`,
+    icon: flaticonIcons.internetColor,
     iconWidth: 48,
     iconHeight: 48,
   },
@@ -105,7 +105,7 @@ export const services = [
     title: "Mobile App Development",
     description:
       "Intuitive mobile applications with polished interfaces and reliable functionality, designed to engage users on iOS and Android.",
-    icon: `${CONTACT_ASSETS}/icon-chat.svg`,
+    icon: flaticonIcons.chatColor,
     iconWidth: 48,
     iconHeight: 48,
   },
@@ -114,7 +114,7 @@ export const services = [
     title: "2D/3D Animation",
     description:
       "Compelling motion graphics and 3D visuals that explain ideas, elevate storytelling, and bring your brand to life with dynamic energy.",
-    icon: `${SERVICES_ASSETS}/icon-trophy.svg`,
+    icon: flaticonIcons.trophyColor,
     iconWidth: 48,
     iconHeight: 48,
   },
@@ -123,7 +123,7 @@ export const services = [
     title: "Digital Marketing",
     description:
       "Data-driven campaigns across search, social, and content channels to grow visibility, generate leads, and maximize your return on investment.",
-    icon: `${SERVICES_ASSETS}/icon-globe.svg`,
+    icon: flaticonIcons.globeColor,
     iconWidth: 48,
     iconHeight: 48,
   },

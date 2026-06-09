@@ -1,0 +1,36 @@
+export const FLATICON_ASSETS = "/assets/img/flaticon";
+export const FLATICON_LIME_ASSETS = `${FLATICON_ASSETS}/lime`;
+export const FLATICON_COLOR_ASSETS = `${FLATICON_ASSETS}/color`;
+
+export const flaticonIcons = {
+  diamond: `${FLATICON_ASSETS}/icon-diamond.svg`,
+  trophy: `${FLATICON_ASSETS}/icon-trophy.svg`,
+  globe: `${FLATICON_ASSETS}/icon-globe.svg`,
+  crown: `${FLATICON_ASSETS}/icon-crown.svg`,
+  chat: `${FLATICON_ASSETS}/icon-chat.svg`,
+  location: `${FLATICON_ASSETS}/icon-location.svg`,
+  internet: `${FLATICON_ASSETS}/icon-internet.svg`,
+  community: `${FLATICON_ASSETS}/icon-community.svg`,
+  thinking: `${FLATICON_ASSETS}/icon-thinking.svg`,
+  message: `${FLATICON_ASSETS}/icon-message.svg`,
+  pencil: `${FLATICON_ASSETS}/icon-pencil.svg`,
+  heart: `${FLATICON_ASSETS}/icon-heart.svg`,
+  walk: `${FLATICON_ASSETS}/icon-walk.svg`,
+  money: `${FLATICON_ASSETS}/icon-money.svg`,
+  diamondLime: `${FLATICON_LIME_ASSETS}/icon-diamond.svg`,
+  trophyLime: `${FLATICON_LIME_ASSETS}/icon-trophy.svg`,
+  globeLime: `${FLATICON_LIME_ASSETS}/icon-globe.svg`,
+  crownLime: `${FLATICON_LIME_ASSETS}/icon-crown.svg`,
+  chatLime: `${FLATICON_LIME_ASSETS}/icon-chat.svg`,
+  locationLime: `${FLATICON_LIME_ASSETS}/icon-location.svg`,
+  thinkingLime: `${FLATICON_LIME_ASSETS}/icon-thinking.svg`,
+  messageLime: `${FLATICON_LIME_ASSETS}/icon-message.svg`,
+  internetLime: `${FLATICON_LIME_ASSETS}/icon-internet.svg`,
+  communityLime: `${FLATICON_LIME_ASSETS}/icon-community.svg`,
+  diamondColor: `${FLATICON_COLOR_ASSETS}/icon-diamond.svg`,
+  trophyColor: `${FLATICON_COLOR_ASSETS}/icon-trophy.svg`,
+  globeColor: `${FLATICON_COLOR_ASSETS}/icon-globe.svg`,
+  crownColor: `${FLATICON_COLOR_ASSETS}/icon-crown.svg`,
+  chatColor: `${FLATICON_COLOR_ASSETS}/icon-chat.svg`,
+  internetColor: `${FLATICON_COLOR_ASSETS}/icon-internet.svg`,
+} as const;

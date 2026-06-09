@@ -204,20 +204,65 @@
   object-position: center center;
 }
 
-.playButton {
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.playButtonWrap {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  z-index: 2;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.playRipple {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(171, 245, 3, 0.55);
+  background: rgba(171, 245, 3, 0.12);
+  animation: playRipple 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.playRippleDelay {
+  animation-delay: 1.2s;
+}
+
+@keyframes playRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.playButton {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: var(--color-white);
   color: var(--color-primary);
-  border: none;
   box-shadow: var(--shadow-md);
   padding-left: 4px;
   transition:
@@ -225,9 +270,66 @@
     box-shadow var(--transition-base);
 }
 
-.playButton:hover {
-  transform: translate(-50%, -50%) scale(1.06);
+.playButtonWrap:hover .playButton {
+  transform: scale(1.06);
   box-shadow: var(--shadow-lg);
+}
+
+.videoModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.videoModalDialog {
+  position: relative;
+  width: min(90vw, 1100px);
+  overflow: hidden;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.videoModalClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.videoModalFrame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.videoModalPlayer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playRipple {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 .brandsPanel {
@@ -271,7 +373,7 @@
     border-radius: 20px;
   }
 
-  .playButton {
+  .playButtonWrap {
     width: 80px;
     height: 80px;
   }
