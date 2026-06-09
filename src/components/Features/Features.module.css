@@ -25,7 +25,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background-color: var(--color-heading-highlight);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -94,8 +94,8 @@
 }
 
 .tabBtnActive {
-  color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+  color: #000200;
+  border-bottom-color: #000200;
 }
 
 .panel {
