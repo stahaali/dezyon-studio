@@ -90,7 +90,8 @@
 }
 
 .tabBtn:hover {
-  color: var(--color-accent);
+  color: #000200;
+  border-bottom-color: #000200;
 }
 
 .tabBtnActive {

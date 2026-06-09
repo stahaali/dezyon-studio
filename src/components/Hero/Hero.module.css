@@ -402,6 +402,38 @@
 
   .floatingLayer {
     display: block;
+    left: 44px;
+    right: 44px;
+  }
+
+  .iconTrophy {
+    left: 8%;
+  }
+
+  .iconLocation {
+    left: 3%;
+    margin-left: 0;
+  }
+
+  .iconGlobe {
+    left: 6%;
+  }
+
+  .iconCrown {
+    right: 14%;
+  }
+
+  .iconDiamond {
+    right: 10%;
+  }
+
+  .iconChat {
+    right: 3%;
+    margin-right: 0;
+  }
+
+  .heroOuter {
+    max-width: 1192px;
   }
 
   .cta {

@@ -140,7 +140,7 @@
 }
 
 .checkIcon {
-  color: var(--color-primary);
+  color: #000200;
   flex-shrink: 0;
   margin-top: 2px;
 }
