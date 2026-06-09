@@ -14,7 +14,7 @@ function formatPrice(value: number) {
 export function WebAppsPackages() {
   return (
     <section
-      className={`${catalogStyles.section} ${styles.section}`}
+      className={styles.section}
       aria-labelledby="web-apps-packages-heading"
     >
       <Container className={catalogStyles.container}>

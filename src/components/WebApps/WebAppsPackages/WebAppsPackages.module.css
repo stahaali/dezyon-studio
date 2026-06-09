@@ -1,5 +1,6 @@
 .section {
-  padding-top: 0;
+  background-color: #000200;
+  padding: 56px 0;
 }
 
 .header {
@@ -40,6 +41,7 @@
 
 @media (min-width: 1920px) {
   .section {
+    padding-block: 56px;
     padding-inline: 44px;
   }
 }

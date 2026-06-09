@@ -1,6 +1,6 @@
 .section {
   background-color: #000200;
-  padding: 0 0 96px;
+  padding: 56px 0;
 }
 
 .container {
@@ -15,15 +15,32 @@
 
 .title {
   margin: 0 0 18px;
-  font-size: clamp(24px, 2.8vw, 36px);
-  font-weight: 700;
+  overflow: visible;
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 600;
   line-height: 1.35;
-  letter-spacing: -0.01em;
-  color: var(--color-primary);
+  letter-spacing: -0.02em;
 }
 
-.titleLine {
-  display: block;
+.titleLight,
+.wordHighlight {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.titleLight {
+  color: #ffffff;
+}
+
+.wordHighlight {
+  display: inline;
+  padding: 0.08em 0.28em 0.08em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
+  color: #000200;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .description {
@@ -119,6 +136,7 @@
 
 @media (min-width: 1920px) {
   .section {
+    padding-block: 56px;
     padding-inline: 44px;
   }
 

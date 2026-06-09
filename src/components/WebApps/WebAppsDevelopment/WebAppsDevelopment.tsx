@@ -2,6 +2,7 @@ import Image from "next/image";
 import { webAppsDevelopment } from "@/data/web-apps";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./WebAppsDevelopment.module.css";
 
 export function WebAppsDevelopment() {
@@ -13,12 +14,24 @@ export function WebAppsDevelopment() {
       <Container className={styles.container}>
         <ScrollReveal>
           <header className={styles.header}>
-            <h2 id="web-apps-development-heading" className={styles.title}>
-              {webAppsDevelopment.titleLines.map((line) => (
-                <span key={line} className={styles.titleLine}>
-                  {line}
+            <h2
+              id="web-apps-development-heading"
+              className={`${splitTitleStyles.title} ${styles.title}`}
+            >
+              <span className={styles.titleLight}>
+                {webAppsDevelopment.titlePrefix}
+              </span>
+              {webAppsDevelopment.titleHighlights.map((phrase, index) => (
+                <span key={phrase}>
+                  <span className={styles.wordHighlight}>{phrase}</span>
+                  {index < webAppsDevelopment.titleHighlights.length - 1
+                    ? " "
+                    : null}
                 </span>
               ))}
+              <span className={styles.titleLight}>
+                {webAppsDevelopment.titleSuffix}
+              </span>
             </h2>
             <p className={styles.description}>
               {webAppsDevelopment.description}
