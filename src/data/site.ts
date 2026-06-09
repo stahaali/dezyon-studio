@@ -39,6 +39,22 @@ export const footerSocialLinks = [
   { href: "#", label: "Reviews" },
 ] as const;
 
+export const leftRailLinks = [
+  { href: "/contact", label: "Get in Touch", type: "contact" },
+  { href: "https://wa.me/15732407509", label: "WhatsApp", type: "whatsapp" },
+  { href: "tel:15732407509", label: "Call", type: "call" },
+] as const;
+
+export const sideRailSocialLinks = [
+  { href: "#", label: "Facebook" },
+  { href: "#", label: "Twitter" },
+  { href: "#", label: "Instagram" },
+  { href: "#", label: "Pinterest" },
+  { href: "#", label: "LinkedIn" },
+  { href: "#", label: "YouTube" },
+  { href: "#", label: "Behance" },
+] as const;
+
 export const footerBottomLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms and Conditions", href: "/terms-and-conditions" },

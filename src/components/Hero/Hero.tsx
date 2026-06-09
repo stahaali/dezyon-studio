@@ -14,7 +14,7 @@ import {
 import { BrandSlider } from "@/components/Hero/BrandSlider";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
-import { SplitTitle } from "@/components/Shared/SplitTitle";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -83,15 +83,19 @@ export function Hero() {
       <Container className={styles.heroOuter}>
         <div className={styles.heroInner}>
           <div className={styles.heroText}>
-            <SplitTitle
-              as="h1"
+            <h1
               id="hero-heading"
-              accent="Easy project managment"
-              light="of any complexity"
-              theme="dark"
-              size="hero"
-              className={styles.title}
-            />
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
+            >
+              <span className={splitTitleStyles.accent}>
+                Easy project{" "}
+                <span className={styles.wordHighlight}>management</span>
+              </span>
+              <br className={splitTitleStyles.breakOnSm} />
+              <span className={splitTitleStyles.lightOnDark}>
+                of any complexity
+              </span>
+            </h1>
 
             <Button href="#pricing" size="md" className={styles.cta}>
               Try it out

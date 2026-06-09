@@ -6,8 +6,7 @@ import {
   getSoftwareApplicationJsonLd,
   getWebSiteJsonLd,
 } from "@/lib/structured-data";
-import { Header } from "@/components/Header/Header";
-import { Footer } from "@/components/Footer/Footer";
+import { AppShell } from "@/components/Shared/AppShell";
 import "./globals.css";
 
 const lexend = Lexend({
@@ -39,9 +38,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { footerSocialLinks, navLinks } from "@/data/site";
+import { useMobileMenu } from "@/context/MobileMenuContext";
 import { useStickyHeader, useLockBodyScroll } from "@/hooks/useStickyHeader";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
@@ -33,10 +33,9 @@ const socialIcons = {
 
 export function Header() {
   const { isScrolled, isHeaderVisible } = useStickyHeader();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { isOpen: mobileOpen, closeMenu, toggleMenu } = useMobileMenu();
   useLockBodyScroll(mobileOpen);
 
-  const closeMenu = () => setMobileOpen(false);
   const showHeader = isHeaderVisible || mobileOpen;
 
   return (
@@ -60,7 +59,7 @@ export function Header() {
           <button
             type="button"
             className={styles.menuToggle}
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={toggleMenu}
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >

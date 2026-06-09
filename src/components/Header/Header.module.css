@@ -6,6 +6,8 @@
   z-index: 100;
   height: var(--header-height);
   padding-top: 0;
+  padding-left: 44px;
+  padding-right: 44px;
   background-color: #000200;
   transform: translateY(0);
   transition:
@@ -31,9 +33,9 @@
 }
 
 .nav {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: var(--header-height);
   padding-block: 0;
   gap: 16px;
@@ -60,20 +62,24 @@
 }
 
 .links {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   display: none;
   align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-  min-width: 0;
+  justify-content: center;
   gap: 8px;
   list-style: none;
   margin: 0;
   padding: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .links li {
   display: flex;
   align-items: center;
+  pointer-events: auto;
 }
 
 .link {
@@ -140,7 +146,7 @@
 }
 
 .menuToggle {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
@@ -213,14 +219,14 @@
 .mobileMenu {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 44px;
   bottom: 0;
-  width: min(82vw, 360px);
+  width: min(calc(100vw - 44px), 360px);
   display: flex;
   flex-direction: column;
   background-color: var(--color-white);
-  box-shadow: 8px 0 32px rgba(0, 2, 0, 0.12);
-  transform: translateX(-100%);
+  box-shadow: -8px 0 32px rgba(0, 2, 0, 0.12);
+  transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   z-index: 101;
@@ -376,13 +382,8 @@
     height: 60px;
   }
 
-  .menuToggle {
-    display: none;
-  }
-
-  .mobileMenu,
-  .mobileBackdrop {
-    display: none;
+  .mobileMenu {
+    width: min(400px, calc(100vw - 44px));
   }
 }
 

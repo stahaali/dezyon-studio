@@ -140,6 +140,18 @@
   margin: 0 0 8px;
 }
 
+.wordHighlight {
+  display: inline-block;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-primary);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+}
+
 .cta {
   min-width: 150px;
   margin-top: 20px;
