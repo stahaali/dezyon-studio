@@ -1,8 +1,9 @@
 export const HERO_ASSETS = "/assets/img/homebanner";
+export const HERO_FLATICON_ASSETS = `${HERO_ASSETS}/flaticon`;
 
 export type HeroIconFilter = "none" | "starWhite";
 
-export const heroFloatingIcons = [
+export const heroFloatingStars = [
   {
     src: `${HERO_ASSETS}/star-1.svg`,
     alt: "",
@@ -19,53 +20,50 @@ export const heroFloatingIcons = [
     className: "starTwo",
     filter: "starWhite" as HeroIconFilter,
   },
+] as const;
+
+export const heroFloatingThemeIcons = [
   {
-    src: `${HERO_ASSETS}/icon-trophy-dark.svg`,
+    src: `${HERO_FLATICON_ASSETS}/icon-trophy.svg`,
     alt: "",
-    width: 100,
-    height: 100,
+    width: 64,
+    height: 64,
     className: "iconTrophy",
-    filter: "none" as HeroIconFilter,
   },
   {
-    src: `${HERO_ASSETS}/icon-location-dark.svg`,
+    src: `${HERO_FLATICON_ASSETS}/icon-location.svg`,
     alt: "",
-    width: 100,
-    height: 100,
+    width: 64,
+    height: 64,
     className: "iconLocation",
-    filter: "none" as HeroIconFilter,
   },
   {
-    src: `${HERO_ASSETS}/icon-globe-dark.svg`,
+    src: `${HERO_FLATICON_ASSETS}/icon-globe.svg`,
     alt: "",
-    width: 100,
-    height: 100,
+    width: 64,
+    height: 64,
     className: "iconGlobe",
-    filter: "none" as HeroIconFilter,
   },
   {
-    src: `${HERO_ASSETS}/icon-crown-dark.svg`,
+    src: `${HERO_FLATICON_ASSETS}/icon-crown.svg`,
     alt: "",
-    width: 100,
-    height: 100,
+    width: 64,
+    height: 64,
     className: "iconCrown",
-    filter: "none" as HeroIconFilter,
   },
   {
-    src: `${HERO_ASSETS}/icon-diamond-dark.svg`,
+    src: `${HERO_FLATICON_ASSETS}/icon-diamond.svg`,
     alt: "",
-    width: 100,
-    height: 100,
+    width: 64,
+    height: 64,
     className: "iconDiamond",
-    filter: "none" as HeroIconFilter,
   },
   {
-    src: `${HERO_ASSETS}/icon-chat-dark.svg`,
+    src: `${HERO_FLATICON_ASSETS}/icon-chat.svg`,
     alt: "",
-    width: 100,
-    height: 100,
+    width: 64,
+    height: 64,
     className: "iconChat",
-    filter: "none" as HeroIconFilter,
   },
 ] as const;
 

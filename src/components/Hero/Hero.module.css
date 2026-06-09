@@ -40,6 +40,10 @@
   filter: brightness(0) invert(1);
 }
 
+.flaticonIcon {
+  opacity: 0.92;
+}
+
 /* Exact lexend positions */
 .starOne {
   top: 40%;
@@ -55,17 +59,25 @@
   transform: rotate(45deg);
 }
 
+.iconTrophy,
+.iconLocation,
+.iconGlobe,
+.iconCrown,
+.iconDiamond,
+.iconChat {
+  width: 56px;
+  height: 56px;
+}
+
 .iconTrophy {
   top: 12%;
   left: 6%;
-  width: 56px;
   transform: translateY(-50%) rotate(-12deg);
 }
 
 .iconLocation {
   top: 35%;
   left: 0;
-  width: 56px;
   margin-left: -12px;
   transform: translateY(-50%) rotate(45deg);
 }
@@ -73,28 +85,24 @@
 .iconGlobe {
   top: 60%;
   left: 4%;
-  width: 56px;
   transform: translateY(-50%);
 }
 
 .iconCrown {
   top: 53%;
   right: 18%;
-  width: 56px;
   transform: translateY(-50%) rotate(45deg);
 }
 
 .iconDiamond {
   top: 80%;
   right: 8%;
-  width: 56px;
   transform: translateY(-50%) rotate(-45deg);
 }
 
 .iconChat {
   top: 35%;
   right: 0;
-  width: 56px;
   margin-right: -12px;
   transform: translateY(-50%) rotate(-12deg);
 }
@@ -296,6 +304,7 @@
   .iconDiamond,
   .iconChat {
     width: 64px;
+    height: 64px;
   }
 
   .brandsPanel {

@@ -5,7 +5,8 @@ import { Play } from "lucide-react";
 import {
   HERO_POSTER,
   heroAvatars,
-  heroFloatingIcons,
+  heroFloatingStars,
+  heroFloatingThemeIcons,
   heroIconFilters,
 } from "@/data/hero";
 import { BrandSlider } from "@/components/Hero/BrandSlider";
@@ -20,12 +21,10 @@ export function Hero() {
       <div className={styles.heroBg} aria-hidden="true" />
 
       <div className={styles.floatingLayer} aria-hidden="true">
-        {heroFloatingIcons.map((icon) => {
+        {heroFloatingStars.map((icon) => {
           const positionClass = styles[icon.className as keyof typeof styles];
           const filterClass =
-            icon.filter !== "none"
-              ? styles[heroIconFilters[icon.filter] as keyof typeof styles]
-              : "";
+            styles[heroIconFilters[icon.filter] as keyof typeof styles];
 
           return (
             <Image
@@ -35,6 +34,21 @@ export function Hero() {
               width={icon.width}
               height={icon.height}
               className={`${styles.floatingIcon} ${positionClass} ${filterClass}`.trim()}
+            />
+          );
+        })}
+
+        {heroFloatingThemeIcons.map((icon) => {
+          const positionClass = styles[icon.className as keyof typeof styles];
+
+          return (
+            <Image
+              key={icon.className}
+              src={icon.src}
+              alt={icon.alt}
+              width={icon.width}
+              height={icon.height}
+              className={`${styles.floatingIcon} ${styles.flaticonIcon} ${positionClass}`}
             />
           );
         })}
