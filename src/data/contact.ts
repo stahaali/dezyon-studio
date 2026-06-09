@@ -3,7 +3,8 @@ import { flaticonIcons } from "@/data/icons";
 const CONTACT_ASSETS = "/assets/img/contact";
 
 export const contactBanner = {
-  title: "Let's get in touch.",
+  titlePrefix: "Let's get in ",
+  titleHighlight: "touch.",
   description:
     "Feel free to reach out to us using the options below, and our dedicated team will respond to your inquiries promptly.",
   stars: {

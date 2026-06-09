@@ -1,5 +1,5 @@
 .section {
-  background-color: var(--color-white);
+  background-color: #000200;
   padding-top: calc(var(--header-height) + 48px);
   padding-bottom: 56px;
   overflow: visible;
@@ -17,48 +17,66 @@
 }
 
 .headingWrap {
-  position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin: 0 auto 20px;
   padding-top: 10px;
   overflow: visible;
 }
 
+.titleRow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.5vw, 22px);
+  max-width: 100%;
+}
+
 .title {
   margin: 0;
   text-align: center;
+  overflow: visible;
+  line-height: 1.2;
 }
 
-.title span {
+.wordHighlight {
+  display: inline-block;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
   color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
 }
 
 .starLeft,
 .starRight {
-  position: absolute;
+  flex-shrink: 0;
   width: auto;
   height: auto;
   pointer-events: none;
+  filter: brightness(0) invert(1);
 }
 
 .starLeft {
-  left: 0;
-  top: 22%;
   width: 18px;
   transform: rotate(-32deg);
 }
 
 .starRight {
-  right: 0;
-  top: 0;
   width: 36px;
+  align-self: flex-start;
+  margin-top: 2px;
 }
 
 .description {
   margin: 0;
   font-size: clamp(15px, 2vw, 18px);
   line-height: 1.7;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (min-width: 640px) {
@@ -68,7 +86,6 @@
 
   .starLeft {
     width: 20px;
-    top: 24%;
   }
 
   .starRight {
@@ -88,12 +105,11 @@
 
   .starLeft {
     width: 20px;
-    top: 26%;
   }
 
   .starRight {
     width: 42px;
-    top: -2px;
+    margin-top: 0;
   }
 
   .description {
@@ -112,11 +128,60 @@
 
   .starLeft {
     width: 22px;
-    top: 28%;
   }
 
   .starRight {
     width: 46px;
-    top: -4px;
+    margin-top: -2px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section {
+    padding-inline: 44px;
+  }
+
+  .container {
+    max-width: min(1192px, calc(100vw - 88px));
+  }
+
+  .content {
+    max-width: none;
+  }
+
+  .titleRow {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .title {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 72px;
+    line-height: 1.05;
+  }
+
+  .starLeft {
+    width: 22px;
+    align-self: center;
+    margin-top: 0;
+  }
+
+  .starRight {
+    width: 48px;
+    align-self: flex-start;
+    margin-top: -4px;
+  }
+
+  .wordHighlight {
+    display: inline-block;
+    padding: 0.06em 0.34em 0.1em;
+    transform: rotate(-2.5deg);
+    transform-origin: center center;
+    vertical-align: baseline;
   }
 }
