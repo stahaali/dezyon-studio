@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SplitTitle } from "@/components/Shared/SplitTitle";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./CTA.module.css";
 
 const CTA_ASSETS = "/assets/img/cta";
@@ -29,14 +29,13 @@ export function CTA() {
             </div>
 
             <div className={styles.content}>
-              <SplitTitle
+              <h2
                 id="cta-heading"
-                title="Prevent costly mistakes"
-                theme="dark"
-                size="section"
-                lineBreak={false}
-                className={styles.title}
-              />
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+              >
+                <span className={styles.titleText}>Prevent costly</span>
+                <span className={styles.wordHighlight}>mistakes</span>
+              </h2>
               <p className={styles.subtitle}>
                 Create pre-approved templates and lock all legal information.
               </p>

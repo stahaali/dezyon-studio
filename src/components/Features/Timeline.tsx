@@ -2,8 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { Container } from "@/components/Shared/Container";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
 import styles from "./Timeline.module.css";
 
 const TimelineSlider = dynamic(
@@ -20,12 +21,17 @@ export function Timeline() {
     >
       <Container>
         <ScrollReveal>
-          <SectionHeading
-            title="How we got here"
-            light
-            lineBreak={false}
-            className={styles.sectionHeading}
-          />
+          <div
+            className={`${sectionHeadingStyles.heading} ${sectionHeadingStyles.center} ${sectionHeadingStyles.light} ${styles.sectionHeading}`}
+          >
+            <h2
+              id="timeline-heading"
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              How we got{" "}
+              <span className={styles.wordHighlight}>here</span>
+            </h2>
+          </div>
         </ScrollReveal>
       </Container>
 

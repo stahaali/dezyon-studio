@@ -2,8 +2,9 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { testimonials } from "@/data/site";
 import { Container } from "@/components/Shared/Container";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
 import styles from "./Testimonials.module.css";
 
 export function Testimonials() {
@@ -11,11 +12,16 @@ export function Testimonials() {
     <section id="testimonials" className={`page-section ${styles.section}`}>
       <Container>
         <ScrollReveal>
-          <SectionHeading
-            className={styles.sectionHeading}
-            lineBreak={false}
-            title="Don't just take our words"
-          />
+          <div
+            className={`${sectionHeadingStyles.heading} ${sectionHeadingStyles.center} ${styles.sectionHeading}`}
+          >
+            <h2
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              Don&apos;t just take our{" "}
+              <span className={styles.wordHighlight}>words</span>
+            </h2>
+          </div>
         </ScrollReveal>
 
         <div className={styles.grid}>

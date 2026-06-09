@@ -3,8 +3,9 @@ import { Check } from "lucide-react";
 import { pricingPlans } from "@/data/site";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
 import styles from "./Pricing.module.css";
 
 const MONEY_ILLUSTRATION = "/assets/img/pricing/money.svg";
@@ -14,12 +15,19 @@ export function Pricing() {
     <section id="pricing" className={`page-section ${styles.section}`}>
       <Container>
         <ScrollReveal>
-          <SectionHeading
-            className={styles.sectionHeading}
-            lineBreak={false}
-            title="Price plans as per your needs"
-            description="No extra charges. No hidden fees."
-          />
+          <div
+            className={`${sectionHeadingStyles.heading} ${sectionHeadingStyles.center} ${styles.sectionHeading}`}
+          >
+            <h2
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              Price plans as per your{" "}
+              <span className={styles.wordHighlight}>needs</span>
+            </h2>
+            <p className={sectionHeadingStyles.description}>
+              No extra charges. No hidden fees.
+            </p>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>

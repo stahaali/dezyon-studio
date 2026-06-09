@@ -5,10 +5,29 @@
 
 .sectionHeading {
   max-width: 100%;
+  margin-bottom: 48px;
+  padding-top: 12px;
+  text-align: center;
+  overflow: visible;
 }
 
-.sectionHeading h2 span {
+.title {
+  margin: 0;
   color: #000200;
+  overflow: visible;
+  line-height: 1.2;
+}
+
+.wordHighlight {
+  display: inline-block;
+  padding: 0.1em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-primary);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
 }
 
 .valuesGrid {

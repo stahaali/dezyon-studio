@@ -26,11 +26,39 @@
   text-align: center;
   position: relative;
   z-index: 2;
-  max-width: 400px;
+  width: 100%;
+  max-width: 640px;
 }
 
 .title {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
   margin: 0;
+  color: #ffffff;
+  overflow: visible;
+  line-height: 1;
+  white-space: nowrap;
+  font-size: clamp(22px, 4.5vw, 48px);
+}
+
+.titleText {
+  line-height: 1;
+}
+
+.wordHighlight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.14em 0.36em;
+  border-radius: 0.22em;
+  background-color: var(--color-primary);
+  color: #000200;
+  line-height: 1;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
 }
 
 .subtitle {
@@ -84,7 +112,7 @@
   }
 
   .content {
-    max-width: 480px;
+    max-width: 640px;
   }
 
   .subtitle {
@@ -108,7 +136,7 @@
   }
 
   .content {
-    max-width: 560px;
+    max-width: 720px;
   }
 
   .illustration {

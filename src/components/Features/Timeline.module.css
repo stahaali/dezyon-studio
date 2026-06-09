@@ -4,8 +4,28 @@
   padding:56px 0;
 }
 
-.sectionHeading h2 span {
+.sectionHeading {
+  padding-top: 12px;
+  overflow: visible;
+}
+
+.title {
+  margin: 0;
   color: #ffffff;
+  overflow: visible;
+  line-height: 1.2;
+}
+
+.wordHighlight {
+  display: inline-block;
+  padding: 0.1em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-primary);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
 }
 
 .sliderOuter {

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { teamMembers } from "@/data/site";
 import { Container } from "@/components/Shared/Container";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
 import styles from "./Team.module.css";
 
 export function Team() {
@@ -10,11 +11,17 @@ export function Team() {
     <section id="team" className={`page-section ${styles.section}`} aria-labelledby="team-heading">
       <Container>
         <ScrollReveal>
-          <SectionHeading
-            className={styles.sectionHeading}
-            lineBreak={false}
-            title="Our Executive Team"
-          />
+          <div
+            className={`${sectionHeadingStyles.heading} ${sectionHeadingStyles.center} ${styles.sectionHeading}`}
+          >
+            <h2
+              id="team-heading"
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              Our Executive{" "}
+              <span className={styles.wordHighlight}>Team</span>
+            </h2>
+          </div>
         </ScrollReveal>
 
         <div className={styles.grid}>

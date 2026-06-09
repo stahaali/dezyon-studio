@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { values, stats } from "@/data/site";
 import { Container } from "@/components/Shared/Container";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { SplitTitle } from "@/components/Shared/SplitTitle";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./Values.module.css";
 
 export function Values() {
@@ -11,11 +11,15 @@ export function Values() {
     <section className={`page-section ${styles.section}`} aria-labelledby="values-heading">
       <Container>
         <ScrollReveal>
-          <SectionHeading
-            className={styles.sectionHeading}
-            lineBreak={false}
-            title="Our Values it's Simple!"
-          />
+          <div className={styles.sectionHeading}>
+            <h2
+              id="values-heading"
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              Our Values it&apos;s{" "}
+              <span className={styles.wordHighlight}>Simple!</span>
+            </h2>
+          </div>
         </ScrollReveal>
 
         <div className={styles.valuesGrid}>
