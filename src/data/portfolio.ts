@@ -24,8 +24,7 @@ export const portfolioProjects = [
     id: "nova-commerce",
     title: "Nova Commerce",
     category: "E-commerce",
-    image:
-      "https://images.unsplash.com/photo-1499951360447-b19be8fe36f5?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/img/features/feature-image-01.jpg",
     href: "#",
   },
   {
