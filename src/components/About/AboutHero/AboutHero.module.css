@@ -17,11 +17,20 @@
 }
 
 .headingWrap {
-  position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin: 0 auto 20px;
   padding-top: 10px;
   overflow: visible;
+}
+
+.titleRow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.5vw, 22px);
+  max-width: 100%;
 }
 
 .title {
@@ -45,7 +54,7 @@
 
 .starLeft,
 .starRight {
-  position: absolute;
+  flex-shrink: 0;
   width: auto;
   height: auto;
   pointer-events: none;
@@ -53,16 +62,14 @@
 }
 
 .starLeft {
-  left: 0;
-  top: 22%;
   width: 18px;
   transform: rotate(-32deg);
 }
 
 .starRight {
-  right: 0;
-  top: 0;
   width: 36px;
+  align-self: flex-start;
+  margin-top: 2px;
 }
 
 .description {
@@ -79,7 +86,6 @@
 
   .starLeft {
     width: 20px;
-    top: 24%;
   }
 
   .starRight {
@@ -99,12 +105,11 @@
 
   .starLeft {
     width: 20px;
-    top: 26%;
   }
 
   .starRight {
     width: 42px;
-    top: -2px;
+    margin-top: 0;
   }
 
   .description {
@@ -123,11 +128,42 @@
 
   .starLeft {
     width: 22px;
-    top: 28%;
   }
 
   .starRight {
     width: 46px;
-    top: -4px;
+    margin-top: -2px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section {
+    padding-inline: 44px;
+  }
+
+  .container {
+    max-width: min(1192px, calc(100vw - 88px));
+  }
+
+  .titleRow {
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 72px;
+    line-height: 1.05;
+  }
+
+  .starLeft {
+    width: 22px;
+  }
+
+  .starRight {
+    width: 48px;
+    margin-top: -4px;
+  }
+
+  .wordHighlight {
+    padding: 0.06em 0.34em 0.1em;
   }
 }

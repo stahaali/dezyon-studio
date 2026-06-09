@@ -14,31 +14,33 @@ export function AboutHero() {
         <ScrollReveal>
           <div className={styles.content}>
             <div className={styles.headingWrap}>
-              <h1
-                id="about-hero-heading"
-                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
-              >
-                <span className={splitTitleStyles.lightOnDark}>
-                  About Dezyon{" "}
-                  <span className={styles.wordHighlight}>Studio.</span>
-                </span>
-              </h1>
-              <Image
-                src={stars.left.src}
-                alt=""
-                width={stars.left.width}
-                height={stars.left.height}
-                className={styles.starLeft}
-                aria-hidden="true"
-              />
-              <Image
-                src={stars.right.src}
-                alt=""
-                width={stars.right.width}
-                height={stars.right.height}
-                className={styles.starRight}
-                aria-hidden="true"
-              />
+              <div className={styles.titleRow}>
+                <Image
+                  src={stars.left.src}
+                  alt=""
+                  width={stars.left.width}
+                  height={stars.left.height}
+                  className={styles.starLeft}
+                  aria-hidden="true"
+                />
+                <h1
+                  id="about-hero-heading"
+                  className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
+                >
+                  <span className={splitTitleStyles.lightOnDark}>
+                    About Dezyon{" "}
+                    <span className={styles.wordHighlight}>Studio.</span>
+                  </span>
+                </h1>
+                <Image
+                  src={stars.right.src}
+                  alt=""
+                  width={stars.right.width}
+                  height={stars.right.height}
+                  className={styles.starRight}
+                  aria-hidden="true"
+                />
+              </div>
             </div>
             <p className={styles.description}>{aboutHero.description}</p>
           </div>
