@@ -2,8 +2,8 @@ import { CTA } from "@/components/CTA/CTA";
 import { Features } from "@/components/Features/Features";
 import { Team } from "@/components/Features/Team";
 import { Timeline } from "@/components/Features/Timeline";
-import { Values } from "@/components/Features/Values";
 import { CapabilitiesSection } from "@/components/Home/CapabilitiesSection/CapabilitiesSection";
+import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
 import { Hero } from "@/components/Hero/Hero";
 import { Pricing } from "@/components/Pricing/Pricing";
 import { JsonLd } from "@/components/Seo/JsonLd";
@@ -34,7 +34,7 @@ export default function Home() {
       <Hero />
       <CapabilitiesSection />
       <Features />
-      <Values />
+      <HomeStats />
       <Pricing />
       <Testimonials />
       <Timeline />
