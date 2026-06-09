@@ -90,3 +90,11 @@
   height: 17px;
   margin: 0 auto;
 }
+
+@media (min-width: 1920px) {
+  .rail {
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

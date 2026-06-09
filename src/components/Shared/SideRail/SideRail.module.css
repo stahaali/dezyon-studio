@@ -89,3 +89,15 @@
   color: var(--color-primary);
   transform: scale(1.08);
 }
+
+@media (min-width: 1920px) {
+  .rail {
+    justify-content: center;
+    gap: 28px;
+    padding-bottom: 0;
+  }
+
+  .socialList {
+    padding-top: 0;
+  }
+}

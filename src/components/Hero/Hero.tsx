@@ -87,7 +87,7 @@ export function Hero() {
               id="hero-heading"
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
             >
-              <span className={splitTitleStyles.accent}>
+              <span className={splitTitleStyles.lightOnDark}>
                 Easy project{" "}
                 <span className={styles.wordHighlight}>management</span>
               </span>
