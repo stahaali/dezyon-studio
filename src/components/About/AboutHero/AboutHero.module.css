@@ -1,5 +1,5 @@
 .section {
-  background-color: var(--color-white);
+  background-color: #000200;
   padding-top: calc(var(--header-height) + 48px);
   padding-bottom: 56px;
   overflow: visible;
@@ -27,10 +27,20 @@
 .title {
   margin: 0;
   text-align: center;
+  overflow: visible;
+  line-height: 1.2;
 }
 
-.title span {
+.wordHighlight {
+  display: inline-block;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
   color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
 }
 
 .starLeft,
@@ -39,6 +49,7 @@
   width: auto;
   height: auto;
   pointer-events: none;
+  filter: brightness(0) invert(1);
 }
 
 .starLeft {
@@ -58,7 +69,7 @@
   margin: 0;
   font-size: clamp(15px, 2vw, 18px);
   line-height: 1.7;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (min-width: 640px) {

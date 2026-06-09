@@ -3,7 +3,7 @@ import { aboutCareers } from "@/data/about";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SplitTitle } from "@/components/Shared/SplitTitle";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./AboutCareers.module.css";
 
 export function AboutCareers() {
@@ -43,15 +43,13 @@ export function AboutCareers() {
         <Container className={styles.careersContainer}>
           <ScrollReveal>
             <div className={styles.content}>
-              <SplitTitle
-                as="h2"
+              <h2
                 id="about-careers-heading"
-                title={aboutCareers.title}
-                theme="dark"
-                size="section"
-                lineBreak={false}
-                className={styles.title}
-              />
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+              >
+                We&apos;re looking for people who share our{" "}
+                <span className={styles.wordHighlight}>vision!</span>
+              </h2>
               <p className={styles.subtitle}>{aboutCareers.description}</p>
               <Button
                 href={aboutCareers.cta.href}

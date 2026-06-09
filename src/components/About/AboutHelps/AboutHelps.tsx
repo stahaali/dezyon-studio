@@ -2,7 +2,7 @@ import Image from "next/image";
 import { aboutHelps, aboutStats } from "@/data/about";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SplitTitle } from "@/components/Shared/SplitTitle";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./AboutHelps.module.css";
 
 export function AboutHelps() {
@@ -14,14 +14,13 @@ export function AboutHelps() {
         <Container className={styles.container}>
           <ScrollReveal>
             <div className={styles.content}>
-              <SplitTitle
-                as="h2"
+              <h2
                 id="about-helps-heading"
-                title={aboutHelps.title}
-                size="section"
-                lineBreak={false}
-                className={styles.title}
-              />
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+              >
+                How Lexend{" "}
+                <span className={styles.wordHighlight}>helps</span>
+              </h2>
               {aboutHelps.paragraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 24)} className={styles.paragraph}>
                   {paragraph}

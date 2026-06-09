@@ -2,7 +2,7 @@ import Image from "next/image";
 import { aboutHero } from "@/data/about";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SplitTitle } from "@/components/Shared/SplitTitle";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./AboutHero.module.css";
 
 export function AboutHero() {
@@ -14,15 +14,15 @@ export function AboutHero() {
         <ScrollReveal>
           <div className={styles.content}>
             <div className={styles.headingWrap}>
-              <SplitTitle
-                as="h1"
+              <h1
                 id="about-hero-heading"
-                title={aboutHero.title}
-                theme="dark"
-                size="hero"
-                lineBreak={false}
-                className={styles.title}
-              />
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
+              >
+                <span className={splitTitleStyles.lightOnDark}>
+                  About Dezyon{" "}
+                  <span className={styles.wordHighlight}>Studio.</span>
+                </span>
+              </h1>
               <Image
                 src={stars.left.src}
                 alt=""

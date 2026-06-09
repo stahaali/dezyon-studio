@@ -1,12 +1,24 @@
 .section {
   background-color: var(--color-white);
-  padding: 0 0 56px;
+  padding-top: 56px;
+  padding-bottom: 56px;
   overflow: visible;
 }
 
 .container {
   max-width: 1280px;
   overflow: visible;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-inline: 44px;
+  }
+
+  .container {
+    max-width: min(1192px, calc(100vw - 88px));
+    padding-inline: 24px;
+  }
 }
 
 .grid {
@@ -126,32 +138,28 @@
   }
 
   .illustrationLeft {
-    left: -52px;
-    top: -58px;
-    width: 132px;
+    left: -16px;
+    top: -48px;
+    width: 124px;
   }
 
   .illustrationRight {
-    right: -56px;
-    bottom: -48px;
-    width: 196px;
+    right: -16px;
+    bottom: -40px;
+    width: 180px;
   }
 }
 
 @media (min-width: 1024px) {
-  .container {
-    padding-inline: 0;
-  }
-
   .illustrationLeft {
-    left: -60px;
-    top: -64px;
-    width: 140px;
+    left: -20px;
+    top: -48px;
+    width: 132px;
   }
 
   .illustrationRight {
-    right: -64px;
-    bottom: -52px;
-    width: 212px;
+    right: -20px;
+    bottom: -40px;
+    width: 196px;
   }
 }

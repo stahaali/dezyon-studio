@@ -2,8 +2,9 @@ import Image from "next/image";
 import { aboutValues } from "@/data/about";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SectionHeading } from "@/components/Shared/SectionHeading";
 import { SplitTitle } from "@/components/Shared/SplitTitle";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
 import styles from "./AboutValues.module.css";
 
 export function AboutValues() {
@@ -11,11 +12,17 @@ export function AboutValues() {
     <section className={styles.section} aria-labelledby="about-values-heading">
       <Container className={styles.container}>
         <ScrollReveal>
-          <SectionHeading
-            className={styles.sectionHeading}
-            lineBreak={false}
-            title="Our Values it's Simple!"
-          />
+          <div
+            className={`${sectionHeadingStyles.heading} ${sectionHeadingStyles.center} ${styles.sectionHeading}`}
+          >
+            <h2
+              id="about-values-heading"
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              Our Values it&apos;s{" "}
+              <span className={styles.wordHighlight}>Simple!</span>
+            </h2>
+          </div>
         </ScrollReveal>
 
         <div className={styles.grid}>
