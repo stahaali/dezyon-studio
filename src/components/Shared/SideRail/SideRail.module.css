@@ -92,12 +92,17 @@
 
 @media (min-width: 1920px) {
   .rail {
-    justify-content: center;
-    gap: 28px;
+    justify-content: flex-start;
     padding-bottom: 0;
   }
 
+  .menuButton {
+    flex-shrink: 0;
+  }
+
   .socialList {
+    flex: 1;
+    justify-content: center;
     padding-top: 0;
   }
 }

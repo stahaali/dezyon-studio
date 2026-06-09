@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { smartFeatureTabs, smartFeaturesSection } from "@/data/features";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import { SplitTitle } from "@/components/Shared/SplitTitle";
 import styles from "./Features.module.css";
 
@@ -18,12 +19,12 @@ export function Features() {
       <Container>
         <ScrollReveal>
           <div className={styles.header}>
-            <SplitTitle
-              title={smartFeaturesSection.title}
-              size="section"
-              lineBreak={false}
-              className={styles.title}
-            />
+            <h2
+              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+            >
+              Smart features for your{" "}
+              <span className={styles.wordHighlight}>business</span>
+            </h2>
             <p className={styles.subtitle}>{smartFeaturesSection.description}</p>
           </div>
 

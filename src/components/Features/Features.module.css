@@ -1,23 +1,35 @@
 .section {
   background-color: var(--color-white);
+  padding-top: 56px;
   padding-bottom: 56px;
-  padding-top:0px;
-  overflow-x: hidden;
 }
 
 .header {
   max-width: 700px;
   margin: 0 auto 32px;
+  padding-top: 8px;
   text-align: center;
+  overflow: visible;
 }
 
 .title {
   margin: 0 0 12px;
   white-space: normal;
+  color: #000200;
+  overflow: visible;
+  line-height: 1.2;
 }
 
-.title span {
+.wordHighlight {
+  display: inline-block;
+  padding: 0.1em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-primary);
   color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
 }
 
 .subtitle {
