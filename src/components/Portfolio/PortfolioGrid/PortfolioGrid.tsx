@@ -39,7 +39,6 @@ export function PortfolioGrid() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className={styles.image}
                     />
-                    <div className={styles.imageOverlay} />
                   </div>
                   <div className={styles.cardBody}>
                     <span className={styles.category}>{project.category}</span>

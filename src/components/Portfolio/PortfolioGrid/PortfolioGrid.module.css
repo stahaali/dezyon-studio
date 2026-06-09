@@ -61,31 +61,12 @@
   aspect-ratio: 16 / 10;
   border-radius: 16px;
   overflow: hidden;
-  transform-style: preserve-3d;
-  transform: perspective(900px) rotateZ(-2deg) rotateY(-4deg);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 14px 32px rgba(0, 2, 0, 0.12);
-}
-
-.cardLink:hover .imageWrap {
-  transform: perspective(900px) rotateX(14deg) rotateY(-22deg) rotateZ(0deg)
-    scale(1.03) translateY(-6px);
+  background: var(--color-border-light);
 }
 
 .image {
   object-fit: cover;
   object-position: center top;
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 2, 0, 0.5);
-  transition: background 0.4s ease;
-}
-
-.cardLink:hover .imageOverlay {
-  background: rgba(0, 2, 0, 0.18);
 }
 
 .cardBody {
