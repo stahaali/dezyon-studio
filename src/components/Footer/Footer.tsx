@@ -61,9 +61,15 @@ export function Footer() {
             <ul className={styles.linkList}>
               {footerInformationLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className={styles.link}>
-                    {link.label}
-                  </Link>
+                  {link.href.startsWith("/") ? (
+                    <Link href={link.href} className={styles.link}>
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className={styles.link}>
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

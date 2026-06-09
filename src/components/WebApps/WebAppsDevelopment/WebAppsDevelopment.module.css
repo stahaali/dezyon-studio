@@ -1,0 +1,128 @@
+.section {
+  background-color: #000200;
+  padding: 0 0 96px;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.header {
+  max-width: 980px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 18px;
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+}
+
+.titleLine {
+  display: block;
+}
+
+.description {
+  margin: 0;
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 28px 24px 26px;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.card:hover {
+  background: rgba(171, 245, 3, 0.04);
+  border-color: #c8ff4d;
+}
+
+.cardHead {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 88px;
+  margin-bottom: 22px;
+}
+
+.number {
+  font-size: clamp(56px, 8vw, 76px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.cardIcon {
+  position: relative;
+  right: 0;
+  bottom: 2px;
+  width: clamp(52px, 8vw, 72px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.cardText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .card {
+    padding: 30px 24px 28px;
+  }
+
+  .cardText {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section {
+    padding-inline: 44px;
+  }
+
+  .container {
+    max-width: min(1192px, calc(100vw - 88px));
+  }
+}

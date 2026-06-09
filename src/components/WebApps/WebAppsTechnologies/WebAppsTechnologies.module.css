@@ -1,0 +1,153 @@
+.section {
+  background-color: #000200;
+  padding: 0 0 96px;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.imageCol,
+.contentCol {
+  min-width: 0;
+}
+
+.figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(171, 245, 3, 0.22);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.content {
+  max-width: 640px;
+}
+
+.title {
+  margin: 0 0 20px;
+  overflow: visible;
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.titleLight,
+.wordHighlight {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.titleLight {
+  color: #ffffff;
+}
+
+.wordHighlight {
+  display: inline;
+  padding: 0.08em 0.28em 0.08em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
+  color: #000200;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.intro {
+  margin: 0 0 28px;
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.segments {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.segment {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.iconWrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid rgba(171, 245, 3, 0.28);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.icon {
+  width: 44px;
+  height: auto;
+}
+
+.segmentContent {
+  min-width: 0;
+}
+
+.segmentTitle {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primary);
+}
+
+.segmentText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 48px;
+  }
+
+  .figure {
+    aspect-ratio: 5 / 4;
+  }
+
+  .content {
+    max-width: none;
+  }
+
+  .segmentText {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section {
+    padding-inline: 44px;
+  }
+
+  .container {
+    max-width: min(1192px, calc(100vw - 88px));
+  }
+}

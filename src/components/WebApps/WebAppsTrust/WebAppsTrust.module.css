@@ -41,14 +41,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background: rgba(171, 245, 3, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 .icon {
-  width: 40px;
+  width: 44px;
   height: auto;
 }
 

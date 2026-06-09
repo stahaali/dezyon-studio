@@ -15,14 +15,17 @@ export const footerAbout =
   "Turning your ideas into stunning digital experiences and the best brand design. We specialize in developing exquisite custom web designs for powerful e-commerce platforms. Our specialists work tirelessly to create digital innovations that are not only beautiful but built to perform.";
 
 export const footerInformationLinks = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#team" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Packages", href: "/packages" },
   { label: "Combo Packages", href: "/combo-packages" },
   { label: "Web Apps", href: "/web-apps" },
   { label: "Contact Us", href: "/contact" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms and Conditions", href: "/terms-and-conditions" },
+  { label: "Refund Policy", href: "/refund-policy" },
 ] as const;
 
 export const footerContact = {
