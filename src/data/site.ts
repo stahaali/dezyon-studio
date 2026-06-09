@@ -1,7 +1,7 @@
 export const navLinks = [
   { label: "Home", href: "#" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "#features" },
+  { label: "Services", href: "/services" },
   { label: "Portfolio", href: "#" },
   { label: "Packages", href: "#pricing" },
   { label: "Combo Packages", href: "#" },
@@ -15,7 +15,7 @@ export const footerAbout =
 export const footerInformationLinks = [
   { label: "Home", href: "#" },
   { label: "About Us", href: "#team" },
-  { label: "Services", href: "#features" },
+  { label: "Services", href: "/services" },
   { label: "Portfolio", href: "#" },
   { label: "Packages", href: "#pricing" },
   { label: "Combo Packages", href: "#" },
