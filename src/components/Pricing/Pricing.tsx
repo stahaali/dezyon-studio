@@ -45,12 +45,6 @@ export function Pricing() {
                 <h3 className={styles.planName}>{plan.name}</h3>
                 <p className={styles.planDesc}>{plan.description}</p>
 
-                <div className={styles.priceRow}>
-                  <span className={styles.price}>${plan.price}</span>
-                  <span className={styles.priceUnit}>USD</span>
-                </div>
-                <p className={styles.seats}>{plan.seatNote}</p>
-
                 <Button href="#pricing" className={styles.ctaBtn}>
                   Start a free trial
                 </Button>

@@ -215,9 +215,6 @@
 }
 
 .mobileDropdownBtn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
   border: none;
   background: transparent;
@@ -227,6 +224,7 @@
 
 .mobileDropdownCaret {
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .mobileDropdownCaretOpen {
@@ -489,6 +487,18 @@
 .mobileLink:hover {
   color: #000200;
   background-color: var(--color-border-light);
+}
+
+.mobileLink.mobileDropdownBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mobileDropdownBtn span {
+  flex: 1;
+  min-width: 0;
 }
 
 .mobileDivider {

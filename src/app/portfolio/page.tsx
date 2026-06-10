@@ -6,6 +6,7 @@ import {
   getBreadcrumbJsonLd,
   getWebPageJsonLd,
 } from "@/lib/structured-data";
+import styles from "./page.module.css";
 
 export const metadata = createPageMetadata("portfolio");
 
@@ -27,8 +28,10 @@ export default function PortfolioPage() {
           }),
         ]}
       />
-      <PortfolioBanner />
-      <PortfolioGrid />
+      <div className={styles.page}>
+        <PortfolioBanner />
+        <PortfolioGrid />
+      </div>
     </>
   );
 }

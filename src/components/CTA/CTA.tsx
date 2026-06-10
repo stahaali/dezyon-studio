@@ -43,8 +43,8 @@ export function CTA({ compact = false }: CTAProps) {
               <p className={styles.subtitle}>
                 Create pre-approved templates and lock all legal information.
               </p>
-              <Button href="#pricing" size="lg" className={styles.button}>
-                Try it now
+              <Button href="/contact" size="lg" className={styles.button}>
+                Contact us
                 <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
               </Button>
               <p className={styles.note}>14-day trial, no credit card required.</p>

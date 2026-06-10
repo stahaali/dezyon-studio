@@ -1,12 +1,12 @@
 .section {
-  background-color: var(--color-white);
+  background-color: #000200;
   padding: 0 0 56px;
 }
 
 .title {
   margin: 0 0 32px;
   text-align: center;
-  color: #000200;
+  color: #ffffff;
   overflow: visible;
   line-height: 1.2;
 }
@@ -16,7 +16,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  background-color: var(--color-primary);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -24,13 +24,14 @@
 }
 
 .list {
-  background: var(--color-cream);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
   overflow: hidden;
 }
 
 .item + .item {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .trigger {
@@ -49,7 +50,7 @@
 .question {
   font-size: 16px;
   font-weight: 600;
-  color: #000200;
+  color: #ffffff;
   line-height: 1.4;
 }
 
@@ -58,7 +59,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #000200;
+  color: #ffffff;
 }
 
 .answer {
@@ -69,7 +70,7 @@
   margin: 0;
   font-size: 15px;
   line-height: 1.65;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.68);
 }
 
 @media (min-width: 768px) {

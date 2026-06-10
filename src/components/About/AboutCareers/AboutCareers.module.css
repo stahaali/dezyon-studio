@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  background-color: var(--color-cream);
+  background-color: #000200;
   padding: 0 0 56px;
   overflow: visible;
 }
@@ -37,7 +37,7 @@
 
 .title {
   margin: 0;
-  color: #000200;
+  color: #ffffff;
   overflow: visible;
   line-height: 1.2;
   padding-top: 12px;
@@ -48,7 +48,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  background-color: var(--color-primary);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -58,7 +58,7 @@
 .subtitle {
   font-size: 15px;
   line-height: 1.55;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
   margin: 0 0 10px;
   max-width: 400px;
 }

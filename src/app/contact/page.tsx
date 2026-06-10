@@ -5,6 +5,7 @@ import { ContactHero } from "@/components/Contact/ContactHero/ContactHero";
 import { ContactLogos } from "@/components/Contact/ContactLogos/ContactLogos";
 import { ContactReach } from "@/components/Contact/ContactReach/ContactReach";
 import { SITE_NAME } from "@/lib/constants";
+import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: `Contact | ${SITE_NAME}`,
@@ -15,11 +16,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <ContactBanner />
-      <ContactHero />
-      <ContactReach />
-      <ContactFAQ />
-      <ContactLogos />
+      <div className={styles.page}>
+        <ContactBanner />
+        <ContactHero />
+        <ContactReach />
+        <ContactFAQ />
+        <ContactLogos />
+      </div>
     </>
   );
 }

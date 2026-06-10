@@ -8,28 +8,24 @@ import {
 
 export function GoogleTranslatePreload() {
   useEffect(() => {
-    const hasTranslation = getActiveLanguageCode() !== "en";
-
-    if (hasTranslation) {
+    const runPreload = () => {
       void preloadGoogleTranslate();
+    };
+
+    if (getActiveLanguageCode() !== "en") {
+      runPreload();
       return;
     }
 
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(
-        () => {
-          void preloadGoogleTranslate();
-        },
-        { timeout: 2000 }
-      );
-      return () => window.cancelIdleCallback(idleId);
+    const requestIdleCallback = window.requestIdleCallback?.bind(window);
+
+    if (requestIdleCallback) {
+      const idleId = requestIdleCallback(runPreload, { timeout: 2000 });
+      return () => window.cancelIdleCallback?.(idleId);
     }
 
-    const timeoutId = window.setTimeout(() => {
-      void preloadGoogleTranslate();
-    }, 1200);
-
-    return () => window.clearTimeout(timeoutId);
+    const timeoutId = setTimeout(runPreload, 1200);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return null;

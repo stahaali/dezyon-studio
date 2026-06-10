@@ -34,17 +34,19 @@ export const footerOffices = [
     id: "usa",
     country: "USA",
     address: "17418 Moreton Ln, Spring, TX 77379",
+    phone: "+1 346-421-2554",
   },
   {
     id: "canada",
     country: "Canada",
-    address: "250 Yonge St, Toronto, ON M5B 2L7",
+    address: "2465 Finch Ave W, North York, ON M9M 2G1",
+    phone: "+1 226 501 0914",
   },
 ] as const;
 
 export const footerContact = {
-  phone: "(573) 240-7509",
-  email: "info@dezyondigital.com",
+  phone: "+1 346-421-2554",
+  email: "hello@dezyonstudio.com",
   offices: footerOffices,
   address: footerOffices[0].address,
 } as const;
@@ -53,13 +55,12 @@ export const footerSocialLinks = [
   { href: "#", label: "Facebook" },
   { href: "#", label: "LinkedIn" },
   { href: "#", label: "Instagram" },
-  { href: "#", label: "Reviews" },
 ] as const;
 
 export const leftRailLinks = [
   { href: "/contact", label: "Get in Touch", type: "contact" },
-  { href: "https://wa.me/15732407509", label: "WhatsApp", type: "whatsapp" },
-  { href: "tel:15732407509", label: "Call", type: "call" },
+  { href: "https://wa.me/13464212554", label: "WhatsApp", type: "whatsapp" },
+  { href: "tel:13464212554", label: "Call", type: "call" },
 ] as const;
 
 export const sideRailSocialLinks = [

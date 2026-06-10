@@ -17,8 +17,8 @@ export const heroBrands = [
   { src: `${LOGO_ASSETS}/brand-06.svg`, alt: "Lightbox" },
 ] as const;
 
-export const HERO_POSTER = `${HERO_ASSETS}/home-01-hero-cover.webp`;
-export const HERO_VIDEO = "/assets/img/media/lexend_vid.webm";
+export const HERO_POSTER = "/assets/video/thumbnail1.jpg";
+export const HERO_VIDEO = "/assets/video/video1.mp4";
 
 export const heroRating = {
   value: "4.9",
@@ -26,7 +26,7 @@ export const heroRating = {
 } as const;
 
 export const heroContent = {
-  titlePrefix: "Easy project ",
+  titlePrefix: "Easy project",
   titleHighlight: "management",
   titleSuffix: " of any complexity",
   subtitle:

@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
+import { getPricingCategoryPath, packageCategories } from "@/data/packages";
 import { SITE_URL } from "@/lib/constants";
 import { PAGE_SEO, type PageSeoKey } from "@/lib/seo";
+
+export const dynamic = "force-static";
 
 const SITEMAP_CONFIG: Record<
   PageSeoKey,
@@ -19,10 +22,19 @@ const SITEMAP_CONFIG: Record<
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return (Object.keys(PAGE_SEO) as PageSeoKey[]).map((key) => ({
+  const pageEntries = (Object.keys(PAGE_SEO) as PageSeoKey[]).map((key) => ({
     url: `${SITE_URL}${PAGE_SEO[key].path}`,
     lastModified,
     changeFrequency: SITEMAP_CONFIG[key].changeFrequency,
     priority: SITEMAP_CONFIG[key].priority,
   }));
+
+  const pricingEntries = packageCategories.map((category) => ({
+    url: `${SITE_URL}${getPricingCategoryPath(category.id)}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  return [...pageEntries, ...pricingEntries];
 }

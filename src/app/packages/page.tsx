@@ -1,6 +1,12 @@
-import { redirect } from "next/navigation";
+"use client";
+
+import { useEffect } from "react";
 import { getPricingCategoryPath } from "@/data/packages";
 
 export default function PackagesPage() {
-  redirect(getPricingCategoryPath("logo"));
+  useEffect(() => {
+    window.location.replace(getPricingCategoryPath("logo"));
+  }, []);
+
+  return null;
 }

@@ -1,3 +1,4 @@
+import { footerContact } from "@/data/site";
 import { flaticonIcons } from "@/data/icons";
 
 const CONTACT_ASSETS = "/assets/img/contact";
@@ -31,7 +32,7 @@ export const contactHero = {
   },
   submitLabel: "Send message",
   emailNote: "Or drop us a message via",
-  emailLink: { label: "email", href: "mailto:info@dezyondigital.com" },
+  emailLink: { label: "email", href: `mailto:${footerContact.email}` },
 } as const;
 
 export const contactReach = {

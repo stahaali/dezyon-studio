@@ -1,5 +1,5 @@
 .section {
-  background-color: var(--color-cream);
+  background-color: #000200;
 }
 
 .wrapper {
@@ -23,7 +23,7 @@
 
 .title {
   margin: 0 0 24px;
-  color: #000200;
+  color: #ffffff;
   overflow: visible;
   line-height: 1.2;
   padding-top: 12px;
@@ -34,7 +34,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  background-color: var(--color-primary);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -44,7 +44,7 @@
 .paragraph {
   font-size: 15px;
   line-height: 1.7;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
   margin: 0 0 20px;
 }
 
@@ -67,14 +67,14 @@
   font-size: clamp(36px, 6vw, 48px);
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: #000200;
+  color: #ffffff;
   line-height: 1.1;
   margin-bottom: 8px;
 }
 
 .label {
   font-size: 14px;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.68);
   line-height: 1.4;
 }
 

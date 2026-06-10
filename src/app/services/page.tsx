@@ -31,10 +31,12 @@ export default function ServicesPage() {
           getServicesJsonLd(),
         ]}
       />
-      <ServicesHero />
-      <ServicesGrid />
-      <div className={styles.ctaWrap}>
-        <CTA />
+      <div className={styles.page}>
+        <ServicesHero />
+        <ServicesGrid />
+        <div className={styles.ctaWrap}>
+          <CTA />
+        </div>
       </div>
     </>
   );

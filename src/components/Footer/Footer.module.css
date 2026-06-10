@@ -22,8 +22,8 @@
 .footerLogo {
   display: flex;
   align-items: center;
-  width: 120px;
-  height: 36px;
+  width: 100px;
+  height: 30px;
   line-height: 0;
 }
 
@@ -106,77 +106,90 @@
 .contactList {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
 }
 
-.contactItem {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.officeCard {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.officeItem {
+.officeCard:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.officeHeader {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
 }
 
 .flagIcon {
-  width: 22px;
-  height: 16px;
+  width: 18px;
+  height: 13px;
   flex-shrink: 0;
-  margin-top: 2px;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
-.officeContent {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
-
-.contactLabel {
-  font-size: 14px;
+.officeCountry {
+  font-size: 11px;
   font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--color-accent);
 }
 
-.contactText {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #ffffff;
+.officeDetails {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.contactLink {
-  display: inline-flex;
+.detailItem {
+  display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: #ffffff;
-  transition: opacity var(--transition-fast);
+  gap: 8px;
+  min-height: 20px;
 }
 
-.contactLink:hover {
-  opacity: 0.75;
-}
-
-.contactIcon {
+.detailIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
-  color: var(--color-accent);
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
+  color: var(--color-accent);
 }
 
-.contactIcon svg {
-  display: block;
-  width: 16px;
-  height: 16px;
+.detailText {
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.detailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
+  transition: color var(--transition-fast);
+}
+
+.detailLink:hover {
+  color: var(--color-accent);
+}
+
+.emailRow {
+  padding-top: 2px;
 }
 
 .bottomBar {
@@ -213,9 +226,18 @@
 
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: 1.45fr 1fr 1fr;
+    grid-template-columns: 1.45fr 1fr 1.15fr;
     gap: 32px;
     margin-bottom: 56px;
+  }
+
+  .contactCol {
+    max-width: 280px;
+  }
+
+  .detailText,
+  .detailLink {
+    font-size: 13px;
   }
 
   .bottomBar {
@@ -237,8 +259,8 @@
 
 @media (min-width: 1024px) {
   .footerLogo {
-    width: 210px;
-    height: 60px;
+    width: 168px;
+    height: 48px;
   }
 }
 
@@ -250,7 +272,7 @@
 
 @media (max-width: 480px) {
   .footerLogo {
-    width: 108px;
-    height: 32px;
+    width: 92px;
+    height: 28px;
   }
 }

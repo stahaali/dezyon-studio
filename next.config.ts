@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
     remotePatterns: [
       {
@@ -9,6 +10,7 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/webp"],
+    unoptimized: true,
   },
 };
 

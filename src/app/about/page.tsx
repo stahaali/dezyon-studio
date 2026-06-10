@@ -12,6 +12,7 @@ import {
   getBreadcrumbJsonLd,
   getWebPageJsonLd,
 } from "@/lib/structured-data";
+import styles from "./page.module.css";
 
 export const metadata = createPageMetadata("about");
 
@@ -33,14 +34,16 @@ export default function AboutPage() {
           }),
         ]}
       />
-      <AboutHero />
-      <AboutShowcase />
-      <AboutHelps />
-      <AboutValues />
-      <AboutTestimonials />
-      <Timeline />
-      <Team />
-      <AboutCareers />
+      <div className={styles.page}>
+        <AboutHero />
+        <AboutShowcase />
+        <AboutHelps />
+        <AboutValues />
+        <AboutTestimonials />
+        <Timeline />
+        <Team theme="dark" />
+        <AboutCareers />
+      </div>
     </>
   );
 }

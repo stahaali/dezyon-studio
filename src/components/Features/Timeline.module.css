@@ -1,7 +1,7 @@
 .section {
   background-color: #000200;
   overflow: hidden;
-  padding: 0;
+  padding: 56px 0 0;
 }
 
 .sectionHeading {
@@ -20,7 +20,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  background-color: var(--color-primary);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;

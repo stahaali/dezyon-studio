@@ -1,6 +1,7 @@
 import { stats } from "@/data/site";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import { StatValue } from "@/components/Home/HomeStats/StatValue";
 import styles from "./HomeStats.module.css";
 
 export function HomeStats() {
@@ -12,7 +13,7 @@ export function HomeStats() {
             <div className={styles.statsGrid}>
               {stats.map((stat) => (
                 <div key={stat.label} className={styles.stat}>
-                  <span className={styles.statValue}>{stat.value}</span>
+                  <StatValue value={stat.value} />
                   <span className={styles.statLabel}>{stat.label}</span>
                 </div>
               ))}

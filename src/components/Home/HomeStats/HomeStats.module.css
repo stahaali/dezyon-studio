@@ -6,7 +6,7 @@
 .statsCard {
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
-  padding: 0 24px;
+  padding: 32px 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -38,7 +38,7 @@
 
 @media (min-width: 768px) {
   .statsCard {
-    padding: 0 32px;
+    padding: 40px 32px;
   }
 
   .statsGrid {
@@ -53,6 +53,6 @@
 
 @media (min-width: 1024px) {
   .statsCard {
-    padding: 0 40px;
+    padding: 48px 40px;
   }
 }
