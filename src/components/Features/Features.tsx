@@ -95,6 +95,7 @@ export function Features() {
                   as="h3"
                   title={activeTab.title}
                   size="panel"
+                  theme="dark"
                   className={styles.panelTitle}
                 />
                 <p className={styles.panelDesc}>{activeTab.description}</p>

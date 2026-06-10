@@ -114,10 +114,195 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-.actions {
-  display: none;
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 2px;
+}
+
+.dropdownCaret {
+  color: rgba(255, 255, 255, 0.75);
+  transition: transform var(--transition-fast);
+}
+
+.dropdown:hover .dropdownCaret,
+.dropdown:focus-within .dropdownCaret {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  z-index: 20;
+  width: 240px;
+  max-height: 320px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 2, 0, 0.18);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) rgba(0, 2, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base),
+    visibility var(--transition-base);
+  pointer-events: none;
+}
+
+.dropdownMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdownMenu::-webkit-scrollbar-track {
+  margin: 6px 0;
+  border-radius: var(--radius-full);
+  background: rgba(0, 2, 0, 0.06);
+}
+
+.dropdownMenu::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+}
+
+.dropdown:hover .dropdownMenu,
+.dropdown:focus-within .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000200;
+  transition: background-color var(--transition-fast);
+}
+
+.dropdownItem:hover {
+  background-color: rgba(171, 245, 3, 0.12);
+}
+
+.dropdownIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+}
+
+.dropdownIcon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.mobileDropdownBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobileDropdownCaret {
+  transition: transform var(--transition-fast);
+}
+
+.mobileDropdownCaretOpen {
+  transform: rotate(180deg);
+}
+
+.mobileSubmenu {
+  margin: 4px 0 8px;
+  padding: 0 0 0 8px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobileSubmenuLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000200;
+  transition: background-color var(--transition-fast);
+}
+
+.mobileSubmenuLink:hover {
+  background-color: rgba(171, 245, 3, 0.12);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.04);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.phoneLink svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.phoneLink:hover {
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.phoneText {
+  display: none;
 }
 
 .signInLink {
@@ -151,9 +336,6 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-left: auto;
-  position: relative;
-  z-index: 3;
   width: 44px;
   height: 44px;
   border: none;
@@ -373,6 +555,34 @@
   color: var(--color-accent);
 }
 
+.mobilePhoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 500;
+  color: #000200;
+  transition: background-color var(--transition-fast);
+}
+
+.mobilePhoneLink svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.mobilePhoneLink:hover {
+  background-color: rgba(171, 245, 3, 0.12);
+}
+
+@media (min-width: 1200px) {
+  .phoneText {
+    display: inline;
+  }
+}
+
 @media (min-width: 1024px) {
   .links {
     display: flex;
@@ -463,7 +673,4 @@
     width: min(100vw, 400px);
   }
 
-  .actions {
-    display: none;
-  }
 }

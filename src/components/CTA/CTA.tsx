@@ -8,16 +8,20 @@ import styles from "./CTA.module.css";
 
 const CTA_ASSETS = "/assets/img/cta";
 
-export function CTA() {
+type CTAProps = {
+  compact?: boolean;
+};
+
+export function CTA({ compact = false }: CTAProps) {
   return (
     <section
       id="contact"
-      className={`page-section ${styles.section}`}
+      className={`page-section ${styles.section} ${compact ? styles.sectionCompact : ""}`.trim()}
       aria-labelledby="cta-heading"
     >
       <Container className={styles.ctaContainer}>
         <ScrollReveal>
-          <div className={styles.banner}>
+          <div className={`${styles.banner} ${compact ? styles.bannerCompact : ""}`.trim()}>
             <div className={styles.illustrationLeft} aria-hidden="true">
               <Image
                 src={`${CTA_ASSETS}/talking.svg`}

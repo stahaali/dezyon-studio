@@ -18,8 +18,8 @@
 .brandImage {
   height: 40px;
   width: auto;
-  filter: brightness(0);
-  opacity: 0.55;
+  filter: brightness(0) invert(1);
+  opacity: 0.45;
 }
 
 @media (min-width: 1280px) {

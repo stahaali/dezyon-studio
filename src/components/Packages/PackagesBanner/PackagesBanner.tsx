@@ -1,11 +1,20 @@
 import Image from "next/image";
-import { packagesBanner } from "@/data/packages";
+import {
+  packageCategoryMeta,
+  packagesBanner,
+  type PackageCategoryId,
+} from "@/data/packages";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./PackagesBanner.module.css";
 
-export function PackagesBanner() {
+type PackagesBannerProps = {
+  categoryId: PackageCategoryId;
+};
+
+export function PackagesBanner({ categoryId }: PackagesBannerProps) {
+  const banner = packageCategoryMeta[categoryId];
   const { stars } = packagesBanner;
 
   return (
@@ -28,9 +37,9 @@ export function PackagesBanner() {
                   className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
                 >
                   <span className={splitTitleStyles.lightOnDark}>
-                    {packagesBanner.titlePrefix}
+                    {banner.titlePrefix}
                     <span className={styles.wordHighlight}>
-                      {packagesBanner.titleHighlight}
+                      {banner.titleHighlight}
                     </span>
                   </span>
                 </h1>
@@ -44,7 +53,7 @@ export function PackagesBanner() {
                 />
               </div>
             </div>
-            <p className={styles.description}>{packagesBanner.description}</p>
+            <p className={styles.description}>{banner.description}</p>
           </div>
         </ScrollReveal>
       </Container>

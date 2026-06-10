@@ -794,6 +794,80 @@ const webPortalPlans: PackagePlan[] = [
   },
 ];
 
+export const packageCategoryMeta: Record<
+  PackageCategoryId,
+  { titlePrefix: string; titleHighlight: string; description: string }
+> = {
+  logo: {
+    titlePrefix: "Logo ",
+    titleHighlight: "packages.",
+    description:
+      "Choose a logo package that fits your brand — from startup concepts to full identity rollouts.",
+  },
+  "website-design": {
+    titlePrefix: "Website Design ",
+    titleHighlight: "packages.",
+    description:
+      "Custom website design plans for startups, growing teams, and enterprise brands.",
+  },
+  branding: {
+    titlePrefix: "Branding ",
+    titleHighlight: "packages.",
+    description:
+      "Complete branding packages with logo concepts, ownership rights, and print-ready assets.",
+  },
+  ecommerce: {
+    titlePrefix: "E-Commerce ",
+    titleHighlight: "packages.",
+    description:
+      "Online store packages with tailored design, product setup, and conversion-focused layouts.",
+  },
+  wordpress: {
+    titlePrefix: "Wordpress ",
+    titleHighlight: "packages.",
+    description:
+      "WordPress website packages from quick launches to high-end corporate builds.",
+  },
+  shopify: {
+    titlePrefix: "Shopify ",
+    titleHighlight: "packages.",
+    description:
+      "Shopify store packages for product catalogs, payments, and scalable e-commerce growth.",
+  },
+  "video-animation": {
+    titlePrefix: "Video animation ",
+    titleHighlight: "packages.",
+    description:
+      "Explainer and promo video packages with script, storyboard, animation, and voice-over.",
+  },
+  seo: {
+    titlePrefix: "SEO ",
+    titleHighlight: "packages.",
+    description:
+      "Search engine optimization plans with audits, keyword targeting, and on-page optimization.",
+  },
+  smm: {
+    titlePrefix: "SMM ",
+    titleHighlight: "packages.",
+    description:
+      "Social media marketing packages for content, campaigns, and consistent channel growth.",
+  },
+  "web-portal": {
+    titlePrefix: "Web Portal ",
+    titleHighlight: "packages.",
+    description:
+      "Custom web portal packages for job boards, networks, marketplaces, and enterprise platforms.",
+  },
+};
+
+export function getPricingCategoryPath(categoryId: PackageCategoryId) {
+  return `/pricing/${categoryId}`;
+}
+
+export function isPackageCategoryId(value: string): value is PackageCategoryId {
+  return packageCategories.some((category) => category.id === value);
+}
+
 export const packagePlansByCategory: Record<PackageCategoryId, PackagePlan[]> = {
   logo: logoPlans,
   "website-design": websiteDesignPlans,

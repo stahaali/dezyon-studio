@@ -9,7 +9,13 @@ import {
 import { SITE_NAME } from "@/lib/constants";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
+import { CanadaFlag, UsaFlag } from "@/components/Footer/FooterFlags";
 import styles from "./Footer.module.css";
+
+const officeFlags = {
+  usa: UsaFlag,
+  canada: CanadaFlag,
+} as const;
 
 const socialIcons = {
   Facebook: (
@@ -78,10 +84,19 @@ export function Footer() {
           <div className={styles.contactCol}>
             <h3 className={styles.colTitle}>Contact Us</h3>
             <div className={styles.contactList}>
-              <div className={styles.contactItem}>
-                <span className={styles.contactLabel}>{footerContact.headOfficeLabel}</span>
-                <p className={styles.contactText}>{footerContact.address}</p>
-              </div>
+              {footerContact.offices.map((office) => {
+                const Flag = officeFlags[office.id];
+
+                return (
+                  <div key={office.id} className={styles.officeItem}>
+                    <Flag className={styles.flagIcon} />
+                    <div className={styles.officeContent}>
+                      <span className={styles.contactLabel}>{office.country}</span>
+                      <p className={styles.contactText}>{office.address}</p>
+                    </div>
+                  </div>
+                );
+              })}
               <a href={`tel:${footerContact.phone.replace(/\D/g, "")}`} className={styles.contactLink}>
                 <span className={styles.contactIcon} aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="currentColor">

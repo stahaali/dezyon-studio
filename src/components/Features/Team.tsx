@@ -6,9 +6,17 @@ import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
 import styles from "./Team.module.css";
 
-export function Team() {
+type TeamProps = {
+  theme?: "light" | "dark";
+};
+
+export function Team({ theme = "light" }: TeamProps) {
   return (
-    <section id="team" className={`page-section ${styles.section}`} aria-labelledby="team-heading">
+    <section
+      id="team"
+      className={`page-section ${styles.section} ${theme === "dark" ? styles.sectionDark : ""}`}
+      aria-labelledby="team-heading"
+    >
       <Container>
         <ScrollReveal>
           <div

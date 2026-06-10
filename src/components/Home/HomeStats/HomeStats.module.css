@@ -1,13 +1,13 @@
 .section {
-  background-color: var(--color-cream);
-  padding: 56px 0;
+  background-color: #000200;
+  padding: 0;
 }
 
 .statsCard {
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
-  padding: 40px 24px;
-  border: 1px solid var(--color-border-light);
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .statsGrid {
@@ -25,20 +25,20 @@
   font-size: clamp(32px, 5vw, 44px);
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--color-text);
+  color: #ffffff;
   line-height: 1.1;
   margin-bottom: 8px;
 }
 
 .statLabel {
   font-size: 14px;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.68);
   line-height: 1.4;
 }
 
 @media (min-width: 768px) {
   .statsCard {
-    padding: 48px 32px;
+    padding: 0 32px;
   }
 
   .statsGrid {
@@ -53,6 +53,6 @@
 
 @media (min-width: 1024px) {
   .statsCard {
-    padding: 56px 40px;
+    padding: 0 40px;
   }
 }

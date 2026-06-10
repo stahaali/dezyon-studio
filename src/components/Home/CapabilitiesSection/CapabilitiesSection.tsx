@@ -66,10 +66,23 @@ export function CapabilitiesSection() {
             aria-labelledby={`capabilities-tab-${activeTab.id}`}
             className={styles.panel}
           >
-            <div className={styles.panelBg} aria-hidden="true">
+            <div
+              className={`${styles.panelBg} ${styles[`panelBg${activeTab.id}`]}`}
+              aria-hidden="true"
+            >
+              {activeTab.backgroundImage ? (
+                <span
+                  className={styles.panelBgImage}
+                  style={{
+                    backgroundImage: `url(${activeTab.backgroundImage})`,
+                  }}
+                />
+              ) : null}
+              <span className={styles.panelBgOverlay} />
               <span className={styles.shapeOne} />
               <span className={styles.shapeTwo} />
               <span className={styles.shapeThree} />
+              <span className={styles.shapeFour} />
             </div>
 
             <div className={styles.panelContent}>

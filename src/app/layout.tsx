@@ -27,6 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lexend.variable} h-full scroll-smooth`}>
       <head>
+        <link rel="preconnect" href="https://translate.google.com" />
+        <link rel="dns-prefetch" href="https://translate.google.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

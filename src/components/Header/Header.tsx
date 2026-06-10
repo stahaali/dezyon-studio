@@ -1,13 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { footerSocialLinks, navLinks } from "@/data/site";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { footerContact, footerSocialLinks, navLinks, pricingNav } from "@/data/site";
 import { useMobileMenu } from "@/context/MobileMenuContext";
 import { useStickyHeader, useLockBodyScroll } from "@/hooks/useStickyHeader";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
+import { LanguageTranslator } from "@/components/Header/LanguageTranslator";
+import { PricingMenuIcon } from "@/components/Header/PricingMenuIcons";
 import styles from "./Header.module.css";
+
+const headerPhoneHref = `tel:${footerContact.phone.replace(/\D/g, "")}`;
 
 const socialIcons = {
   Facebook: (
@@ -32,9 +37,52 @@ const socialIcons = {
   ),
 } as const;
 
+function NavLinkItem({ href, label }: { href: string; label: string }) {
+  return (
+    <li>
+      <Link href={href} className={styles.link}>
+        {label}
+      </Link>
+    </li>
+  );
+}
+
+function PricingDropdown() {
+  return (
+    <li className={styles.dropdown}>
+      <div className={styles.dropdownTrigger}>
+        <Link href={pricingNav.href} className={styles.link}>
+          {pricingNav.label}
+        </Link>
+        <ChevronDown size={14} className={styles.dropdownCaret} aria-hidden="true" />
+      </div>
+
+      <ul className={styles.dropdownMenu}>
+        {pricingNav.menuItems.map((item) => (
+          <li key={item.id}>
+            <Link href={item.href} className={styles.dropdownItem}>
+              <span
+                className={styles.dropdownIcon}
+                style={{
+                  backgroundColor: `${item.color}22`,
+                  color: item.color,
+                }}
+              >
+                <PricingMenuIcon id={item.id} />
+              </span>
+              <span>{item.label}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
 export function Header() {
   const { isScrolled, isHeaderVisible } = useStickyHeader();
   const { isOpen: mobileOpen, closeMenu, toggleMenu } = useMobileMenu();
+  const [pricingOpen, setPricingOpen] = useState(false);
   useLockBodyScroll(mobileOpen);
 
   const showHeader = isHeaderVisible || mobileOpen;
@@ -48,30 +96,35 @@ export function Header() {
           <Logo variant="light" className={styles.logo} />
 
           <ul className={styles.links}>
-            {navLinks.map((link) => (
-              <li key={link.href + link.label}>
-                {link.href.startsWith("/") ? (
-                  <Link href={link.href} className={styles.link}>
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a href={link.href} className={styles.link}>
-                    {link.label}
-                  </a>
-                )}
-              </li>
+            {navLinks.slice(0, 4).map((link) => (
+              <NavLinkItem key={link.href} href={link.href} label={link.label} />
+            ))}
+            <NavLinkItem href={navLinks[4].href} label={navLinks[4].label} />
+            <PricingDropdown />
+            {navLinks.slice(5).map((link) => (
+              <NavLinkItem key={link.href} href={link.href} label={link.label} />
             ))}
           </ul>
 
-          <button
-            type="button"
-            className={styles.menuToggle}
-            onClick={toggleMenu}
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X size={24} strokeWidth={2} /> : <Menu size={24} strokeWidth={2} />}
-          </button>
+          <div className={styles.headerActions}>
+            <div className={styles.actions}>
+              <a href={headerPhoneHref} className={styles.phoneLink}>
+                <Phone size={16} aria-hidden="true" />
+                <span className={styles.phoneText}>{footerContact.phone}</span>
+              </a>
+              <LanguageTranslator />
+            </div>
+
+            <button
+              type="button"
+              className={styles.menuToggle}
+              onClick={toggleMenu}
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? <X size={24} strokeWidth={2} /> : <Menu size={24} strokeWidth={2} />}
+            </button>
+          </div>
         </Container>
       </header>
 
@@ -103,31 +156,88 @@ export function Header() {
 
         <div className={styles.mobileMenuBody}>
           <ul className={styles.mobileLinks}>
-            {navLinks.map((link) => (
-              <li key={link.href + link.label}>
-                {link.href.startsWith("/") ? (
-                  <Link
-                    href={link.href}
-                    className={styles.mobileLink}
-                    onClick={closeMenu}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    href={link.href}
-                    className={styles.mobileLink}
-                    onClick={closeMenu}
-                  >
-                    {link.label}
-                  </a>
-                )}
+            {navLinks.slice(0, 4).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={styles.mobileLink}
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+
+            <li>
+              <Link
+                href={navLinks[4].href}
+                className={styles.mobileLink}
+                onClick={closeMenu}
+              >
+                {navLinks[4].label}
+              </Link>
+            </li>
+
+            <li className={styles.mobileDropdown}>
+              <button
+                type="button"
+                className={`${styles.mobileLink} ${styles.mobileDropdownBtn}`}
+                onClick={() => setPricingOpen((open) => !open)}
+                aria-expanded={pricingOpen}
+              >
+                <span>{pricingNav.label}</span>
+                <ChevronDown
+                  size={18}
+                  className={`${styles.mobileDropdownCaret} ${pricingOpen ? styles.mobileDropdownCaretOpen : ""}`}
+                />
+              </button>
+
+              {pricingOpen ? (
+                <ul className={styles.mobileSubmenu}>
+                  {pricingNav.menuItems.map((item) => (
+                    <li key={item.id}>
+                      <Link
+                        href={item.href}
+                        className={styles.mobileSubmenuLink}
+                        onClick={closeMenu}
+                      >
+                        <span
+                          className={styles.dropdownIcon}
+                          style={{
+                            backgroundColor: `${item.color}22`,
+                            color: item.color,
+                          }}
+                        >
+                          <PricingMenuIcon id={item.id} />
+                        </span>
+                        <span>{item.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </li>
+
+            {navLinks.slice(5).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={styles.mobileLink}
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div className={styles.mobileMenuFooter}>
+          <a href={headerPhoneHref} className={styles.mobilePhoneLink} onClick={closeMenu}>
+            <Phone size={18} aria-hidden="true" />
+            <span>{footerContact.phone}</span>
+          </a>
+
           <div className={styles.mobileSocial}>
             {footerSocialLinks.map(({ href, label }) => (
               <a

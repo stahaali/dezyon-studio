@@ -16,7 +16,7 @@ export function Pricing() {
       <Container>
         <ScrollReveal>
           <div
-            className={`${sectionHeadingStyles.heading} ${sectionHeadingStyles.center} ${styles.sectionHeading}`}
+            className={`${sectionHeadingStyles.heading} ${sectionHeadingStyles.center} ${sectionHeadingStyles.light} ${styles.sectionHeading}`}
           >
             <h2
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}

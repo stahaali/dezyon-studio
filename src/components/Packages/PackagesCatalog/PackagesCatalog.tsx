@@ -1,9 +1,7 @@
-"use client";
-
-import { useState } from "react";
 import { Check } from "lucide-react";
 import Link from "next/link";
 import {
+  getPricingCategoryPath,
   packageCategories,
   packagePlansByCategory,
   packagesActions,
@@ -17,9 +15,12 @@ function formatPrice(value: number) {
   return `$${value.toFixed(2)}`;
 }
 
-export function PackagesCatalog() {
-  const [activeCategory, setActiveCategory] = useState<PackageCategoryId>("logo");
-  const plans = packagePlansByCategory[activeCategory];
+type PackagesCatalogProps = {
+  category: PackageCategoryId;
+};
+
+export function PackagesCatalog({ category }: PackagesCatalogProps) {
+  const plans = packagePlansByCategory[category];
 
   return (
     <section className={styles.section} aria-label="Package plans">
@@ -27,20 +28,19 @@ export function PackagesCatalog() {
         <ScrollReveal>
           <div className={styles.tabsWrap}>
             <div className={styles.tabs} role="tablist" aria-label="Package categories">
-              {packageCategories.map((category) => {
-                const isActive = activeCategory === category.id;
+              {packageCategories.map((item) => {
+                const isActive = category === item.id;
 
                 return (
-                  <button
-                    key={category.id}
-                    type="button"
+                  <Link
+                    key={item.id}
+                    href={getPricingCategoryPath(item.id)}
                     role="tab"
                     aria-selected={isActive}
                     className={`${styles.tab} ${isActive ? styles.tabActive : ""}`.trim()}
-                    onClick={() => setActiveCategory(category.id)}
                   >
-                    {category.label}
-                  </button>
+                    {item.label}
+                  </Link>
                 );
               })}
             </div>

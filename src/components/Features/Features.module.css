@@ -1,5 +1,5 @@
 .section {
-  background-color: var(--color-white);
+  background-color: #000200;
   padding-top: 0;
   padding-bottom: 56px;
 }
@@ -15,7 +15,7 @@
 .title {
   margin: 0 0 12px;
   white-space: normal;
-  color: #000200;
+  color: #ffffff;
   overflow: visible;
   line-height: 1.2;
 }
@@ -25,7 +25,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  background-color: var(--color-primary);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -35,7 +35,7 @@
 .subtitle {
   font-size: clamp(15px, 2vw, 18px);
   line-height: 1.6;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
   margin: 0;
 }
 
@@ -63,7 +63,8 @@
   margin: 0;
   padding: 12px 25px 0 25px;
   list-style: none;
-  background-color: var(--color-cream);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
 }
 
@@ -78,7 +79,7 @@
   text-align: center;
   font-size: clamp(14px, 2vw, 18px);
   font-weight: 600;
-  color: #000200;
+  color: rgba(255, 255, 255, 0.72);
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
@@ -90,13 +91,13 @@
 }
 
 .tabBtn:hover {
-  color: #000200;
-  border-bottom-color: #000200;
+  color: #ffffff;
+  border-bottom-color: var(--color-primary);
 }
 
 .tabBtnActive {
-  color: #000200;
-  border-bottom-color: #000200;
+  color: #ffffff;
+  border-bottom-color: var(--color-primary);
 }
 
 .panel {
@@ -189,13 +190,13 @@
 }
 
 .panelTitle span:first-child {
-  color: #000200;
+  color: #ffffff;
 }
 
 .panelDesc {
   font-size: clamp(15px, 2vw, 18px);
   line-height: 1.65;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
   margin: 0 0 20px;
 }
 
@@ -205,12 +206,12 @@
   gap: 6px;
   font-size: 15px;
   font-weight: 600;
-  color: #000200;
+  color: var(--color-primary);
   transition: gap var(--transition-fast);
 }
 
 .ctaLink svg {
-  color: #000200;
+  color: var(--color-primary);
 }
 
 .ctaLink:hover {

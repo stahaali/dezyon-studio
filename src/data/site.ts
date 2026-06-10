@@ -1,13 +1,20 @@
 import { flaticonIcons } from "@/data/icons";
+import { pricingMenuItems } from "@/data/pricing-menu";
+
+export const pricingNav = {
+  label: "Pricing",
+  href: pricingMenuItems[0]?.href ?? "/pricing/logo",
+  menuItems: pricingMenuItems,
+} as const;
 
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Packages", href: "/packages" },
-  { label: "Combo Packages", href: "/combo-packages" },
-  { label: "Web Apps", href: "/web-apps" },
+  { label: "AI Agent", href: "/ai-agent" },
+  // { label: "Combo Packages", href: "/combo-packages" },
+  // { label: "Web Apps", href: "/web-apps" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -19,20 +26,27 @@ export const footerInformationLinks = [
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Packages", href: "/packages" },
-  { label: "Combo Packages", href: "/combo-packages" },
-  { label: "Web Apps", href: "/web-apps" },
   { label: "Contact Us", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms and Conditions", href: "/terms-and-conditions" },
-  { label: "Refund Policy", href: "/refund-policy" },
+] as const;
+
+export const footerOffices = [
+  {
+    id: "usa",
+    country: "USA",
+    address: "17418 Moreton Ln, Spring, TX 77379",
+  },
+  {
+    id: "canada",
+    country: "Canada",
+    address: "250 Yonge St, Toronto, ON M5B 2L7",
+  },
 ] as const;
 
 export const footerContact = {
-  headOfficeLabel: "Head Office:",
-  address: "17418 Moreton Ln, Spring, TX 77379",
   phone: "(573) 240-7509",
   email: "info@dezyondigital.com",
+  offices: footerOffices,
+  address: footerOffices[0].address,
 } as const;
 
 export const footerSocialLinks = [

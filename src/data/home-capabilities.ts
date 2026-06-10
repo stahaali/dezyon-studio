@@ -1,5 +1,7 @@
 import { heroBrands } from "@/data/hero";
 
+const CAPABILITIES_ASSETS = "/assets/img/home-capabilities";
+
 export const homeCapabilitiesSection = {
   titlePrefix: "We ",
   titleHighlight: "transform",
@@ -25,6 +27,7 @@ export const homeCapabilitiesTabs = [
       "AI-ready framework",
     ],
     cta: { label: "Learn more", href: "/services" },
+    backgroundImage: null,
   },
   {
     id: "development",
@@ -40,6 +43,7 @@ export const homeCapabilitiesTabs = [
       "AI-ready framework",
     ],
     cta: { label: "Learn more", href: "/services" },
+    backgroundImage: `${CAPABILITIES_ASSETS}/development-bg.jpg`,
   },
   {
     id: "webops",
@@ -56,6 +60,7 @@ export const homeCapabilitiesTabs = [
       "Ongoing bug fixes & maintenance",
     ],
     cta: { label: "Learn more", href: "/contact" },
+    backgroundImage: `${CAPABILITIES_ASSETS}/webops-bg.jpg`,
   },
   {
     id: "seo",
@@ -73,6 +78,7 @@ export const homeCapabilitiesTabs = [
       "Design and development",
     ],
     cta: { label: "Learn more", href: "/services" },
+    backgroundImage: `${CAPABILITIES_ASSETS}/seo-bg.jpg`,
   },
 ] as const;
 

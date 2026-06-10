@@ -1,11 +1,10 @@
 .section {
   background-color: #000200;
   overflow: hidden;
-  padding:56px 0;
+  padding: 0;
 }
 
 .sectionHeading {
-  padding-top: 12px;
   overflow: visible;
 }
 

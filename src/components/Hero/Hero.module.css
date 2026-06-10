@@ -3,6 +3,7 @@
 .hero {
   position: relative;
   overflow: hidden;
+  background-color: #000200;
   padding-top: calc(var(--header-height) + 36px);
   padding-right: 44px;
   padding-bottom: 48px;
@@ -459,7 +460,7 @@
   }
 
   .heroGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
     gap: 0;
     align-items: start;
     min-height: calc(100vh - var(--header-height) + 80px);
@@ -467,6 +468,9 @@
 
   .sliderColumn {
     margin-top: calc(-1 * (40px + 20px));
+    margin-left: auto;
+    width: 92%;
+    max-width: 440px;
     height: calc(100vh - var(--header-height) + 80px);
     min-height: calc(100vh - var(--header-height) + 80px);
     padding-top: 0;

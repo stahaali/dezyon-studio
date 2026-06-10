@@ -102,3 +102,13 @@ button {
   border: 0;
 }
 
+.skiptranslate,
+.goog-te-banner-frame,
+#goog-gt-tt {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
