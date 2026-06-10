@@ -84,4 +84,4 @@ export function Pricing() {
       </Container>
     </section>
   );
-}
+}                
