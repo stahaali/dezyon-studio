@@ -26,11 +26,11 @@ export const heroRating = {
 } as const;
 
 export const heroContent = {
-  titlePrefix: "Easy project",
-  titleHighlight: "management",
-  titleSuffix: " of any complexity",
+  titlePrefix: "Meet Our ",
+  titleHighlight: "WebOps",
+  titleSuffix: " Team For Your Business",
   subtitle:
-    "We design, build, and grow websites, brands, and digital products for teams that want to stand out online.",
+    "We design, build, and grow websites, brands, and digital products for business that want to stand out online.",
   form: {
     placeholder: "yourwebsite.com",
     submitLabel: "Get free audit",

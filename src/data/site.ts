@@ -40,7 +40,7 @@ export const footerOffices = [
     id: "canada",
     country: "Canada",
     address: "2465 Finch Ave W, North York, ON M9M 2G1",
-    phone: "+1 226 501 0914",
+    phone: "+1 226-501-0914",
   },
 ] as const;
 

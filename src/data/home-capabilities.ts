@@ -13,8 +13,8 @@ export const homeCapabilitiesSection = {
 export const homeCapabilitiesTabs = [
   {
     id: "rebrand",
-    label: "Full-service rebrand",
-    badge: "dezyon transform",
+    label: "Full-Service Rebrand",
+    badge: "Dezyon transform",
     title: "Complete web transformation",
     description:
       "Strategy, brand, design, content, development and more. One team, one timeline.",
@@ -31,8 +31,8 @@ export const homeCapabilitiesTabs = [
   },
   {
     id: "development",
-    label: "Website development",
-    badge: "dezyon build",
+    label: "Website Development",
+    badge: "Dezyon build",
     title: "Website development",
     description:
       "Enterprise website development and re-platforming services with performance, SEO retention, and scalable architecture.",
@@ -47,8 +47,8 @@ export const homeCapabilitiesTabs = [
   },
   {
     id: "webops",
-    label: "Ongoing WebOps services",
-    badge: "dezyon operate",
+    label: "Ongoing WebOps Services",
+    badge: "Dezyon operate",
     title: "Ongoing WebOps services",
     description:
       "Embedded web team that runs your website the way an in-house team would.",
@@ -65,7 +65,7 @@ export const homeCapabilitiesTabs = [
   {
     id: "seo",
     label: "SEO & AEO",
-    badge: "dezyon grow",
+    badge: "Dezyon grow",
     title: "SEO & AEO",
     description:
       "Full-service organic search and AI visibility optimisation. Win on traditional and AI search engines.",

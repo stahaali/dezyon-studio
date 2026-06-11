@@ -111,7 +111,7 @@ export const services = [
   },
   {
     id: "animation",
-    title: "2D/3D Animation",
+    title: "Video Animation",
     description:
       "Compelling motion graphics and 3D visuals that explain ideas, elevate storytelling, and bring your brand to life with dynamic energy.",
     icon: flaticonIcons.trophyColor,

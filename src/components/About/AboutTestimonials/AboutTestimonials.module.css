@@ -82,7 +82,7 @@
   font-size: 14px;
   font-weight: 600;
   font-style: normal;
-  color: #ffffff;
+  color: var(--color-primary);
   line-height: 1.3;
 }
 
