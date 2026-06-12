@@ -16,7 +16,7 @@ export function Values() {
               id="values-heading"
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              Our Values it&apos;s{" "}
+              Our Values It&apos;s{" "}
               <span className={styles.wordHighlight}>Simple!</span>
             </h2>
           </div>

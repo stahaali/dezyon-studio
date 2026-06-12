@@ -37,8 +37,8 @@ export function CTA({ compact = false }: CTAProps) {
                 id="cta-heading"
                 className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
               >
-                <span className={styles.titleText}>Prevent costly</span>
-                <span className={styles.wordHighlight}>mistakes</span>
+                <span className={styles.titleText}>Prevent Costly</span>
+                <span className={styles.wordHighlight}>Mistakes</span>
               </h2>
               <p className={styles.subtitle}>
                 Create pre-approved templates and lock all legal information.

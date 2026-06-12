@@ -45,7 +45,7 @@
 }
 
 .card:hover {
-  background: rgba(171, 245, 3, 0.04);
+  background: rgba(var(--color-primary-rgb), 0.04);
   border-color: #c8ff4d;
 }
 

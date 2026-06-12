@@ -46,7 +46,7 @@
   grid-template-columns: 1fr;
   gap: 24px;
   padding-top: 24px;
-  border-top: 1px solid rgba(171, 245, 3, 0.2);
+  border-top: 1px solid rgba(var(--color-primary-rgb), 0.2);
 }
 
 .contact {

@@ -5,7 +5,7 @@ const WEB_APPS_ASSETS = "/assets/img/web-apps";
 
 export const webAppsBanner = {
   titlePrefix: "Custom ",
-  titleHighlight: "web apps.",
+  titleHighlight: "Web apps.",
   description:
     "Scalable web applications built for performance, security, and growth — from MVPs to enterprise platforms.",
   stars: {
@@ -44,9 +44,9 @@ export const webAppsTrust = [
 export const webAppsB2B = {
   image: "/assets/img/web-app/mobile-app-img1.jpg",
   imageAlt: "Developer reviewing application code on a smartphone",
-  titlePrefix: "For every industry, ",
-  titleHighlight: "B2B portal services",
-  titleSuffix: " built to scale.",
+  titlePrefix: "For Every Industry, ",
+  titleHighlight: "B2B Portal services",
+  titleSuffix: " Built To Scale.",
   paragraphs: [
     "Dezyon Digital incorporates B2B communication skills and what it takes to maintain a smooth software development life cycle and produce powerful B2B tools that lift the client's business above the competition.",
     "We recognize the significant shift in B2B e-commerce and provide clients with top-notch web apps to simplify e-cooperation with their customers and partners by first understanding your business objectives.",
@@ -61,8 +61,8 @@ export const webAppsB2B = {
 
 export const webAppsDevelopment = {
   titlePrefix: "Expert ",
-  titleHighlight: "web portals",
-  titleSuffix: " built for growth.",
+  titleHighlight: "Web portals",
+  titleSuffix: " Built For Growth.",
   description:
     "Dezyon Digital is certain to give you eCommerce solutions and web apps that are visually and technically above the normal no-brainers in the business, regardless of project complexity or customer needs.",
   cards: [
@@ -97,8 +97,8 @@ export const webAppsTechnologies = {
   image: "/assets/img/web-app/mobile-app-img2.jpg",
   imageAlt: "Designer sketching mobile app wireframes at a workspace desk",
   titlePrefix: "Your ",
-  titleHighlight: "portal hub",
-  titleSuffix: " for web apps.",
+  titleHighlight: "Portal hub",
+  titleSuffix: " For Web Apps.",
   intro:
     "Dezyon Digital has been working in the digital market for over ten years. Our clients come to us for a variety of services aimed at improving their brand's online reputation and expanding their customer base.",
   segments: [

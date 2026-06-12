@@ -23,6 +23,7 @@
 
 .wordHighlight {
   display: inline-block;
+  width: fit-content;
   padding: 0.06em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;

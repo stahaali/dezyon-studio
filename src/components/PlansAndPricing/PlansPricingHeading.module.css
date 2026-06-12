@@ -1,0 +1,28 @@
+.heading {
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.2;
+  overflow: visible;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.wordHighlight {
+  display: inline-block;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background: var(--brand-gradient);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+  font: inherit;
+  letter-spacing: inherit;
+}

@@ -1,5 +1,5 @@
 export const privacyPage = {
-  title: "Privacy policy",
+  title: "Privacy Policy",
   intro: [
     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
     "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
@@ -7,7 +7,7 @@ export const privacyPage = {
   ],
   sections: [
     {
-      title: "Determination of personal information of users",
+      title: "Determination Of Personal Information Of Users",
       items: [
         "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.",
         "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
@@ -15,7 +15,7 @@ export const privacyPage = {
       ],
     },
     {
-      title: "Reasons for collecting and processing user personal information",
+      title: "Reasons For Collecting And Processing User Personal Information",
       items: [
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.",

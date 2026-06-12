@@ -20,7 +20,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -30,10 +30,14 @@
 .sliderOuter {
   width: 100%;
   margin-top: 48px;
+  display: flex;
+  justify-content: center;
 }
 
 .swiper {
   width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
   overflow: hidden;
 }
 
@@ -175,6 +179,18 @@
 @media (min-width: 1024px) {
   .sliderOuter {
     margin-top: 56px;
+  }
+
+  .swiper :global(.swiper-slide),
+  .slide {
+    width: auto;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .imageWrap {
+    width: min(200px, 100%);
+    margin-inline: auto;
   }
 }
 

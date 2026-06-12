@@ -49,8 +49,8 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  width: 120px;
-  height: 36px;
+  width: 104px;
+  height: 32px;
   line-height: 0;
 }
 
@@ -103,6 +103,18 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
+.linkActive {
+  color: var(--color-primary);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
+}
+
+.linkActive:hover,
+.scrolled .linkActive,
+.menuOpen .linkActive {
+  color: var(--color-primary);
+  background-color: rgba(var(--color-primary-rgb), 0.18);
+}
+
 .scrolled .link,
 .menuOpen .link {
   color: rgba(255, 255, 255, 0.85);
@@ -149,7 +161,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: var(--color-accent) rgba(0, 2, 0, 0.08);
+  scrollbar-color: var(--brand-green-mid) var(--color-cream-dark);
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 8px);
@@ -167,12 +179,16 @@
 .dropdownMenu::-webkit-scrollbar-track {
   margin: 6px 0;
   border-radius: var(--radius-full);
-  background: rgba(0, 2, 0, 0.06);
+  background: var(--color-cream-dark);
 }
 
 .dropdownMenu::-webkit-scrollbar-thumb {
   border-radius: var(--radius-full);
-  background: var(--color-accent);
+  background: var(--brand-gradient);
+}
+
+.dropdownMenu::-webkit-scrollbar-thumb:hover {
+  background: var(--button-bg-hover);
 }
 
 .dropdown:hover .dropdownMenu,
@@ -195,7 +211,7 @@
 }
 
 .dropdownItem:hover {
-  background-color: rgba(171, 245, 3, 0.12);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
 }
 
 .dropdownIcon {
@@ -252,7 +268,7 @@
 }
 
 .mobileSubmenuLink:hover {
-  background-color: rgba(171, 245, 3, 0.12);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
 }
 
 .headerActions {
@@ -268,16 +284,16 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .phoneLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 7px 10px;
   border-radius: var(--radius-full);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
   color: rgba(255, 255, 255, 0.9);
@@ -431,8 +447,8 @@
 }
 
 .mobileMenuLogo {
-  width: 120px;
-  height: 36px;
+  width: 104px;
+  height: 32px;
 }
 
 .mobileMenuClose {
@@ -489,6 +505,11 @@
   background-color: var(--color-border-light);
 }
 
+.mobileLinkActive {
+  color: var(--color-accent-hover);
+  background-color: rgba(var(--color-primary-rgb), 0.14);
+}
+
 .mobileLink.mobileDropdownBtn {
   display: flex;
   align-items: center;
@@ -530,7 +551,7 @@
 
 .mobileSecondaryLink:hover {
   color: #000200;
-  background-color: rgba(171, 245, 3, 0.08);
+  background-color: rgba(var(--color-primary-rgb), 0.08);
 }
 
 .mobileMenuFooter {
@@ -584,7 +605,7 @@
 }
 
 .mobilePhoneLink:hover {
-  background-color: rgba(171, 245, 3, 0.12);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
 }
 
 @media (min-width: 1200px) {
@@ -596,11 +617,17 @@
 @media (min-width: 1024px) {
   .links {
     display: flex;
+    gap: 4px;
+  }
+
+  .link {
+    padding: 6px 7px;
+    font-size: 13px;
   }
 
   .logo {
-    width: 210px;
-    height: 60px;
+    width: 168px;
+    height: 48px;
   }
 
   .mobileMenu {
@@ -608,22 +635,26 @@
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1200px) {
+@media (min-width: 1280px) {
+  .links {
+    gap: 6px;
+  }
+
   .link {
-    padding: 8px 8px;
+    padding: 6px 9px;
     font-size: 13px;
   }
 }
 
 @media (max-width: 480px) {
   .logo {
-    width: 108px;
-    height: 32px;
+    width: 92px;
+    height: 28px;
   }
 
   .mobileMenuLogo {
-    width: 108px;
-    height: 32px;
+    width: 92px;
+    height: 28px;
   }
 
   .mobileMenuHeader {

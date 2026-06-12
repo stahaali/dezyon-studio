@@ -1,14 +1,49 @@
 :root {
-  --color-primary: #abf503;
-  --color-primary-hover: #005a4e;
-  --color-primary-light: #e6f3f0;
-  --color-accent: #abf503;
-  --color-accent-hover: #96d803;
+  --font-lexend: "NeueHaasGroteskDisplayPro", system-ui, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-bold: 700;
+  --color-primary: #92e13a;
+  --color-primary-hover: #164317;
+  --color-primary-light: #e5f5c8;
+  --color-accent: #92e13a;
+  --color-accent-hover: #42931e;
+  --color-primary-rgb: 146, 225, 58;
+  --brand-green: var(--color-primary);
+  --brand-green-mid: var(--color-accent-hover);
+  --brand-green-border: var(--color-accent-hover);
   --color-dark: #0c1c17;
   --color-dark-secondary: #142820;
   --color-cream: #f8f3ed;
   --color-cream-dark: #f0ebe4;
-  --color-heading-highlight: #f1e2de;
+  --color-heading-highlight: #42931e;
+  --brand-gradient: linear-gradient(
+    180deg,
+    #92e13a 0%,
+    #42931e 48%,
+    #164317 100%
+  );
+  --heading-highlight-bg: var(--brand-gradient);
+  --brand-gradient-panel: linear-gradient(
+    145deg,
+    #0a2e14 0%,
+    #164317 30%,
+    #42931e 55%,
+    #2e7a1b 80%,
+    #0f3d1a 100%
+  );
+  --brand-gradient-tab: linear-gradient(
+    180deg,
+    #42931e 0%,
+    #164317 65%,
+    #0a2e14 100%
+  );
+  --button-bg: var(--brand-gradient);
+  --button-bg-hover: linear-gradient(
+    180deg,
+    #a3eb4a 0%,
+    #58b326 50%,
+    #164317 100%
+  );
   --color-white: #ffffff;
   --color-text: #1a1a1a;
   --color-text-muted: #666666;

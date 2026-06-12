@@ -1,8 +1,8 @@
 const CONTACT_ASSETS = "/assets/img/contact";
 
 export const portfolioBanner = {
-  titlePrefix: "Our creative ",
-  titleHighlight: "portfolio.",
+  titlePrefix: "Our Creative ",
+  titleHighlight: "Portfolio.",
   description:
     "Explore selected websites and digital experiences crafted for brands that want to stand out online.",
   stars: {
@@ -13,7 +13,7 @@ export const portfolioBanner = {
 
 export const portfolioGrid = {
   titlePrefix: "Featured ",
-  titleHighlight: "projects",
+  titleHighlight: "Projects",
   titleSuffix: "",
   description:
     "A curated selection of websites, brands, and digital products we have designed and built.",

@@ -84,7 +84,8 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  z-index: 30;
+  z-index: 200;
+  pointer-events: auto;
   width: 180px;
   max-height: 280px;
   margin: 0;
@@ -113,12 +114,24 @@
 }
 
 .menuItem:hover {
-  background-color: rgba(171, 245, 3, 0.12);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
 }
 
 .menuItemActive {
-  background-color: rgba(171, 245, 3, 0.18);
+  background-color: rgba(var(--color-primary-rgb), 0.18);
   color: #000200;
+}
+
+.menuStatus {
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 2, 0, 0.55);
+}
+
+.menuItem:disabled {
+  opacity: 0.55;
+  cursor: wait;
 }
 
 @media (max-width: 480px) {

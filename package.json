@@ -6,16 +6,25 @@
     "dev": "node scripts/clean-dev.js && next dev",
     "dev:force": "node scripts/clean-dev.js && next dev --port 3000",
     "clean:dev": "node scripts/clean-dev.js",
+    "prebuild": "node scripts/clean-build.js && node scripts/sync-api-config.js",
+    "build:clean": "node scripts/clean-build.js && npm run build",
     "build": "next build",
+    "postbuild": "node scripts/sync-api-config.js && node scripts/write-build-info.js",
+    "build:hostinger": "npm run build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@fancyapps/ui": "^6.1.14",
+    "@fontsource/lexend": "^5.2.11",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
+    "mysql2": "^3.22.5",
     "next": "16.2.7",
+    "nodemailer": "^8.0.11",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-google-recaptcha": "^3.1.0",
     "swiper": "^12.2.0"
   },
   "devDependencies": {
@@ -23,6 +32,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-google-recaptcha": "^2.1.9",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",

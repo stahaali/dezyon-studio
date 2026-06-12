@@ -1,11 +1,12 @@
 "use client";
 
 import { ChevronDown, Globe } from "lucide-react";
-import { useLayoutEffect, useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   TRANSLATOR_LANGUAGES,
   applyLanguage,
   getActiveLanguageCode,
+  preloadGoogleTranslate,
 } from "@/lib/google-translate";
 import styles from "./LanguageTranslator.module.css";
 
@@ -19,6 +20,10 @@ export function LanguageTranslator() {
 
   useLayoutEffect(() => {
     setActiveLang(getActiveLanguageCode());
+  }, []);
+
+  useEffect(() => {
+    void preloadGoogleTranslate();
   }, []);
 
   useEffect(() => {
@@ -50,8 +55,17 @@ export function LanguageTranslator() {
   const activeLabel =
     LANGUAGES.find((language) => language.code === activeLang)?.label ?? "English";
 
+  const handleToggle = () => {
+    void preloadGoogleTranslate();
+    setOpen((isOpen) => !isOpen);
+  };
+
   const handleSelect = (code: string) => {
-    if (code === activeLang || isApplying) {
+    if (isApplying) {
+      return;
+    }
+
+    if (code === activeLang) {
       setOpen(false);
       return;
     }
@@ -59,7 +73,7 @@ export function LanguageTranslator() {
     setIsApplying(true);
     setOpen(false);
     setActiveLang(code);
-    applyLanguage(code);
+    void applyLanguage(code);
   };
 
   return (
@@ -67,7 +81,13 @@ export function LanguageTranslator() {
       <button
         type="button"
         className={styles.translatorBtn}
-        onClick={() => setOpen((isOpen) => !isOpen)}
+        onClick={handleToggle}
+        onMouseEnter={() => {
+          void preloadGoogleTranslate();
+        }}
+        onFocus={() => {
+          void preloadGoogleTranslate();
+        }}
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label={`Language translator, current language ${activeLabel}`}
@@ -77,7 +97,9 @@ export function LanguageTranslator() {
         <Globe size={16} className={styles.translatorIcon} aria-hidden="true" />
         <span className={styles.translatorCopy}>
           <span className={styles.translatorLabel}>Language</span>
-          <span className={styles.translatorValue}>{activeLabel}</span>
+          <span className={styles.translatorValue}>
+            {isApplying ? "Applying..." : activeLabel}
+          </span>
         </span>
         <ChevronDown
           size={14}
@@ -87,7 +109,14 @@ export function LanguageTranslator() {
       </button>
 
       {open ? (
-        <ul className={styles.menu} role="listbox" aria-label="Choose language">
+        <ul
+          className={styles.menu}
+          role="listbox"
+          aria-label="Choose language"
+          onMouseDown={(event) => {
+            event.stopPropagation();
+          }}
+        >
           {LANGUAGES.map((language) => (
             <li key={language.code} role="presentation">
               <button
@@ -97,7 +126,10 @@ export function LanguageTranslator() {
                 className={`${styles.menuItem} ${
                   language.code === activeLang ? styles.menuItemActive : ""
                 }`}
-                onClick={() => handleSelect(language.code)}
+                disabled={isApplying}
+                onClick={() => {
+                  handleSelect(language.code);
+                }}
               >
                 {language.label}
               </button>

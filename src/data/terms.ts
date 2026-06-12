@@ -1,5 +1,5 @@
 export const termsPage = {
-  title: "Terms of use",
+  title: "Terms of Use",
   intro:
     "Terms of use dolor sit amet consectetur, adipisicing elit. Recusandae provident ullam aperiam quo ad non corrupti sit vel quam repellat ipsa quod sed, repellendus adipisci, ducimus ea modi odio assumenda.",
   sections: [

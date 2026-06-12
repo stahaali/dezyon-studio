@@ -8,7 +8,7 @@ import styles from "./PortfolioGrid.module.css";
 export function PortfolioGrid() {
   return (
     <section className={styles.section} aria-label="Portfolio gallery">
-      <Container className={styles.container}>
+      <Container>
         <div className={styles.grid}>
           {portfolioProjects.map((project, index) => (
             <ScrollReveal key={project.id} delay={index * 0.06} as="article">

@@ -28,7 +28,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;

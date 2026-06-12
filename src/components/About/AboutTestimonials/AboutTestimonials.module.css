@@ -21,7 +21,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -56,6 +56,11 @@
 }
 
 .quote p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  overflow: hidden;
   font-size: 15px;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.72);

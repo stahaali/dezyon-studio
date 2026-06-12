@@ -1,15 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
-import {
-  HERO_POSTER,
-  HERO_VIDEO,
-  heroAvatars,
-  heroContent,
-  heroRating,
-} from "@/data/hero";
+import { heroAvatars, heroContent, heroRating } from "@/data/hero";
 import { BrandSlider } from "@/components/Hero/BrandSlider";
 import { HeroImageSlider } from "@/components/Hero/HeroImageSlider";
 import { Button } from "@/components/Shared/Button";
@@ -18,12 +11,6 @@ import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./Hero.module.css";
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    videoRef.current?.play().catch(() => {});
-  }, []);
-
   return (
     <section className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.heroBg} aria-hidden="true" />
@@ -44,6 +31,7 @@ export function Hero() {
               </span>
             </h1>
 
+            <p className={styles.intro}>{heroContent.intro}</p>
             <p className={styles.subtitle}>{heroContent.subtitle}</p>
 
             <form
@@ -120,22 +108,6 @@ export function Hero() {
           <div className={styles.sliderColumn}>
             <HeroImageSlider />
           </div>
-        </div>
-
-        <div className={styles.mediaPanel}>
-          <figure className={styles.mediaFigure}>
-            <video
-              ref={videoRef}
-              className={styles.mediaVideo}
-              src={HERO_VIDEO}
-              poster={HERO_POSTER}
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-label="Dezyon Studio showcase video"
-            />
-          </figure>
         </div>
 
         <div className={styles.brandsPanel}>

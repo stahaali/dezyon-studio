@@ -16,7 +16,7 @@ export function Integrations() {
             className={styles.sectionHeading}
             light
             lineBreak={false}
-            title="Boost your efficiency with integrations"
+            title="Boost Your Efficiency With Integrations"
             description="Connect every part of your business with integrations that will simplify your workflow."
           />
         </ScrollReveal>

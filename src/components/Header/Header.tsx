@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, Phone, X } from "lucide-react";
 import { footerContact, footerSocialLinks, navLinks, pricingNav } from "@/data/site";
 import { useMobileMenu } from "@/context/MobileMenuContext";
 import { useStickyHeader, useLockBodyScroll } from "@/hooks/useStickyHeader";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
 import { LanguageTranslator } from "@/components/Header/LanguageTranslator";
-import { PricingMenuIcon } from "@/components/Header/PricingMenuIcons";
 import styles from "./Header.module.css";
 
 const headerPhoneHref = `tel:${footerContact.phone.replace(/\D/g, "")}`;
@@ -37,55 +36,47 @@ const socialIcons = {
   ),
 } as const;
 
-function NavLinkItem({ href, label }: { href: string; label: string }) {
+function isNavLinkActive(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function NavLinkItem({
+  href,
+  label,
+  isActive,
+}: {
+  href: string;
+  label: string;
+  isActive: boolean;
+}) {
   return (
     <li>
-      <Link href={href} className={styles.link}>
+      <Link
+        href={href}
+        className={`${styles.link} ${isActive ? styles.linkActive : ""}`}
+        aria-current={isActive ? "page" : undefined}
+      >
         {label}
       </Link>
     </li>
   );
 }
 
-function PricingDropdown() {
-  return (
-    <li className={styles.dropdown}>
-      <div className={styles.dropdownTrigger}>
-        <Link href={pricingNav.href} className={styles.link}>
-          {pricingNav.label}
-        </Link>
-        <ChevronDown size={14} className={styles.dropdownCaret} aria-hidden="true" />
-      </div>
-
-      <ul className={styles.dropdownMenu}>
-        {pricingNav.menuItems.map((item) => (
-          <li key={item.id}>
-            <Link href={item.href} className={styles.dropdownItem}>
-              <span
-                className={styles.dropdownIcon}
-                style={{
-                  backgroundColor: `${item.color}22`,
-                  color: item.color,
-                }}
-              >
-                <PricingMenuIcon id={item.id} />
-              </span>
-              <span>{item.label}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </li>
-  );
-}
-
 export function Header() {
+  const pathname = usePathname();
   const { isScrolled, isHeaderVisible } = useStickyHeader();
   const { isOpen: mobileOpen, closeMenu, toggleMenu } = useMobileMenu();
-  const [pricingOpen, setPricingOpen] = useState(false);
   useLockBodyScroll(mobileOpen);
 
   const showHeader = isHeaderVisible || mobileOpen;
+  const isPricingActive =
+    pathname === pricingNav.href ||
+    pathname.startsWith("/pricing/") ||
+    pathname.startsWith("/plans-and-pricing/");
 
   return (
     <>
@@ -97,12 +88,30 @@ export function Header() {
 
           <ul className={styles.links}>
             {navLinks.slice(0, 4).map((link) => (
-              <NavLinkItem key={link.href} href={link.href} label={link.label} />
+              <NavLinkItem
+                key={link.href}
+                href={link.href}
+                label={link.label}
+                isActive={isNavLinkActive(pathname, link.href)}
+              />
             ))}
-            <NavLinkItem href={navLinks[4].href} label={navLinks[4].label} />
-            <PricingDropdown />
+            <NavLinkItem
+              href={navLinks[4].href}
+              label={navLinks[4].label}
+              isActive={isNavLinkActive(pathname, navLinks[4].href)}
+            />
+            <NavLinkItem
+              href={pricingNav.href}
+              label={pricingNav.label}
+              isActive={isPricingActive}
+            />
             {navLinks.slice(5).map((link) => (
-              <NavLinkItem key={link.href} href={link.href} label={link.label} />
+              <NavLinkItem
+                key={link.href}
+                href={link.href}
+                label={link.label}
+                isActive={isNavLinkActive(pathname, link.href)}
+              />
             ))}
           </ul>
 
@@ -156,79 +165,67 @@ export function Header() {
 
         <div className={styles.mobileMenuBody}>
           <ul className={styles.mobileLinks}>
-            {navLinks.slice(0, 4).map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={styles.mobileLink}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.slice(0, 4).map((link) => {
+              const isActive = isNavLinkActive(pathname, link.href);
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ""}`}
+                    onClick={closeMenu}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
 
             <li>
               <Link
                 href={navLinks[4].href}
-                className={styles.mobileLink}
+                className={`${styles.mobileLink} ${
+                  isNavLinkActive(pathname, navLinks[4].href) ? styles.mobileLinkActive : ""
+                }`}
                 onClick={closeMenu}
+                aria-current={
+                  isNavLinkActive(pathname, navLinks[4].href) ? "page" : undefined
+                }
               >
                 {navLinks[4].label}
               </Link>
             </li>
 
-            <li className={styles.mobileDropdown}>
-              <button
-                type="button"
-                className={`${styles.mobileLink} ${styles.mobileDropdownBtn}`}
-                onClick={() => setPricingOpen((open) => !open)}
-                aria-expanded={pricingOpen}
+            <li>
+              <Link
+                href={pricingNav.href}
+                className={`${styles.mobileLink} ${
+                  isPricingActive ? styles.mobileLinkActive : ""
+                }`}
+                onClick={closeMenu}
+                aria-current={isPricingActive ? "page" : undefined}
               >
-                <span>{pricingNav.label}</span>
-                <ChevronDown
-                  size={18}
-                  className={`${styles.mobileDropdownCaret} ${pricingOpen ? styles.mobileDropdownCaretOpen : ""}`}
-                />
-              </button>
-
-              {pricingOpen ? (
-                <ul className={styles.mobileSubmenu}>
-                  {pricingNav.menuItems.map((item) => (
-                    <li key={item.id}>
-                      <Link
-                        href={item.href}
-                        className={styles.mobileSubmenuLink}
-                        onClick={closeMenu}
-                      >
-                        <span
-                          className={styles.dropdownIcon}
-                          style={{
-                            backgroundColor: `${item.color}22`,
-                            color: item.color,
-                          }}
-                        >
-                          <PricingMenuIcon id={item.id} />
-                        </span>
-                        <span>{item.label}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
+                {pricingNav.label}
+              </Link>
             </li>
 
-            {navLinks.slice(5).map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={styles.mobileLink}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.slice(5).map((link) => {
+              const isActive = isNavLinkActive(pathname, link.href);
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ""}`}
+                    onClick={closeMenu}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

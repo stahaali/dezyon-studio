@@ -21,8 +21,8 @@ export function Pricing() {
             <h2
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              Price plans as per your{" "}
-              <span className={styles.wordHighlight}>needs</span>
+              Price Plans As Per Your{" "}
+              <span className={styles.wordHighlight}>Needs</span>
             </h2>
             <p className={sectionHeadingStyles.description}>
               No extra charges. No hidden fees.

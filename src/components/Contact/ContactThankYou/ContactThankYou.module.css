@@ -1,0 +1,48 @@
+.section {
+  background-color: #000200;
+  padding: calc(var(--header-height) + 48px) 0 80px;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.card {
+  max-width: 640px;
+  margin-inline: auto;
+  padding: 48px 32px;
+  text-align: center;
+  border-radius: var(--radius-2xl);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 24px;
+  color: #92e13a;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.message {
+  margin: 0 auto;
+  max-width: 480px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 56px 48px;
+  }
+}

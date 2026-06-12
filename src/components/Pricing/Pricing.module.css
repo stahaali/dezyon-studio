@@ -21,7 +21,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -43,7 +43,7 @@
 }
 
 .planFeatured {
-  background: rgba(171, 245, 3, 0.08);
+  background: rgba(var(--color-primary-rgb), 0.08);
 }
 
 .plan + .plan {
@@ -57,7 +57,7 @@
   font-size: 12px;
   font-weight: 600;
   color: #000200;
-  background: var(--color-primary);
+  background: var(--button-bg);
   padding: 4px 12px;
   border-radius: var(--radius-button);
 }
@@ -105,6 +105,11 @@
 .ctaBtn {
   width: 100%;
   margin-bottom: 8px;
+  background: var(--button-bg) !important;
+}
+
+.ctaBtn:hover {
+  background: var(--button-bg-hover) !important;
 }
 
 .trialNote {
@@ -140,7 +145,7 @@
 }
 
 .checkIcon {
-  color: var(--color-primary);
+  color: var(--brand-green);
   flex-shrink: 0;
   margin-top: 2px;
 }

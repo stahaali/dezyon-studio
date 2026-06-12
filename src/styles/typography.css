@@ -1,0 +1,27 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+}
+
+p,
+blockquote,
+figcaption,
+dd,
+li {
+  font-weight: var(--font-weight-light);
+}
+
+button {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold);
+}

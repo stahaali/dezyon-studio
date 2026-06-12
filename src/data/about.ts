@@ -52,7 +52,7 @@ export const aboutStats = [
 
 export const aboutValues = [
   {
-    title: "Make an impact",
+    title: "Make An Impact",
     description:
       "We're building something big. Something that has the power to change the trajectory of any sized business for the better.",
     icon: flaticonIcons.diamondColor,
@@ -68,7 +68,7 @@ export const aboutValues = [
     iconHeight: 56,
   },
   {
-    title: "Have fun",
+    title: "Have Fun",
     description:
       "We work hard and play harder. We believe in the importance of celebrating wins big or small, for the business or individuals.",
     icon: flaticonIcons.globeColor,

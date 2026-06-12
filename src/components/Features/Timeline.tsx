@@ -28,16 +28,15 @@ export function Timeline() {
               id="timeline-heading"
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              How we got{" "}
-              <span className={styles.wordHighlight}>here</span>
+              How We Got{" "}
+              <span className={styles.wordHighlight}>Here</span>
             </h2>
           </div>
         </ScrollReveal>
+        <div className={styles.sliderOuter}>
+          <TimelineSlider />
+        </div>
       </Container>
-
-      <div className={styles.sliderOuter}>
-        <TimelineSlider />
-      </div>
     </section>
   );
 }

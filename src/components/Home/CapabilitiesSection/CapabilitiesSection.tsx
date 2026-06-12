@@ -49,7 +49,7 @@ export function CapabilitiesSection() {
                     aria-selected={activeIndex === index}
                     aria-controls={`capabilities-panel-${tab.id}`}
                     id={`capabilities-tab-${tab.id}`}
-                    className={`${styles.tabBtn} ${activeIndex === index ? styles.tabBtnActive : ""}`.trim()}
+                    className={`${styles.tabBtn} ${activeIndex === index ? `${styles.tabBtnActive} ${styles[`tabBtnActive${tab.id}`]}` : ""}`.trim()}
                     onClick={() => setActiveIndex(index)}
                   >
                     {tab.label}

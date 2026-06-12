@@ -12,6 +12,7 @@ export const TRANSLATOR_LANGUAGES = [
 
 const TRANSLATOR_SCRIPT_ID = "google-translate-script";
 const TRANSLATOR_ELEMENT_ID = "google_translate_element";
+const TRANSLATOR_LOAD_TIMEOUT_MS = 12000;
 
 declare global {
   interface Window {
@@ -34,19 +35,47 @@ declare global {
 let translateReadyPromise: Promise<void> | null = null;
 let translateInitialized = false;
 
+function wait(ms: number) {
+  return new Promise<void>((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
+}
+
+async function waitForTranslateApi(timeoutMs = 10000) {
+  const startedAt = Date.now();
+
+  while (!window.google?.translate?.TranslateElement) {
+    if (Date.now() - startedAt >= timeoutMs) {
+      return false;
+    }
+
+    await wait(50);
+  }
+
+  return true;
+}
+
+function canSetCookieDomain() {
+  const hostname = window.location.hostname;
+  return hostname !== "localhost" && hostname !== "127.0.0.1";
+}
+
 export function getActiveLanguageCode(): string {
   if (typeof document === "undefined") {
     return "en";
   }
 
   const match = document.cookie.match(/googtrans=\/en\/([^;]+)/);
-  return match?.[1] || "en";
+  return match?.[1] ? decodeURIComponent(match[1]) : "en";
 }
 
 function clearTranslateCookies() {
   const expires = "Thu, 01 Jan 1970 00:00:00 GMT";
   document.cookie = `googtrans=;path=/;expires=${expires}`;
-  document.cookie = `googtrans=;path=/;domain=${window.location.hostname};expires=${expires}`;
+
+  if (canSetCookieDomain()) {
+    document.cookie = `googtrans=;path=/;domain=${window.location.hostname};expires=${expires}`;
+  }
 }
 
 export function setTranslateCookie(lang: string) {
@@ -57,7 +86,10 @@ export function setTranslateCookie(lang: string) {
 
   const value = `/en/${lang}`;
   document.cookie = `googtrans=${value};path=/`;
-  document.cookie = `googtrans=${value};path=/;domain=${window.location.hostname}`;
+
+  if (canSetCookieDomain()) {
+    document.cookie = `googtrans=${value};path=/;domain=${window.location.hostname}`;
+  }
 }
 
 function initGoogleTranslate() {
@@ -69,6 +101,7 @@ function initGoogleTranslate() {
   if (!element) {
     element = document.createElement("div");
     element.id = TRANSLATOR_ELEMENT_ID;
+    element.className = "notranslate";
     element.setAttribute("aria-hidden", "true");
     element.style.cssText =
       "position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;";
@@ -82,7 +115,9 @@ function initGoogleTranslate() {
   new window.google.translate.TranslateElement(
     {
       pageLanguage: "en",
-      includedLanguages: TRANSLATOR_LANGUAGES.map((language) => language.code).join(","),
+      includedLanguages: TRANSLATOR_LANGUAGES.map((language) => language.code).join(
+        ","
+      ),
       autoDisplay: false,
     },
     TRANSLATOR_ELEMENT_ID
@@ -91,38 +126,42 @@ function initGoogleTranslate() {
   translateInitialized = true;
 }
 
-export function preloadGoogleTranslate(): Promise<void> {
-  if (typeof window === "undefined") {
-    return Promise.resolve();
-  }
-
+async function loadGoogleTranslateScript() {
   if (window.google?.translate?.TranslateElement) {
     initGoogleTranslate();
-    return Promise.resolve();
+    return;
   }
 
-  if (translateReadyPromise) {
-    return translateReadyPromise;
-  }
+  await new Promise<void>((resolve) => {
+    let settled = false;
 
-  translateReadyPromise = new Promise<void>((resolve) => {
-    const finish = () => {
-      initGoogleTranslate();
-      resolve();
+    const settle = () => {
+      if (!settled) {
+        settled = true;
+        resolve();
+      }
+    };
+
+    const finish = async () => {
+      const apiReady = await waitForTranslateApi(8000);
+      if (apiReady) {
+        initGoogleTranslate();
+      }
+      settle();
     };
 
     window.googleTranslateElementInit = finish;
+
+    const timeoutId = window.setTimeout(settle, TRANSLATOR_LOAD_TIMEOUT_MS);
 
     const existingScript = document.getElementById(
       TRANSLATOR_SCRIPT_ID
     ) as HTMLScriptElement | null;
 
     if (existingScript) {
-      if (window.google?.translate?.TranslateElement) {
-        finish();
-      } else {
-        existingScript.addEventListener("load", finish, { once: true });
-      }
+      void finish().finally(() => {
+        window.clearTimeout(timeoutId);
+      });
       return;
     }
 
@@ -131,15 +170,28 @@ export function preloadGoogleTranslate(): Promise<void> {
     script.src =
       "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     script.async = true;
-    script.defer = true;
-    script.addEventListener("load", finish, { once: true });
+    script.onerror = () => {
+      window.clearTimeout(timeoutId);
+      settle();
+    };
     document.head.appendChild(script);
   });
+}
+
+export function preloadGoogleTranslate(): Promise<void> {
+  if (typeof window === "undefined") {
+    return Promise.resolve();
+  }
+
+  if (!translateReadyPromise) {
+    translateReadyPromise = loadGoogleTranslateScript().catch(() => undefined);
+  }
 
   return translateReadyPromise;
 }
 
-export function applyLanguage(lang: string) {
+export async function applyLanguage(lang: string): Promise<void> {
   setTranslateCookie(lang);
+  void preloadGoogleTranslate();
   window.location.reload();
 }

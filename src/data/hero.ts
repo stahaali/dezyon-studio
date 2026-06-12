@@ -29,11 +29,13 @@ export const heroContent = {
   titlePrefix: "Meet Our ",
   titleHighlight: "WebOps",
   titleSuffix: " Team For Your Business",
+  intro:
+    "Where creators become brands and brands become businesses.",
   subtitle:
     "We design, build, and grow websites, brands, and digital products for business that want to stand out online.",
   form: {
     placeholder: "yourwebsite.com",
-    submitLabel: "Get free audit",
+    submitLabel: "Search Domain",
     note: "Free website audit. Done in under 2 minutes.",
   },
   membersLabel: "4.6k Hardworking Members",

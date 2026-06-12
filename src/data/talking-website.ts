@@ -1,0 +1,161 @@
+export const talkingWebsiteHero = {
+  badge: "AI-Powered Voice Sales",
+  titleLead: "Imagine This",
+  title: "Talking Website™ AI",
+  subtitle: "AI Talking Website – A Stress-Free Way to Grow Your Business",
+  description: [
+    "You're sleeping, in a meeting, spending time with family, or focusing on other important tasks — while your website is still actively talking to visitors, answering questions, and generating leads.",
+    "An AI Talking Website works like a virtual sales representative",
+  ],
+  ctas: {
+    primary: { label: "Get Started", href: "/contact" },
+    secondary: { label: "Book a Demo", href: "/contact" },
+  },
+} as const;
+
+export const talkingWebsiteTaglines = [
+  "A Website That Talks Back.",
+  "Your Best Salesperson Lives On Your Website.",
+  "Turn Visitors Into Customers Through Conversation.",
+] as const;
+
+export const talkingWebsiteStepsIntro =
+  "Hi! I'm your AI guide. Let me walk you through how your Talking Website works:" as const;
+
+export const talkingWebsiteSteps = [
+  {
+    step: 1,
+    title: "Visitor Lands On Website",
+    message: "Someone visits your site — I'm already online and ready to greet them.",
+  },
+  {
+    step: 2,
+    title: "Click To Talk Button",
+    message: "They tap Talk — and I start a natural voice conversation instantly.",
+  },
+  {
+    step: 3,
+    title: "AI Voice Assistant Responds",
+    message: "I answer questions, explain your services, and keep them engaged.",
+  },
+  {
+    step: 4,
+    title: "Lead Qualification",
+    message: "I ask the right questions and capture qualified lead details.",
+  },
+  {
+    step: 5,
+    title: "Appointment Booking",
+    message: "I book meetings on the spot — no waiting, no back-and-forth.",
+  },
+  {
+    step: 6,
+    title: "Automated Follow-Up",
+    message: "I send follow-ups automatically so no lead ever slips away.",
+  },
+] as const;
+
+export const talkingWebsiteFeatures = [
+  "Real-Time Voice Conversations",
+  "Appointment Scheduling",
+  "Lead Qualification",
+  "Call Transfers",
+  "Multi-Language Support",
+  "CRM Integration",
+  "Business Training AI",
+  "24/7 Availability",
+] as const;
+
+export const talkingWebsiteUseCases = [
+  "Real Estate",
+  "Law Firms",
+  "Clinics",
+  "Home Services",
+  "Agencies",
+  "E-commerce",
+  "SaaS Companies",
+] as const;
+
+export const talkingWebsitePricing = [
+  {
+    id: "starter",
+    name: "Business Starter",
+    description: "Perfect for small businesses launching their first AI voice assistant.",
+    features: [
+      "Custom website development",
+      "Voice widget on your website",
+      "Lead capture & qualification",
+      "Basic appointment booking",
+      "Email follow-up automation",
+    ],
+    cta: { label: "Get Started", href: "/contact" },
+    featured: false,
+  },
+  {
+    id: "growth",
+    name: "Business Growth",
+    description: "For growing teams that need smarter conversations and deeper integrations.",
+    features: [
+      "Custom website development",
+      "Everything in Starter",
+      "CRM integration",
+      "Multi-language support",
+      "Call transfer routing",
+      "Custom AI business training",
+    ],
+    cta: { label: "Get Started", href: "/contact" },
+    featured: true,
+  },
+  {
+    id: "enterprise",
+    name: "Business Enterprise",
+    description: "Tailored AI voice infrastructure for high-volume brands and franchises.",
+    features: [
+      "Custom website development",
+      "Everything in Growth",
+      "Dedicated onboarding",
+      "Advanced analytics dashboard",
+      "Priority support & SLA",
+      "Custom workflows & API access",
+    ],
+    cta: { label: "Book a Demo", href: "/contact" },
+    featured: false,
+  },
+] as const;
+
+export const talkingWebsiteBenefitsIntro =
+  "Let me tell you why businesses choose us — here's why a Talking Website is worth it:" as const;
+
+export const talkingWebsiteBenefits = [
+  {
+    title: "Higher Conversion Rates",
+    description: "Guide visitors through voice — turn passive browsers into booked calls.",
+    stat: "↑ 40%",
+  },
+  {
+    title: "Faster Response Time",
+    description: "Instant AI replies in seconds, not hours. No queue, no wait.",
+    stat: "< 3s",
+  },
+  {
+    title: "Reduced Staffing Cost",
+    description: "Handle routine inquiries automatically and free your team for high-value work.",
+    stat: "−60%",
+  },
+  {
+    title: "Never Miss Leads",
+    description: "Capture every visitor 24/7 — nights, weekends, and holidays included.",
+    stat: "24/7",
+  },
+  {
+    title: "Scale Without Hiring",
+    description: "Grow traffic and conversations without adding headcount or overhead.",
+    stat: "∞",
+  },
+] as const;
+
+export const talkingWebsiteFinalCta = {
+  prefix: "Let Your Site ",
+  highlight: "Talk & Sell",
+  button: { label: "Get Started", href: "/contact" },
+} as const;

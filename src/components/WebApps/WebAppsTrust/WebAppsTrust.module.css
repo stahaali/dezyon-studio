@@ -18,7 +18,7 @@
   align-items: flex-start;
   gap: 18px;
   padding: 24px 22px;
-  border: 1px solid rgba(171, 245, 3, 0.22);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.02);
   transition:
@@ -27,13 +27,13 @@
 }
 
 .card:hover {
-  border-color: rgba(171, 245, 3, 0.45);
-  background: rgba(171, 245, 3, 0.04);
+  border-color: rgba(var(--color-primary-rgb), 0.45);
+  background: rgba(var(--color-primary-rgb), 0.04);
 }
 
 .cardAccent {
-  background: rgba(171, 245, 3, 0.06);
-  border-color: rgba(171, 245, 3, 0.32);
+  background: rgba(var(--color-primary-rgb), 0.06);
+  border-color: rgba(var(--color-primary-rgb), 0.32);
 }
 
 .iconWrap {

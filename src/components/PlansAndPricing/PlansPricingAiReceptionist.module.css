@@ -1,0 +1,445 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.headerIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--brand-gradient);
+  color: #000200;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.title {
+  margin: 0 0 10px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.description {
+  margin: 0;
+  max-width: 720px;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.plansGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.planCard {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-2xl);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.planTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.planSubtitle {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.tierLabel {
+  margin: 18px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.priceBlock {
+  margin-top: 10px;
+}
+
+.price {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.priceSuffix {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.primaryBtn,
+.secondaryBtn,
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.primaryBtn {
+  background: var(--button-bg);
+  color: #ffffff;
+}
+
+.primaryBtn:hover {
+  background: var(--button-bg-hover);
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(var(--color-primary-rgb), 0.35);
+  color: #ffffff;
+}
+
+.secondaryBtn:hover {
+  background: rgba(var(--color-primary-rgb), 0.12);
+}
+
+.extraLinks {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.textLink,
+.customerLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.textLink:hover,
+.customerLink:hover {
+  color: var(--color-accent-hover);
+}
+
+.customerLink {
+  margin-top: 12px;
+}
+
+.featuresTitle {
+  margin: 22px 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.features li + li {
+  margin-top: 10px;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+
+.benefits {
+  padding-top: 16px;
+}
+
+.benefitsTitle {
+  margin: 0 0 32px;
+}
+
+.benefitsGrid {
+  display: grid;
+  gap: 28px 24px;
+}
+
+.benefitCard {
+  padding: 4px 0;
+  text-align: center;
+}
+
+.benefitIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 16px;
+  border-radius: 12px;
+  background: var(--brand-gradient);
+  color: #000200;
+}
+
+.benefitHeading {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.benefitText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.ctaBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 32px 28px;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(
+    90deg,
+    rgba(146, 225, 58, 0.28) 0%,
+    rgba(66, 147, 30, 0.18) 55%,
+    rgba(146, 225, 58, 0.12) 100%
+  );
+  border: 1px solid rgba(146, 225, 58, 0.22);
+}
+
+.ctaCopy {
+  max-width: 760px;
+}
+
+.ctaTitle {
+  margin: 0 0 10px;
+}
+
+.ctaDescription {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.ctaBtn {
+  flex-shrink: 0;
+  min-width: 160px;
+  background: #ffffff;
+  color: #000200;
+}
+
+.ctaBtn:hover {
+  background: #f3f4f6;
+  color: #42931e;
+}
+
+@media (min-width: 768px) {
+  .plansGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefitsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ctaBanner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.exploreFeatures {
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-2xl);
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.exploreHeader {
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exploreTitle {
+  margin: 0 0 10px;
+}
+
+.exploreContact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.exploreContact svg {
+  color: var(--color-primary);
+}
+
+.explorePhone {
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.35);
+}
+
+.explorePhone:hover {
+  color: var(--color-primary);
+}
+
+.exploreCategory + .exploreCategory {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exploreCategoryTitle {
+  margin: 0;
+  padding: 18px 24px 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.exploreRows {
+  padding: 0 24px 8px;
+}
+
+.exploreRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exploreLabel {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.exploreValue {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  max-width: 52%;
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.exploreValueLine {
+  display: block;
+}
+
+.exploreCheck {
+  color: var(--color-primary);
+}
+
+.exploreDisclaimers {
+  padding: 16px 24px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.exploreDisclaimer {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.exploreDisclaimer + .exploreDisclaimer {
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .exploreRow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exploreValue {
+    align-items: flex-start;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .exploreHeader,
+  .exploreRows,
+  .exploreDisclaimers {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .exploreCategoryTitle {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

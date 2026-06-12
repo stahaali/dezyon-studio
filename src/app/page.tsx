@@ -1,11 +1,12 @@
+import { ContactFAQ } from "@/components/Contact/ContactFAQ/ContactFAQ";
 import { CTA } from "@/components/CTA/CTA";
 import { Features } from "@/components/Features/Features";
 import { Team } from "@/components/Features/Team";
-import { Timeline } from "@/components/Features/Timeline";
+import { HomePortfolio } from "@/components/Home/HomePortfolio/HomePortfolio";
 import { CapabilitiesSection } from "@/components/Home/CapabilitiesSection/CapabilitiesSection";
 import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
 import { Hero } from "@/components/Hero/Hero";
-import { Pricing } from "@/components/Pricing/Pricing";
+// import { Pricing } from "@/components/Pricing/Pricing";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
@@ -37,10 +38,11 @@ export default function Home() {
         <CapabilitiesSection />
         <Features />
         <HomeStats />
-        <Pricing />
+        {/* <Pricing /> */}
         <Testimonials />
-        <Timeline />
+        <HomePortfolio />
         <Team theme="dark" />
+        <ContactFAQ twoColumn />
         <CTA compact />
       </div>
     </>

@@ -16,8 +16,8 @@ export function Testimonials() {
             <h2
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              Don&apos;t just take our{" "}
-              <span className={styles.wordHighlight}>words</span>
+              Don&apos;t Just Take Our{" "}
+              <span className={styles.wordHighlight}>Words</span>
             </h2>
           </div>
         </ScrollReveal>

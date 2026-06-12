@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
 import { siteMetadata } from "@/lib/metadata";
 import {
   getOrganizationJsonLd,
@@ -7,13 +6,6 @@ import {
 } from "@/lib/structured-data";
 import { AppShell } from "@/components/Shared/AppShell";
 import "./globals.css";
-
-const lexend = Lexend({
-  subsets: ["latin"],
-  variable: "--font-lexend",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = siteMetadata;
 
@@ -25,10 +17,12 @@ export default function RootLayout({
   const jsonLd = [getOrganizationJsonLd(), getWebSiteJsonLd()];
 
   return (
-    <html lang="en" className={`${lexend.variable} h-full scroll-smooth`}>
+    <html lang="en" className="h-full scroll-smooth">
       <head>
         <link rel="preconnect" href="https://translate.google.com" />
+        <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://translate.google.com" />
+        <link rel="dns-prefetch" href="https://www.gstatic.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

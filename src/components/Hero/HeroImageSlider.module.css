@@ -134,11 +134,11 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1920px) and (max-width: 2559px) {
   .slider {
-    height: 600px;
-    min-height: 600px;
-    max-height: 600px;
+    height: 680px;
+    min-height: 680px;
+    max-height: 680px;
   }
 
   .columns {

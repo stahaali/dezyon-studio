@@ -1,8 +1,8 @@
 const CONTACT_ASSETS = "/assets/img/contact";
 
 export const packagesBanner = {
-  titlePrefix: "Choose the right ",
-  titleHighlight: "package.",
+  titlePrefix: "Choose The Right ",
+  titleHighlight: "Package.",
   description:
     "Flexible plans for logos, websites, branding, and digital growth — pick what fits your business.",
   stars: {
@@ -800,61 +800,61 @@ export const packageCategoryMeta: Record<
 > = {
   logo: {
     titlePrefix: "Logo ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Choose a logo package that fits your brand — from startup concepts to full identity rollouts.",
   },
   "website-design": {
     titlePrefix: "Website Design ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Custom website design plans for startups, growing teams, and enterprise brands.",
   },
   branding: {
     titlePrefix: "Branding ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Complete branding packages with logo concepts, ownership rights, and print-ready assets.",
   },
   ecommerce: {
     titlePrefix: "E-Commerce ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Online store packages with tailored design, product setup, and conversion-focused layouts.",
   },
   wordpress: {
     titlePrefix: "Wordpress ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "WordPress website packages from quick launches to high-end corporate builds.",
   },
   shopify: {
     titlePrefix: "Shopify ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Shopify store packages for product catalogs, payments, and scalable e-commerce growth.",
   },
   "video-animation": {
-    titlePrefix: "Video animation ",
-    titleHighlight: "packages.",
+    titlePrefix: "Video Animation ",
+    titleHighlight: "Packages.",
     description:
       "Explainer and promo video packages with script, storyboard, animation, and voice-over.",
   },
   seo: {
     titlePrefix: "SEO ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Search engine optimization plans with audits, keyword targeting, and on-page optimization.",
   },
   smm: {
     titlePrefix: "SMM ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Social media marketing packages for content, campaigns, and consistent channel growth.",
   },
   "web-portal": {
     titlePrefix: "Web Portal ",
-    titleHighlight: "packages.",
+    titleHighlight: "Packages.",
     description:
       "Custom web portal packages for job boards, networks, marketplaces, and enterprise platforms.",
   },

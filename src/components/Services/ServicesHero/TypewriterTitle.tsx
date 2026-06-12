@@ -28,11 +28,6 @@ export function TypewriterTitle({
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const longestPhrase = phrases.reduce(
-    (longest, phrase) => (phrase.length > longest.length ? phrase : longest),
-    "",
-  );
-
   useEffect(() => {
     const currentPhrase = phrases[phraseIndex] ?? "";
     let timeout: ReturnType<typeof setTimeout>;
@@ -71,11 +66,7 @@ export function TypewriterTitle({
       <span className={styles.secondLine}>
         {suffix ? <span className={styles.suffix}>{suffix} </span> : null}
         <span className={styles.wordHighlight}>
-          <span
-            className={styles.typewriter}
-            style={{ minWidth: `${longestPhrase.length}ch` }}
-            aria-live="polite"
-          >
+          <span className={styles.typewriter} aria-live="polite">
             <span className={styles.typewriterText}>{displayText}</span>
             <span className={styles.cursor}>|</span>
           </span>

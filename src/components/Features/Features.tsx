@@ -11,7 +11,7 @@ import { SplitTitle } from "@/components/Shared/SplitTitle";
 import styles from "./Features.module.css";
 
 export function Features() {
-  const [activeIndex, setActiveIndex] = useState(3);
+  const [activeIndex, setActiveIndex] = useState(0);
   const activeTab = smartFeatureTabs[activeIndex];
 
   return (
@@ -22,8 +22,8 @@ export function Features() {
             <h2
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              Smart features for your{" "}
-              <span className={styles.wordHighlight}>business</span>
+              Modern Businesses{" "}
+              <span className={styles.wordHighlight}>Ai-Powered</span>
             </h2>
             <p className={styles.subtitle}>{smartFeaturesSection.description}</p>
           </div>
@@ -57,43 +57,44 @@ export function Features() {
             <div className={styles.split}>
               <div className={styles.imageCol}>
                 <figure className={styles.imageFigure}>
-                  <Image
-                    src={activeTab.image}
-                    alt={activeTab.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className={styles.image}
-                  />
-                  {activeTab.showTrafficOverlay && (
-                    <div className={styles.trafficOverlay} aria-hidden="true">
-                      <span className={styles.trafficTitle}>Traffic report</span>
-                      <div className={styles.trafficRow}>
-                        <span className={styles.trafficIcon}>📊</span>
-                        <span className={styles.trafficBar}>
-                          <span className={styles.trafficFill} style={{ width: "72%" }} />
-                        </span>
-                      </div>
-                      <div className={styles.trafficRow}>
-                        <span className={styles.trafficIcon}>🌐</span>
-                        <span className={styles.trafficBar}>
-                          <span className={styles.trafficFill} style={{ width: "55%" }} />
-                        </span>
-                      </div>
-                      <div className={styles.trafficRow}>
-                        <span className={styles.trafficIcon}>🖱</span>
-                        <span className={styles.trafficBar}>
-                          <span className={styles.trafficFill} style={{ width: "88%" }} />
-                        </span>
-                      </div>
-                    </div>
+                  {"video" in activeTab && activeTab.video ? (
+                    <video
+                      key={activeTab.video}
+                      className={styles.media}
+                      src={activeTab.video}
+                      poster={activeTab.image}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      aria-label={activeTab.title}
+                    />
+                  ) : (
+                    <Image
+                      src={activeTab.image}
+                      alt={activeTab.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={styles.media}
+                    />
                   )}
                 </figure>
               </div>
 
               <div className={styles.textCol}>
+                {"subtitle" in activeTab && activeTab.subtitle ? (
+                  <p className={styles.panelSubtitle}>{activeTab.subtitle}</p>
+                ) : null}
                 <SplitTitle
                   as="h3"
                   title={activeTab.title}
+                  accent={
+                    "titleAccent" in activeTab ? activeTab.titleAccent : undefined
+                  }
+                  light={
+                    "titleLight" in activeTab ? activeTab.titleLight : undefined
+                  }
+                  nowrapLight={"titleLight" in activeTab}
                   size="panel"
                   theme="dark"
                   className={styles.panelTitle}

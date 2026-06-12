@@ -4,13 +4,13 @@ const INTEGRATIONS_ASSETS = "/assets/img/integrations";
 
 export const servicesHero = {
   badge: "What we offer",
-  titlePrefix: "Creative services for",
-  titleSuffix: "your",
+  titlePrefix: "Creative Services For",
+  titleSuffix: "Your",
   typewriterPhrases: [
-    "brand growth",
-    "business vision",
-    "digital success",
-    "lasting impact",
+    "Brand growth",
+    "Business vision",
+    "Digital success",
+    "Lasting impact",
   ],
   description:
     "From brand identity to digital experiences, we deliver end-to-end solutions tailored to help your business stand out and scale.",
@@ -67,7 +67,7 @@ export const servicesHero = {
 export const servicesGrid = {
   label: "What we do",
   titleDark: "Full-service",
-  titleAccent: "creative solutions",
+  titleAccent: "Creative solutions",
   description:
     "We partner with ambitious brands to design, build, and market products that make a lasting impact — with strategy, craft, and attention to every detail.",
 } as const;

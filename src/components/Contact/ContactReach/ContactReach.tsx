@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { contactReach } from "@/data/contact";
@@ -28,17 +27,23 @@ export function ContactReach() {
           {contactReach.items.map((item, index) => (
             <ScrollReveal key={item.title} delay={index * 0.06} as="article">
               <article className={styles.card}>
-                <Image
-                  src={item.icon}
-                  alt=""
-                  width={52}
-                  height={52}
+                <span
                   className={styles.icon}
+                  style={{
+                    WebkitMaskImage: `url(${item.icon})`,
+                    maskImage: `url(${item.icon})`,
+                  }}
                   aria-hidden="true"
                 />
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
-                <Link href={item.link.href} className={styles.cardLink}>
+                <Link
+                  href={item.link.href}
+                  className={styles.cardLink}
+                  {...(item.link.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
                   <span>{item.link.label}</span>
                   <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
                 </Link>

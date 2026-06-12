@@ -25,7 +25,7 @@
   padding: 0.06em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -41,7 +41,9 @@
 
 .tabBar {
   margin-bottom: 24px;
+  padding: 6px 0 10px;
   overflow-x: auto;
+  overflow-y: visible;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -57,14 +59,14 @@
   width: max-content;
   min-width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 2px 0;
   list-style: none;
 }
 
 .tabBtn {
   flex-shrink: 0;
   padding: 12px 20px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.88);
@@ -74,21 +76,94 @@
   cursor: pointer;
   white-space: nowrap;
   transition:
-    background-color var(--transition-base),
-    color var(--transition-base);
+    background var(--transition-base),
+    color var(--transition-base),
+    transform 0.22s ease,
+    border-color var(--transition-base),
+    box-shadow 0.22s ease;
 }
 
 .tabBtn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--brand-gradient-tab);
+  color: #ffffff;
+  border-color: rgba(var(--color-primary-rgb), 0.28);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.tabBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
 }
 
 .tabBtnActive {
-  background: #0f3d2e;
   color: #ffffff;
+  box-shadow: none;
+}
+
+.tabBtnActiverebrand {
+  background: var(--brand-gradient-panel);
+  border-color: rgba(var(--color-primary-rgb), 0.28);
+}
+
+.tabBtnActivedevelopment {
+  background: linear-gradient(135deg, #05122a 0%, #082248 48%, #040e20 100%);
+  border-color: rgba(147, 197, 253, 0.28);
+}
+
+.tabBtnActivewebops {
+  background: linear-gradient(135deg, #1c0c34 0%, #2e124e 48%, #120826 100%);
+  border-color: rgba(216, 180, 254, 0.28);
+}
+
+.tabBtnActivedigitalbranding {
+  background: linear-gradient(135deg, #4c0a2a 0%, #7c1c44 48%, #2a081c 100%);
+  border-color: rgba(251, 207, 232, 0.28);
+}
+
+.tabBtnActiveseo {
+  background: linear-gradient(135deg, #2a1808 0%, #48260c 48%, #1c1006 100%);
+  border-color: rgba(253, 186, 116, 0.28);
+}
+
+.tabBtnActiverebrand:hover,
+.tabBtnActiverebrand:active {
+  background: var(--brand-gradient-panel);
+  border-color: rgba(var(--color-primary-rgb), 0.28);
+}
+
+.tabBtnActivedevelopment:hover,
+.tabBtnActivedevelopment:active {
+  background: linear-gradient(135deg, #05122a 0%, #082248 48%, #040e20 100%);
+  border-color: rgba(147, 197, 253, 0.28);
+}
+
+.tabBtnActivewebops:hover,
+.tabBtnActivewebops:active {
+  background: linear-gradient(135deg, #1c0c34 0%, #2e124e 48%, #120826 100%);
+  border-color: rgba(216, 180, 254, 0.28);
+}
+
+.tabBtnActivedigitalbranding:hover,
+.tabBtnActivedigitalbranding:active {
+  background: linear-gradient(135deg, #4c0a2a 0%, #7c1c44 48%, #2a081c 100%);
+  border-color: rgba(251, 207, 232, 0.28);
+}
+
+.tabBtnActiveseo:hover,
+.tabBtnActiveseo:active {
+  background: linear-gradient(135deg, #2a1808 0%, #48260c 48%, #1c1006 100%);
+  border-color: rgba(253, 186, 116, 0.28);
 }
 
 .tabBtnActive:hover {
-  background: #0c3326;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.tabBtnActive:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .panel {
@@ -108,13 +183,17 @@
 }
 
 .panelBgrebrand {
-  background: linear-gradient(145deg, #0d5c44 0%, #0a4a38 38%, #083528 72%, #062a20 100%);
+  background: var(--brand-gradient-panel);
 }
 
 .panelBgdevelopment,
 .panelBgwebops,
 .panelBgseo {
   background: #061018;
+}
+
+.panelBgdigitalbranding {
+  background: #1a0814;
 }
 
 .panelBgImage {
@@ -159,6 +238,15 @@
   );
 }
 
+.panelBgdigitalbranding .panelBgOverlay {
+  background: linear-gradient(
+    135deg,
+    rgba(76, 10, 42, 0.92) 0%,
+    rgba(124, 28, 68, 0.78) 48%,
+    rgba(42, 8, 28, 0.94) 100%
+  );
+}
+
 .panelBgseo .panelBgOverlay {
   background: linear-gradient(
     135deg,
@@ -193,8 +281,8 @@
   right: 4%;
   width: 46%;
   height: 58%;
-  background: linear-gradient(160deg, rgba(26, 120, 86, 0.95) 0%, rgba(14, 82, 60, 0.82) 100%);
-  border: 1px solid rgba(171, 245, 3, 0.14);
+  background: linear-gradient(160deg, rgba(66, 147, 30, 0.9) 0%, rgba(22, 67, 23, 0.78) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
   transform: rotate(10deg);
   animation-name: shapeRevealOne;
 }
@@ -204,8 +292,8 @@
   right: 18%;
   width: 38%;
   height: 52%;
-  background: linear-gradient(155deg, rgba(12, 96, 70, 0.88) 0%, rgba(8, 62, 46, 0.76) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(155deg, rgba(88, 179, 38, 0.82) 0%, rgba(22, 67, 23, 0.72) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.14);
   transform: rotate(-8deg);
   animation-name: shapeRevealTwo;
   animation-delay: 0.12s;
@@ -216,8 +304,8 @@
   right: 34%;
   width: 26%;
   height: 40%;
-  background: linear-gradient(145deg, rgba(20, 108, 78, 0.72) 0%, rgba(10, 74, 54, 0.58) 100%);
-  border: 1px solid rgba(171, 245, 3, 0.1);
+  background: linear-gradient(145deg, rgba(var(--color-primary-rgb), 0.28) 0%, rgba(66, 147, 30, 0.55) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.18);
   transform: rotate(16deg);
   animation-name: shapeRevealThree;
   animation-delay: 0.24s;
@@ -228,8 +316,8 @@
   right: 8%;
   width: 18%;
   height: 28%;
-  background: linear-gradient(140deg, rgba(171, 245, 3, 0.16) 0%, rgba(42, 132, 96, 0.28) 100%);
-  border: 1px solid rgba(171, 245, 3, 0.18);
+  background: linear-gradient(140deg, rgba(var(--color-primary-rgb), 0.24) 0%, rgba(66, 147, 30, 0.38) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.26);
   transform: rotate(-12deg);
   animation-name: shapeRevealFour;
   animation-delay: 0.36s;
@@ -273,6 +361,26 @@
 .panelBgwebops .shapeFour {
   background: linear-gradient(140deg, rgba(192, 132, 252, 0.22) 0%, rgba(124, 58, 237, 0.34) 100%);
   border-color: rgba(216, 180, 254, 0.2);
+}
+
+.panelBgdigitalbranding .shapeOne {
+  background: linear-gradient(160deg, rgba(236, 72, 153, 0.82) 0%, rgba(157, 23, 77, 0.68) 100%);
+  border-color: rgba(251, 207, 232, 0.22);
+}
+
+.panelBgdigitalbranding .shapeTwo {
+  background: linear-gradient(155deg, rgba(219, 39, 119, 0.74) 0%, rgba(131, 24, 67, 0.62) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.panelBgdigitalbranding .shapeThree {
+  background: linear-gradient(145deg, rgba(244, 114, 182, 0.58) 0%, rgba(190, 24, 93, 0.46) 100%);
+  border-color: rgba(251, 207, 232, 0.16);
+}
+
+.panelBgdigitalbranding .shapeFour {
+  background: linear-gradient(140deg, rgba(252, 231, 243, 0.22) 0%, rgba(236, 72, 153, 0.34) 100%);
+  border-color: rgba(251, 207, 232, 0.2);
 }
 
 .panelBgseo .shapeOne {
@@ -473,11 +581,12 @@
 @media (min-width: 768px) {
   .tabList {
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
   }
 
   .tabBtn {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     text-align: center;
   }
 }

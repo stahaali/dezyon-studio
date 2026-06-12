@@ -1,11 +1,15 @@
 .title {
   margin: 0;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .accent {
-  color: #abf503;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .lightOnDark {
@@ -14,6 +18,10 @@
 
 .lightOnLight {
   color: #000200;
+}
+
+.nowrapLight {
+  white-space: nowrap;
 }
 
 .sizeHero {

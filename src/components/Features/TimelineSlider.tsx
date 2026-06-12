@@ -33,12 +33,21 @@ export function TimelineSlider() {
     <Swiper
       slidesPerView="auto"
       centeredSlides
+      centerInsufficientSlides
       slideToClickedSlide
       watchOverflow={false}
       observer
       observeParents
       initialSlide={defaultActiveIndex >= 0 ? defaultActiveIndex : 0}
       spaceBetween={0}
+      breakpoints={{
+        1024: {
+          slidesPerView: timeline.length,
+          centeredSlides: false,
+          centerInsufficientSlides: false,
+          allowTouchMove: true,
+        },
+      }}
       onSlideChange={handleSlideChange}
       onSwiper={handleSwiper}
       className={styles.swiper}

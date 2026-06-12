@@ -19,8 +19,8 @@ export function AboutTestimonials() {
               id="about-testimonials-heading"
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              Some clients{" "}
-              <span className={styles.wordHighlight}>feedbacks</span>
+              Some Clients{" "}
+              <span className={styles.wordHighlight}>Feedbacks</span>
             </h2>
           </div>
         </ScrollReveal>

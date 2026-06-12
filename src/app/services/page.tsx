@@ -34,9 +34,7 @@ export default function ServicesPage() {
       <div className={styles.page}>
         <ServicesHero />
         <ServicesGrid />
-        <div className={styles.ctaWrap}>
-          <CTA />
-        </div>
+        <CTA compact />
       </div>
     </>
   );

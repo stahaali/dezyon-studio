@@ -4,11 +4,13 @@
 }
 
 .container {
+  width: 100%;
   max-width: 1280px;
+  margin-inline: auto;
 }
 
 .title {
-  margin: 0 0 40px;
+  margin: 0 0 56px;
   text-align: center;
   color: #ffffff;
   overflow: visible;
@@ -20,7 +22,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -47,9 +49,18 @@
 }
 
 .icon {
-  width: 48px;
-  height: auto;
+  display: block;
+  width: 52px;
+  height: 52px;
   margin: 0 0 24px;
+  flex-shrink: 0;
+  background: var(--brand-gradient);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 .cardTitle {
@@ -76,8 +87,17 @@
   margin-top: auto;
   font-size: 15px;
   font-weight: 600;
-  color: var(--color-primary);
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   transition: gap var(--transition-fast);
+}
+
+.cardLink svg {
+  flex-shrink: 0;
+  stroke: #92e13a;
 }
 
 .cardLink:hover {
@@ -97,22 +117,25 @@
 }
 
 @media (min-width: 1024px) {
-  .container {
-    padding-inline: 0;
-  }
-
   .grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
   }
 
   .card {
     min-height: 280px;
-    padding: 40px 24px;
+    padding: 40px 28px;
   }
 
   .icon {
-    width: 52px;
+    width: 56px;
+    height: 56px;
     margin-bottom: 28px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid {
+    gap: 32px;
   }
 }

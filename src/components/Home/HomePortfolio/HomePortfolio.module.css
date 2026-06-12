@@ -1,0 +1,307 @@
+.section {
+  background-color: #000200;
+  padding: 0;
+}
+
+.sectionContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 12px;
+  color: #ffffff;
+  overflow: visible;
+  line-height: 1.2;
+}
+
+.wordHighlight {
+  display: inline-block;
+  padding: 0.1em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background: var(--brand-gradient);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.tabBar {
+  margin-bottom: 24px;
+  padding: 6px 0 10px;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabBar::-webkit-scrollbar {
+  display: none;
+}
+
+.tabList {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  padding: 2px 0;
+  list-style: none;
+}
+
+.tabList li {
+  flex-shrink: 0;
+}
+
+.tabBtn {
+  flex-shrink: 0;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(13px, 1.8vw, 15px);
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--transition-base),
+    color var(--transition-base),
+    transform 0.22s ease,
+    border-color var(--transition-base),
+    box-shadow 0.22s ease;
+}
+
+.tabBtn:hover {
+  background: var(--brand-gradient-tab);
+  color: #ffffff;
+  border-color: rgba(var(--color-primary-rgb), 0.28);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.tabBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
+}
+
+.tabBtnActive {
+  background: var(--brand-gradient-tab);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.28);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.tabBtnActive:hover {
+  background: var(--brand-gradient-tab);
+  border-color: rgba(var(--color-primary-rgb), 0.28);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.tabBtnActive:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.panel {
+  width: 100%;
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.projectCard {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.projectCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(146, 225, 58, 0.3);
+}
+
+.projectLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.projectImageWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  min-height: 220px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.projectImage {
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.08);
+}
+
+.projectHover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 2, 0, 0.45);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.projectCard:hover .projectHover {
+  opacity: 1;
+}
+
+.plusIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  color: #000200;
+  transform: scale(0.85);
+  transition: transform var(--transition-base);
+}
+
+.projectCard:hover .plusIcon {
+  transform: scale(1);
+}
+
+.footerCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 576px) {
+  .tabList {
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .tabList li {
+    flex: 1 1 calc(50% - 4px);
+    min-width: calc(50% - 4px);
+  }
+
+  .tabBtn {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 12px;
+    white-space: normal;
+  }
+}
+
+@media (min-width: 640px) {
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .tabBar {
+    margin-bottom: 32px;
+  }
+
+  .portfolioGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .projectImageWrap {
+    min-height: 260px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tabList {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .tabList li {
+    flex: 1 1 auto;
+  }
+
+  .tabBtn {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .tabBar {
+    margin-bottom: 40px;
+  }
+
+  .portfolioGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .projectImageWrap {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .footerCta {
+    margin-top: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectCard:hover {
+    transform: none;
+  }
+
+  .projectCard:hover .projectImage {
+    transform: none;
+  }
+
+  .projectCard:hover .plusIcon {
+    transform: scale(0.85);
+  }
+}

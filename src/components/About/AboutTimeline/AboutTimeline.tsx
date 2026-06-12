@@ -21,7 +21,7 @@ export function AboutTimeline() {
       <Container>
         <ScrollReveal>
           <SectionHeading
-            title="How we got here"
+            title="How We Got Here"
             light
             lineBreak={false}
             className={styles.sectionHeading}

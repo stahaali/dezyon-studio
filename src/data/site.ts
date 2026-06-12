@@ -2,8 +2,8 @@ import { flaticonIcons } from "@/data/icons";
 import { pricingMenuItems } from "@/data/pricing-menu";
 
 export const pricingNav = {
-  label: "Pricing",
-  href: pricingMenuItems[0]?.href ?? "/pricing/logo",
+  label: "Plans & Pricing",
+  href: "/plans-and-pricing",
   menuItems: pricingMenuItems,
 } as const;
 
@@ -12,7 +12,7 @@ export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "AI Agent", href: "/ai-agent" },
+  { label: "Talking Website", href: "/talking-website" },
   // { label: "Combo Packages", href: "/combo-packages" },
   // { label: "Web Apps", href: "/web-apps" },
   { label: "Contact", href: "/contact" },
@@ -135,7 +135,7 @@ export const integrations = [
 
 export const values = [
   {
-    title: "Make an impact",
+    title: "Make An Impact",
     description:
       "We're building something big. Something that has the power to change the trajectory of any sized business for the better.",
     icon: flaticonIcons.diamondColor,
@@ -214,28 +214,59 @@ export const standardFeatures = [
 const feedbackBase = [
   {
     quote:
-      "We're looking for people who share our vision! most of our time used to be taken up by most of alternate administrative work whereas now we can focus on building out to help our employees.",
-    name: "Anna Yon",
-    role: "Senior UI/UX Designer",
+      "Great job on my book project. I would definitely work with them again. The Dezyon Studio team was professional, creative, and very helpful throughout the publishing process. Highly recommended!",
+    name: "Nathan Singleton",
   },
   {
     quote:
-      "This powerful tool eliminates the need to leave Salesforce to get things done as I can create a custom proposal with dynamic pricing tables, and get approval from my boss all within 36 minutes.",
-    name: "Natalia Larsson",
-    role: "Director of Sales",
+      "Professional service and great communication. Mike Hart handled my book cover and formatting with excellent quality, uploading to Kindle Publishing and Etsy",
+    name: "John",
   },
   {
     quote:
-      "We are based in Europe and the latest Data Protection Regulation forces us to look for service suppliers than comply with this regulation and as we look to create our website and this builder just outstanding!",
-    name: "Sarah Edrissi",
-    role: "Lead Marketing",
+      "I'm incredibly grateful to Jordan and his team for their outstanding support in helping me grow my business. Their expertise in running the right ads and providing clear, strategic guidance has made a huge difference. Thanks to their efforts, my business is now performing better than ever!",
+    name: "Mustafa Digital",
   },
   {
     quote:
-      "We're looking for people who share our vision! Most of our time used to be taken up by alternate administrative work whereas now we can focus on building out to help our employees.",
-    name: "Mark Zellers",
-    role: "CEO, Co-Founder",
+      "We're looking for people who share our vision! Most of our time used to be taken up by alternate administrative work whereas now we can focus on building out to help our emplThis brand is so good! All I can say, they’ve been accommodating and guiding al throughout. We really appreciate it, best of all so far!",
+    name: "Mark Anderson",
   },
+  {
+    quote:
+      "Dezyon Studio exceeded our expectations with their expertise in digital marketing. Their team took the time to understand our brand and delivered a tailored strategy that significantly boosted our online presence. Professional, responsive, and results-driven highly recommend!",
+    name: "omar bautista",
+  },
+  {
+    quote:
+      "I had the pleasure of working with David Arthur from Dezyon Studio, and he absolutely nailed the logo design for my business. His attention to detail and ability to communicate throughout the process made the experience seamless. If you're looking for top-notch design work, David is your guy!",
+    name: "Guillermo Munoz",
+  },
+  {
+    quote:
+      "I had the pleasure of working with David Arthur from Dezyon Studio, and he absolutely nailed the logo design for my business. His attention to detail and ability to communicate throughout the process made the experience seamless. If you're looking for top-notch design work, David is your We are happy with the website design, he is perfect for any company needs. Michel Smith is very patient and easily approachable. He answers questions and finishes work on time. If you would like to design a website for your desire, I would recommend reaching out to him.",
+    name: "Mike Byers",
+  },
+  {
+    quote:
+      "I'm thrilled to have achieved my sales target in my 2nd months after completion web and social media. While it's just the beginning, it’s a positive step, and I’m excited about the journey ahead with Alex team",
+    name: "vinoth edsn",
+  },
+  {
+    quote:
+      "Frank William is a highly skilled project manager who truly helped us with our project. It was great to work with him.",
+    name: "Luis Salomon",
+  },
+  {
+    quote:
+      "The team was able to put together a multi-pronged digital solution for me in less time than I thought possible. I would definitely recommend Dezyon for any online marketing, website, etc.",
+    name: "Frank Johnson",
+  },
+  {
+    quote:
+      "Thank you David and John for helping me build a dream project for my business website. They also helped me out in the Social Media Marketing and SEO as well. Definitely recommended.",
+    name: "EVERGREEN TRADING VENTURE",
+  }
 ] as const;
 
 export const testimonials = [

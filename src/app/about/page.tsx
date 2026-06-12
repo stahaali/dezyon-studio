@@ -3,7 +3,7 @@ import { AboutHelps } from "@/components/About/AboutHelps/AboutHelps";
 import { AboutHero } from "@/components/About/AboutHero/AboutHero";
 import { AboutShowcase } from "@/components/About/AboutShowcase/AboutShowcase";
 import { Team } from "@/components/Features/Team";
-import { AboutTestimonials } from "@/components/About/AboutTestimonials/AboutTestimonials";
+import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { Timeline } from "@/components/Features/Timeline";
 import { AboutValues } from "@/components/About/AboutValues/AboutValues";
 import { JsonLd } from "@/components/Seo/JsonLd";
@@ -39,7 +39,7 @@ export default function AboutPage() {
         <AboutShowcase />
         <AboutHelps />
         <AboutValues />
-        <AboutTestimonials />
+        <Testimonials />
         <Timeline />
         <Team theme="dark" />
         <AboutCareers />

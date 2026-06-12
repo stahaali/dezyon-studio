@@ -47,8 +47,11 @@ export function AboutCareers() {
                 id="about-careers-heading"
                 className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
               >
-                We&apos;re looking for people who share our{" "}
-                <span className={styles.wordHighlight}>vision!</span>
+                <span className={styles.titleLine}>We&apos;re Looking For</span>
+                <span className={styles.titleLine}>
+                  People Who Share Our{" "}
+                  <span className={styles.wordHighlight}>Vision!</span>
+                </span>
               </h2>
               <p className={styles.subtitle}>{aboutCareers.description}</p>
               <Button

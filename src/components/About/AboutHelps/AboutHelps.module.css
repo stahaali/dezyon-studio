@@ -5,7 +5,7 @@
 .wrapper {
   position: relative;
   width: 100%;
-  padding: 56px 0;
+  padding: 0 0 56px;
   overflow: visible;
 }
 
@@ -22,11 +22,10 @@
 }
 
 .title {
-  margin: 0 0 24px;
+  margin: 0;
   color: #ffffff;
   overflow: visible;
   line-height: 1.2;
-  padding-top: 12px;
 }
 
 .wordHighlight {
@@ -34,7 +33,7 @@
   padding: 0.1em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
-  background-color: var(--color-primary);
+  background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
@@ -46,6 +45,10 @@
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.72);
   margin: 0 0 20px;
+}
+
+.paragraph:first-of-type {
+  margin-top: 56px;
 }
 
 .paragraph:last-of-type {

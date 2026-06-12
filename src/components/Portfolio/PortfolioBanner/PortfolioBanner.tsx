@@ -10,7 +10,7 @@ export function PortfolioBanner() {
 
   return (
     <section className={styles.section} aria-labelledby="portfolio-banner-heading">
-      <Container className={styles.container}>
+      <Container>
         <ScrollReveal>
           <div className={styles.content}>
             <div className={styles.headingWrap}>

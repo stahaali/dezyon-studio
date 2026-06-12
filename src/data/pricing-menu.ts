@@ -1,5 +1,6 @@
 import type { PackageCategoryId } from "@/data/packages";
 import { getPricingCategoryPath, packageCategories } from "@/data/packages";
+import { BRAND_GREEN } from "@/lib/constants";
 
 export type PricingMenuItem = {
   id: PackageCategoryId;
@@ -9,12 +10,12 @@ export type PricingMenuItem = {
 };
 
 const categoryColors: Record<PackageCategoryId, string> = {
-  logo: "#abf503",
+  logo: BRAND_GREEN,
   "website-design": "#3b82f6",
   branding: "#a855f7",
   ecommerce: "#f97316",
   wordpress: "#0ea5e9",
-  shopify: "#22c55e",
+  shopify: BRAND_GREEN,
   "video-animation": "#ef4444",
   seo: "#eab308",
   smm: "#ec4899",

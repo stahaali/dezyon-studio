@@ -1,15 +1,114 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import { RecaptchaField } from "@/components/Contact/RecaptchaField/RecaptchaField";
 import { contactHero } from "@/data/contact";
+import { RECAPTCHA_SITE_KEY } from "@/lib/recaptcha-config";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import styles from "./ContactHero.module.css";
 
 export function ContactHero() {
-  const { testimonial, fields, emailLink } = contactHero;
+  const router = useRouter();
+  const { testimonial, fields } = contactHero;
+  const isSubmittingRef = useRef(false);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [recaptchaKey, setRecaptchaKey] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const resetRecaptcha = () => {
+    setRecaptchaToken("");
+    setRecaptchaKey((current) => current + 1);
+  };
+
+  const validateForm = (form: HTMLFormElement) => {
+    const elements = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+      "input, textarea"
+    );
+
+    let isValid = true;
+
+    elements.forEach((field) => {
+      field.setCustomValidity("");
+
+      if (!field.value.trim()) {
+        field.setCustomValidity("This field is required.");
+        isValid = false;
+      }
+    });
+
+    if (!isValid || !form.checkValidity()) {
+      form.reportValidity();
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (isSubmittingRef.current) {
+      return;
+    }
+
+    const form = event.currentTarget;
+
+    if (!validateForm(form)) {
+      return;
+    }
+
+    if (!recaptchaToken) {
+      setSubmitError("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    const payload = {
+      full_name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      subject: String(formData.get("subject") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+      recaptcha_token: recaptchaToken,
+    };
+
+    isSubmittingRef.current = true;
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Failed to send message.");
+      }
+
+      router.push("/contact/thank-you");
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again.";
+      setSubmitError(message);
+      resetRecaptcha();
+    } finally {
+      isSubmittingRef.current = false;
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section className={styles.section} aria-labelledby="contact-hero-heading">
@@ -38,10 +137,7 @@ export function ContactHero() {
                 {contactHero.intro}
               </h2>
 
-              <form
-                className={styles.form}
-                onSubmit={(event) => event.preventDefault()}
-              >
+              <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.row}>
                   <label className={styles.field}>
                     <span className={styles.srOnly}>{fields.name}</span>
@@ -51,6 +147,9 @@ export function ContactHero() {
                       placeholder={fields.name}
                       className={styles.input}
                       autoComplete="name"
+                      required
+                      aria-required="true"
+                      minLength={1}
                     />
                   </label>
                   <label className={styles.field}>
@@ -61,6 +160,9 @@ export function ContactHero() {
                       placeholder={fields.email}
                       className={styles.input}
                       autoComplete="email"
+                      required
+                      aria-required="true"
+                      minLength={1}
                     />
                   </label>
                 </div>
@@ -72,6 +174,9 @@ export function ContactHero() {
                     name="subject"
                     placeholder={fields.subject}
                     className={styles.input}
+                    required
+                    aria-required="true"
+                    minLength={1}
                   />
                 </label>
 
@@ -82,21 +187,36 @@ export function ContactHero() {
                     placeholder={fields.message}
                     rows={5}
                     className={`${styles.input} ${styles.textarea}`}
+                    required
+                    aria-required="true"
+                    minLength={1}
                   />
                 </label>
 
-                <Button type="submit" size="lg" className={styles.submit}>
-                  {contactHero.submitLabel}
+                {RECAPTCHA_SITE_KEY ? (
+                  <div className={styles.captcha}>
+                    <RecaptchaField
+                      widgetKey={recaptchaKey}
+                      onChange={setRecaptchaToken}
+                    />
+                  </div>
+                ) : null}
+
+                {submitError ? (
+                  <p className={styles.error} role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className={styles.submit}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : contactHero.submitLabel}
                 </Button>
               </form>
-
-              <p className={styles.emailNote}>
-                {contactHero.emailNote}{" "}
-                <Link href={emailLink.href} className={styles.emailLink}>
-                  {emailLink.label}
-                </Link>
-                .
-              </p>
             </div>
           </div>
         </ScrollReveal>

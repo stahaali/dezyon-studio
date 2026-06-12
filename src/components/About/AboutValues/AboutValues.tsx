@@ -19,7 +19,7 @@ export function AboutValues() {
               id="about-values-heading"
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              Our Values it&apos;s{" "}
+              Our Values It&apos;s{" "}
               <span className={styles.wordHighlight}>Simple!</span>
             </h2>
           </div>

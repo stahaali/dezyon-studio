@@ -4,6 +4,14 @@ import styles from "./Testimonials.module.css";
 
 type Testimonial = (typeof testimonials)[number];
 
+function formatReviewName(name: string): string {
+  return name
+    .toLowerCase()
+    .split(/\s+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 const rowOne = testimonials.slice(0, 4);
 const rowTwo = testimonials.slice(4, 8);
 
@@ -27,8 +35,7 @@ function TestimonialCard({ item }: { item: Testimonial }) {
       </blockquote>
 
       <footer className={styles.author}>
-        <cite className={styles.name}>{item.name}</cite>
-        <span className={styles.role}>{item.role}</span>
+        <cite className={styles.name}>{formatReviewName(item.name)}</cite>
       </footer>
     </article>
   );
