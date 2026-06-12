@@ -44,7 +44,7 @@ function buildConfigPhp(env) {
   const user = env.DB_USER || "";
   const pass = env.DB_PASSWORD || "";
   const name = env.DB_NAME || "";
-  const recipient = env.RECIPIENT_EMAIL || "staha086@gmail.com";
+  const recipient = env.RECIPIENT_EMAIL || "staha086@gmail.com, hello@dezyonstudio.com";
   const recaptchaSecret = env.RECAPTCHA_SECRET_KEY || "";
 
   if (!user || !pass || !name) {

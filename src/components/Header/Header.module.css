@@ -49,8 +49,8 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  width: 104px;
-  height: 32px;
+  width: 96px;
+  height: 30px;
   line-height: 0;
 }
 
@@ -447,8 +447,8 @@
 }
 
 .mobileMenuLogo {
-  width: 104px;
-  height: 32px;
+  width: 96px;
+  height: 30px;
 }
 
 .mobileMenuClose {
@@ -626,8 +626,8 @@
   }
 
   .logo {
-    width: 168px;
-    height: 48px;
+    width: 152px;
+    height: 44px;
   }
 
   .mobileMenu {
@@ -648,13 +648,13 @@
 
 @media (max-width: 480px) {
   .logo {
-    width: 92px;
-    height: 28px;
+    width: 88px;
+    height: 26px;
   }
 
   .mobileMenuLogo {
-    width: 92px;
-    height: 28px;
+    width: 88px;
+    height: 26px;
   }
 
   .mobileMenuHeader {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 import { heroAvatars, heroContent, heroRating } from "@/data/hero";
 import { BrandSlider } from "@/components/Hero/BrandSlider";
-import { HeroImageSlider } from "@/components/Hero/HeroImageSlider";
+// import { HeroImageSlider } from "@/components/Hero/HeroImageSlider";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
@@ -12,12 +12,23 @@ import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
-    <section className={styles.hero} aria-labelledby="hero-heading">
-      <div className={styles.heroBg} aria-hidden="true" />
+    <>
+      <section className={styles.hero} aria-labelledby="hero-heading">
+        <div className={styles.heroBg} aria-hidden="true">
+          <video
+            className={styles.heroBgVideo}
+            src="/assets/video/homebanner.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className={styles.heroBgOverlay} />
+        </div>
 
-      <Container className={styles.heroOuter}>
-        <div className={styles.heroGrid}>
-          <div className={styles.heroText}>
+        <Container className={styles.heroOuter}>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroText}>
             <h1
               id="hero-heading"
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
@@ -53,7 +64,6 @@ export function Hero() {
                   {heroContent.form.submitLabel}
                 </Button>
               </div>
-              <p className={styles.formNote}>{heroContent.form.note}</p>
             </form>
 
             <div className={styles.members}>
@@ -105,16 +115,18 @@ export function Hero() {
             </div>
           </div>
 
-          <div className={styles.sliderColumn}>
+          {/* <div className={styles.sliderColumn}>
             <HeroImageSlider />
+          </div> */}
           </div>
-        </div>
+        </Container>
+      </section>
 
-        <div className={styles.brandsPanel}>
+      <section className={styles.brandsSection} aria-label="Partner brands">
+        <Container className={styles.brandsOuter}>
           <BrandSlider />
-        </div>
-      </Container>
-
-    </section>
+        </Container>
+      </section>
+    </>
   );
 }

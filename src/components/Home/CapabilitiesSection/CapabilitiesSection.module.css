@@ -1,6 +1,6 @@
 .section {
   background-color: #000200;
-  padding-top: 0;
+  padding-top: 56px;
   padding-bottom: 56px;
 }
 
@@ -559,7 +559,7 @@
 
 @media (min-width: 640px) {
   .section {
-    padding-top: 0;
+    padding-top: 56px;
     padding-bottom: 64px;
   }
 
@@ -593,7 +593,7 @@
 
 @media (min-width: 1024px) {
   .section {
-    padding-top: 0;
+    padding-top: 56px;
     padding-bottom: 72px;
   }
 

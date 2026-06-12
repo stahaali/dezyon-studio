@@ -86,7 +86,7 @@ try {
     $insertId = (int) $pdo->lastInsertId();
     $timestamp = date('F j, Y g:i A T');
 
-    $recipient = $config['recipient_email'] ?? 'staha086@gmail.com';
+    $recipient = $config['recipient_email'] ?? 'staha086@gmail.com, hello@dezyonstudio.com';
     $mailSubject = 'New Contact Form Submission - ' . $subject;
     $mailBody = "Full Name: {$fullName}\nEmail: {$email}\nSubject: {$subject}\nMessage:\n{$message}\nTimestamp: {$timestamp}";
     $domain = $_SERVER['HTTP_HOST'] ?? 'dezyonstudio.com';

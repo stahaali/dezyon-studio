@@ -36,7 +36,6 @@ export const heroContent = {
   form: {
     placeholder: "yourwebsite.com",
     submitLabel: "Search Domain",
-    note: "Free website audit. Done in under 2 minutes.",
   },
   membersLabel: "4.6k Hardworking Members",
 } as const;

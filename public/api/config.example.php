@@ -8,6 +8,6 @@ return [
     'db_user' => 'u527758351_dezyonstudio',
     'db_pass' => 'your_password_here',
     'db_name' => 'u527758351_dezyonstudio',
-    'recipient_email' => 'staha086@gmail.com',
+    'recipient_email' => 'staha086@gmail.com, hello@dezyonstudio.com',
     'recaptcha_secret' => 'your_recaptcha_secret_key',
 ];
