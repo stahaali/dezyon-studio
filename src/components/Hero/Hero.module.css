@@ -596,25 +596,21 @@
 }
 
 @media (min-width: 1920px) and (max-width: 2559px) {
+  .hero {
+    min-height: 900px;
+    padding-bottom: 80px;
+  }
+
   .heroBg {
-    height: 760px;
+    height: 100%;
   }
 
   .heroGrid {
-    min-height: 0;
-    align-items: start;
+    min-height: 720px;
+    align-items: center;
   }
 
-  .sliderColumn {
-    width: 82%;
-    max-width: 360px;
-    height: 680px;
-    min-height: 680px;
-    max-height: 680px;
-    align-self: start;
-  }
-
-  .mediaPanel {
-    padding-top: 56px;
+  .heroText {
+    max-width: 860px;
   }
 }
