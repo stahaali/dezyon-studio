@@ -3,6 +3,7 @@ import { portfolioBanner } from "@/data/portfolio";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import { PortfolioBannerLogoGrid } from "./PortfolioBannerLogoGrid";
 import styles from "./PortfolioBanner.module.css";
 
 export function PortfolioBanner() {
@@ -10,7 +11,12 @@ export function PortfolioBanner() {
 
   return (
     <section className={styles.section} aria-labelledby="portfolio-banner-heading">
-      <Container>
+      <div className={styles.bannerBg} aria-hidden="true">
+        <PortfolioBannerLogoGrid />
+        <div className={styles.bannerBgOverlay} />
+      </div>
+
+      <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.content}>
             <div className={styles.headingWrap}>

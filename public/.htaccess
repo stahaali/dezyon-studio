@@ -5,6 +5,9 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
+  # Legacy packages route -> logo pricing
+  RewriteRule ^packages/?$ pricing/logo/ [R=301,L]
+
   # Serve existing files and folders
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

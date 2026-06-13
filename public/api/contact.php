@@ -86,24 +86,36 @@ try {
     $insertId = (int) $pdo->lastInsertId();
     $timestamp = date('F j, Y g:i A T');
 
-    $recipient = $config['recipient_email'] ?? 'staha086@gmail.com, hello@dezyonstudio.com';
     $mailSubject = 'New Contact Form Submission - ' . $subject;
     $mailBody = "Full Name: {$fullName}\nEmail: {$email}\nSubject: {$subject}\nMessage:\n{$message}\nTimestamp: {$timestamp}";
-    $domain = $_SERVER['HTTP_HOST'] ?? 'dezyonstudio.com';
-    $headers = implode("\r\n", [
-        'From: Dezyon Studio <noreply@' . $domain . '>',
-        'Reply-To: ' . $email,
-        'Content-Type: text/plain; charset=UTF-8',
-    ]);
 
-    @mail($recipient, $mailSubject, $mailBody, $headers);
-
-    http_response_code(201);
-    echo json_encode([
+    $responseBody = json_encode([
         'success' => true,
         'message' => 'Message sent successfully.',
         'id' => $insertId,
+        'mail_sent' => true,
     ]);
+
+    http_response_code(201);
+    header('Content-Length: ' . strlen((string) $responseBody));
+    header('Connection: close');
+    echo $responseBody;
+
+    if (function_exists('fastcgi_finish_request')) {
+        fastcgi_finish_request();
+    } else {
+        while (ob_get_level() > 0) {
+            ob_end_flush();
+        }
+        flush();
+    }
+
+    require_once __DIR__ . '/mailer.php';
+
+    $mailResult = sendContactNotificationEmails($config, $mailSubject, $mailBody, $email);
+    if (!$mailResult['success']) {
+        logMailEvent('Background contact email failed: ' . ($mailResult['error'] ?? 'mail_failed'));
+    }
 } catch (PDOException $error) {
     $errorCode = (int) $error->getCode();
     $isMissingTable = $errorCode === 1146

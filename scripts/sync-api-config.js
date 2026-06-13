@@ -44,12 +44,25 @@ function buildConfigPhp(env) {
   const user = env.DB_USER || "";
   const pass = env.DB_PASSWORD || "";
   const name = env.DB_NAME || "";
-  const recipient = env.RECIPIENT_EMAIL || "staha086@gmail.com, hello@dezyonstudio.com";
+  const recipient = env.RECIPIENT_EMAIL || "hello@dezyonstudio.com, staha086@gmail.com, sc.rma.786@gmail.com, allahfinal@hotmail.com";
   const recaptchaSecret = env.RECAPTCHA_SECRET_KEY || "";
+  const mailFrom = env.MAIL_FROM || "hello@dezyonstudio.com";
+  const mailFromName = env.MAIL_FROM_NAME || "Dezyon Studio";
+  const smtpHost = env.SMTP_HOST || "smtp.hostinger.com";
+  const smtpPort = env.SMTP_PORT || "465";
+  const smtpEncryption = env.SMTP_ENCRYPTION || "ssl";
+  const smtpUser = env.SMTP_USER || mailFrom;
+  const smtpPass = env.SMTP_PASSWORD || "";
 
   if (!user || !pass || !name) {
     throw new Error(
       "Missing DB_USER, DB_PASSWORD, or DB_NAME in .env file."
+    );
+  }
+
+  if (!smtpPass) {
+    console.warn(
+      "[sync-api-config] SMTP_PASSWORD is empty. Contact form emails will NOT be delivered until you set it."
     );
   }
 
@@ -61,6 +74,13 @@ return [
     'db_name' => ${phpString(name)},
     'recipient_email' => ${phpString(recipient)},
     'recaptcha_secret' => ${phpString(recaptchaSecret)},
+    'mail_from' => ${phpString(mailFrom)},
+    'mail_from_name' => ${phpString(mailFromName)},
+    'smtp_host' => ${phpString(smtpHost)},
+    'smtp_port' => ${Number(smtpPort) || 465},
+    'smtp_encryption' => ${phpString(smtpEncryption)},
+    'smtp_user' => ${phpString(smtpUser)},
+    'smtp_pass' => ${phpString(smtpPass)},
 ];
 `;
 }

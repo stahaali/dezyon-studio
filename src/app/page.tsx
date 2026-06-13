@@ -9,9 +9,10 @@ import { Hero } from "@/components/Hero/Hero";
 // import { Pricing } from "@/components/Pricing/Pricing";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageMetadata, getDocumentTitle, PAGE_SEO } from "@/lib/seo";
 import {
   getBreadcrumbJsonLd,
+  getFaqPageJsonLd,
   getWebPageJsonLd,
 } from "@/lib/structured-data";
 import styles from "./page.module.css";
@@ -27,10 +28,11 @@ export default function Home() {
         data={[
           getBreadcrumbJsonLd([{ name: "Home", path: "/" }]),
           getWebPageJsonLd({
-            name: homeSeo.title,
+            name: getDocumentTitle(homeSeo),
             description: homeSeo.description,
             path: homeSeo.path,
           }),
+          getFaqPageJsonLd(),
         ]}
       />
       <div className={styles.home}>

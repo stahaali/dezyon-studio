@@ -1,13 +1,32 @@
-import type { Metadata } from "next";
 import { PlansAndPricingContent } from "@/components/PlansAndPricing/PlansAndPricingContent";
-import { SITE_NAME } from "@/lib/constants";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import {
+  getBreadcrumbJsonLd,
+  getWebPageJsonLd,
+} from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: `Plans & Pricing | ${SITE_NAME}`,
-  description:
-    "Explore Dezyon Studio plans and pricing for logo design, website development, branding, e-commerce, SEO, video, and AI-powered solutions.",
-};
+export const metadata = createPageMetadata("plansAndPricing");
 
 export default function PlansAndPricingPage() {
-  return <PlansAndPricingContent />;
+  const plansSeo = PAGE_SEO.plansAndPricing;
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          getBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Plans & Pricing", path: "/plans-and-pricing" },
+          ]),
+          getWebPageJsonLd({
+            name: plansSeo.title,
+            description: plansSeo.description,
+            path: plansSeo.path,
+          }),
+        ]}
+      />
+      <PlansAndPricingContent />
+    </>
+  );
 }

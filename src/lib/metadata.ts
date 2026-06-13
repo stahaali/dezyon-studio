@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { SITE_NAME, SITE_URL } from "./constants";
-import { createPageMetadata, PAGE_SEO } from "./seo";
+import { createPageMetadata, getDocumentTitle, PAGE_SEO } from "./seo";
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: [{ url: "/assets/img/favicon.jpg", type: "image/jpeg" }],
+    shortcut: "/assets/img/favicon.jpg",
+    apple: "/assets/img/favicon.jpg",
+  },
   ...createPageMetadata("home"),
   title: {
-    default: PAGE_SEO.home.title,
+    default: getDocumentTitle(PAGE_SEO.home),
     template: `%s | ${SITE_NAME}`,
   },
   authors: [{ name: SITE_NAME }],

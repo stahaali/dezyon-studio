@@ -45,31 +45,35 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
-.plansGrid {
-  display: grid;
-  gap: 20px;
-}
-
 .planCard {
   display: flex;
   flex-direction: column;
-  padding: 24px 22px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-2xl);
-  background: rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  overflow-wrap: anywhere;
 }
 
 .planTitle {
   margin: 0;
-  font-size: 22px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: var(--font-sans);
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
   color: #ffffff;
 }
 
 .planSubtitle {
   margin: 10px 0 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: var(--font-sans);
   font-size: 14px;
+  font-weight: 300;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.68);
 }
@@ -85,16 +89,26 @@
   margin-top: 10px;
 }
 
-.price {
+.priceRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3em;
   margin: 0;
-  font-size: clamp(30px, 4vw, 40px);
+}
+
+.priceAmount,
+.pricePlus {
+  font-size: clamp(20px, 2.4vw, 24px);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.15;
   color: var(--color-primary);
 }
 
 .priceSuffix {
   margin: 8px 0 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-size: 13px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.55);
@@ -105,6 +119,12 @@
   flex-direction: column;
   gap: 8px;
   margin-top: 18px;
+  width: 100%;
+}
+
+.actions .primaryBtn,
+.actions .secondaryBtn {
+  width: 100%;
 }
 
 .primaryBtn,
@@ -167,7 +187,8 @@
 }
 
 .featuresTitle {
-  margin: 22px 0 12px;
+  margin: 0 0 12px;
+  padding-top: 22px;
   font-size: 14px;
   font-weight: 700;
   color: #ffffff;
@@ -186,6 +207,11 @@
   font-size: 13px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.78);
+}
+
+.features li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .features li + li {
@@ -286,10 +312,6 @@
 }
 
 @media (min-width: 768px) {
-  .plansGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .benefitsGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

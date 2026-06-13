@@ -1,4 +1,10 @@
 import type { Metadata } from "next";
+import {
+  getPricingCategoryPath,
+  packageCategories,
+  packageCategoryMeta,
+  type PackageCategoryId,
+} from "@/data/packages";
 import { SITE_NAME, SITE_URL } from "./constants";
 
 export const DEFAULT_OG_IMAGE = "/assets/img/web-app/mobile-app-img1.jpg";
@@ -9,30 +15,62 @@ export type PageSeoKey =
   | "services"
   | "portfolio"
   | "webApps"
+  | "contact"
+  | "talkingWebsite"
+  | "plansAndPricing"
+  | "comboPackages"
   | "privacyPolicy"
   | "termsAndConditions"
-  | "refundPolicy";
+  | "refundPolicy"
+  | "thankYou";
 
-type PageSeoConfig = {
+export type PageSeoConfig = {
   title: string;
   description: string;
   keywords: string[];
   path: string;
   ogImage?: string;
+  noIndex?: boolean;
 };
 
 export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
   home: {
-    title: "Digital Design, Branding & Web Development Agency",
+    title: "Talking Custom Website, Ai Videos, Ai Marketing, Ai Influencer & Branding",
     description:
-      "Dezyon Studio delivers custom web design, branding, e-commerce development, mobile apps, and digital marketing for businesses ready to grow online.",
+      "Dezyon Studio Where businesses leverage - Ai Video Creation, Ai Marketing, Talking Websites, Ai Influencer , Web Design, Branding, and Digital Marketing Services.",
     keywords: [
-      "digital agency",
-      "web design company",
-      "branding agency",
-      "e-commerce development",
-      "custom website design",
-      "Dezyon Studio",
+      "AI Talking Website",
+      "AI Receptionist",
+      "AI Chat Bot",
+      "AI Video Creation Services",
+      "AI Video Marketing",
+      "AI Commercial Videos",
+      "AI Video Ads",
+      "AI TV Commercials",
+      "AI YouTube Ads",
+      "AI Marketing Agency",
+      "AI Content Creation",
+      "Custom Website Development Services",
+      "Web Design Agency Texas",
+      "Business Website Development",
+      "Professional Website Design",
+      "E-commerce Website Development",
+      "Custom Website Development",
+      "Interactive Website Solutions",
+      "AI Website Assistant",
+      "Website Talking Chatbot Services",
+      "Ai Branding Agency",
+      "Ai Marketing Agency",
+      "Ai Influencer",
+      "Ai YouTube Channel Content Creation",
+      "Ai Business Branding Solutions",
+      "Corporate Branding Agency",
+      "Talking Website Agency USA / Canada",
+      "Website Development Company USA / Canada",
+      "AI Marketing Services USA / Canada",
+      "Video Editing Service USA / Canada",
+      "Web Design Agency Near me",
+      "Ai Custom Video Ads",
     ],
     path: "/",
   },
@@ -91,6 +129,61 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/web-apps",
     ogImage: "/assets/img/web-app/mobile-app-img2.jpg",
   },
+  contact: {
+    title: "Contact Dezyon Studio — Get a Free Quote",
+    description:
+      "Get in touch with Dezyon Studio. Send us a message, explore other ways to reach us, or browse frequently asked questions about our design and development services.",
+    keywords: [
+      "contact Dezyon Studio",
+      "web design quote",
+      "hire digital agency",
+      "branding agency contact",
+      "website development inquiry",
+    ],
+    path: "/contact",
+  },
+  talkingWebsite: {
+    title: "Talking Website AI — 24/7 Voice Sales Assistant",
+    description:
+      "Turn your website into a 24/7 sales representative with Talking Website AI. Real-time voice conversations, lead qualification, appointment booking, and CRM integration.",
+    keywords: [
+      "AI voice assistant",
+      "talking website",
+      "AI sales assistant",
+      "website chatbot voice",
+      "lead qualification AI",
+      "appointment booking AI",
+    ],
+    path: "/talking-website",
+    ogImage: "/assets/img/cta/talking.svg",
+  },
+  plansAndPricing: {
+    title: "Plans & Pricing for Design, Web & AI Services",
+    description:
+      "Explore Dezyon Studio plans and pricing for logo design, website development, branding, e-commerce, SEO, video animation, and AI-powered business solutions.",
+    keywords: [
+      "web design pricing",
+      "logo design packages",
+      "branding plans",
+      "website development cost",
+      "digital agency pricing",
+      "AI receptionist pricing",
+    ],
+    path: "/plans-and-pricing",
+  },
+  comboPackages: {
+    title: "Combo Packages — Logo, Website & Branding Bundles",
+    description:
+      "Explore Dezyon Studio combo packages — bundled logo, website, and branding solutions at special prices for startups and growing businesses.",
+    keywords: [
+      "combo design packages",
+      "logo and website bundle",
+      "branding package deals",
+      "startup design bundle",
+      "website branding combo",
+    ],
+    path: "/combo-packages",
+  },
   privacyPolicy: {
     title: "Privacy Policy & Data Protection",
     description:
@@ -130,31 +223,147 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     ],
     path: "/refund-policy",
   },
+  thankYou: {
+    title: "Thank You — Message Received",
+    description:
+      "Your contact form submission was received successfully. The Dezyon Studio team will get back to you shortly.",
+    keywords: ["contact confirmation", "Dezyon Studio thank you"],
+    path: "/contact/thank-you",
+    noIndex: true,
+  },
 };
+
+const PRICING_CATEGORY_KEYWORDS: Record<PackageCategoryId, string[]> = {
+  logo: [
+    "logo design packages",
+    "custom logo pricing",
+    "brand logo design cost",
+    "logo design plans",
+  ],
+  "website-design": [
+    "website design packages",
+    "custom website pricing",
+    "web design plans",
+    "business website cost",
+  ],
+  branding: [
+    "branding packages",
+    "brand identity pricing",
+    "corporate branding plans",
+    "logo branding bundle",
+  ],
+  ecommerce: [
+    "e-commerce website packages",
+    "online store pricing",
+    "ecommerce development plans",
+    "shop setup packages",
+  ],
+  wordpress: [
+    "WordPress website packages",
+    "WordPress development pricing",
+    "WordPress design plans",
+    "business WordPress site cost",
+  ],
+  shopify: [
+    "Shopify store packages",
+    "Shopify development pricing",
+    "Shopify design plans",
+    "e-commerce Shopify cost",
+  ],
+  "video-animation": [
+    "video animation packages",
+    "explainer video pricing",
+    "2D animation plans",
+    "promo video production cost",
+  ],
+  seo: [
+    "SEO packages",
+    "search engine optimization pricing",
+    "SEO service plans",
+    "website SEO cost",
+  ],
+  smm: [
+    "social media marketing packages",
+    "SMM pricing",
+    "social media management plans",
+    "digital marketing packages",
+  ],
+  "web-portal": [
+    "web portal development packages",
+    "custom portal pricing",
+    "enterprise portal plans",
+    "B2B portal development cost",
+  ],
+};
+
+export function buildCanonicalUrl(path: string): string {
+  const base = SITE_URL.replace(/\/$/, "");
+
+  if (!path || path === "/") {
+    return `${base}/`;
+  }
+
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+
+  if (/\.[a-z0-9]+$/i.test(normalized)) {
+    return `${base}${normalized}`;
+  }
+
+  return `${base}${normalized.endsWith("/") ? normalized : `${normalized}/`}`;
+}
 
 function resolveOgImage(path: string): string {
   return path.startsWith("http") ? path : `${SITE_URL}${path}`;
 }
 
-export function createPageMetadata(key: PageSeoKey): Metadata {
-  const config = PAGE_SEO[key];
-  const canonical = `${SITE_URL}${config.path}`;
+export function getDocumentTitle(config: PageSeoConfig): string {
+  if (config.path === "/") {
+    return `${SITE_NAME} | ${config.title}`;
+  }
+
+  return `${config.title} | ${SITE_NAME}`;
+}
+
+export function buildPageMetadata(config: PageSeoConfig): Metadata {
+  const canonical = buildCanonicalUrl(config.path);
   const ogImage = resolveOgImage(config.ogImage ?? DEFAULT_OG_IMAGE);
-  const fullTitle = `${config.title} | ${SITE_NAME}`;
+  const isHome = config.path === "/";
+  const documentTitle = getDocumentTitle(config);
+  const openGraphTitle = documentTitle;
 
   return {
-    title: config.title,
+    title: isHome ? { absolute: documentTitle } : config.title,
     description: config.description,
     keywords: config.keywords,
     alternates: {
       canonical,
     },
+    robots: config.noIndex
+      ? {
+          index: false,
+          follow: false,
+          googleBot: {
+            index: false,
+            follow: false,
+          },
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+          },
+        },
     openGraph: {
       type: "website",
       locale: "en_US",
       url: canonical,
       siteName: SITE_NAME,
-      title: fullTitle,
+      title: openGraphTitle,
       description: config.description,
       images: [
         {
@@ -167,9 +376,26 @@ export function createPageMetadata(key: PageSeoKey): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
+      title: openGraphTitle,
       description: config.description,
       images: [ogImage],
     },
   };
+}
+
+export function createPageMetadata(key: PageSeoKey): Metadata {
+  return buildPageMetadata(PAGE_SEO[key]);
+}
+
+export function createPricingCategoryMetadata(categoryId: PackageCategoryId): Metadata {
+  const label =
+    packageCategories.find((item) => item.id === categoryId)?.label ?? "Pricing";
+  const meta = packageCategoryMeta[categoryId];
+
+  return buildPageMetadata({
+    title: `${label} Pricing Packages`,
+    description: meta.description,
+    keywords: PRICING_CATEGORY_KEYWORDS[categoryId],
+    path: getPricingCategoryPath(categoryId),
+  });
 }

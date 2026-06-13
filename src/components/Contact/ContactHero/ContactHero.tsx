@@ -96,6 +96,13 @@ export function ContactHero() {
         throw new Error(result.message || "Failed to send message.");
       }
 
+      if (result.mail_sent === false) {
+        throw new Error(
+          result.message ||
+            "Your message was saved, but the email notification could not be sent. Please email hello@dezyonstudio.com directly."
+        );
+      }
+
       router.push("/contact/thank-you");
     } catch (error) {
       const message =

@@ -8,7 +8,42 @@ export const plansPricingPage = {
   stars: packagesBanner.stars,
 } as const;
 
+export const plansPricingServiceTabs = [
+  {
+    id: "onboard",
+    label: "Onboard",
+    title: "Welcome to the Dezyon Studio Family",
+    description:
+      "At Dezyon Studio, our goal is simple: to deliver exceptional quality, innovative design, and results that help your business grow.",
+  },
+  {
+    id: "talking-websites",
+    label: "Talking Websites",
+    title: "Turn Your Website Into A 24/7 Sales Representative",
+    description:
+      "Most websites leave visitors searching for answers. A Talking Website starts the conversation instantly.",
+  },
+  {
+    id: "ai-video-creation",
+    label: "AI Video Creation",
+    title: "Create Smarter Publish Faster Grow Bigger",
+    description:
+      "AI Video Creation gives your business the power to produce professional videos at scale.",
+  },
+  {
+    id: "ai-marketing",
+    label: "Ai-Marketing",
+    title: "Turn Your Marketing Into a Growth Engine",
+    description:
+      "AI Marketing uses intelligent data analysis and automation to help you attract, engage, and convert more customers.",
+  },
+] as const;
+
+export type PlansPricingServiceTabId =
+  (typeof plansPricingServiceTabs)[number]["id"];
+
 export type PlansPricingCategoryId =
+  | PlansPricingServiceTabId
   | "business-phone"
   | "ai-receptionist"
   | "contact-center"
@@ -16,7 +51,11 @@ export type PlansPricingCategoryId =
   | "events"
   | "conversation-intelligence";
 
-export type PlansPricingCategoryLayout = "business-phone" | "ai-receptionist" | "product";
+export type PlansPricingCategoryLayout =
+  | PlansPricingServiceTabId
+  | "business-phone"
+  | "ai-receptionist"
+  | "product";
 
 export type PlansPricingCategory = {
   id: PlansPricingCategoryId;
@@ -26,7 +65,18 @@ export type PlansPricingCategory = {
   layout: PlansPricingCategoryLayout;
 };
 
+const serviceCategories: PlansPricingCategory[] = plansPricingServiceTabs.map(
+  (tab) => ({
+    id: tab.id,
+    label: tab.label,
+    layout: tab.id,
+    heroTitle: tab.title,
+    heroDescription: tab.description,
+  }),
+);
+
 export const plansPricingCategories: PlansPricingCategory[] = [
+  ...serviceCategories,
   {
     id: "business-phone",
     label: "Business Phone",
@@ -97,10 +147,12 @@ export type ProductPlan = {
   actions: readonly TierPlanAction[];
 };
 
-const productCategoryPlans: Record<
-  Exclude<PlansPricingCategoryId, "business-phone" | "ai-receptionist">,
-  ProductPlan[]
-> = {
+export type PlansPricingProductCategoryId = Exclude<
+  PlansPricingCategoryId,
+  PlansPricingServiceTabId | "business-phone" | "ai-receptionist"
+>;
+
+const productCategoryPlans: Record<PlansPricingProductCategoryId, ProductPlan[]> = {
   "contact-center": [
     {
       id: "cx-standard",
@@ -276,11 +328,15 @@ const productCategoryPlans: Record<
 export function getProductPlansForCategory(
   categoryId: PlansPricingCategoryId
 ): ProductPlan[] {
-  if (categoryId === "business-phone" || categoryId === "ai-receptionist") {
+  if (
+    categoryId === "business-phone" ||
+    categoryId === "ai-receptionist" ||
+    plansPricingServiceTabs.some((tab) => tab.id === categoryId)
+  ) {
     return [];
   }
 
-  return productCategoryPlans[categoryId];
+  return productCategoryPlans[categoryId as PlansPricingProductCategoryId];
 }
 
 export const aiReceptionistPage = {
@@ -320,8 +376,7 @@ export const aiReceptionistPage = {
       title: "AI Receptionist with Dezyon Core™",
       subtitle: "For customers who want Dezyon Core and AI Receptionist in one plan",
       tierLabel: "All-in-one",
-      price: null,
-      priceDisplay: "$39 + $30",
+      priceParts: [39, 30],
       priceSuffix: "/month for AI Receptionist + /month for Dezyon Core Plan (100 minutes included*)",
       customerLink: "Already a Dezyon customer? Add AI RP now",
       featuresTitle: "Everything in AI Receptionist, plus the full value of Dezyon Core phone:",

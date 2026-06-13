@@ -9,8 +9,8 @@ import { AboutValues } from "@/components/About/AboutValues/AboutValues";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import {
+  getAboutPageJsonLd,
   getBreadcrumbJsonLd,
-  getWebPageJsonLd,
 } from "@/lib/structured-data";
 import styles from "./page.module.css";
 
@@ -27,7 +27,7 @@ export default function AboutPage() {
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
           ]),
-          getWebPageJsonLd({
+          getAboutPageJsonLd({
             name: aboutSeo.title,
             description: aboutSeo.description,
             path: aboutSeo.path,

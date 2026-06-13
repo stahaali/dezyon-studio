@@ -9,17 +9,26 @@ import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
 import { PlansPricingProductPlans } from "@/components/PlansAndPricing/PlansPricingProductPlans";
+import { PlansPricingServicePanel } from "@/components/PlansAndPricing/PlansPricingServicePanel";
 import { PlansPricingSidebarIcon } from "@/components/PlansAndPricing/PlansPricingSidebarIcon";
 import {
   plansPricingCategories,
   plansPricingDisclaimers,
   plansPricingPage,
+  plansPricingServiceTabs,
   type PlansPricingCategoryId,
+  type PlansPricingServiceTabId,
 } from "@/data/plans-and-pricing";
 import styles from "./PlansAndPricing.module.css";
 
+function isServiceCategory(
+  categoryId: PlansPricingCategoryId,
+): categoryId is PlansPricingServiceTabId {
+  return plansPricingServiceTabs.some((tab) => tab.id === categoryId);
+}
+
 export function PlansAndPricingContent() {
-  const [activeCategory, setActiveCategory] = useState<PlansPricingCategoryId>("business-phone");
+  const [activeCategory, setActiveCategory] = useState<PlansPricingCategoryId>("onboard");
 
   const activeMeta = plansPricingCategories.find((item) => item.id === activeCategory);
   const activeLayout = activeMeta?.layout ?? "business-phone";
@@ -70,30 +79,37 @@ export function PlansAndPricingContent() {
           <div className={styles.layout}>
             <aside className={styles.sidebar}>
               <h2 className={styles.sidebarTitle}>Plans &amp; Pricing</h2>
-              <ul className={styles.sidebarList}>
-                {plansPricingCategories.map((category) => {
-                  const isActive = activeCategory === category.id;
-
-                  return (
-                    <li key={category.id}>
-                      <button
-                        type="button"
-                        onClick={() => setActiveCategory(category.id)}
-                        className={`${styles.sidebarBtn} ${isActive ? styles.sidebarBtnActive : ""}`.trim()}
-                      >
-                        <span className={styles.sidebarIcon}>
-                          <PlansPricingSidebarIcon id={category.id} />
-                        </span>
-                        <span>{category.label}</span>
-                      </button>
-                    </li>
-                  );
-                })}
+              <ul className={styles.sidebarList} role="tablist">
+                {plansPricingCategories.map((category) => (
+                  <li key={category.id} role="presentation">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={activeCategory === category.id}
+                      aria-controls={`plans-panel-${category.id}`}
+                      id={`plans-tab-${category.id}`}
+                      onClick={() => setActiveCategory(category.id)}
+                      className={`${styles.sidebarBtn} ${activeCategory === category.id ? styles.sidebarBtnActive : ""}`.trim()}
+                    >
+                      <span className={styles.sidebarIcon}>
+                        <PlansPricingSidebarIcon id={category.id} />
+                      </span>
+                      <span>{category.label}</span>
+                    </button>
+                  </li>
+                ))}
               </ul>
             </aside>
 
-            <div>
-              {activeLayout === "business-phone" ? (
+            <div
+              className={styles.content}
+              id={`plans-panel-${activeCategory}`}
+              role="tabpanel"
+              aria-labelledby={`plans-tab-${activeCategory}`}
+            >
+              {isServiceCategory(activeCategory) ? (
+                <PlansPricingServicePanel activeTab={activeCategory} />
+              ) : activeLayout === "business-phone" ? (
                 <PlansPricingBusinessPhone />
               ) : activeLayout === "ai-receptionist" ? (
                 <PlansPricingAiReceptionist />

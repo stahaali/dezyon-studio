@@ -7,118 +7,169 @@ export const homePortfolioSection = {
   cta: { label: "View Full Portfolio", href: "/portfolio" },
 } as const;
 
-const portfolioImages = {
-  aiVideo: "/assets/img/features/feature-image-061.jpg",
-  talking: "/assets/img/features/feature-image-05.jpg",
-  thumbnail: "/assets/video/thumbnail1.jpg",
-  mobile1: "/assets/img/web-app/mobile-app-img1.jpg",
-  mobile2: "/assets/img/web-app/mobile-app-img2.jpg",
-  development: "/assets/img/home-capabilities/development-bg.jpg",
-  seo: "/assets/img/home-capabilities/seo-bg.jpg",
-  webops: "/assets/img/home-capabilities/webops-bg.jpg",
-} as const;
+const unsplash = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`;
+
+const aiVideoImages = [
+  unsplash("photo-1611162617474-5b21e879e113"),
+  unsplash("photo-1626785774573-4b799315345d"),
+  "/assets/img/features/feature-image-061.jpg",
+  "/assets/video/thumbnail1.jpg",
+  unsplash("photo-1574717024653-61fd2cf4d44d"),
+  unsplash("photo-1611224923853-80b023f02d71"),
+  unsplash("photo-1529107386315-e1a2ed48a620"),
+  unsplash("photo-1516321318423-f06f85e504b3"),
+  unsplash("photo-1557804506-669a67965ba0"),
+  unsplash("photo-1552664730-d307ca884978"),
+  unsplash("photo-1542744173-8e7e53415bb0"),
+  unsplash("photo-1553877522-43269d4ea984"),
+  unsplash("photo-1533750349088-cd871a92f312"),
+  unsplash("photo-1600880292203-757bb62b4baf"),
+  unsplash("photo-1559136555-9303baea8ebd"),
+  unsplash("photo-1556761175-5973dc0f32e7"),
+] as const;
+
+const talkingWebsiteImages = [
+  unsplash("photo-1587560699334-cc4ff634909a"),
+  "/assets/img/features/feature-image-05.jpg",
+  unsplash("photo-1600880292203-757bb62b4baf"),
+  unsplash("photo-1516321318423-f06f85e504b3"),
+  "/assets/img/home-capabilities/development-bg.jpg",
+  "/assets/img/home-capabilities/webops-bg.jpg",
+  "/assets/img/web-app/mobile-app-img1.jpg",
+  "/assets/img/web-app/mobile-app-img2.jpg",
+  unsplash("photo-1551434678-e076c223a692"),
+  unsplash("photo-1573164713714-d95e436ab8d6"),
+  unsplash("photo-1556761175-5973dc0f32e7"),
+  unsplash("photo-1559136555-9303baea8ebd"),
+  unsplash("photo-1553877522-43269d4ea984"),
+  unsplash("photo-1557804506-669a67965ba0"),
+  unsplash("photo-1552664730-d307ca884978"),
+  unsplash("photo-1542744173-8e7e53415bb0"),
+] as const;
+
+const aiMarketingImages = [
+  "/assets/img/home-capabilities/seo-bg.jpg",
+  unsplash("photo-1547658719-da2b51169166"),
+  unsplash("photo-1563986768609-322da13575f3"),
+  unsplash("photo-1533750349088-cd871a92f312"),
+  unsplash("photo-1551288049-bebda4e38f71"),
+  unsplash("photo-1460925895917-afdab827c52f"),
+  unsplash("photo-1551650975-87deedd944c3"),
+  unsplash("photo-1542744173-8e7e53415bb0"),
+  unsplash("photo-1553877522-43269d4ea984"),
+  unsplash("photo-1557804506-669a67965ba0"),
+  unsplash("photo-1552664730-d307ca884978"),
+  unsplash("photo-1573164713714-d95e436ab8d6"),
+  unsplash("photo-1556761175-5973dc0f32e7"),
+  unsplash("photo-1529107386315-e1a2ed48a620"),
+  unsplash("photo-1611224923853-80b023f02d71"),
+  unsplash("photo-1559136555-9303baea8ebd"),
+] as const;
+
+const aiVideoTitles = [
+  "Social Ad Campaign",
+  "Product Demo Reel",
+  "Brand Story Film",
+  "AI Explainer Video",
+  "UGC Style Ad",
+  "Product Launch Teaser",
+  "Customer Testimonial",
+  "How-To Tutorial",
+  "Instagram Reel Pack",
+  "YouTube Pre-Roll",
+  "Corporate Overview",
+  "Event Highlight Reel",
+  "App Promo Video",
+  "Seasonal Campaign",
+  "Founder Message",
+  "Case Study Film",
+] as const;
+
+const talkingWebsiteTitles = [
+  "Real Estate Voice Site",
+  "Clinic Booking Assistant",
+  "Agency Lead Qualifier",
+  "SaaS Demo Website",
+  "E-commerce Assistant",
+  "Legal Consult Bot",
+  "Hotel Reservations",
+  "Fitness Studio Site",
+  "Automotive Dealer",
+  "Restaurant Ordering",
+  "Insurance Quoter",
+  "Education Portal",
+  "Healthcare FAQ",
+  "B2B Lead Capture",
+  "Property Tour Guide",
+  "Startup Pitch Site",
+] as const;
+
+const aiMarketingTitles = [
+  "Growth Campaign Suite",
+  "Ad Automation Funnel",
+  "E-commerce AI Ads",
+  "Brand Awareness Push",
+  "Pulse Analytics",
+  "Ledger Finance Ads",
+  "Launchpad Campaign",
+  "SEO Content Engine",
+  "Retargeting Flow",
+  "Social Campaign Hub",
+  "Email AI Sequences",
+  "Conversion Optimizer",
+  "Paid Search Suite",
+  "Influencer Match",
+  "CRM Automation",
+  "Performance Dashboard",
+] as const;
+
+function buildTabProjects(
+  prefix: string,
+  titles: readonly string[],
+  images: readonly string[],
+  href: string,
+) {
+  return titles.map((title, index) => ({
+    id: `${prefix}-${index + 1}`,
+    title,
+    image: images[index],
+    href,
+  }));
+}
 
 export const homePortfolioTabs = [
   {
     id: "ai-video-creation",
     label: "AI Video Creation",
-    title: "AI Video Creation",
-    description:
-      "Professional AI-generated videos for ads, product demos, social content, and brand storytelling — produced faster and at scale.",
     href: "/portfolio",
-    projects: [
-      {
-        id: "video-social-ads",
-        title: "Social Ad Campaign",
-        image: portfolioImages.aiVideo,
-        href: "/portfolio",
-      },
-      {
-        id: "video-product-demo",
-        title: "Product Demo Reel",
-        image: portfolioImages.thumbnail,
-        href: "/portfolio",
-      },
-      {
-        id: "video-brand-film",
-        title: "Brand Story Film",
-        image: portfolioImages.talking,
-        href: "/portfolio",
-      },
-      {
-        id: "video-explainer",
-        title: "AI Explainer Video",
-        image: portfolioImages.mobile1,
-        href: "/portfolio",
-      },
-    ],
+    projects: buildTabProjects(
+      "video",
+      aiVideoTitles,
+      aiVideoImages,
+      "/portfolio",
+    ),
   },
   {
     id: "talking-website",
     label: "Talking Website",
-    title: "Talking Website",
-    description:
-      "Voice-enabled websites that answer questions, qualify leads, and book appointments 24/7 — turning visitors into customers through conversation.",
     href: "/talking-website",
-    projects: [
-      {
-        id: "voice-real-estate",
-        title: "Real Estate Voice Site",
-        image: portfolioImages.talking,
-        href: "/talking-website",
-      },
-      {
-        id: "voice-clinic",
-        title: "Clinic Booking Assistant",
-        image: portfolioImages.mobile2,
-        href: "/talking-website",
-      },
-      {
-        id: "voice-agency",
-        title: "Agency Lead Qualifier",
-        image: portfolioImages.development,
-        href: "/talking-website",
-      },
-      {
-        id: "voice-saas",
-        title: "SaaS Demo Website",
-        image: portfolioImages.webops,
-        href: "/talking-website",
-      },
-    ],
+    projects: buildTabProjects(
+      "voice",
+      talkingWebsiteTitles,
+      talkingWebsiteImages,
+      "/talking-website",
+    ),
   },
   {
     id: "ai-marketing",
     label: "AI Marketing",
-    title: "AI Marketing",
-    description:
-      "Data-driven campaigns powered by AI — smarter targeting, automated workflows, and content that converts across every channel.",
     href: "/portfolio",
-    projects: [
-      {
-        id: "marketing-growth",
-        title: "Growth Campaign Suite",
-        image: portfolioImages.seo,
-        href: "/portfolio",
-      },
-      {
-        id: "marketing-automation",
-        title: "Ad Automation Funnel",
-        image: portfolioImages.development,
-        href: "/portfolio",
-      },
-      {
-        id: "marketing-ecommerce",
-        title: "E-commerce AI Ads",
-        image: portfolioImages.mobile1,
-        href: "/portfolio",
-      },
-      {
-        id: "marketing-brand",
-        title: "Brand Awareness Push",
-        image: portfolioImages.thumbnail,
-        href: "/portfolio",
-      },
-    ],
+    projects: buildTabProjects(
+      "marketing",
+      aiMarketingTitles,
+      aiMarketingImages,
+      "/portfolio",
+    ),
   },
 ] as const;

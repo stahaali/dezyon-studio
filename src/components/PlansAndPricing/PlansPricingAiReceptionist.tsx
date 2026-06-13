@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import Link from "next/link";
 import {
   Bot,
@@ -14,6 +15,7 @@ import { footerContact } from "@/data/site";
 import { SITE_NAME } from "@/lib/constants";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
 import styles from "./PlansPricingAiReceptionist.module.css";
+import sharedStyles from "./PlansAndPricing.module.css";
 
 const benefitIcons = [Globe2, PhoneForwarded, GitBranch, CalendarClock];
 
@@ -37,20 +39,34 @@ export function PlansPricingAiReceptionist() {
         </div>
       </header>
 
-      <div className={styles.plansGrid}>
+      <div className={`${sharedStyles.cardsGrid} ${sharedStyles.serviceCardsGrid}`}>
         {aiReceptionistPage.plans.map((plan) => (
-          <article key={plan.id} className={styles.planCard}>
+          <article
+            key={plan.id}
+            className={`${sharedStyles.planCard} ${sharedStyles.servicePlanCard} ${styles.planCard}`}
+          >
             <h3 className={styles.planTitle}>{plan.title}</h3>
             <p className={styles.planSubtitle}>{plan.subtitle}</p>
 
             <p className={styles.tierLabel}>{plan.tierLabel}</p>
 
             <div className={styles.priceBlock}>
-              {"priceDisplay" in plan && plan.priceDisplay ? (
-                <p className={styles.price}>{plan.priceDisplay}</p>
-              ) : (
-                <p className={styles.price}>${plan.price}</p>
-              )}
+              <p className={styles.priceRow}>
+                {"priceParts" in plan && plan.priceParts ? (
+                  plan.priceParts.map((amount, index) => (
+                    <Fragment key={`${plan.id}-${amount}-${index}`}>
+                      {index > 0 ? (
+                        <span className={styles.pricePlus} aria-hidden="true">
+                          +
+                        </span>
+                      ) : null}
+                      <span className={styles.priceAmount}>${amount}</span>
+                    </Fragment>
+                  ))
+                ) : "price" in plan ? (
+                  <span className={styles.priceAmount}>${plan.price}</span>
+                ) : null}
+              </p>
               <p className={styles.priceSuffix}>{plan.priceSuffix}</p>
             </div>
 
@@ -97,7 +113,6 @@ export function PlansPricingAiReceptionist() {
 
       <section className={styles.benefits} aria-labelledby="ai-receptionist-benefits">
         <PlansPricingHeading
-          as="h3"
           id="ai-receptionist-benefits"
           title={aiReceptionistPage.benefits.title}
           size="section"
@@ -124,7 +139,6 @@ export function PlansPricingAiReceptionist() {
       <section className={styles.ctaBanner} aria-label="AI Receptionist call to action">
         <div className={styles.ctaCopy}>
           <PlansPricingHeading
-            as="h3"
             title={aiReceptionistPage.cta.title}
             size="panel"
             className={styles.ctaTitle}
@@ -139,7 +153,6 @@ export function PlansPricingAiReceptionist() {
       <div className={styles.exploreFeatures} aria-labelledby="explore-features-title">
         <div className={styles.exploreHeader}>
           <PlansPricingHeading
-            as="h3"
             id="explore-features-title"
             title={aiReceptionistPage.exploreFeatures.title}
             size="panel"

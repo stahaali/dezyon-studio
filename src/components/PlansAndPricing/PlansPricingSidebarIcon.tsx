@@ -1,4 +1,13 @@
-import { Bot, Headphones, Phone, Sparkles, Users, Video } from "lucide-react";
+import {
+  BarChart3,
+  Bot,
+  Headphones,
+  MessageCircle,
+  Phone,
+  Sparkles,
+  Users,
+  Video,
+} from "lucide-react";
 import type { PlansPricingCategoryId } from "@/data/plans-and-pricing";
 import styles from "./PlansPricingSidebarIcon.module.css";
 
@@ -8,6 +17,34 @@ type PlansPricingSidebarIconProps = {
 
 export function PlansPricingSidebarIcon({ id }: PlansPricingSidebarIconProps) {
   switch (id) {
+    case "onboard":
+      return (
+        <>
+          <Sparkles size={16} strokeWidth={2} aria-hidden="true" />
+          <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
+        </>
+      );
+    case "talking-websites":
+      return (
+        <>
+          <MessageCircle size={16} strokeWidth={2} aria-hidden="true" />
+          <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
+        </>
+      );
+    case "ai-video-creation":
+      return (
+        <>
+          <Video size={16} strokeWidth={2} aria-hidden="true" />
+          <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
+        </>
+      );
+    case "ai-marketing":
+      return (
+        <>
+          <BarChart3 size={16} strokeWidth={2} aria-hidden="true" />
+          <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
+        </>
+      );
     case "business-phone":
       return (
         <>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Plus } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import {
@@ -17,6 +18,7 @@ import styles from "./HomePortfolio.module.css";
 
 export function HomePortfolio() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
   const activeTab = homePortfolioTabs[activeIndex];
   const galleryId = `portfolio-${activeTab.id}`;
 
@@ -34,6 +36,28 @@ export function HomePortfolio() {
       Fancybox.close();
     };
   }, [galleryId]);
+
+  const panelMotion = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 18 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -10 },
+        transition: { duration: 0.32, ease: [0.25, 0.46, 0.45, 0.94] as const },
+      };
+
+  const cardMotion = (index: number) =>
+    shouldReduceMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: 28, scale: 0.96 },
+          animate: { opacity: 1, y: 0, scale: 1 },
+          transition: {
+            duration: 0.42,
+            delay: Math.min(index * 0.04, 0.48),
+            ease: [0.25, 0.46, 0.45, 0.94] as const,
+          },
+        };
 
   return (
     <section
@@ -77,40 +101,51 @@ export function HomePortfolio() {
             </ul>
           </div>
 
-          <div
-            id={`portfolio-panel-${activeTab.id}`}
-            role="tabpanel"
-            aria-labelledby={`portfolio-tab-${activeTab.id}`}
-            className={styles.panel}
-          >
-            <div className={styles.portfolioGrid}>
-              {activeTab.projects.map((project) => (
-                <article key={project.id} className={styles.projectCard}>
-                  <a
-                    href={project.image}
-                    data-fancybox={galleryId}
-                    className={styles.projectLink}
-                    aria-label={`View ${project.title}`}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab.id}
+              id={`portfolio-panel-${activeTab.id}`}
+              role="tabpanel"
+              aria-labelledby={`portfolio-tab-${activeTab.id}`}
+              className={styles.panel}
+              {...panelMotion}
+            >
+              <div className={styles.portfolioGrid}>
+                {activeTab.projects.map((project, index) => (
+                  <motion.article
+                    key={project.id}
+                    className={styles.projectCard}
+                    {...cardMotion(index)}
                   >
-                    <div className={styles.projectImageWrap}>
-                      <Image
-                        src={project.image}
-                        alt=""
-                        fill
-                        sizes="(max-width: 640px) 50vw, (max-width: 1023px) 50vw, 25vw"
-                        className={styles.projectImage}
-                      />
-                      <div className={styles.projectHover} aria-hidden="true">
-                        <span className={styles.plusIcon}>
-                          <Plus size={28} strokeWidth={2} />
-                        </span>
+                    <a
+                      href={project.image}
+                      data-fancybox={galleryId}
+                      className={styles.projectLink}
+                      aria-label={`View ${project.title}`}
+                    >
+                      <div className={styles.projectImageWrap}>
+                        <Image
+                          src={project.image}
+                          alt=""
+                          fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1023px) 50vw, 25vw"
+                          className={styles.projectImage}
+                        />
+                        <div className={styles.projectOverlay} aria-hidden="true">
+                          <span className={styles.plusIcon}>
+                            <Plus size={24} strokeWidth={2} />
+                          </span>
+                        </div>
+                        <div className={styles.projectMeta}>
+                          <span className={styles.projectTitle}>{project.title}</span>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                </article>
-              ))}
-            </div>
-          </div>
+                    </a>
+                  </motion.article>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           <div className={styles.footerCta}>
             <Button href={homePortfolioSection.cta.href} size="lg">

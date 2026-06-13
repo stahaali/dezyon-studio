@@ -1,5 +1,5 @@
 import { PortfolioBanner } from "@/components/Portfolio/PortfolioBanner/PortfolioBanner";
-import { PortfolioGrid } from "@/components/Portfolio/PortfolioGrid/PortfolioGrid";
+import { HomePortfolio } from "@/components/Home/HomePortfolio/HomePortfolio";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import {
@@ -30,7 +30,9 @@ export default function PortfolioPage() {
       />
       <div className={styles.page}>
         <PortfolioBanner />
-        <PortfolioGrid />
+        <div className={styles.portfolioContent}>
+          <HomePortfolio />
+        </div>
       </div>
     </>
   );

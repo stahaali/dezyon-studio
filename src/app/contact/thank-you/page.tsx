@@ -1,16 +1,8 @@
-import type { Metadata } from "next";
 import { ContactThankYou } from "@/components/Contact/ContactThankYou/ContactThankYou";
-import { SITE_NAME } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/seo";
 import styles from "../page.module.css";
 
-export const metadata: Metadata = {
-  title: `Thank You | Contact | ${SITE_NAME}`,
-  description: "Your contact form submission was received successfully.",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+export const metadata = createPageMetadata("thankYou");
 
 export default function ContactThankYouPage() {
   return (

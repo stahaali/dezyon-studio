@@ -3,12 +3,29 @@ const CONTACT_ASSETS = "/assets/img/contact";
 export const portfolioBanner = {
   titlePrefix: "Our Creative ",
   titleHighlight: "Portfolio.",
+  video: "/assets/video/portfolio-banner.mp4",
   description:
     "Explore selected websites and digital experiences crafted for brands that want to stand out online.",
   stars: {
     left: { src: `${CONTACT_ASSETS}/star-2.svg`, width: 20, height: 28 },
     right: { src: `${CONTACT_ASSETS}/star-1.svg`, width: 42, height: 47 },
   },
+  logoGrid: [
+    "/assets/img/logos/brand-01.svg",
+    "/assets/img/logos/brand-02.svg",
+    "/assets/img/logos/brand-03.svg",
+    "/assets/img/logos/brand-04.svg",
+    "/assets/img/logos/brand-05.svg",
+    "/assets/img/logos/brand-06.svg",
+    "/assets/img/feedback/brand-01.svg",
+    "/assets/img/feedback/brand-02.svg",
+    "/assets/img/feedback/brand-03.svg",
+    "/assets/img/feedback/brand-04.svg",
+    "/assets/img/feedback/brand-05.svg",
+    "/assets/img/feedback/brand-06.svg",
+    "/assets/img/feedback/brand-07.svg",
+    "/assets/img/feedback/brand-08.svg",
+  ],
 } as const;
 
 export const portfolioGrid = {

@@ -89,7 +89,7 @@ function FaqItemCard({
 }
 
 export function ContactFAQ({ twoColumn = false }: ContactFAQProps) {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
   const items = contactFaq.items;
   const midpoint = Math.ceil(items.length / 2);
   const leftItems = twoColumn ? items.slice(0, midpoint) : items;

@@ -36,6 +36,7 @@ export const smartFeatureTabs = [
     description:
       "AI Video Creation gives your business the power to produce professional videos at scale, helping you attract more customers and stand out in today's digital world.",
     image: "/assets/img/features/feature-image-061.jpg",
+    video: "/assets/video/portfolio-banner.mp4",
     showTrafficOverlay: false,
   },
   {
