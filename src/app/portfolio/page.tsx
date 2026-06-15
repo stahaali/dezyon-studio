@@ -31,7 +31,7 @@ export default function PortfolioPage() {
       <div className={styles.page}>
         <PortfolioBanner />
         <div className={styles.portfolioContent}>
-          <HomePortfolio />
+          <HomePortfolio showHeader={false} />
         </div>
       </div>
     </>

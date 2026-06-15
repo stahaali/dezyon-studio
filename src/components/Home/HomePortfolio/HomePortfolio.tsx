@@ -16,7 +16,7 @@ import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./HomePortfolio.module.css";
 
-export function HomePortfolio() {
+export function HomePortfolio({ showHeader = true }: { showHeader?: boolean }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const shouldReduceMotion = useReducedMotion();
   const activeTab = homePortfolioTabs[activeIndex];
@@ -63,23 +63,26 @@ export function HomePortfolio() {
     <section
       id="portfolio"
       className={styles.section}
-      aria-labelledby="home-portfolio-heading"
+      aria-labelledby={showHeader ? "home-portfolio-heading" : undefined}
+      aria-label={showHeader ? undefined : "Portfolio work"}
     >
       <Container className={styles.sectionContainer}>
         <ScrollReveal>
-          <header className={styles.header}>
-            <h2
-              id="home-portfolio-heading"
-              className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
-            >
-              {homePortfolioSection.titlePrefix}
-              <span className={styles.wordHighlight}>
-                {homePortfolioSection.titleHighlight}
-              </span>
-              {homePortfolioSection.titleSuffix}
-            </h2>
-            <p className={styles.subtitle}>{homePortfolioSection.description}</p>
-          </header>
+          {showHeader ? (
+            <header className={styles.header}>
+              <h2
+                id="home-portfolio-heading"
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
+              >
+                {homePortfolioSection.titlePrefix}
+                <span className={styles.wordHighlight}>
+                  {homePortfolioSection.titleHighlight}
+                </span>
+                {homePortfolioSection.titleSuffix}
+              </h2>
+              <p className={styles.subtitle}>{homePortfolioSection.description}</p>
+            </header>
+          ) : null}
 
           <div className={styles.tabBar}>
             <ul className={styles.tabList} role="tablist">
