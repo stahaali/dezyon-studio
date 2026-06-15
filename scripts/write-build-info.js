@@ -90,13 +90,19 @@ console.log("[build-info] The _next folder is required — do not skip it.");
 
 const configPath = path.join(outDir, "api", "config.php");
 if (!fs.existsSync(configPath)) {
-  console.error(
-    "[build-info] MISSING out/api/config.php — contact form will fail on live server."
-  );
-  console.error(
-    "[build-info] Copy public/api/config.example.php to public/api/config.php and rebuild."
-  );
-  process.exit(1);
+  if (process.env.VERCEL || process.env.CI) {
+    console.warn(
+      "[build-info] No out/api/config.php on Vercel/CI — static site deploy only."
+    );
+  } else {
+    console.error(
+      "[build-info] MISSING out/api/config.php — contact form will fail on live server."
+    );
+    console.error(
+      "[build-info] Copy public/api/config.example.php to public/api/config.php and rebuild."
+    );
+    process.exit(1);
+  }
+} else {
+  console.log("[build-info] Verified out/api/config.php");
 }
-
-console.log("[build-info] Verified out/api/config.php");

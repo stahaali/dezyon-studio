@@ -90,6 +90,22 @@ const envCandidates = [
   path.join(process.cwd(), ".env.local"),
 ];
 
+const envVarKeys = [
+  "DB_HOST",
+  "DB_USER",
+  "DB_PASSWORD",
+  "DB_NAME",
+  "RECIPIENT_EMAIL",
+  "RECAPTCHA_SECRET_KEY",
+  "MAIL_FROM",
+  "MAIL_FROM_NAME",
+  "SMTP_HOST",
+  "SMTP_PORT",
+  "SMTP_ENCRYPTION",
+  "SMTP_USER",
+  "SMTP_PASSWORD",
+];
+
 let env = {};
 
 for (const envPath of envCandidates) {
@@ -99,12 +115,43 @@ for (const envPath of envCandidates) {
   }
 }
 
+for (const key of envVarKeys) {
+  if (process.env[key] && !env[key]) {
+    env[key] = process.env[key];
+  }
+}
+
+const isVercel = Boolean(process.env.VERCEL);
+
 if (Object.keys(env).length === 0) {
+  if (isVercel || process.env.CI) {
+    console.warn(
+      "[sync-api-config] No .env on Vercel/CI — skipping config.php (static deploy only)."
+    );
+    process.exit(0);
+  }
+
   console.error("[sync-api-config] .env or .env.local file not found.");
   process.exit(1);
 }
 
-console.log("[sync-api-config] Loaded environment from .env + .env.local");
+let configPhp;
+
+try {
+  configPhp = buildConfigPhp(env);
+} catch (error) {
+  if (isVercel || process.env.CI) {
+    console.warn(`[sync-api-config] ${error.message} — skipping on Vercel/CI.`);
+    process.exit(0);
+  }
+
+  throw error;
+}
+
+const envSource = fs.existsSync(envCandidates[0]) || fs.existsSync(envCandidates[1])
+  ? ".env + .env.local + process.env"
+  : "process.env";
+console.log(`[sync-api-config] Loaded environment from ${envSource}`);
 
 const configPhp = buildConfigPhp(env);
 const publicConfigPath = path.join(process.cwd(), "public", "api", "config.php");
