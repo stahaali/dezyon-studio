@@ -1,15 +1,14 @@
 import { flaticonIcons } from "@/data/icons";
 
-const ABOUT_ASSETS = "/assets/about";
+const ABOUT_ASSETS = "/assets/img/about";
+const ABOUT_MEDIA = "/assets/about";
 
 export const aboutHero = {
-  title: "About Dezyon Studio.",
+  titlePrefix: "Welcome to Dezyon ",
+  titleHighlight: "Studio",
   description:
-    "In 2014, Steven Smith have gotten so much of our time back that we're now able to put towards things that are actually helping our company as opposed to just throwing content out there. and the idea of Lexend was born. Today, Lexend empowers teams to easily communicate with customers through personalized documents that can be created in minutes, build meaningful relationships.",
-  stars: {
-    left: { src: `${ABOUT_ASSETS}/star-2.svg`, width: 20, height: 28 },
-    right: { src: `${ABOUT_ASSETS}/star-1.svg`, width: 42, height: 47 },
-  },
+    "Dezyon Studio is a modern digital agency focused on transforming how businesses grow in the online world. We don't just build websites or create content—we design intelligent digital systems powered by AI that help brands attract, engage, and convert customers more effectively.",
+  tagline: "Transform Your Brand with AI-Powered Digital Solutions.",
 } as const;
 
 export const aboutShowcase = {
@@ -102,68 +101,68 @@ export const aboutTestimonials = [
       "We're looking for people who share our vision! most of our time used to be taken up by most of alternate administrative work whereas now we can focus on building out to help our employees.",
     name: "Mark Zellers",
     role: "CEO, Co-Founder.",
-    avatar: `${ABOUT_ASSETS}/team-01.jpg`,
+    avatar: `${ABOUT_MEDIA}/team-01.jpg`,
   },
   {
     quote:
       "This powerful tool eliminates the need to leave Salesforce to get things done as I can create a custom proposal with dynamic pricing tables, and get approval from my boss all within 36 minutes.",
     name: "Natalia Larsson",
     role: "Director of Sales",
-    avatar: `${ABOUT_ASSETS}/team-06.jpg`,
+    avatar: `${ABOUT_MEDIA}/team-06.jpg`,
   },
   {
     quote:
       "We are based in Europe and the latest Data Protection Regulation forces us to look for service suppliers that comply with this regulation and as we look to create our website and this builder just outstanding!",
     name: "Sarah Edrissi",
     role: "Lead Marketing",
-    avatar: `${ABOUT_ASSETS}/team-07.jpg`,
+    avatar: `${ABOUT_MEDIA}/team-07.jpg`,
   },
 ] as const;
 
 export const aboutTeamMembers = [
-  { name: "Mark Zellers", role: "Founder & CEO", image: `${ABOUT_ASSETS}/team-01.jpg` },
-  { name: "John Zellers", role: "Co-Founder", image: `${ABOUT_ASSETS}/team-02.jpg` },
-  { name: "Kim Yun Son", role: "Engineering Manager", image: `${ABOUT_ASSETS}/team-03.jpg` },
-  { name: "André Garcia", role: "Product Manager", image: `${ABOUT_ASSETS}/team-04.jpg` },
-  { name: "Peter Lary", role: "UX Researcher", image: `${ABOUT_ASSETS}/team-05.jpg` },
-  { name: "Henry Matt", role: "Customer Success", image: `${ABOUT_ASSETS}/team-06.jpg` },
-  { name: "Natalia", role: "Lead of Fun", image: `${ABOUT_ASSETS}/team-07.jpg` },
-  { name: "Larry", role: "Director of Joy", image: `${ABOUT_ASSETS}/team-08.jpg` },
+  { name: "Mark Zellers", role: "Founder & CEO", image: `${ABOUT_MEDIA}/team-01.jpg` },
+  { name: "John Zellers", role: "Co-Founder", image: `${ABOUT_MEDIA}/team-02.jpg` },
+  { name: "Kim Yun Son", role: "Engineering Manager", image: `${ABOUT_MEDIA}/team-03.jpg` },
+  { name: "André Garcia", role: "Product Manager", image: `${ABOUT_MEDIA}/team-04.jpg` },
+  { name: "Peter Lary", role: "UX Researcher", image: `${ABOUT_MEDIA}/team-05.jpg` },
+  { name: "Henry Matt", role: "Customer Success", image: `${ABOUT_MEDIA}/team-06.jpg` },
+  { name: "Natalia", role: "Lead of Fun", image: `${ABOUT_MEDIA}/team-07.jpg` },
+  { name: "Larry", role: "Director of Joy", image: `${ABOUT_MEDIA}/team-08.jpg` },
 ] as const;
 
 export const aboutTimeline = [
   {
     year: "2014",
     description: "Where the idea come up of Lexend :)",
-    image: `${ABOUT_ASSETS}/timeline-01.jpg`,
+    image: `${ABOUT_MEDIA}/timeline-01.jpg`,
   },
   {
     year: "2015",
     description:
       "Launched our first business that can be created in minutes, build meaningful relationships.",
-    image: `${ABOUT_ASSETS}/timeline-02.jpg`,
+    image: `${ABOUT_MEDIA}/timeline-02.jpg`,
   },
   {
     year: "2016",
     description: "Opened our new office in Toronto, CA",
-    image: `${ABOUT_ASSETS}/timeline-03.jpg`,
+    image: `${ABOUT_MEDIA}/timeline-03.jpg`,
   },
   {
     year: "2019",
     description:
       "Moved to Silicon Valley whereas now we can focus on building out to help our employees.",
-    image: `${ABOUT_ASSETS}/timeline-04.jpg`,
+    image: `${ABOUT_MEDIA}/timeline-04.jpg`,
     active: true,
   },
   {
     year: "2020",
     description: "Opened a new office in London, UK.",
-    image: `${ABOUT_ASSETS}/timeline-05.jpg`,
+    image: `${ABOUT_MEDIA}/timeline-05.jpg`,
   },
   {
     year: "Today",
     description: "Top-rated software solution for service suppliers.",
-    image: `${ABOUT_ASSETS}/timeline-06.jpg`,
+    image: `${ABOUT_MEDIA}/timeline-06.jpg`,
   },
 ] as const;
 

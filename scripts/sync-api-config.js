@@ -53,6 +53,7 @@ function buildConfigPhp(env) {
   const smtpEncryption = env.SMTP_ENCRYPTION || "ssl";
   const smtpUser = env.SMTP_USER || mailFrom;
   const smtpPass = env.SMTP_PASSWORD || "";
+  const pagespeedApiKey = env.PAGESPEED_API_KEY || "";
 
   if (!user || !pass || !name) {
     throw new Error(
@@ -81,6 +82,7 @@ return [
     'smtp_encryption' => ${phpString(smtpEncryption)},
     'smtp_user' => ${phpString(smtpUser)},
     'smtp_pass' => ${phpString(smtpPass)},
+    'pagespeed_api_key' => ${phpString(pagespeedApiKey)},
 ];
 `;
 }
@@ -104,6 +106,7 @@ const envVarKeys = [
   "SMTP_ENCRYPTION",
   "SMTP_USER",
   "SMTP_PASSWORD",
+  "PAGESPEED_API_KEY",
 ];
 
 let env = {};
@@ -153,7 +156,6 @@ const envSource = fs.existsSync(envCandidates[0]) || fs.existsSync(envCandidates
   : "process.env";
 console.log(`[sync-api-config] Loaded environment from ${envSource}`);
 
-const configPhp = buildConfigPhp(env);
 const publicConfigPath = path.join(process.cwd(), "public", "api", "config.php");
 
 fs.mkdirSync(path.dirname(publicConfigPath), { recursive: true });

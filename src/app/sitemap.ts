@@ -14,6 +14,7 @@ const SITEMAP_CONFIG: Record<
   portfolio: { changeFrequency: "weekly", priority: 0.85 },
   webApps: { changeFrequency: "weekly", priority: 0.85 },
   contact: { changeFrequency: "monthly", priority: 0.8 },
+  websiteAudit: { changeFrequency: "weekly", priority: 0.9 },
   talkingWebsite: { changeFrequency: "weekly", priority: 0.9 },
   plansAndPricing: { changeFrequency: "weekly", priority: 0.9 },
   comboPackages: { changeFrequency: "weekly", priority: 0.75 },

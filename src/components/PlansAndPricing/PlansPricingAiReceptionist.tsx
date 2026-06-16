@@ -1,6 +1,3 @@
-"use client";
-
-import { Fragment } from "react";
 import Link from "next/link";
 import {
   Bot,
@@ -14,8 +11,8 @@ import { aiReceptionistPage } from "@/data/plans-and-pricing";
 import { footerContact } from "@/data/site";
 import { SITE_NAME } from "@/lib/constants";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
+import { PlansPricingUniversalCards } from "@/components/PlansAndPricing/PlansPricingUniversalCards";
 import styles from "./PlansPricingAiReceptionist.module.css";
-import sharedStyles from "./PlansAndPricing.module.css";
 
 const benefitIcons = [Globe2, PhoneForwarded, GitBranch, CalendarClock];
 
@@ -39,77 +36,7 @@ export function PlansPricingAiReceptionist() {
         </div>
       </header>
 
-      <div className={`${sharedStyles.cardsGrid} ${sharedStyles.serviceCardsGrid}`}>
-        {aiReceptionistPage.plans.map((plan) => (
-          <article
-            key={plan.id}
-            className={`${sharedStyles.planCard} ${sharedStyles.servicePlanCard} ${styles.planCard}`}
-          >
-            <h3 className={styles.planTitle}>{plan.title}</h3>
-            <p className={styles.planSubtitle}>{plan.subtitle}</p>
-
-            <p className={styles.tierLabel}>{plan.tierLabel}</p>
-
-            <div className={styles.priceBlock}>
-              <p className={styles.priceRow}>
-                {"priceParts" in plan && plan.priceParts ? (
-                  plan.priceParts.map((amount, index) => (
-                    <Fragment key={`${plan.id}-${amount}-${index}`}>
-                      {index > 0 ? (
-                        <span className={styles.pricePlus} aria-hidden="true">
-                          +
-                        </span>
-                      ) : null}
-                      <span className={styles.priceAmount}>${amount}</span>
-                    </Fragment>
-                  ))
-                ) : "price" in plan ? (
-                  <span className={styles.priceAmount}>${plan.price}</span>
-                ) : null}
-              </p>
-              <p className={styles.priceSuffix}>{plan.priceSuffix}</p>
-            </div>
-
-            <div className={styles.actions}>
-              {plan.actions.map((action) => (
-                <Link
-                  key={action.label}
-                  href={action.href}
-                  className={
-                    action.variant === "primary" ? styles.primaryBtn : styles.secondaryBtn
-                  }
-                >
-                  {action.label}
-                </Link>
-              ))}
-            </div>
-
-            {plan.extraLinks.length > 0 ? (
-              <div className={styles.extraLinks}>
-                {plan.extraLinks.map((link) => (
-                  <Link key={link.label} href={link.href} className={styles.textLink}>
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            ) : null}
-
-            <Link href="/contact" className={styles.customerLink}>
-              {plan.customerLink}
-            </Link>
-
-            <p className={styles.featuresTitle}>{plan.featuresTitle}</p>
-            <ul className={styles.features}>
-              {plan.features.map((feature) => (
-                <li key={feature}>
-                  <Check size={16} className={styles.checkIcon} aria-hidden="true" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
+      <PlansPricingUniversalCards />
 
       <section className={styles.benefits} aria-labelledby="ai-receptionist-benefits">
         <PlansPricingHeading

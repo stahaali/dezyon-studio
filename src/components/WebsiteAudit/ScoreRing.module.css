@@ -1,0 +1,59 @@
+.ringWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ringCanvas {
+  position: relative;
+}
+
+.ringSvg {
+  transform: rotate(-90deg);
+}
+
+.ringCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringLoader {
+  animation: spin 1s linear infinite;
+  color: #1a73e8;
+}
+
+.valueSm {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.valueLg {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.valueXl {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.ringLabel {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

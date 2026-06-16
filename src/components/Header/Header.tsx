@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Phone, X } from "lucide-react";
@@ -68,15 +69,24 @@ function NavLinkItem({
 
 export function Header() {
   const pathname = usePathname();
+  const [hasMounted, setHasMounted] = useState(false);
   const { isScrolled, isHeaderVisible } = useStickyHeader();
   const { isOpen: mobileOpen, closeMenu, toggleMenu } = useMobileMenu();
   useLockBodyScroll(mobileOpen);
 
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const showHeader = isHeaderVisible || mobileOpen;
   const isPricingActive =
-    pathname === pricingNav.href ||
-    pathname.startsWith("/pricing/") ||
-    pathname.startsWith("/plans-and-pricing/");
+    hasMounted &&
+    (pathname === pricingNav.href ||
+      pathname.startsWith("/pricing/") ||
+      pathname.startsWith("/plans-and-pricing/"));
+
+  const isLinkActive = (href: string) =>
+    hasMounted && isNavLinkActive(pathname, href);
 
   return (
     <>
@@ -92,13 +102,13 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                isActive={isNavLinkActive(pathname, link.href)}
+                isActive={isLinkActive(link.href)}
               />
             ))}
             <NavLinkItem
               href={navLinks[4].href}
               label={navLinks[4].label}
-              isActive={isNavLinkActive(pathname, navLinks[4].href)}
+              isActive={isLinkActive(navLinks[4].href)}
             />
             <NavLinkItem
               href={pricingNav.href}
@@ -110,7 +120,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                isActive={isNavLinkActive(pathname, link.href)}
+                isActive={isLinkActive(link.href)}
               />
             ))}
           </ul>
@@ -166,7 +176,7 @@ export function Header() {
         <div className={styles.mobileMenuBody}>
           <ul className={styles.mobileLinks}>
             {navLinks.slice(0, 4).map((link) => {
-              const isActive = isNavLinkActive(pathname, link.href);
+              const isActive = isLinkActive(link.href);
 
               return (
                 <li key={link.href}>
@@ -186,11 +196,11 @@ export function Header() {
               <Link
                 href={navLinks[4].href}
                 className={`${styles.mobileLink} ${
-                  isNavLinkActive(pathname, navLinks[4].href) ? styles.mobileLinkActive : ""
+                  isLinkActive(navLinks[4].href) ? styles.mobileLinkActive : ""
                 }`}
                 onClick={closeMenu}
                 aria-current={
-                  isNavLinkActive(pathname, navLinks[4].href) ? "page" : undefined
+                  isLinkActive(navLinks[4].href) ? "page" : undefined
                 }
               >
                 {navLinks[4].label}
@@ -211,7 +221,7 @@ export function Header() {
             </li>
 
             {navLinks.slice(5).map((link) => {
-              const isActive = isNavLinkActive(pathname, link.href);
+              const isActive = isLinkActive(link.href);
 
               return (
                 <li key={link.href}>

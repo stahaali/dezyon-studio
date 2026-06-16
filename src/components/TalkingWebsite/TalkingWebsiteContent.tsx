@@ -45,6 +45,7 @@ import {
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
 import styles from "./TalkingWebsite.module.css";
 
@@ -119,12 +120,13 @@ export function TalkingWebsiteContent() {
                 <Sparkles size={14} aria-hidden="true" />
                 {talkingWebsiteHero.badge}
               </span>
-              <h1 id="talking-website-hero-heading" className={styles.heroTitle}>
-                <span className={styles.heroEmoji} aria-hidden="true">
-                  🗣️
-                </span>{" "}
-                {talkingWebsiteHero.title}{" "}
-                <span className={styles.heroTitleHighlight}>{talkingWebsiteHero.titleLead}</span>
+              <h1
+                id="talking-website-hero-heading"
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.heroTitle}`}
+              >
+                <span className={splitTitleStyles.lightOnDark}>
+                  {talkingWebsiteHero.title}
+                </span>
               </h1>
               <p className={styles.heroSubtitle}>{talkingWebsiteHero.subtitle}</p>
               <div className={styles.heroDescription}>

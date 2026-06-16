@@ -29,4 +29,5 @@ return [
     'smtp_encryption' => 'ssl',
     'smtp_user' => 'hello@dezyonstudio.com',
     'smtp_pass' => 'your_email_password_here',
+    'pagespeed_api_key' => 'your_google_pagespeed_api_key',
 ];

@@ -14,12 +14,9 @@ export function ServicesGrid() {
             <h2
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
             >
-              {servicesGrid.titleDark}{" "}
-              <span className={styles.wordHighlight}>
-                {servicesGrid.titleAccent}
-              </span>
+              {servicesGrid.titlePrefix}
+              <span className={styles.wordHighlight}>{servicesGrid.titleHighlight}</span>
             </h2>
-            <p className={styles.description}>{servicesGrid.description}</p>
           </header>
         </ScrollReveal>
 

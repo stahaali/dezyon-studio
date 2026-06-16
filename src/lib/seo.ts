@@ -16,6 +16,7 @@ export type PageSeoKey =
   | "portfolio"
   | "webApps"
   | "contact"
+  | "websiteAudit"
   | "talkingWebsite"
   | "plansAndPricing"
   | "comboPackages"
@@ -75,9 +76,9 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/",
   },
   about: {
-    title: "About Our Digital Agency & Creative Team",
+    title: "About Dezyon Studio | AI-Powered Websites, AI Videos, Digital Marketing & Branding",
     description:
-      "Discover Dezyon Studio — our story, values, team, and mission to build high-performing brands, websites, and digital experiences for clients worldwide.",
+      "Dezyon Studio is a creative digital agency helping businesses grow through AI-powered solutions. We specialize in Talking Websites, Custom Website Development, AI Video Creation, AI Influencers, Branding, Digital Marketing, Content Creation, and Business Automation to increase engagement, leads, and sales.",
     keywords: [
       "about Dezyon Studio",
       "digital agency team",
@@ -88,9 +89,9 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/about",
   },
   services: {
-    title: "Logo, Branding, Web & App Development Services",
+    title: "Dezyon Studio Services | Talking Websites, AI Videos, AI Marketing & Branding",
     description:
-      "Explore Dezyon Studio services including logo design, branding, website development, mobile apps, 2D/3D animation, SEO, and digital marketing solutions.",
+      "Explore Dezyon Studio's AI-powered services including Talking Websites, Custom Website Development, AI Video Creation, AI Marketing, AI Influencers, Branding, Digital Marketing, Content Creation, YouTube Video Editing, and Business Automation solutions.",
     keywords: [
       "logo design services",
       "branding services",
@@ -142,10 +143,25 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     ],
     path: "/contact",
   },
-  talkingWebsite: {
-    title: "Talking Website AI — 24/7 Voice Sales Assistant",
+  websiteAudit: {
+    title: "Free Website Audit — Performance, SEO & Speed Analysis",
     description:
-      "Turn your website into a 24/7 sales representative with Talking Website AI. Real-time voice conversations, lead qualification, appointment booking, and CRM integration.",
+      "Analyze any website with our PageSpeed-style audit tool. Get performance, SEO, accessibility, best practices, and technical recommendations for mobile and desktop.",
+    keywords: [
+      "website audit",
+      "pagespeed insights",
+      "website performance test",
+      "SEO audit tool",
+      "lighthouse report",
+      "website speed test",
+      "core web vitals checker",
+    ],
+    path: "/website-audit",
+  },
+  talkingWebsite: {
+    title: "AI Talking Websites | Interactive AI Website Solutions by Dezyon Studio",
+    description:
+      "Transform your business with AI Talking Websites by Dezyon Studio. Engage visitors with AI-powered virtual assistants, automate customer interactions, answer questions instantly, and increase leads and conversions 24/7.",
     keywords: [
       "AI voice assistant",
       "talking website",
@@ -158,9 +174,9 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     ogImage: "/assets/img/cta/talking.svg",
   },
   plansAndPricing: {
-    title: "Plans & Pricing for Design, Web & AI Services",
+    title: "Dezyon Studio Pricing | AI Talking Websites, AI Videos & Digital Solutions",
     description:
-      "Explore Dezyon Studio plans and pricing for logo design, website development, branding, e-commerce, SEO, video animation, and AI-powered business solutions.",
+      "Choose the perfect Dezyon Studio plan for your business. Affordable pricing for AI Talking Websites, Website Development, AI Video Creation, AI Marketing, Branding, and Digital Growth Solutions.",
     keywords: [
       "web design pricing",
       "logo design packages",
@@ -321,6 +337,15 @@ export function getDocumentTitle(config: PageSeoConfig): string {
     return `${SITE_NAME} | ${config.title}`;
   }
 
+  if (
+    config.path === "/about" ||
+    config.path === "/services" ||
+    config.path === "/talking-website" ||
+    config.path === "/plans-and-pricing"
+  ) {
+    return config.title;
+  }
+
   return `${config.title} | ${SITE_NAME}`;
 }
 
@@ -328,11 +353,18 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
   const canonical = buildCanonicalUrl(config.path);
   const ogImage = resolveOgImage(config.ogImage ?? DEFAULT_OG_IMAGE);
   const isHome = config.path === "/";
+  const isAbout = config.path === "/about";
+  const isServices = config.path === "/services";
+  const isTalkingWebsite = config.path === "/talking-website";
+  const isPlansAndPricing = config.path === "/plans-and-pricing";
   const documentTitle = getDocumentTitle(config);
   const openGraphTitle = documentTitle;
 
   return {
-    title: isHome ? { absolute: documentTitle } : config.title,
+    title:
+      isHome || isAbout || isServices || isTalkingWebsite || isPlansAndPricing
+        ? { absolute: documentTitle }
+        : config.title,
     description: config.description,
     keywords: config.keywords,
     alternates: {

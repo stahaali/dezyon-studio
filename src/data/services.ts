@@ -65,65 +65,53 @@ export const servicesHero = {
 } as const;
 
 export const servicesGrid = {
-  label: "What we do",
-  titleDark: "Full-service",
-  titleAccent: "Creative solutions",
-  description:
-    "We partner with ambitious brands to design, build, and market products that make a lasting impact — with strategy, craft, and attention to every detail.",
+  titlePrefix: "Our ",
+  titleHighlight: "Services",
 } as const;
 
 export const services = [
   {
-    id: "logo-design",
-    title: "Logo Design",
+    id: "talking-websites",
+    title: "Talking Websites",
     description:
-      "Distinctive logo systems crafted to capture your brand essence, ensure memorability, and work seamlessly across every touchpoint.",
-    icon: flaticonIcons.diamondColor,
-    iconWidth: 56,
-    iconHeight: 56,
-  },
-  {
-    id: "branding-design",
-    title: "Branding Design",
-    description:
-      "Complete brand identities with cohesive visuals, tone, and guidelines that build recognition and trust across all channels.",
-    icon: flaticonIcons.crownColor,
-    iconWidth: 56,
-    iconHeight: 56,
-  },
-  {
-    id: "website-development",
-    title: "Website Development",
-    description:
-      "High-performance websites built for speed, accessibility, and conversion — from sleek landing pages to full-scale digital platforms.",
-    icon: flaticonIcons.internetColor,
-    iconWidth: 56,
-    iconHeight: 56,
-  },
-  {
-    id: "mobile-app-development",
-    title: "Mobile App Development",
-    description:
-      "Intuitive mobile applications with polished interfaces and reliable functionality, designed to engage users on iOS and Android.",
+      "Transform your website into an interactive experience with AI-powered virtual assistants that engage visitors, answer questions, and convert traffic into customers 24/7.",
     icon: flaticonIcons.chatColor,
     iconWidth: 56,
     iconHeight: 56,
   },
   {
-    id: "animation",
-    title: "Video Animation",
+    id: "custom-website-development",
+    title: "Custom Website Development",
     description:
-      "Compelling motion graphics and 3D visuals that explain ideas, elevate storytelling, and bring your brand to life with dynamic energy.",
+      "Professional, responsive, and conversion-focused websites designed to help businesses establish a strong online presence and generate more leads.",
+    icon: flaticonIcons.internetColor,
+    iconWidth: 56,
+    iconHeight: 56,
+  },
+  {
+    id: "ai-video-creation",
+    title: "AI Video Creation",
+    description:
+      "Create high-quality AI-powered promotional videos, commercials, product showcases, social media content, and business presentations without traditional production costs.",
     icon: flaticonIcons.trophyColor,
     iconWidth: 56,
     iconHeight: 56,
   },
   {
-    id: "digital-marketing",
-    title: "Digital Marketing",
+    id: "ai-marketing",
+    title: "AI Marketing",
     description:
-      "Data-driven campaigns across search, social, and content channels to grow visibility, generate leads, and maximize your return on investment.",
+      "Leverage artificial intelligence to optimize campaigns, improve targeting, automate customer engagement, and maximize marketing performance.",
     icon: flaticonIcons.globeColor,
+    iconWidth: 56,
+    iconHeight: 56,
+  },
+  {
+    id: "ai-influencers",
+    title: "AI Influencers",
+    description:
+      "Build AI-powered digital influencers and brand ambassadors that create engaging content, grow your social presence, and connect with audiences at scale.",
+    icon: flaticonIcons.crownColor,
     iconWidth: 56,
     iconHeight: 56,
   },

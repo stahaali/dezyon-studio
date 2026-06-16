@@ -40,3 +40,22 @@ function ensureContactsSchema(PDO $pdo): void
         }
     }
 }
+
+function ensureAuditReportsSchema(PDO $pdo): void
+{
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS audit_reports (
+            id INT NOT NULL AUTO_INCREMENT,
+            report_uuid VARCHAR(36) NOT NULL,
+            url VARCHAR(2048) NOT NULL,
+            mobile_report JSON NOT NULL,
+            desktop_report JSON NOT NULL,
+            recommendations JSON NULL,
+            created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id),
+            UNIQUE KEY uniq_report_uuid (report_uuid),
+            KEY idx_audit_url (url(255)),
+            KEY idx_audit_created (created_at)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    ");
+}

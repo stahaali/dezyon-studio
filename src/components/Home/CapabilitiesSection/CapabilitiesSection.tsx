@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { CapabilitiesLogoSlider } from "@/components/Home/CapabilitiesSection/CapabilitiesLogoSlider";
 import {
   homeCapabilitiesSection,
@@ -64,7 +63,7 @@ export function CapabilitiesSection() {
             id={`capabilities-panel-${activeTab.id}`}
             role="tabpanel"
             aria-labelledby={`capabilities-tab-${activeTab.id}`}
-            className={styles.panel}
+            className={`${styles.panel} ${styles[`panel${activeTab.id}`]}`}
           >
             <div
               className={`${styles.panelBg} ${styles[`panelBg${activeTab.id}`]}`}
@@ -100,10 +99,6 @@ export function CapabilitiesSection() {
                   ))}
                 </ul>
               </div>
-
-              <Link href={activeTab.cta.href} className={styles.cta}>
-                {activeTab.cta.label}
-              </Link>
             </div>
 
             <CapabilitiesLogoSlider />

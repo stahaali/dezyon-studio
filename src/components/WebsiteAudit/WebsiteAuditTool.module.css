@@ -1,0 +1,1374 @@
+.page {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background: #000200;
+  color: #ffffff;
+  padding-top: 100px;
+}
+
+.psiHeader {
+  background: #000200;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.psiHeaderInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1068px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.psiHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+  z-index: 1;
+}
+
+.psiHeaderCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.psiHeaderRight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 0;
+  z-index: 1;
+}
+
+.psiHeaderSpacer {
+  display: block;
+  width: 1px;
+  height: 1px;
+}
+
+.psiBrandLogo {
+  width: 72px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.psiBrandLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.psiBrandHighlight {
+  display: inline-block;
+  padding: 0.1em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background: var(--brand-gradient);
+  color: #000200;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.psiNav {
+  display: none;
+}
+
+.psiNavList {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.psiNavLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: var(--radius-full);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.psiNavLink:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.psiNavLinkActive {
+  color: var(--color-primary);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
+}
+
+.psiMenuBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.psiMenuBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.psiMobileNav {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000200;
+}
+
+.psiMobileNavList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 1068px;
+  margin: 0 auto;
+  padding: 12px 16px 16px;
+  list-style: none;
+}
+
+.psiMobileNavLink {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.psiMobileNavLink:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.headerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #8ab4f8;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.headerActionBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.headerActionBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.headerActionBtn:disabled:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 1200px) {
+  .psiNav {
+    display: block;
+  }
+
+  .psiMenuBtn {
+    display: none;
+  }
+
+  .psiMobileNav {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .psiBrandHighlight {
+    font-size: 15px;
+  }
+}
+
+.searchStrip {
+  background: #000200;
+  padding: 0 0 0;
+}
+
+.auditTopBar {
+  max-width: 1068px;
+  margin: 0 auto;
+  padding: 0 24px 16px;
+}
+
+.pageHeadingWrap {
+  display: flex;
+  justify-content: center;
+  max-width: 1068px;
+  margin: 40px auto 0;
+  padding: 0 24px 20px;
+  text-align: center;
+}
+
+.pageTitle {
+  margin: 0;
+  color: #ffffff;
+  overflow: visible;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.wordHighlight {
+  display: inline-block;
+  padding: 0.1em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background: var(--brand-gradient);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+}
+
+.auditTopBarInner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  min-height: 40px;
+}
+
+.auditTopBarInner .reportMeta {
+  margin-right: auto;
+}
+
+.searchStripInner {
+  max-width: 1068px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1068px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  background: #000200;
+}
+
+.innerFlush {
+  padding-top: 0;
+}
+
+.reportMeta {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.searchCard {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 0;
+  border: 1px solid #1a73e8;
+  border-radius: 4px 4px 0 0;
+  background: #000200;
+  color-scheme: dark;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.urlInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 16px 18px;
+  border: none;
+  background: transparent;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.urlInput:hover,
+.urlInput:focus,
+.urlInput:focus-visible,
+.urlInput:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+}
+
+.urlInput:-webkit-autofill,
+.urlInput:-webkit-autofill:hover,
+.urlInput:-webkit-autofill:focus,
+.urlInput:-webkit-autofill:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff;
+  transition: background-color 99999s ease-in-out 0s;
+}
+
+.urlInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.analyzeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 120px;
+  padding: 0 28px;
+  border: none;
+  background: #1a73e8;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.analyzeBtnSuccess {
+  background: var(--color-accent-hover);
+}
+
+.searchCardSuccess {
+  border-color: var(--color-accent-hover);
+}
+
+.analyzeBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.waitingText {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.waitingDots {
+  display: inline-flex;
+  margin-left: 1px;
+}
+
+.waitingDots span {
+  animation: waitingDotPulse 1.2s ease-in-out infinite;
+  opacity: 0.2;
+}
+
+.waitingDots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.waitingDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.waitingDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes waitingDotPulse {
+  0%,
+  80%,
+  100% {
+    opacity: 0.2;
+  }
+
+  40% {
+    opacity: 1;
+  }
+}
+
+.heroEmpty {
+  padding: 72px 0 48px;
+  text-align: center;
+}
+
+.heroTitle {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.heroText {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.errorBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: 8px;
+  background: rgba(127, 29, 29, 0.35);
+  color: #fecaca;
+  font-size: 14px;
+}
+
+.reportCard {
+  margin-top: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: #000200;
+  overflow: hidden;
+}
+
+.deviceTabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000200;
+}
+
+.deviceTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 32px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.deviceTabActive {
+  color: #8ab4f8;
+  border-bottom-color: #8ab4f8;
+}
+
+.sectionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cruxSection {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cruxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.cruxDesc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.sectionTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.sectionIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(138, 180, 248, 0.16);
+  color: #8ab4f8;
+}
+
+.noData {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8ab4f8;
+}
+
+.diagnoseSection {
+  padding: 20px 24px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.diagnoseTitle {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.scoreGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .scoreGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+.loadingInline {
+  margin: 0;
+  padding: 16px 24px 24px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+}
+
+.categoryNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000200;
+}
+
+.categoryNavBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #8ab4f8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.categoryNavScore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.psiCategories {
+  padding: 0 24px 32px;
+}
+
+.psiCategory {
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.psiCategory:last-child {
+  border-bottom: none;
+}
+
+.psiCategoryLayout {
+  display: grid;
+  gap: 28px;
+}
+
+@media (min-width: 900px) {
+  .psiCategoryLayout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+}
+
+.psiCategoryGauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.psiCategoryCaption {
+  margin: 0;
+  max-width: 200px;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.psiCategoryMain {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.psiMetricsGrid {
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 640px) {
+  .psiMetricsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+}
+
+.psiMetricRow {
+  display: grid;
+  grid-template-columns: 16px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.psiMetricLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.psiMetricValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.psiShape {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.psiShapeTriangle {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid #ff4e42;
+}
+
+.psiShapeSquare {
+  width: 12px;
+  height: 12px;
+  background: #ffa400;
+}
+
+.psiShapeCircle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0cce6b;
+}
+
+.psiShapeNeutral {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.treemapSection {
+  margin-top: 4px;
+}
+
+.viewTreemapPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.viewTreemapBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #8ab4f8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.viewTreemapBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.filmstrip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+  .metricFilters {
+    justify-content: flex-start;
+  }
+
+  .filmstripFrame {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 128px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.filmstripImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.metricFilters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px 12px;
+}
+
+.metricFiltersLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.metricFiltersList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metricFilterBtn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #8ab4f8;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.metricFilterBtnActive {
+  background: #1a73e8;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.treemapModalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.treemapModal {
+  width: min(960px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: #0a0a0a;
+}
+
+.treemapModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.treemapModalHeader h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.treemapModalClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+}
+
+.treemapGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 320px;
+  padding: 20px;
+}
+
+.treemapCell {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 80px;
+  min-height: 72px;
+  padding: 8px;
+  border-radius: 4px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.treemapCellName {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.treemapCellSize {
+  margin-top: 4px;
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+.treemapCellUnused {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.treemapGridMeta {
+  width: 100%;
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.treemapBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  color: #8ab4f8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.treemapBtn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.psiSubsectionTitle {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.psiSubsectionDesc {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.psiAuditList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.psiInsightsBox .psiSubsectionTitle {
+  margin-bottom: 0;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.psiInsightsBox .psiAuditList {
+  border: none;
+  border-radius: 0;
+}
+
+.psiAuditItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.psiAuditItem:last-child {
+  border-bottom: none;
+}
+
+.psiAuditItemOpen {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.psiAuditBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.psiAuditBtn:disabled {
+  cursor: default;
+}
+
+.psiAuditTitle {
+  flex: 1;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.psiAuditSavings {
+  color: #ff8a80;
+  font-weight: 400;
+}
+
+.psiAuditChevron {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.55);
+  transform: rotate(-90deg);
+  transition: transform 0.15s ease;
+}
+
+.psiAuditChevronOpen {
+  transform: rotate(0deg);
+}
+
+.auditDetailPanel {
+  padding: 4px 16px 16px 40px;
+}
+
+.auditDetailIntro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.auditDetailDesc {
+  flex: 1 1 280px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.auditDetailLink {
+  color: #8ab4f8;
+  text-decoration: underline;
+}
+
+.auditBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+
+.auditBadge {
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.thirdPartyToggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.auditTableWrap {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.auditTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.auditTable th {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  text-align: left;
+}
+
+.auditTableNumeric {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.auditTableSection + .auditTableSection {
+  margin-top: 16px;
+}
+
+.auditTableSectionLabel {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.auditChecklist {
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.auditCheckItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.auditCheckItem:last-child {
+  border-bottom: none;
+}
+
+.auditCheckItemPass {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.auditCheckItemFail {
+  color: #ff8a80;
+}
+
+.auditCheckIcon {
+  flex-shrink: 0;
+  width: 18px;
+  font-weight: 700;
+}
+
+.auditTableSubRow td {
+  padding-top: 4px;
+  padding-bottom: 8px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+}
+
+.auditTableSubRow td:first-child {
+  padding-left: 28px;
+}
+
+.auditTable td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  vertical-align: top;
+}
+
+.auditTableGroupRow td {
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 600;
+}
+
+.auditTableGroupMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auditTableGroupHost {
+  font-size: 13px;
+}
+
+.auditTablePartyBadge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.auditTablePartyBadgeFirst {
+  background: rgba(138, 180, 248, 0.2);
+  color: #8ab4f8;
+}
+
+.auditTablePartyBadgeThird {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.auditTableGroupTotal {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.auditTableChildRow td {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 11px;
+}
+
+.auditTableChildRow td:first-child {
+  padding-left: 28px;
+}
+
+.auditTableUrl {
+  color: #8ab4f8;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.auditTableUrl:hover {
+  text-decoration: underline;
+}
+
+.psiGroup {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.psiGroupBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  background: transparent;
+  color: #8ab4f8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.psiGroupMeta {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.psiGroupBody {
+  padding-bottom: 8px;
+}
+
+.treemapWrap {
+  margin-top: 4px;
+}
+
+.treemapBars {
+  display: flex;
+  gap: 2px;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.treemapBar {
+  position: relative;
+  display: flex;
+  min-width: 4px;
+  height: 100%;
+  background: #1a73e8;
+  overflow: hidden;
+}
+
+.treemapBarUsed {
+  flex: 1;
+  background: #1a73e8;
+}
+
+.treemapBarUnused {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(234, 67, 53, 0.75);
+}
+
+.treemapList {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.treemapItem {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.treemapItemMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.treemapItemName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.treemapItemSize {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.treemapItemUnused {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ff8a80;
+}
+
+@media (max-width: 767px) {
+  .psiHeaderInner,
+  .searchStripInner,
+  .inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .psiCategoryLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionRow,
+  .diagnoseSection,
+  .categoryNav,
+  .psiCategories,
+  .loadingInline {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .deviceTab {
+    flex: 1;
+    justify-content: center;
+    padding: 16px 12px;
+  }
+
+  .sectionRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .metricFilters {
+    justify-content: flex-start;
+  }
+
+  .filmstripFrame {
+    width: 64px;
+    height: 114px;
+  }
+}

@@ -8,7 +8,7 @@
     "clean:dev": "node scripts/clean-dev.js",
     "prebuild": "node scripts/clean-build.js && node scripts/sync-api-config.js",
     "build:clean": "node scripts/clean-build.js && npm run build",
-    "build": "next build",
+    "build": "node scripts/strip-dev-api.js --remove && node scripts/build-static.js && node scripts/strip-dev-api.js --restore",
     "postbuild": "node scripts/sync-api-config.js && node scripts/write-build-info.js",
     "build:hostinger": "npm run build",
     "build:vercel": "next build",
@@ -27,6 +27,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-google-recaptcha": "^3.1.0",
+    "recharts": "^3.8.1",
     "swiper": "^12.2.0"
   },
   "devDependencies": {

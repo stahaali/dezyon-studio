@@ -1,11 +1,18 @@
 .section {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: clamp(380px, 44vw, 500px);
   background-color: #000200;
-  padding-top: calc(var(--header-height) + 48px);
+  padding-top: calc(var(--header-height) + 32px);
   padding-bottom: 56px;
-  overflow: visible;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   max-width: 1280px;
 }
 
@@ -23,14 +30,6 @@
   margin: 0 auto 20px;
   padding-top: 10px;
   overflow: visible;
-}
-
-.titleRow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(12px, 1.5vw, 22px);
-  max-width: 100%;
 }
 
 .title {
@@ -52,26 +51,6 @@
   vertical-align: baseline;
 }
 
-.starLeft,
-.starRight {
-  flex-shrink: 0;
-  width: auto;
-  height: auto;
-  pointer-events: none;
-  filter: brightness(0) invert(1);
-}
-
-.starLeft {
-  width: 18px;
-  transform: rotate(-32deg);
-}
-
-.starRight {
-  width: 36px;
-  align-self: flex-start;
-  margin-top: 2px;
-}
-
 .description {
   margin: 0;
   font-size: clamp(15px, 2vw, 18px);
@@ -79,37 +58,26 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
+.tagline {
+  margin: 20px 0 0;
+  font-size: clamp(16px, 2.2vw, 20px);
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.tagline strong {
+  font-weight: 700;
+}
+
 @media (min-width: 640px) {
   .headingWrap {
     padding-top: 12px;
   }
-
-  .starLeft {
-    width: 20px;
-  }
-
-  .starRight {
-    width: 40px;
-  }
 }
 
 @media (min-width: 768px) {
-  .section {
-    padding-top: calc(var(--header-height) + 64px);
-    padding-bottom: 72px;
-  }
-
   .headingWrap {
     padding-top: 14px;
-  }
-
-  .starLeft {
-    width: 20px;
-  }
-
-  .starRight {
-    width: 42px;
-    margin-top: 0;
   }
 
   .description {
@@ -118,21 +86,8 @@
 }
 
 @media (min-width: 1024px) {
-  .section {
-    padding-bottom: 88px;
-  }
-
   .headingWrap {
     padding-top: 16px;
-  }
-
-  .starLeft {
-    width: 22px;
-  }
-
-  .starRight {
-    width: 46px;
-    margin-top: -2px;
   }
 }
 
@@ -149,32 +104,9 @@
     max-width: none;
   }
 
-  .titleRow {
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 20px;
-  }
-
   .title {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
     font-size: 72px;
     line-height: 1.05;
-  }
-
-  .starLeft {
-    width: 22px;
-    align-self: center;
-    margin-top: 0;
-  }
-
-  .starRight {
-    width: 48px;
-    align-self: flex-start;
-    margin-top: -4px;
   }
 
   .wordHighlight {

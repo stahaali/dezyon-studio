@@ -34,8 +34,8 @@ export const heroContent = {
   subtitle:
     "We design, build, and grow websites, brands, and digital products for business that want to stand out online.",
   form: {
-    placeholder: "yourwebsite.com",
-    submitLabel: "Search Domain",
+    placeholder: "Enter a web page audit",
+    submitLabel: "Analyze",
   },
   membersLabel: "4.6k Hardworking Members",
 } as const;

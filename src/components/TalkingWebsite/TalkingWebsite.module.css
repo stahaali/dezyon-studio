@@ -182,7 +182,20 @@
 }
 
 .heroContent {
-  max-width: 580px;
+  min-width: 0;
+}
+
+.heroTitle {
+  margin: 0 0 16px;
+  overflow: visible;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+  .heroTitle {
+    white-space: normal;
+  }
 }
 
 .badge {
@@ -200,39 +213,6 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.heroTitle {
-  margin: 0 0 16px;
-  font-size: clamp(2.1rem, 5vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-}
-
-.heroTitleHighlight {
-  display: inline-block;
-  padding: 0.06em 0.32em 0.1em;
-  margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background: var(--brand-gradient);
-  color: #000200;
-  font: inherit;
-  font-weight: inherit;
-  font-size: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-  transform: rotate(-2.5deg);
-  transform-origin: center center;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.heroEmoji {
-  font-size: 1em;
-  line-height: 1;
-  filter: drop-shadow(0 0 20px rgba(146, 225, 58, 0.35));
 }
 
 .heroSubtitle {

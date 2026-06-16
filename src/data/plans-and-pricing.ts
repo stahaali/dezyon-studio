@@ -1,24 +1,29 @@
 import { packagesBanner } from "@/data/packages";
+import { talkingWebsitePricing } from "@/data/talking-website";
+
+export const plansPricingUniversalPlans = talkingWebsitePricing;
 
 export const plansPricingPage = {
   titlePrefix: "Plans & ",
   titleHighlight: "Pricing",
   description:
-    "Communications plans for business phone, AI receptionist, contact center, video, events, and conversation intelligence.",
+    "Communications plans for business phone, AI receptionist, video, events, and conversation intelligence.",
   stars: packagesBanner.stars,
 } as const;
 
 export const plansPricingServiceTabs = [
   {
-    id: "onboard",
-    label: "Onboard",
-    title: "Welcome to the Dezyon Studio Family",
+    id: "custom-website",
+    label: "Custom Website",
+    eyebrow: "Pricing & Plans",
+    titlePrefix: "Flexible Solutions for Every ",
+    titleHighlight: "Business",
     description:
       "At Dezyon Studio, our goal is simple: to deliver exceptional quality, innovative design, and results that help your business grow.",
   },
   {
-    id: "talking-websites",
-    label: "Talking Websites",
+    id: "talking-website",
+    label: "Talking Website",
     title: "Turn Your Website Into A 24/7 Sales Representative",
     description:
       "Most websites leave visitors searching for answers. A Talking Website starts the conversation instantly.",
@@ -31,31 +36,20 @@ export const plansPricingServiceTabs = [
       "AI Video Creation gives your business the power to produce professional videos at scale.",
   },
   {
-    id: "ai-marketing",
-    label: "Ai-Marketing",
-    title: "Turn Your Marketing Into a Growth Engine",
+    id: "video-editing",
+    label: "Video Editing",
+    title: "Professional Video Editing for Modern Brands",
     description:
-      "AI Marketing uses intelligent data analysis and automation to help you attract, engage, and convert more customers.",
+      "Polished edits, motion graphics, and platform-ready content that help your business stand out across social, ads, and YouTube.",
   },
 ] as const;
 
 export type PlansPricingServiceTabId =
   (typeof plansPricingServiceTabs)[number]["id"];
 
-export type PlansPricingCategoryId =
-  | PlansPricingServiceTabId
-  | "business-phone"
-  | "ai-receptionist"
-  | "contact-center"
-  | "video"
-  | "events"
-  | "conversation-intelligence";
+export type PlansPricingCategoryId = PlansPricingServiceTabId | "ai-receptionist";
 
-export type PlansPricingCategoryLayout =
-  | PlansPricingServiceTabId
-  | "business-phone"
-  | "ai-receptionist"
-  | "product";
+export type PlansPricingCategoryLayout = PlansPricingCategoryId;
 
 export type PlansPricingCategory = {
   id: PlansPricingCategoryId;
@@ -65,26 +59,30 @@ export type PlansPricingCategory = {
   layout: PlansPricingCategoryLayout;
 };
 
+function getServiceTabHeroTitle(
+  tab: (typeof plansPricingServiceTabs)[number],
+): string {
+  if ("titlePrefix" in tab) {
+    return `${tab.titlePrefix}${tab.titleHighlight}`;
+  }
+
+  return tab.title;
+}
+
 const serviceCategories: PlansPricingCategory[] = plansPricingServiceTabs.map(
   (tab) => ({
     id: tab.id,
     label: tab.label,
     layout: tab.id,
-    heroTitle: tab.title,
+    heroTitle: getServiceTabHeroTitle(tab),
     heroDescription: tab.description,
   }),
 );
 
 export const plansPricingCategories: PlansPricingCategory[] = [
-  ...serviceCategories,
-  {
-    id: "business-phone",
-    label: "Business Phone",
-    layout: "business-phone",
-    heroTitle: "Business phone plans for teams of every size",
-    heroDescription:
-      "Unify calling, messaging, and meetings in one AI-powered communications platform built for modern businesses.",
-  },
+  serviceCategories[0],
+  serviceCategories[1],
+  serviceCategories[2],
   {
     id: "ai-receptionist",
     label: "AI Receptionist",
@@ -93,38 +91,7 @@ export const plansPricingCategories: PlansPricingCategory[] = [
     heroDescription:
       "Never miss a call with AI Receptionists that work with any phone system.",
   },
-  {
-    id: "contact-center",
-    label: "Contact Center",
-    layout: "product",
-    heroTitle: "Contact center plans for faster, smarter customer support",
-    heroDescription:
-      "Route calls, chats, and digital interactions with AI-first workflows that help teams resolve issues on the first contact.",
-  },
-  {
-    id: "video",
-    label: "Video",
-    layout: "product",
-    heroTitle: "Video meetings and collaboration plans",
-    heroDescription:
-      "Host secure HD meetings, team messaging, and screen sharing with plans that scale from small teams to enterprise.",
-  },
-  {
-    id: "events",
-    label: "Events",
-    layout: "product",
-    heroTitle: "Webinar and virtual event plans",
-    heroDescription:
-      "Run polished webinars, trainings, and town halls with registration, audience engagement, and post-event analytics.",
-  },
-  {
-    id: "conversation-intelligence",
-    label: "Conversation Intelligence",
-    layout: "product",
-    heroTitle: "Conversation intelligence for every customer interaction",
-    heroDescription:
-      "Turn calls and meetings into insights with AI summaries, coaching cues, and analytics that help teams improve outcomes.",
-  },
+  serviceCategories[3],
 ];
 
 export type TierPlanAction = {
@@ -147,53 +114,9 @@ export type ProductPlan = {
   actions: readonly TierPlanAction[];
 };
 
-export type PlansPricingProductCategoryId = Exclude<
-  PlansPricingCategoryId,
-  PlansPricingServiceTabId | "business-phone" | "ai-receptionist"
->;
+export type PlansPricingProductCategoryId = never;
 
-const productCategoryPlans: Record<PlansPricingProductCategoryId, ProductPlan[]> = {
-  "contact-center": [
-    {
-      id: "cx-standard",
-      name: "Contact Center Standard",
-      description: "AI-first contact center for teams ready to scale customer support.",
-      badge: null,
-      price: 65,
-      priceSuffix: "/user/month* paid annually",
-      customPrice: false,
-      features: [
-        "Omnichannel queue management",
-        "AI call summaries and notes",
-        "Supervisor dashboards",
-        "CRM integrations",
-        "Business hours routing",
-        "Real-time agent monitoring",
-      ],
-      actions: [
-        { label: "Contact sales", href: contactHref, variant: "primary" },
-        { label: "View demo", href: contactHref, variant: "secondary" },
-      ],
-    },
-    {
-      id: "cx-premium",
-      name: "Contact Center Premium",
-      description: "Advanced workforce and analytics tools for high-volume support teams.",
-      badge: "Most popular",
-      price: null,
-      priceSuffix: "",
-      customPrice: true,
-      features: [
-        "Everything in Standard PLUS:",
-        "Workforce management",
-        "Advanced speech analytics",
-        "Custom IVR builder",
-        "Quality management",
-        "Dedicated onboarding support",
-      ],
-      actions: [{ label: "Contact sales", href: contactHref, variant: "primary" }],
-    },
-  ],
+const productCategoryPlans: Record<string, ProductPlan[]> = {
   video: [
     {
       id: "video-standard",
@@ -326,17 +249,9 @@ const productCategoryPlans: Record<PlansPricingProductCategoryId, ProductPlan[]>
 };
 
 export function getProductPlansForCategory(
-  categoryId: PlansPricingCategoryId
+  _categoryId: PlansPricingCategoryId
 ): ProductPlan[] {
-  if (
-    categoryId === "business-phone" ||
-    categoryId === "ai-receptionist" ||
-    plansPricingServiceTabs.some((tab) => tab.id === categoryId)
-  ) {
-    return [];
-  }
-
-  return productCategoryPlans[categoryId as PlansPricingProductCategoryId];
+  return [];
 }
 
 export const aiReceptionistPage = {

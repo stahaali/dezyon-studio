@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Star } from "lucide-react";
 import { heroAvatars, heroContent, heroRating } from "@/data/hero";
 import { BrandSlider } from "@/components/Hero/BrandSlider";
@@ -11,6 +12,8 @@ import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./Hero.module.css";
 
 export function Hero() {
+  const router = useRouter();
+
   return (
     <>
       <section className={styles.hero} aria-labelledby="hero-heading">
@@ -47,13 +50,21 @@ export function Hero() {
 
             <form
               className={styles.heroForm}
-              onSubmit={(event) => event.preventDefault()}
+              onSubmit={(event) => {
+                event.preventDefault();
+                const formData = new FormData(event.currentTarget);
+                const website = String(formData.get("website") || "").trim();
+                if (!website) return;
+                router.push(
+                  `/website-audit/?url=${encodeURIComponent(website)}`
+                );
+              }}
             >
               <div className={styles.formRow}>
                 <label className={styles.formField}>
                   <span className={styles.srOnly}>Website URL</span>
                   <input
-                    type="url"
+                    type="text"
                     name="website"
                     placeholder={heroContent.form.placeholder}
                     className={styles.formInput}

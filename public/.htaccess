@@ -8,6 +8,9 @@ DirectoryIndex index.html
   # Legacy packages route -> logo pricing
   RewriteRule ^packages/?$ pricing/logo/ [R=301,L]
 
+  # API PHP scripts must never fall through to SPA HTML
+  RewriteRule ^api/.+\.php$ - [L]
+
   # Serve existing files and folders
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

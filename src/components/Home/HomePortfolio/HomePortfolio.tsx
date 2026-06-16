@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -134,11 +134,6 @@ export function HomePortfolio({ showHeader = true }: { showHeader?: boolean }) {
                           sizes="(max-width: 640px) 50vw, (max-width: 1023px) 50vw, 25vw"
                           className={styles.projectImage}
                         />
-                        <div className={styles.projectOverlay} aria-hidden="true">
-                          <span className={styles.plusIcon}>
-                            <Plus size={24} strokeWidth={2} />
-                          </span>
-                        </div>
                         <div className={styles.projectMeta}>
                           <span className={styles.projectTitle}>{project.title}</span>
                         </div>

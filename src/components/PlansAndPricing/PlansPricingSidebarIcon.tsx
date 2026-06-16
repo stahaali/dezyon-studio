@@ -1,11 +1,9 @@
 import {
-  BarChart3,
   Bot,
-  Headphones,
+  Clapperboard,
+  Globe,
   MessageCircle,
-  Phone,
   Sparkles,
-  Users,
   Video,
 } from "lucide-react";
 import type { PlansPricingCategoryId } from "@/data/plans-and-pricing";
@@ -17,14 +15,14 @@ type PlansPricingSidebarIconProps = {
 
 export function PlansPricingSidebarIcon({ id }: PlansPricingSidebarIconProps) {
   switch (id) {
-    case "onboard":
+    case "custom-website":
       return (
         <>
-          <Sparkles size={16} strokeWidth={2} aria-hidden="true" />
+          <Globe size={16} strokeWidth={2} aria-hidden="true" />
           <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
         </>
       );
-    case "talking-websites":
+    case "talking-website":
       return (
         <>
           <MessageCircle size={16} strokeWidth={2} aria-hidden="true" />
@@ -38,20 +36,6 @@ export function PlansPricingSidebarIcon({ id }: PlansPricingSidebarIconProps) {
           <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
         </>
       );
-    case "ai-marketing":
-      return (
-        <>
-          <BarChart3 size={16} strokeWidth={2} aria-hidden="true" />
-          <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
-        </>
-      );
-    case "business-phone":
-      return (
-        <>
-          <Phone size={16} strokeWidth={2} aria-hidden="true" />
-          <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
-        </>
-      );
     case "ai-receptionist":
       return (
         <>
@@ -59,22 +43,11 @@ export function PlansPricingSidebarIcon({ id }: PlansPricingSidebarIconProps) {
           <Sparkles className={styles.sparkle} size={9} strokeWidth={2} aria-hidden="true" />
         </>
       );
-    case "contact-center":
-      return <Headphones size={16} strokeWidth={2} aria-hidden="true" />;
-    case "video":
+    case "video-editing":
       return (
         <>
-          <Video size={16} strokeWidth={2} aria-hidden="true" />
+          <Clapperboard size={16} strokeWidth={2} aria-hidden="true" />
           <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
-        </>
-      );
-    case "events":
-      return <Users size={16} strokeWidth={2} aria-hidden="true" />;
-    case "conversation-intelligence":
-      return (
-        <>
-          <span className={styles.iconLabel}>ACE</span>
-          <Sparkles className={styles.sparkle} size={9} strokeWidth={2} aria-hidden="true" />
         </>
       );
     default:

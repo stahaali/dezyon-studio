@@ -99,7 +99,7 @@ export function Footer() {
 
         <div className={styles.bottomBar}>
           <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} | All rights reserved. | {SITE_NAME}
+            &copy; 2016 | All rights reserved. | {SITE_NAME}
           </p>
           <nav className={styles.legal} aria-label="Legal">
             {footerBottomLinks.map((link) => (

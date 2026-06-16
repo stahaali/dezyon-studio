@@ -1,10 +1,13 @@
 import { SITE_NAME } from "@/lib/constants";
 import { footerContact } from "@/data/site";
+import { legalPageStars } from "@/data/legal";
 
 const supportEmail = footerContact.email;
 
 export const refundPage = {
-  title: "Refund Policy",
+  titlePrefix: "Refund ",
+  titleHighlight: "Policy.",
+  stars: legalPageStars,
   intro: `At ${SITE_NAME}, we strive to provide high-quality design and development services to our clients. We understand that occasionally, situations may arise that require refunds. This policy outlines our refund procedures for our various services.`,
   sections: [
     {

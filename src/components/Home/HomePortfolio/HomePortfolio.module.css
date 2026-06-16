@@ -173,7 +173,7 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  cursor: zoom-in;
+  cursor: default;
 }
 
 .projectImageWrap {
@@ -190,43 +190,7 @@
 }
 
 .projectCard:hover .projectImage {
-  transform: scale(1.1);
-}
-
-.projectOverlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 2, 0, 0.05) 0%,
-    rgba(0, 2, 0, 0.55) 100%
-  );
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.projectCard:hover .projectOverlay {
-  opacity: 1;
-}
-
-.plusIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--brand-gradient);
-  color: #000200;
-  transform: scale(0.8);
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.projectCard:hover .plusIcon {
-  transform: scale(1);
+  transform: none;
 }
 
 .projectMeta {
@@ -310,10 +274,6 @@
 
   .projectCard:hover .projectImage {
     transform: none;
-  }
-
-  .projectCard:hover .plusIcon {
-    transform: scale(0.8);
   }
 
   .projectCard:hover .projectTitle {

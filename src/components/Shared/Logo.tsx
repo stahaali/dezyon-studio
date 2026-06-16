@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Logo.module.css";
 
 const LOGO_SRC = {
@@ -13,11 +16,19 @@ interface LogoProps {
 }
 
 export function Logo({ variant = "light", className = "" }: LogoProps) {
+  const pathname = usePathname();
+
   return (
     <Link
       href="/"
       className={`${styles.logo} ${className}`.trim()}
       aria-label="Dezyon Studio home"
+      onClick={(event) => {
+        if (pathname === "/") {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }}
     >
       <Image
         key={variant}

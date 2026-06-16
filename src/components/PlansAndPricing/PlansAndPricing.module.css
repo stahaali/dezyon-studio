@@ -183,6 +183,62 @@
   height: auto;
 }
 
+.universalCardsGrid {
+  align-items: stretch;
+  padding-top: 14px;
+}
+
+.universalPlanCard {
+  height: 100%;
+  min-height: 420px;
+  overflow: visible;
+}
+
+.planCardInner {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.universalPlanCard .planName,
+.universalPlanCard .planDescription,
+.universalPlanCard .planActions {
+  flex-shrink: 0;
+}
+
+.universalPlanCard .planActions {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.planCardScrollBody {
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 6px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--color-primary-rgb), 0.45) rgba(255, 255, 255, 0.08);
+}
+
+.planCardScrollBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.planCardScrollBody::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.planCardScrollBody::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(var(--color-primary-rgb), 0.45);
+}
+
 .servicePlanCard .planActions {
   padding-top: 16px;
 }
@@ -789,9 +845,13 @@
 }
 
 @media (min-width: 1024px) {
-  .cardsGrid:not(.cardsGridPair),
-  .serviceCardsGrid:not(.cardsGridPair),
-  .productCardsGrid:not(.cardsGridPair) {
+  .universalCardsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cardsGrid:not(.cardsGridPair):not(.universalCardsGrid),
+  .serviceCardsGrid:not(.cardsGridPair):not(.universalCardsGrid),
+  .productCardsGrid:not(.cardsGridPair):not(.universalCardsGrid) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

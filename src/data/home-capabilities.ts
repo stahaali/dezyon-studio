@@ -1,7 +1,5 @@
 import { heroBrands } from "@/data/hero";
 
-const CAPABILITIES_ASSETS = "/assets/img/home-capabilities";
-
 export const homeCapabilitiesSection = {
   titlePrefix: "We ",
   titleHighlight: "Transform",
@@ -19,14 +17,21 @@ export const homeCapabilitiesTabs = [
     description:
       "From brand identity to AI automation, we turn ideas into measurable business growth.",
     tags: [
-      "Brand Strategy",
-      "AI Video Ads",
-      "Custom Animation",
-      "AI Receptionist",
-      "AI Chatbots",
-      "Social Media Growth",
+      "Custom Website Redesign",
+      "Business & Corporate Websites",
+      "eCommerce Websites",
+      "UI/UX Design in Figma",
+      "Landing Page Design",
+      "Website Redesign & Revamp",
+      "Mobile Responsive Design",
+      "SEO Optimization",
+      "Speed & Performance Optimization",
+      "AI Talking Website Integration",
+      "AI Chatbots & Virtual Receptionists",
+      "Content Writing & SEO Content",
+      "Branding & Logo Design",
+      "Website Maintenance & Support",
     ],
-    cta: { label: "Learn more", href: "/services" },
     backgroundImage: null,
   },
   {
@@ -37,13 +42,18 @@ export const homeCapabilitiesTabs = [
     description:
       "More than a website your most valuable digital asset for attracting, converting, and retaining customers.",
     tags: [
-      "SEO Title",
-      "Meta Discription",
-      "UI/UX Design",
-      "AI Talking Website Integration",
+      "Branding & Logo Design",
+      "UI/UX Design in Figma",
+      "Website Design & Creation",
+      "Content Writing & SEO Content",
+      "Mobile Responsive Design",
+      "SEO Optimization",
+      "Payment Integration",
+      "Speed & Performance Optimization",
+      "Chat Bot Integration",
+      "Website Maintenance & Support",
     ],
-    cta: { label: "Learn more", href: "/services" },
-    backgroundImage: `${CAPABILITIES_ASSETS}/development-bg.jpg`,
+    backgroundImage: null,
   },
   {
     id: "webops",
@@ -63,8 +73,7 @@ export const homeCapabilitiesTabs = [
       "AI Lead Generation",
       "AI Appointment Booking",
     ],
-    cta: { label: "Learn more", href: "/contact" },
-    backgroundImage: `${CAPABILITIES_ASSETS}/webops-bg.jpg`,
+    backgroundImage: null,
   },
   {
     id: "digitalbranding",
@@ -82,7 +91,6 @@ export const homeCapabilitiesTabs = [
       "Brand Personality Creation",
       "Social Media Content Strategy"
     ],
-    cta: { label: "Learn more", href: "/pricing/branding" },
     backgroundImage: null,
   },
   {
@@ -100,8 +108,7 @@ export const homeCapabilitiesTabs = [
       "Technical SEO",
       "Design and development",
     ],
-    cta: { label: "Learn more", href: "/services" },
-    backgroundImage: `${CAPABILITIES_ASSETS}/seo-bg.jpg`,
+    backgroundImage: null,
   },
 ] as const;
 

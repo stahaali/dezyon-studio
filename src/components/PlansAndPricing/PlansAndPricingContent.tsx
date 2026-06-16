@@ -3,17 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { PlansPricingAiReceptionist } from "@/components/PlansAndPricing/PlansPricingAiReceptionist";
-import { PlansPricingBusinessPhone } from "@/components/PlansAndPricing/PlansPricingBusinessPhone";
-import { ContactFAQ } from "@/components/Contact/ContactFAQ/ContactFAQ";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
-import { PlansPricingProductPlans } from "@/components/PlansAndPricing/PlansPricingProductPlans";
 import { PlansPricingServicePanel } from "@/components/PlansAndPricing/PlansPricingServicePanel";
 import { PlansPricingSidebarIcon } from "@/components/PlansAndPricing/PlansPricingSidebarIcon";
 import {
   plansPricingCategories,
-  plansPricingDisclaimers,
   plansPricingPage,
   plansPricingServiceTabs,
   type PlansPricingCategoryId,
@@ -28,10 +24,7 @@ function isServiceCategory(
 }
 
 export function PlansAndPricingContent() {
-  const [activeCategory, setActiveCategory] = useState<PlansPricingCategoryId>("onboard");
-
-  const activeMeta = plansPricingCategories.find((item) => item.id === activeCategory);
-  const activeLayout = activeMeta?.layout ?? "business-phone";
+  const [activeCategory, setActiveCategory] = useState<PlansPricingCategoryId>("custom-website");
 
   return (
     <div className={styles.page}>
@@ -109,38 +102,10 @@ export function PlansAndPricingContent() {
             >
               {isServiceCategory(activeCategory) ? (
                 <PlansPricingServicePanel activeTab={activeCategory} />
-              ) : activeLayout === "business-phone" ? (
-                <PlansPricingBusinessPhone />
-              ) : activeLayout === "ai-receptionist" ? (
-                <PlansPricingAiReceptionist />
               ) : (
-                <PlansPricingProductPlans categoryId={activeCategory} />
+                <PlansPricingAiReceptionist />
               )}
             </div>
-          </div>
-        </Container>
-      </section>
-
-      <ContactFAQ />
-
-      <section className={styles.disclaimersSection} aria-labelledby="disclaimers-heading">
-        <Container className={styles.sectionContainer}>
-          <PlansPricingHeading
-            id="disclaimers-heading"
-            title={plansPricingDisclaimers.title}
-            size="panel"
-            className={styles.disclaimersTitle}
-          />
-          <div className={styles.disclaimersGrid}>
-            {plansPricingDisclaimers.columns.map((column, columnIndex) => (
-              <div key={`disclaimer-col-${columnIndex}`}>
-                {column.map((paragraph) => (
-                  <p key={paragraph} className={styles.disclaimerText}>
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            ))}
           </div>
         </Container>
       </section>

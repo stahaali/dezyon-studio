@@ -1,11 +1,10 @@
 export const talkingWebsiteHero = {
   badge: "AI-Powered Voice Sales",
-  titleLead: "Imagine This",
-  title: "Talking Website™ AI",
-  subtitle: "AI Talking Website – A Stress-Free Way to Grow Your Business",
+  title: "AI Talking Websites",
+  subtitle: "Your Website That Speaks, Engages & Converts",
   description: [
-    "You're sleeping, in a meeting, spending time with family, or focusing on other important tasks — while your website is still actively talking to visitors, answering questions, and generating leads.",
-    "An AI Talking Website works like a virtual sales representative",
+    "Imagine a website that doesn't just display information—it actively talks to your visitors, answers questions, guides customers, and helps generate leads around the clock.",
+    "Our Talking Websites are fully customized to match your brand, services, and customer journey, ensuring a seamless experience that converts visitors into customers.",
   ],
   ctas: {
     primary: { label: "Get Started", href: "/contact" },
