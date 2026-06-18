@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   TRANSLATOR_LANGUAGES,
   applyLanguage,
+  ensureTranslatorDefaults,
   getActiveLanguageCode,
   preloadGoogleTranslate,
 } from "@/lib/google-translate";
@@ -19,6 +20,7 @@ export function LanguageTranslator() {
   const rootRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    ensureTranslatorDefaults();
     setActiveLang(getActiveLanguageCode());
   }, []);
 

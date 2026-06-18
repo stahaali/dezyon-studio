@@ -74,28 +74,9 @@
   --header-height: 72px;
   --section-padding-y: 80px;
   --container-max: 1040px;
-  --container-padding: 24px;
+  --container-padding: 20px;
 
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
-}
-
-@media (min-width: 768px) {
-  :root {
-    --section-padding-y: 100px;
-    --container-padding: 32px;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --header-height: 80px;
-  }
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --section-padding-y: 120px;
-  }
 }

@@ -174,7 +174,18 @@
   --card-accent-soft: rgba(var(--ve-primary-rgb), 0.16);
 }
 
-@media (min-width: 640px) {
+@media (max-width: 575px) {
+  .serviceBodyColumns,
+  .serviceListColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .servicesHeader {
+    margin-bottom: 36px;
+  }
+}
+
+@media (min-width: 576px) {
   .servicesGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
@@ -185,7 +196,13 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .servicesHeader {
+    margin-bottom: 44px;
+  }
+}
+
+@media (min-width: 992px) {
   .servicesGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
@@ -193,15 +210,5 @@
 
   .servicesHeader {
     margin-bottom: 56px;
-  }
-}
-
-@media (max-width: 479px) {
-  .serviceBodyColumns {
-    grid-template-columns: 1fr;
-  }
-
-  .serviceListColumns {
-    grid-template-columns: 1fr;
   }
 }

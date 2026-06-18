@@ -39,7 +39,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
@@ -47,7 +47,7 @@
 
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1400px) {
   .section {
     padding-inline: 44px;
   }

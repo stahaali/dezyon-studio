@@ -16,50 +16,38 @@
   overflow: hidden;
 }
 
-.heroMesh {
+.heroBgImage {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 70% 55% at 15% 20%, rgba(146, 225, 58, 0.14) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 45% at 85% 75%, rgba(66, 147, 30, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(146, 225, 58, 0.08) 0%, transparent 60%);
 }
 
-.heroGridLines {
+.heroBgImageEl {
+  object-fit: cover;
+  object-position: 20% top;
+  opacity: 0.55;
+}
+
+@media (min-width: 768px) {
+  .heroBgImageEl {
+    object-position: 18% top;
+  }
+}
+
+.heroBgOverlay {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, #000 15%, transparent 72%);
-}
-
-.heroOrb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-}
-
-.heroOrbOne {
-  top: 10%;
-  right: 8%;
-  width: 320px;
-  height: 320px;
-  background: rgba(146, 225, 58, 0.14);
-}
-
-.heroOrbTwo {
-  bottom: 5%;
-  left: 4%;
-  width: 240px;
-  height: 240px;
-  background: rgba(66, 147, 30, 0.12);
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 2, 0, 0.45) 0%,
+    rgba(0, 2, 0, 0.58) 50%,
+    rgba(0, 2, 0, 0.68) 100%
+  );
 }
 
 .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   max-width: 1280px;
 }
@@ -141,13 +129,13 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .headingWrap {
     padding-top: 16px;
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1400px) {
   .section {
     padding-inline: 44px;
   }

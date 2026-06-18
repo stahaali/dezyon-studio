@@ -1,0 +1,41 @@
+/**
+ * Shared responsive tokens for mobile, iPad, and tablet-desktop layouts.
+ */
+@media (max-width: 575px) {
+  :root {
+    --section-padding-y: 64px;
+    --container-padding: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  :root {
+    --container-padding: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-padding-y: 100px;
+    --container-padding: 28px;
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    --header-height: 80px;
+    --container-padding: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --section-padding-y: 120px;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --section-padding-y: 100px;
+  }
+}

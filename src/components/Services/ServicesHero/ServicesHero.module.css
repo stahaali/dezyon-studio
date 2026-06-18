@@ -337,7 +337,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .content {
     max-width: 620px;
   }
@@ -348,8 +348,8 @@
   }
 }
 
-/* Lock banner layout to the 1366px view on large screens */
-@media (min-width: 1920px) {
+/* Lock banner layout to the 1366px view from 1400px and up */
+@media (min-width: 1400px) {
   .heroCenter {
     min-height: calc(100vh - var(--header-height));
     padding: 64px 0 112px;

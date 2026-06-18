@@ -140,7 +140,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .panel {
     padding: 44px 40px 36px;
   }

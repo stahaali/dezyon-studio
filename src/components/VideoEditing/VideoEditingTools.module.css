@@ -154,20 +154,34 @@
   --card-accent-soft: rgba(var(--vt-primary-rgb), 0.16);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 576px) {
   .toolsGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 16px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .toolsGrid {
+    gap: 18px;
+  }
+
+  .toolsHeader {
+    margin-bottom: 44px;
+  }
+}
+
+@media (min-width: 992px) {
   .toolsGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
+    gap: 18px;
   }
 
   .cardInner {
     padding: 24px 20px 26px;
+  }
+
+  .toolsHeader {
+    margin-bottom: 48px;
   }
 }

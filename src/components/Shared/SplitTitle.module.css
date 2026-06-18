@@ -65,7 +65,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .sizeHero {
     font-size: clamp(48px, 4vw, 72px);
     line-height: 1.05;

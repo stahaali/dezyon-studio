@@ -1,0 +1,31 @@
+.section {
+  background-color: #000200;
+  padding-bottom: 56px;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.link {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  line-height: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.link:hover {
+  opacity: 0.92;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}

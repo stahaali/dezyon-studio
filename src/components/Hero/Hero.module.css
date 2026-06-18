@@ -433,7 +433,7 @@
   }
 }
 
-@media (min-width: 640px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 991px) {
   .sliderColumn {
     margin-top: calc(-1 * (40px + 20px));
     min-height: 460px;
@@ -441,7 +441,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .sliderColumn {
     display: none;
   }
@@ -498,7 +498,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .hero {
     padding-inline: 44px;
   }
@@ -519,17 +519,7 @@
   }
 }
 
-@media (min-width: 1440px) {
-  .hero {
-    padding-bottom: 72px;
-  }
-
-  .heroGrid {
-    gap: 0;
-  }
-}
-
-@media (max-width: 1023px) {
+@media (max-width: 991px) {
   .hero .heroOuter {
     max-width: var(--container-max);
   }
@@ -555,7 +545,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .hero {
     padding-top: calc(var(--header-height) + 56px);
     padding-bottom: 56px;
@@ -571,7 +561,7 @@
   }
 }
 
-@media (min-width: 1366px) and (max-width: 1919px) {
+@media (min-width: 1366px) {
   .heroBg {
     height: 720px;
   }
@@ -599,48 +589,65 @@
   display: inline;
 }
 
-@media (min-width: 1920px) and (max-width: 2559px) {
+@media (min-width: 1400px) {
   .hero {
-    min-height: 900px;
-    padding-bottom: 80px;
+    min-height: auto;
+    padding-bottom: 72px;
   }
 
   .heroBg {
-    height: 100%;
+    height: 720px;
   }
 
   .heroGrid {
-    min-height: 720px;
-    align-items: center;
+    min-height: 0;
+    align-items: start;
+    gap: 0;
   }
 
   .heroText {
-    max-width: 920px;
+    max-width: 760px;
   }
 
   .title {
-    font-size: 80px;
-    line-height: 1.04;
-    letter-spacing: -0.03em;
+    font-size: 61px;
+    line-height: 1.08;
+    letter-spacing: inherit;
   }
 
   .titleLine2 {
-    display: block;
-    margin-top: 0.06em;
+    display: inline;
+    margin-top: 0;
   }
 
   .title .wordHighlight {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 80px !important;
-    line-height: 1.04 !important;
-    letter-spacing: -0.03em !important;
-    padding: 0.1em 0.32em !important;
-    margin-inline: 0.04em 0.12em !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    padding: 0.12em 0.36em !important;
+    margin-inline: 0.04em !important;
     border-radius: 0.22em !important;
+    display: inline-block !important;
     vertical-align: baseline !important;
     transform: rotate(-2.5deg) !important;
     transform-origin: center center !important;
+  }
+
+  .sliderColumn {
+    width: 82%;
+    max-width: 360px;
+    height: 540px;
+    min-height: 540px;
+    max-height: 540px;
+    align-self: start;
+  }
+
+  .mediaPanel {
+    padding-top: 56px;
+  }
+
+  .hero .heroOuter,
+  .brandsOuter {
+    max-width: 1280px;
   }
 }

@@ -15,8 +15,12 @@ export function AboutHelps() {
                 id="about-helps-heading"
                 className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
               >
-                How Lexend{" "}
-                <span className={styles.wordHighlight}>Helps</span>
+                <span className={styles.titleLine}>{aboutHelps.title.prefix}</span>
+                <span className={styles.titleLine}>
+                  <span className={styles.wordHighlight}>
+                    {aboutHelps.title.highlight}
+                  </span>
+                </span>
               </h2>
               {aboutHelps.paragraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 24)} className={styles.paragraph}>

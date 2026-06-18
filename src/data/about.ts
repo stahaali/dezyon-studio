@@ -31,10 +31,12 @@ export const aboutShowcase = {
 } as const;
 
 export const aboutHelps = {
-  title: "How Lexend helps",
+  title: {
+    prefix: "We Build Intelligent",
+    highlight: "Digital Solutions",
+  },
   paragraphs: [
-    "Teams use Lexend to improve document workflows, insights, and speed while delivering an amazing experience for their customers. Businesses trust Lexend's all-in-one document automation software to streamline the process to create, approve, and eSign proposals, quotes, contracts, and more. With powerful document creation and workflow capabilities, teams can provide their customers with a more professional, timely, and engaging experience.",
-    "In 2014, Steven Smith have gotten so much of our time back that we're now able to put towards things that are actually helping our company as opposed to just throwing content out there. and the idea of Lexend was born. Today, Lexend empowers teams to easily communicate with customers through personalized documents that can be created in minutes, build meaningful relationships..",
+    "Dezyon Studio - Where creators become brands and brands become businesses. Where AI Meets Creativity to Build Future-Ready Businesses Dezyon Studio is a modern digital agency focused on transforming how businesses grow in the online world. We don’t just build websites or create content—we design intelligent digital systems powered by AI that help brands attract, engage, and convert customers more effectively. In a world where attention is everything, we help businesses stand out with solutions that are not only visually powerful but also smart and interactive. We specialize in Custom Website Development, Talking Website, AI Video Creation, AI Receptionist Systems, and Professional Video Editing, AI Video Reels & Business Branding Ads"
   ],
   illustration: {
     src: `${ABOUT_ASSETS}/walking.svg`,

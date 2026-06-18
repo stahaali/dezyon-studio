@@ -13,6 +13,8 @@ export const TRANSLATOR_LANGUAGES = [
 const TRANSLATOR_SCRIPT_ID = "google-translate-script";
 const TRANSLATOR_ELEMENT_ID = "google_translate_element";
 const TRANSLATOR_LOAD_TIMEOUT_MS = 12000;
+const TRANSLATOR_STORAGE_KEY = "dezyon-translator-language";
+const DEFAULT_LANGUAGE_CODE = "en";
 
 declare global {
   interface Window {
@@ -60,13 +62,78 @@ function canSetCookieDomain() {
   return hostname !== "localhost" && hostname !== "127.0.0.1";
 }
 
-export function getActiveLanguageCode(): string {
-  if (typeof document === "undefined") {
-    return "en";
+function isSupportedLanguageCode(code: string): code is (typeof TRANSLATOR_LANGUAGES)[number]["code"] {
+  return TRANSLATOR_LANGUAGES.some((language) => language.code === code);
+}
+
+function readStoredLanguageCode(): string | null {
+  try {
+    const stored = localStorage.getItem(TRANSLATOR_STORAGE_KEY);
+    return stored && isSupportedLanguageCode(stored) ? stored : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredLanguageCode(code: string) {
+  try {
+    localStorage.setItem(TRANSLATOR_STORAGE_KEY, code);
+  } catch {
+    // ignore storage failures
+  }
+}
+
+function parseGoogTransCookie(): string | null {
+  const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+  if (!match?.[1]) {
+    return null;
   }
 
-  const match = document.cookie.match(/googtrans=\/en\/([^;]+)/);
-  return match?.[1] ? decodeURIComponent(match[1]) : "en";
+  return decodeURIComponent(match[1]).trim();
+}
+
+function getTargetLanguageFromGoogTrans(value: string): string {
+  const segments = value.split("/").filter(Boolean);
+  if (!segments.length) {
+    return DEFAULT_LANGUAGE_CODE;
+  }
+
+  const target = segments[segments.length - 1];
+  if (!target || target === "auto") {
+    return DEFAULT_LANGUAGE_CODE;
+  }
+
+  return target;
+}
+
+function isPageTranslatedByGoogle(): boolean {
+  return (
+    document.documentElement.classList.contains("translated-ltr") ||
+    document.documentElement.classList.contains("translated-rtl")
+  );
+}
+
+export function getActiveLanguageCode(): string {
+  if (typeof document === "undefined") {
+    return DEFAULT_LANGUAGE_CODE;
+  }
+
+  const storedLanguage = readStoredLanguageCode();
+  if (storedLanguage) {
+    return storedLanguage;
+  }
+
+  const googTrans = parseGoogTransCookie();
+  if (!googTrans) {
+    return DEFAULT_LANGUAGE_CODE;
+  }
+
+  const target = getTargetLanguageFromGoogTrans(googTrans);
+  if (!target || target === DEFAULT_LANGUAGE_CODE) {
+    return DEFAULT_LANGUAGE_CODE;
+  }
+
+  return isSupportedLanguageCode(target) ? target : DEFAULT_LANGUAGE_CODE;
 }
 
 function clearTranslateCookies() {
@@ -79,7 +146,9 @@ function clearTranslateCookies() {
 }
 
 export function setTranslateCookie(lang: string) {
-  if (lang === "en") {
+  writeStoredLanguageCode(lang);
+
+  if (lang === DEFAULT_LANGUAGE_CODE) {
     clearTranslateCookies();
     return;
   }
@@ -176,6 +245,39 @@ async function loadGoogleTranslateScript() {
     };
     document.head.appendChild(script);
   });
+}
+
+export function ensureTranslatorDefaults(): void {
+  if (typeof document === "undefined") {
+    return;
+  }
+
+  const storedLanguage = readStoredLanguageCode();
+  if (!storedLanguage) {
+    writeStoredLanguageCode(DEFAULT_LANGUAGE_CODE);
+
+    if (parseGoogTransCookie()) {
+      clearTranslateCookies();
+    }
+
+    if (isPageTranslatedByGoogle()) {
+      window.location.reload();
+    }
+
+    return;
+  }
+
+  if (storedLanguage !== DEFAULT_LANGUAGE_CODE) {
+    return;
+  }
+
+  if (parseGoogTransCookie()) {
+    clearTranslateCookies();
+  }
+
+  if (isPageTranslatedByGoogle()) {
+    window.location.reload();
+  }
 }
 
 export function preloadGoogleTranslate(): Promise<void> {

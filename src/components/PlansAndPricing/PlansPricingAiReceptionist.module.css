@@ -324,7 +324,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .benefitsGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

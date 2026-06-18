@@ -1,19 +1,20 @@
-import Image from "next/image";
 import { videoEditingHeroVisual } from "@/data/video-editing";
 import styles from "./VideoEditing.module.css";
 
 export function VideoEditingHeroBannerImage() {
   return (
     <div className={styles.heroImageWrap}>
-      <Image
-        src={videoEditingHeroVisual.banner}
-        alt="Professional video editing and AI content creation"
-        width={960}
-        height={640}
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className={styles.heroBannerImage}
-        priority
-      />
+      <video
+        className={styles.heroBannerVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label="Video editing showcase"
+      >
+        <source src={videoEditingHeroVisual.columnVideo} type="video/mp4" />
+      </video>
     </div>
   );
 }

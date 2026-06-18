@@ -1,0 +1,11 @@
+/**
+ * Keep 1400px, 1600px, and 1920px layouts aligned with the 1366px design.
+ */
+@media (min-width: 1400px) {
+  :root {
+    --section-padding-y: 100px;
+    --layout-content-max: min(1280px, calc(100vw - 88px));
+    --layout-banner-max: min(1192px, calc(100vw - 88px));
+    --layout-inline-pad: 44px;
+  }
+}

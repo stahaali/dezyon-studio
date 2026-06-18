@@ -1,10 +1,32 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { videoEditingHeroVisual } from "@/data/video-editing";
 import styles from "./VideoEditingHeroVisual.module.css";
 
+const BACKGROUND_PLAYBACK_RATE = 1.35;
+
 export function VideoEditingHeroVisual() {
   const { poster, video } = videoEditingHeroVisual;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) {
+      return;
+    }
+
+    const applyPlaybackRate = () => {
+      videoElement.playbackRate = BACKGROUND_PLAYBACK_RATE;
+    };
+
+    applyPlaybackRate();
+    videoElement.addEventListener("loadedmetadata", applyPlaybackRate);
+
+    return () => {
+      videoElement.removeEventListener("loadedmetadata", applyPlaybackRate);
+    };
+  }, []);
 
   return (
     <div className={styles.videoWrap}>
@@ -21,6 +43,7 @@ export function VideoEditingHeroVisual() {
       />
 
       <video
+        ref={videoRef}
         className={styles.heroVideo}
         autoPlay
         muted

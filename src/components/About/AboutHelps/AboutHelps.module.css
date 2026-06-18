@@ -26,12 +26,16 @@
   margin: 0;
   color: #ffffff;
   overflow: visible;
-  line-height: 1.2;
+  line-height: 1.15;
+}
+
+.titleLine {
+  display: block;
 }
 
 .wordHighlight {
   display: inline-block;
-  padding: 0.1em 0.32em 0.1em;
+  padding: 0.06em 0.32em 0.1em;
   margin-inline: 0.04em;
   border-radius: 0.22em;
   background: var(--brand-gradient);
@@ -62,7 +66,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .section {
     padding-inline: 44px;
   }

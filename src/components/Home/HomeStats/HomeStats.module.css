@@ -51,7 +51,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .statsCard {
     padding: 48px 40px;
   }

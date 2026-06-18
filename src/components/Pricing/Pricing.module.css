@@ -180,7 +180,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .plan {
     padding: 44px 40px;
   }

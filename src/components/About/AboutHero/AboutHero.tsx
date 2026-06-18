@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { aboutHero } from "@/data/about";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -8,10 +9,17 @@ export function AboutHero() {
   return (
     <section className={styles.section} aria-labelledby="about-hero-heading">
       <div className={styles.heroBg} aria-hidden="true">
-        <div className={styles.heroMesh} />
-        <div className={styles.heroGridLines} />
-        <div className={`${styles.heroOrb} ${styles.heroOrbOne}`} />
-        <div className={`${styles.heroOrb} ${styles.heroOrbTwo}`} />
+        <div className={styles.heroBgImage}>
+          <Image
+            src="/assets/img/about/about-banner.jpeg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={styles.heroBgImageEl}
+          />
+        </div>
+        <div className={styles.heroBgOverlay} />
       </div>
 
       <Container className={styles.container}>

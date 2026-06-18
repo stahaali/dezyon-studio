@@ -175,7 +175,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .card {
     width: 420px;
     padding: 32px;

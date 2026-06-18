@@ -186,7 +186,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .formSide {
     padding: 56px 48px;
   }

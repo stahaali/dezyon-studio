@@ -1666,7 +1666,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 991px) {
   .hero .heroContainer {
     max-width: var(--container-max);
     margin-top: 0;
@@ -1679,7 +1679,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .hero {
     padding-inline: 0;
   }
@@ -1853,7 +1853,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .taglineCardText {
     font-size: 17px;
   }
@@ -1919,8 +1919,8 @@
   }
 }
 
-/* Lock hero banner to the 1366px view on large screens */
-@media (min-width: 1920px) {
+/* Lock hero banner to the 1366px view from 1400px and up */
+@media (min-width: 1400px) {
   .hero {
     padding-inline: 44px;
   }

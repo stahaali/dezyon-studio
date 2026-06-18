@@ -140,7 +140,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .card {
     padding: 40px 32px;
   }

@@ -97,7 +97,7 @@
   color: rgba(255, 255, 255, 0.78);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .grid {
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
     gap: 48px;
@@ -116,7 +116,7 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1400px) {
   .section {
     padding-block: 56px;
     padding-inline: 44px;

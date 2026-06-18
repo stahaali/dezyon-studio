@@ -1,1 +1,6 @@
 @import "../../styles/dark-page.module.css";
+
+.page :global(#contact) {
+  padding-top: 0;
+  padding-bottom: 56px;
+}

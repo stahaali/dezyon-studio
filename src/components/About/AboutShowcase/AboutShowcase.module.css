@@ -9,7 +9,7 @@
   overflow: visible;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .section {
     padding-inline: 44px;
   }
@@ -94,7 +94,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .brandSlider {
     margin-top: 48px;
   }
@@ -149,7 +149,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .illustrationLeft {
     left: -20px;
     top: -48px;

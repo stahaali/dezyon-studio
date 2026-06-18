@@ -63,15 +63,15 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .title {
     font-size: clamp(42px, 3.5vw, 60px);
     line-height: 1.08;
   }
 }
 
-/* Lock banner typography to the 1366px view on large screens */
-@media (min-width: 1920px) {
+/* Lock banner typography to the 1366px view from 1400px and up */
+@media (min-width: 1400px) {
   .title {
     font-size: 48px;
     font-weight: 600;

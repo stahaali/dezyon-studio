@@ -8,6 +8,7 @@ import { GoogleTranslatePreload } from "@/components/Header/GoogleTranslatePrelo
 import { Header } from "@/components/Header/Header";
 import { LeftSideRail } from "@/components/Shared/LeftSideRail/LeftSideRail";
 import { SideRail } from "@/components/Shared/SideRail/SideRail";
+import { SiteSecurity } from "@/components/Shared/SiteSecurity";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <MobileMenuProvider>
+      <SiteSecurity />
       <GoogleTranslatePreload />
       <Header />
       <main className="flex-1">{children}</main>

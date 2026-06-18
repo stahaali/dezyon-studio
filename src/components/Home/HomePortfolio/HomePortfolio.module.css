@@ -248,7 +248,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .header {
     margin-bottom: 48px;
   }

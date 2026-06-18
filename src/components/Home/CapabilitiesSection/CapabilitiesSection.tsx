@@ -11,9 +11,25 @@ import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./CapabilitiesSection.module.css";
 
+function getCapabilityTagRows(
+  tabId: string,
+  tags: readonly string[],
+): readonly (readonly string[])[] | null {
+  if (tabId === "rebrand") {
+    return [tags.slice(0, 5), tags.slice(5, 10), tags.slice(10)];
+  }
+
+  if (tabId === "development") {
+    return [tags.slice(0, 4), tags.slice(4, 8), tags.slice(8)];
+  }
+
+  return null;
+}
+
 export function CapabilitiesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeTab = homeCapabilitiesTabs[activeIndex];
+  const tagRows = getCapabilityTagRows(activeTab.id, activeTab.tags);
 
   return (
     <section
@@ -91,13 +107,27 @@ export function CapabilitiesSection() {
 
               <div className={styles.tagsWrap}>
                 <span className={styles.tagsLabel}>Included services:</span>
-                <ul className={styles.tags}>
-                  {activeTab.tags.map((tag) => (
-                    <li key={tag}>
-                      <span className={styles.tag}>{tag}</span>
-                    </li>
-                  ))}
-                </ul>
+                {tagRows ? (
+                  <div className={styles.tagsRows}>
+                    {tagRows.map((row, rowIndex) => (
+                      <ul key={rowIndex} className={styles.tagsRow}>
+                        {row.map((tag) => (
+                          <li key={tag}>
+                            <span className={styles.tag}>{tag}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className={styles.tags}>
+                    {activeTab.tags.map((tag) => (
+                      <li key={tag}>
+                        <span className={styles.tag}>{tag}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
 
