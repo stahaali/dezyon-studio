@@ -51,26 +51,28 @@ export const footerContact = {
   address: footerOffices[0].address,
 } as const;
 
-export const footerSocialLinks = [
-  { href: "#", label: "Facebook" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Instagram" },
-] as const;
+const usaPhoneDigits = footerOffices[0].phone.replace(/\D/g, "");
 
 export const leftRailLinks = [
   { href: "/contact", label: "Get in Touch", type: "contact" },
-  { href: "https://wa.me/13464212554", label: "WhatsApp", type: "whatsapp" },
-  { href: "tel:13464212554", label: "Call", type: "call" },
+  { href: `https://wa.me/${usaPhoneDigits}`, label: "WhatsApp", type: "whatsapp" },
+  { href: `tel:${usaPhoneDigits}`, label: "Call", type: "call" },
+] as const;
+
+export const footerSocialLinks = [
+  { href: "#", label: "Facebook" },
+  { href: "https://www.linkedin.com/company/dezyon-studio/", label: "LinkedIn" },
+  { href: "https://www.instagram.com/dezyon.studio/", label: "Instagram" },
 ] as const;
 
 export const sideRailSocialLinks = [
   { href: "#", label: "Facebook" },
   { href: "#", label: "Twitter" },
-  { href: "#", label: "Instagram" },
+  { href: "https://www.instagram.com/dezyon.studio/", label: "Instagram" },
   { href: "#", label: "Pinterest" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "YouTube" },
-  { href: "#", label: "Behance" },
+  { href: "https://www.linkedin.com/company/dezyon-studio/", label: "LinkedIn" },
+  { href: "https://www.youtube.com/@dezyonstudio", label: "YouTube" },
+  { href: "https://www.tiktok.com/@dezyonstudio", label: "TikTok" },
 ] as const;
 
 export const footerBottomLinks = [

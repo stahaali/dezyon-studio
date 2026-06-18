@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { RecaptchaField } from "@/components/Contact/RecaptchaField/RecaptchaField";
 import { contactHero } from "@/data/contact";
-import { RECAPTCHA_SITE_KEY } from "@/lib/recaptcha-config";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -200,14 +199,12 @@ export function ContactHero() {
                   />
                 </label>
 
-                {RECAPTCHA_SITE_KEY ? (
-                  <div className={styles.captcha}>
-                    <RecaptchaField
-                      widgetKey={recaptchaKey}
-                      onChange={setRecaptchaToken}
-                    />
-                  </div>
-                ) : null}
+                <div className={styles.captcha}>
+                  <RecaptchaField
+                    widgetKey={recaptchaKey}
+                    onChange={setRecaptchaToken}
+                  />
+                </div>
 
                 {submitError ? (
                   <p className={styles.error} role="alert">

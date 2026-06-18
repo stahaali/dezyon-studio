@@ -6,3 +6,16 @@
 .widget {
   min-height: 78px;
 }
+
+.status {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.error {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #f87171;
+}

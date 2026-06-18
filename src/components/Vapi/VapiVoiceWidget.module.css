@@ -1,0 +1,195 @@
+.widget {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: calc(100vw - 40px);
+}
+
+.panel {
+  width: min(320px, calc(100vw - 40px));
+  padding: 16px;
+  border: 1px solid rgba(0, 2, 0, 0.08);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 12px 40px rgba(0, 2, 0, 0.12);
+  overflow: hidden;
+}
+
+.startButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--brand-gradient);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 2, 0, 0.18);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.startButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 2, 0, 0.22);
+}
+
+.startButton:disabled {
+  opacity: 0.75;
+  cursor: wait;
+  transform: none;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.statusDot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.statusDotSpeaking {
+  background: #e5484d;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.statusText {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.endButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #ffe8e8;
+  color: #c62828;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.endButton svg {
+  width: 14px;
+  height: 14px;
+}
+
+.endButton:hover {
+  background: #ffd6d6;
+}
+
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.transcript p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.transcriptRole {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.transcriptAssistant {
+  color: var(--color-text);
+}
+
+.transcriptAssistant .transcriptRole {
+  color: var(--color-primary);
+}
+
+.transcriptUser {
+  color: rgba(0, 2, 0, 0.72);
+}
+
+.transcriptUser .transcriptRole {
+  color: rgba(0, 2, 0, 0.48);
+}
+
+.hint {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(0, 2, 0, 0.56);
+}
+
+.error {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fff1f1;
+  color: #c62828;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (min-width: 577px) {
+  .widget {
+    right: 60px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .widget {
+    right: 20px;
+  }
+}

@@ -54,6 +54,8 @@
 }
 
 .question {
+  flex: 1;
+  min-width: 0;
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
@@ -127,14 +129,16 @@
   }
 
   .trigger {
-    padding: 24px 32px;
+    padding: 24px 24px;
+    gap: 16px;
   }
 
   .answer {
-    padding: 0 32px 24px;
+    padding: 0 24px 24px;
   }
 
   .question {
-    font-size: 17px;
+    font-size: 16px;
+    white-space: nowrap;
   }
 }

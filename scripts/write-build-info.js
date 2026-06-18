@@ -90,19 +90,12 @@ console.log("[build-info] The _next folder is required — do not skip it.");
 
 const configPath = path.join(outDir, "api", "config.php");
 if (!fs.existsSync(configPath)) {
-  if (process.env.VERCEL || process.env.CI) {
-    console.warn(
-      "[build-info] No out/api/config.php on Vercel/CI — static site deploy only."
-    );
-  } else {
-    console.error(
-      "[build-info] MISSING out/api/config.php — contact form will fail on live server."
-    );
-    console.error(
-      "[build-info] Copy public/api/config.example.php to public/api/config.php and rebuild."
-    );
-    process.exit(1);
-  }
+  console.warn(
+    "[build-info] No out/api/config.php — contact form and audit API need DB credentials in .env.local before Hostinger deploy."
+  );
+  console.warn(
+    "[build-info] Add DB_HOST, DB_USER, DB_PASSWORD, DB_NAME to .env.local, then rebuild."
+  );
 } else {
   console.log("[build-info] Verified out/api/config.php");
 }

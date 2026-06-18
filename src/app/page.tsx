@@ -1,8 +1,8 @@
+import { HomeVoiceAssistant } from "@/components/Vapi/HomeVoiceAssistant";
 import { ContactFAQ } from "@/components/Contact/ContactFAQ/ContactFAQ";
 import { CTA } from "@/components/CTA/CTA";
 import { Features } from "@/components/Features/Features";
 import { Team } from "@/components/Features/Team";
-import { HomePortfolio } from "@/components/Home/HomePortfolio/HomePortfolio";
 import { CapabilitiesSection } from "@/components/Home/CapabilitiesSection/CapabilitiesSection";
 import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
 import { Hero } from "@/components/Hero/Hero";
@@ -35,18 +35,19 @@ export default function Home() {
           getFaqPageJsonLd(),
         ]}
       />
-      <div className={styles.home}>
-        <Hero />
-        <CapabilitiesSection />
-        <Features />
-        <HomeStats />
-        {/* <Pricing /> */}
-        <Testimonials />
-        <HomePortfolio />
-        <Team theme="dark" />
-        <ContactFAQ twoColumn />
-        <CTA compact />
-      </div>
+      <HomeVoiceAssistant>
+        <div className={styles.home}>
+          <Hero />
+          <CapabilitiesSection />
+          <Features />
+          <HomeStats />
+          {/* <Pricing /> */}
+          <CTA compact />
+          <Testimonials />
+          <Team theme="dark" />
+          <ContactFAQ twoColumn />
+        </div>
+      </HomeVoiceAssistant>
     </>
   );
 }

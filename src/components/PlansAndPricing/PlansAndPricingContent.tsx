@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { PlansPricingAiReceptionist } from "@/components/PlansAndPricing/PlansPricingAiReceptionist";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
@@ -11,20 +10,12 @@ import { PlansPricingSidebarIcon } from "@/components/PlansAndPricing/PlansPrici
 import {
   plansPricingCategories,
   plansPricingPage,
-  plansPricingServiceTabs,
-  type PlansPricingCategoryId,
   type PlansPricingServiceTabId,
 } from "@/data/plans-and-pricing";
 import styles from "./PlansAndPricing.module.css";
 
-function isServiceCategory(
-  categoryId: PlansPricingCategoryId,
-): categoryId is PlansPricingServiceTabId {
-  return plansPricingServiceTabs.some((tab) => tab.id === categoryId);
-}
-
 export function PlansAndPricingContent() {
-  const [activeCategory, setActiveCategory] = useState<PlansPricingCategoryId>("custom-website");
+  const [activeCategory, setActiveCategory] = useState<PlansPricingServiceTabId>("custom-website");
 
   return (
     <div className={styles.page}>
@@ -71,7 +62,6 @@ export function PlansAndPricingContent() {
         <Container className={styles.mainContainer}>
           <div className={styles.layout}>
             <aside className={styles.sidebar}>
-              <h2 className={styles.sidebarTitle}>Plans &amp; Pricing</h2>
               <ul className={styles.sidebarList} role="tablist">
                 {plansPricingCategories.map((category) => (
                   <li key={category.id} role="presentation">
@@ -100,11 +90,7 @@ export function PlansAndPricingContent() {
               role="tabpanel"
               aria-labelledby={`plans-tab-${activeCategory}`}
             >
-              {isServiceCategory(activeCategory) ? (
-                <PlansPricingServicePanel activeTab={activeCategory} />
-              ) : (
-                <PlansPricingAiReceptionist />
-              )}
+              <PlansPricingServicePanel activeTab={activeCategory} />
             </div>
           </div>
         </Container>

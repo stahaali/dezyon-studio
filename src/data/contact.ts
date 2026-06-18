@@ -37,8 +37,8 @@ export const contactHero = {
 
 export const contactReach = {
   titlePrefix: "Other Ways To ",
-  titleHighlight: "Reach",
-  titleSuffix: " Us",
+  titleHighlight: "Reach Us",
+  titleSuffix: "",
   items: [
     {
       icon: flaticonIcons.locationLime,

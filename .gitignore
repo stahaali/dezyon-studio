@@ -35,6 +35,7 @@ yarn-error.log*
 
 # live server DB credentials (copied to out/ on build)
 public/api/config.php
+public/recaptcha-site-key.json
 public/api/mail.log
 
 # vercel

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RECAPTCHA_SITE_KEY } from "@/lib/recaptcha-config";
 import styles from "./RecaptchaField.module.css";
 
@@ -71,12 +71,54 @@ export function RecaptchaField({ widgetKey, onChange }: RecaptchaFieldProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | null>(null);
   const onChangeRef = useRef(onChange);
+  const [siteKey, setSiteKey] = useState("");
+  const [siteKeyReady, setSiteKeyReady] = useState(false);
+  const [loadError, setLoadError] = useState("");
 
   onChangeRef.current = onChange;
 
   useEffect(() => {
+    let cancelled = false;
+
+    const loadSiteKey = async () => {
+      try {
+        const response = await fetch("/recaptcha-site-key.json", { cache: "no-store" });
+        if (response.ok) {
+          const data = (await response.json()) as { siteKey?: string };
+          const nextSiteKey = data.siteKey?.trim();
+          if (!cancelled && nextSiteKey) {
+            setSiteKey(nextSiteKey);
+            setSiteKeyReady(true);
+            setLoadError("");
+            return;
+          }
+        }
+      } catch {
+        // Fall back to build-time key below.
+      }
+
+      if (!cancelled) {
+        const fallbackKey = RECAPTCHA_SITE_KEY.trim();
+        setSiteKey(fallbackKey);
+        setSiteKeyReady(true);
+        if (!fallbackKey) {
+          setLoadError(
+            "Verification could not load. Upload recaptcha-site-key.json or rebuild with NEXT_PUBLIC_RECAPTCHA_SITE_KEY."
+          );
+        }
+      }
+    };
+
+    void loadSiteKey();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
     const container = containerRef.current;
-    if (!container || !RECAPTCHA_SITE_KEY) {
+    if (!container || !siteKey || !siteKeyReady) {
       return;
     }
 
@@ -93,13 +135,16 @@ export function RecaptchaField({ widgetKey, onChange }: RecaptchaFieldProps) {
         widgetIdRef.current = null;
 
         widgetIdRef.current = window.grecaptcha.render(containerRef.current, {
-          sitekey: RECAPTCHA_SITE_KEY,
+          sitekey: siteKey,
           theme: "dark",
           callback: (token) => onChangeRef.current(token),
           "expired-callback": () => onChangeRef.current(""),
         });
       } catch {
         onChangeRef.current("");
+        if (!cancelled) {
+          setLoadError("Verification failed to load. Please refresh the page.");
+        }
       }
     };
 
@@ -112,14 +157,19 @@ export function RecaptchaField({ widgetKey, onChange }: RecaptchaFieldProps) {
         containerRef.current.innerHTML = "";
       }
     };
-  }, [widgetKey]);
+  }, [widgetKey, siteKey, siteKeyReady]);
 
-  if (!RECAPTCHA_SITE_KEY) {
-    return null;
+  if (!siteKeyReady) {
+    return <p className={styles.status}>Loading verification...</p>;
+  }
+
+  if (loadError || !siteKey) {
+    return <p className={styles.error}>{loadError || "Verification is unavailable."}</p>;
   }
 
   return (
     <div className={styles.wrap}>
+      {loadError ? <p className={styles.error}>{loadError}</p> : null}
       <div ref={containerRef} className={styles.widget} />
     </div>
   );

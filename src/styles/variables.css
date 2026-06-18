@@ -23,6 +23,13 @@
     #164317 100%
   );
   --heading-highlight-bg: var(--brand-gradient);
+  --heading-highlight-font-size: clamp(28px, 4vw, 48px);
+  --heading-highlight-line-height: 1.15;
+  --heading-highlight-letter-spacing: -0.03em;
+  --heading-highlight-padding: 4px 13px;
+  --heading-highlight-margin-inline: 4px;
+  --heading-highlight-radius: 8px;
+  --heading-highlight-rotate: -2.5deg;
   --brand-gradient-panel: linear-gradient(
     145deg,
     #0a2e14 0%,

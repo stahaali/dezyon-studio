@@ -85,9 +85,44 @@
   height: 16px;
 }
 
-.socialLink:hover {
-  color: var(--color-primary);
+.socialLink:hover,
+.socialLink:focus-visible {
   transform: scale(1.08);
+}
+
+.socialLink[data-social="facebook"]:hover,
+.socialLink[data-social="facebook"]:focus-visible {
+  color: #1877f2;
+}
+
+.socialLink[data-social="twitter"]:hover,
+.socialLink[data-social="twitter"]:focus-visible {
+  color: #000000;
+}
+
+.socialLink[data-social="instagram"]:hover,
+.socialLink[data-social="instagram"]:focus-visible {
+  color: #e4405f;
+}
+
+.socialLink[data-social="pinterest"]:hover,
+.socialLink[data-social="pinterest"]:focus-visible {
+  color: #bd081c;
+}
+
+.socialLink[data-social="linkedin"]:hover,
+.socialLink[data-social="linkedin"]:focus-visible {
+  color: #0a66c2;
+}
+
+.socialLink[data-social="youtube"]:hover,
+.socialLink[data-social="youtube"]:focus-visible {
+  color: #ff0000;
+}
+
+.socialLink[data-social="tiktok"]:hover,
+.socialLink[data-social="tiktok"]:focus-visible {
+  color: #ee1d52;
 }
 
 @media (max-width: 576px) {

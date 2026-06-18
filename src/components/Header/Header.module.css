@@ -573,7 +573,9 @@
   width: 20px;
   height: 20px;
   color: #000200;
-  transition: color var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .mobileSocialLink svg {
@@ -582,8 +584,44 @@
   height: 18px;
 }
 
-.mobileSocialLink:hover {
-  color: var(--color-accent);
+.mobileSocialLink:hover,
+.mobileSocialLink:focus-visible {
+  transform: scale(1.08);
+}
+
+.mobileSocialLink[data-social="facebook"]:hover,
+.mobileSocialLink[data-social="facebook"]:focus-visible {
+  color: #1877f2;
+}
+
+.mobileSocialLink[data-social="twitter"]:hover,
+.mobileSocialLink[data-social="twitter"]:focus-visible {
+  color: #000000;
+}
+
+.mobileSocialLink[data-social="instagram"]:hover,
+.mobileSocialLink[data-social="instagram"]:focus-visible {
+  color: #e4405f;
+}
+
+.mobileSocialLink[data-social="pinterest"]:hover,
+.mobileSocialLink[data-social="pinterest"]:focus-visible {
+  color: #bd081c;
+}
+
+.mobileSocialLink[data-social="linkedin"]:hover,
+.mobileSocialLink[data-social="linkedin"]:focus-visible {
+  color: #0a66c2;
+}
+
+.mobileSocialLink[data-social="youtube"]:hover,
+.mobileSocialLink[data-social="youtube"]:focus-visible {
+  color: #ff0000;
+}
+
+.mobileSocialLink[data-social="tiktok"]:hover,
+.mobileSocialLink[data-social="tiktok"]:focus-visible {
+  color: #ee1d52;
 }
 
 .mobilePhoneLink {

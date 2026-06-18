@@ -28,13 +28,14 @@ export const heroRating = {
 export const heroContent = {
   titlePrefix: "Meet Our ",
   titleHighlight: "WebOps AI",
-  titleSuffix: " Team For Your Business",
+  titleSuffix: "Team",
+  titleLine2: "For Your Business",
   intro:
     "Where creators become brands and brands become businesses.",
   subtitle:
-    "We design, build, and grow websites, brands, and digital products for business that want to stand out online.",
+    "Build & Design, Powerful Brands, High-Performing Websites & Digital Solutions That Drive Growth.",
   form: {
-    placeholder: "Enter a web page audit",
+    placeholder: "Enter a web URL for audit",
     submitLabel: "Analyze",
   },
   membersLabel: "4.6k Hardworking Members",

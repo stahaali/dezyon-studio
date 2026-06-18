@@ -41,8 +41,34 @@
   transition: color var(--transition-fast);
 }
 
-.item:hover {
-  color: var(--color-primary);
+.item:hover .labelText,
+.item:focus-visible .labelText {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.item:hover .icon svg :is(path, circle)[stroke="currentColor"],
+.item:focus-visible .icon svg :is(path, circle)[stroke="currentColor"] {
+  stroke: url(#leftRailBrandGradient);
+}
+
+.item:hover .icon svg[fill="currentColor"],
+.item:focus-visible .icon svg[fill="currentColor"] {
+  fill: url(#leftRailBrandGradient);
+}
+
+.item:hover .icon svg circle[fill="currentColor"],
+.item:focus-visible .icon svg circle[fill="currentColor"] {
+  fill: url(#leftRailBrandGradient);
+}
+
+.gradientDefs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .itemInner {

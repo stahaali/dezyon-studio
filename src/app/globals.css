@@ -116,7 +116,25 @@ body {
 }
 
 [class*="wordHighlight"] {
+  display: inline-block !important;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-size: var(--heading-highlight-font-size) !important;
+  line-height: var(--heading-highlight-line-height) !important;
+  letter-spacing: var(--heading-highlight-letter-spacing) !important;
+  font-weight: 700 !important;
+  padding: var(--heading-highlight-padding) !important;
+  margin-inline: var(--heading-highlight-margin-inline) !important;
+  border-radius: var(--heading-highlight-radius) !important;
   background: var(--brand-gradient) !important;
+  background-color: transparent !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: #000200 !important;
+  -webkit-text-fill-color: #000200 !important;
+  transform: rotate(var(--heading-highlight-rotate)) !important;
+  transform-origin: center center !important;
+  vertical-align: baseline !important;
 }
 
 [class*="Button_primary"],

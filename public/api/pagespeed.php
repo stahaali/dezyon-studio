@@ -65,31 +65,35 @@ try {
 
     $report['recommendations'] = auditBuildRecommendations($report);
 
-    $dsn = sprintf(
-        'mysql:host=%s;dbname=%s;charset=utf8mb4',
-        $config['db_host'],
-        $config['db_name']
-    );
+    try {
+        $dsn = sprintf(
+            'mysql:host=%s;dbname=%s;charset=utf8mb4',
+            $config['db_host'],
+            $config['db_name']
+        );
 
-    $pdo = new PDO($dsn, $config['db_user'], $config['db_pass'], [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
+        $pdo = new PDO($dsn, $config['db_user'], $config['db_pass'], [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]);
 
-    ensureAuditReportsSchema($pdo);
+        ensureAuditReportsSchema($pdo);
 
-    $stmt = $pdo->prepare(
-        'INSERT INTO audit_reports (report_uuid, url, mobile_report, desktop_report, recommendations, created_at)
-         VALUES (:report_uuid, :url, :mobile_report, :desktop_report, :recommendations, UTC_TIMESTAMP())'
-    );
+        $stmt = $pdo->prepare(
+            'INSERT INTO audit_reports (report_uuid, url, mobile_report, desktop_report, recommendations, created_at)
+             VALUES (:report_uuid, :url, :mobile_report, :desktop_report, :recommendations, UTC_TIMESTAMP())'
+        );
 
-    $stmt->execute([
-        ':report_uuid' => $reportId,
-        ':url' => $url,
-        ':mobile_report' => json_encode($report['mobile'], JSON_UNESCAPED_UNICODE),
-        ':desktop_report' => json_encode($report['desktop'], JSON_UNESCAPED_UNICODE),
-        ':recommendations' => json_encode($report['recommendations'], JSON_UNESCAPED_UNICODE),
-    ]);
+        $stmt->execute([
+            ':report_uuid' => $reportId,
+            ':url' => $url,
+            ':mobile_report' => json_encode($report['mobile'], JSON_UNESCAPED_UNICODE),
+            ':desktop_report' => json_encode($report['desktop'], JSON_UNESCAPED_UNICODE),
+            ':recommendations' => json_encode($report['recommendations'], JSON_UNESCAPED_UNICODE),
+        ]);
+    } catch (Throwable $dbError) {
+        error_log('Audit DB save failed: ' . $dbError->getMessage());
+    }
 
     echo json_encode([
         'success' => true,

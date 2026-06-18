@@ -33,7 +33,7 @@
 
 .hero .heroOuter {
   position: relative;
-  z-index: 2;
+  z-index: 6;
   width: 100%;
   max-width: 1280px;
   margin-top: 20px;
@@ -121,7 +121,7 @@
 .wordHighlight {
   display: inline-block;
   padding: 0.06em 0.32em 0.1em;
-  margin-inline: 0.04em;
+  margin-inline: 0.04em 0.1em;
   border-radius: 0.22em;
   background: var(--brand-gradient);
   color: #000200;
@@ -595,6 +595,10 @@
   }
 }
 
+.titleLine2 {
+  display: inline;
+}
+
 @media (min-width: 1920px) and (max-width: 2559px) {
   .hero {
     min-height: 900px;
@@ -611,6 +615,32 @@
   }
 
   .heroText {
-    max-width: 860px;
+    max-width: 920px;
+  }
+
+  .title {
+    font-size: 80px;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+
+  .titleLine2 {
+    display: block;
+    margin-top: 0.06em;
+  }
+
+  .title .wordHighlight {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 80px !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.03em !important;
+    padding: 0.1em 0.32em !important;
+    margin-inline: 0.04em 0.12em !important;
+    border-radius: 0.22em !important;
+    vertical-align: baseline !important;
+    transform: rotate(-2.5deg) !important;
+    transform-origin: center center !important;
   }
 }

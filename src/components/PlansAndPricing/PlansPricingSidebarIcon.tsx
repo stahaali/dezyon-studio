@@ -36,13 +36,6 @@ export function PlansPricingSidebarIcon({ id }: PlansPricingSidebarIconProps) {
           <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
         </>
       );
-    case "ai-receptionist":
-      return (
-        <>
-          <span className={styles.iconLabel}>AIR</span>
-          <Sparkles className={styles.sparkle} size={9} strokeWidth={2} aria-hidden="true" />
-        </>
-      );
     case "video-editing":
       return (
         <>

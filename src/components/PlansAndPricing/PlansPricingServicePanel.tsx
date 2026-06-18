@@ -3,8 +3,12 @@ import {
   type PlansPricingServiceTabId,
 } from "@/data/plans-and-pricing";
 import { SITE_NAME } from "@/lib/constants";
+import { PlansPricingAiVideoCreationCards } from "@/components/PlansAndPricing/PlansPricingAiVideoCreationCards";
+import { PlansPricingCustomWebsiteCards } from "@/components/PlansAndPricing/PlansPricingCustomWebsiteCards";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
+import { PlansPricingTalkingWebsiteCards } from "@/components/PlansAndPricing/PlansPricingTalkingWebsiteCards";
 import { PlansPricingUniversalCards } from "@/components/PlansAndPricing/PlansPricingUniversalCards";
+import { PlansPricingVideoEditingCards } from "@/components/PlansAndPricing/PlansPricingVideoEditingCards";
 import styles from "./PlansAndPricing.module.css";
 
 type PlansPricingServicePanelProps = {
@@ -39,7 +43,17 @@ export function PlansPricingServicePanel({ activeTab }: PlansPricingServicePanel
         <p className={styles.categoryDescription}>{tabMeta.description}</p>
       </header>
 
-      <PlansPricingUniversalCards />
+      {activeTab === "custom-website" ? (
+        <PlansPricingCustomWebsiteCards />
+      ) : activeTab === "talking-website" ? (
+        <PlansPricingTalkingWebsiteCards />
+      ) : activeTab === "ai-video-creation" ? (
+        <PlansPricingAiVideoCreationCards />
+      ) : activeTab === "video-editing" ? (
+        <PlansPricingVideoEditingCards />
+      ) : (
+        <PlansPricingUniversalCards />
+      )}
     </div>
   );
 }

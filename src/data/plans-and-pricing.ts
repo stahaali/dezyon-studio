@@ -3,6 +3,79 @@ import { talkingWebsitePricing } from "@/data/talking-website";
 
 export const plansPricingUniversalPlans = talkingWebsitePricing;
 
+export type CustomWebsitePlan = {
+  id: string;
+  name: string;
+  bestFor: string;
+  features: readonly string[];
+  deliveryTime: string;
+  priceRange: string;
+  cta: { label: string; href: string };
+  featured?: boolean;
+};
+
+export const customWebsitePlans: CustomWebsitePlan[] = [
+  {
+    id: "business-starter",
+    name: "Business Starter",
+    bestFor: "New businesses / startups",
+    features: [
+      "Basic Custom Website (5 pages)",
+      "Mobile Responsive Design",
+      "Basic SEO Setup",
+      "Contact Form Integration",
+      "WhatsApp Chat Button",
+      "1 Month Support",
+      "Basic Performance Optimization",
+    ],
+    deliveryTime: "5–7 days",
+    priceRange: "Affordable entry-level",
+    cta: { label: "Get Started", href: "/contact" },
+    featured: false,
+  },
+  {
+    id: "business-growth",
+    name: "Business Growth",
+    bestFor: "Growing businesses who want leads & automation",
+    features: [
+      "Advanced Custom Website (10–15 pages)",
+      "AI Chat / Basic AI Receptionist Integration",
+      "SEO Optimization (On-page + Technical)",
+      "CRM / Lead Capture Integration",
+      "Speed Optimization (High Performance)",
+      "Analytics Setup (Google Analytics + Tracking)",
+      "3 Months Support",
+      "Blog Setup (Optional)",
+      "Conversion-focused UI/UX Design",
+    ],
+    deliveryTime: "10–15 days",
+    priceRange: "Mid-level investment",
+    cta: { label: "Get Started", href: "/contact" },
+    featured: true,
+  },
+  {
+    id: "business-enterprise",
+    name: "Business Enterprise",
+    bestFor: "Large businesses, franchises, high-volume brands",
+    features: [
+      "Fully Custom Scalable Website / Web App",
+      "Advanced AI Voice / AI Receptionist System",
+      "Multi-location / Franchise Support",
+      "Advanced Automation (CRM, Email, WhatsApp)",
+      "API Integrations (Custom Systems)",
+      "High-Level Security Setup",
+      "Dedicated Account Manager",
+      "Priority Support (6–12 Months)",
+      "Performance & Load Optimization (Enterprise Grade)",
+      "Custom Dashboard / Admin Panel",
+    ],
+    deliveryTime: "20–30 days",
+    priceRange: "Premium / Custom Quote",
+    cta: { label: "Get Started", href: "/contact" },
+    featured: false,
+  },
+];
+
 export const plansPricingPage = {
   titlePrefix: "Plans & ",
   titleHighlight: "Pricing",
@@ -47,7 +120,7 @@ export const plansPricingServiceTabs = [
 export type PlansPricingServiceTabId =
   (typeof plansPricingServiceTabs)[number]["id"];
 
-export type PlansPricingCategoryId = PlansPricingServiceTabId | "ai-receptionist";
+export type PlansPricingCategoryId = PlansPricingServiceTabId;
 
 export type PlansPricingCategoryLayout = PlansPricingCategoryId;
 
@@ -79,20 +152,7 @@ const serviceCategories: PlansPricingCategory[] = plansPricingServiceTabs.map(
   }),
 );
 
-export const plansPricingCategories: PlansPricingCategory[] = [
-  serviceCategories[0],
-  serviceCategories[1],
-  serviceCategories[2],
-  {
-    id: "ai-receptionist",
-    label: "AI Receptionist",
-    layout: "ai-receptionist",
-    heroTitle: "AI Receptionist™",
-    heroDescription:
-      "Never miss a call with AI Receptionists that work with any phone system.",
-  },
-  serviceCategories[3],
-];
+export const plansPricingCategories: PlansPricingCategory[] = [...serviceCategories];
 
 export type TierPlanAction = {
   label: string;

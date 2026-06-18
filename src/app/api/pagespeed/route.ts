@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { NextResponse } from "next/server";
 import { saveAuditReport } from "@/lib/audit-dev-store";
 import { runWebsiteAudit } from "@/lib/pagespeed-server";
@@ -6,6 +7,8 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+  await connection();
+
   try {
     const body = await request.json();
     const url = typeof body?.url === "string" ? body.url : "";

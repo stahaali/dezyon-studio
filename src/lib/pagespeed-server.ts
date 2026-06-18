@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { buildAuditRecommendations } from "@/lib/audit-recommendations";
 import {
   buildAccessibilityAudits,
@@ -162,8 +164,76 @@ function generateUuid(): string {
   return crypto.randomUUID();
 }
 
+const INVALID_API_KEYS = new Set([
+  "",
+  "your_google_pagespeed_api_key",
+  "your_key_here",
+]);
+
+function parseEnvFile(filePath: string): Record<string, string> {
+  if (!fs.existsSync(filePath)) {
+    return {};
+  }
+
+  const env: Record<string, string> = {};
+
+  for (const line of fs.readFileSync(filePath, "utf8").split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const separatorIndex = trimmed.indexOf("=");
+    if (separatorIndex === -1) {
+      continue;
+    }
+
+    const key = trimmed.slice(0, separatorIndex).trim();
+    let value = trimmed.slice(separatorIndex + 1).trim();
+
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+
+    env[key] = value;
+  }
+
+  return env;
+}
+
+function readPagespeedKeyFromConfigPhp(): string {
+  const configPath = path.join(process.cwd(), "public", "api", "config.php");
+  if (!fs.existsSync(configPath)) {
+    return "";
+  }
+
+  const content = fs.readFileSync(configPath, "utf8");
+  const match = content.match(/['"]pagespeed_api_key['"]\s*=>\s*['"]([^'"]*)['"]/);
+  return match?.[1]?.trim() ?? "";
+}
+
+function resolvePagespeedApiKey(): string {
+  const candidates = [
+    process.env.PAGESPEED_API_KEY?.trim(),
+    parseEnvFile(path.join(process.cwd(), ".env.local")).PAGESPEED_API_KEY?.trim(),
+    parseEnvFile(path.join(process.cwd(), ".env")).PAGESPEED_API_KEY?.trim(),
+    readPagespeedKeyFromConfigPhp(),
+  ];
+
+  for (const candidate of candidates) {
+    if (candidate && !INVALID_API_KEYS.has(candidate)) {
+      return candidate;
+    }
+  }
+
+  return "";
+}
+
 export async function runWebsiteAudit(urlInput: string): Promise<WebsiteAuditReport> {
-  const apiKey = process.env.PAGESPEED_API_KEY?.trim();
+  const apiKey = resolvePagespeedApiKey();
   if (!apiKey) {
     throw new Error(
       "PageSpeed API key missing. Add PAGESPEED_API_KEY to your .env file, enable PageSpeed Insights API in Google Cloud Console, then restart npm run dev."

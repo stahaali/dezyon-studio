@@ -40,8 +40,11 @@ export function Hero() {
                 {heroContent.titlePrefix}
                 <span className={styles.wordHighlight}>
                   {heroContent.titleHighlight}
-                </span>
+                </span>{" "}
                 {heroContent.titleSuffix}
+                <span className={styles.titleLine2}>
+                  {heroContent.titleLine2}
+                </span>
               </span>
             </h1>
 

@@ -35,6 +35,16 @@ const railIcons = {
 export function LeftSideRail() {
   return (
     <aside className={styles.rail} aria-label="Quick contact">
+      <svg width="0" height="0" aria-hidden="true" className={styles.gradientDefs}>
+        <defs>
+          <linearGradient id="leftRailBrandGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#92e13a" />
+            <stop offset="48%" stopColor="#42931e" />
+            <stop offset="100%" stopColor="#164317" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <ul className={styles.list}>
         {leftRailLinks.map(({ href, label, type }) => (
           <li key={type}>

@@ -41,9 +41,9 @@ function phpString(value) {
 
 function buildConfigPhp(env) {
   const host = env.DB_HOST || "localhost";
-  const user = env.DB_USER || "";
+  const user = env.DB_USER || "u527758351_dezyonstudio";
   const pass = env.DB_PASSWORD || "";
-  const name = env.DB_NAME || "";
+  const name = env.DB_NAME || "u527758351_dezyonstudio";
   const recipient = env.RECIPIENT_EMAIL || "hello@dezyonstudio.com, staha086@gmail.com, sc.rma.786@gmail.com, allahfinal@hotmail.com";
   const recaptchaSecret = env.RECAPTCHA_SECRET_KEY || "";
   const mailFrom = env.MAIL_FROM || "hello@dezyonstudio.com";
@@ -55,9 +55,21 @@ function buildConfigPhp(env) {
   const smtpPass = env.SMTP_PASSWORD || "";
   const pagespeedApiKey = env.PAGESPEED_API_KEY || "";
 
-  if (!user || !pass || !name) {
+  if (!pagespeedApiKey && (!user || !pass || !name)) {
     throw new Error(
-      "Missing DB_USER, DB_PASSWORD, or DB_NAME in .env file."
+      "Missing PAGESPEED_API_KEY or DB_USER, DB_PASSWORD, and DB_NAME in .env file."
+    );
+  }
+
+  if (!pass) {
+    console.warn(
+      "[sync-api-config] DB_PASSWORD is empty. Contact form and audit history need it on Hostinger."
+    );
+  }
+
+  if (!pagespeedApiKey) {
+    console.warn(
+      "[sync-api-config] PAGESPEED_API_KEY is empty. Website audit will not work on live."
     );
   }
 
@@ -124,6 +136,34 @@ for (const key of envVarKeys) {
   }
 }
 
+function writeRecaptchaSiteKeyFile() {
+  const recaptchaSiteKey = (env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "").trim();
+  if (!recaptchaSiteKey) {
+    console.warn(
+      "[sync-api-config] NEXT_PUBLIC_RECAPTCHA_SITE_KEY is empty. Contact form reCAPTCHA will not work."
+    );
+    return;
+  }
+
+  const payload = `${JSON.stringify({ siteKey: recaptchaSiteKey }, null, 2)}\n`;
+  const publicRecaptchaPath = path.join(
+    process.cwd(),
+    "public",
+    "recaptcha-site-key.json"
+  );
+
+  fs.writeFileSync(publicRecaptchaPath, payload, "utf8");
+  console.log("[sync-api-config] Wrote public/recaptcha-site-key.json");
+
+  const outRecaptchaPath = path.join(process.cwd(), "out", "recaptcha-site-key.json");
+  if (fs.existsSync(path.join(process.cwd(), "out"))) {
+    fs.writeFileSync(outRecaptchaPath, payload, "utf8");
+    console.log("[sync-api-config] Wrote out/recaptcha-site-key.json");
+  }
+}
+
+writeRecaptchaSiteKeyFile();
+
 const isVercel = Boolean(process.env.VERCEL);
 
 if (Object.keys(env).length === 0) {
@@ -143,12 +183,11 @@ let configPhp;
 try {
   configPhp = buildConfigPhp(env);
 } catch (error) {
-  if (isVercel || process.env.CI) {
-    console.warn(`[sync-api-config] ${error.message} — skipping on Vercel/CI.`);
-    process.exit(0);
-  }
-
-  throw error;
+  console.warn(`[sync-api-config] ${error.message}`);
+  console.warn(
+    "[sync-api-config] Skipping config.php — add DB_USER, DB_PASSWORD, and DB_NAME to .env.local for contact form / audit API."
+  );
+  process.exit(0);
 }
 
 const envSource = fs.existsSync(envCandidates[0]) || fs.existsSync(envCandidates[1])

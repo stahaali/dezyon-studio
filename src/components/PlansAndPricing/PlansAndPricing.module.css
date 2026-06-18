@@ -90,15 +90,6 @@
   padding: 0;
 }
 
-.sidebarTitle {
-  margin: 0 0 16px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: var(--font-sans);
-  color: #ffffff;
-  text-align: left;
-}
-
 .sidebarList {
   margin: 0;
   padding: 0;
@@ -194,6 +185,61 @@
   overflow: visible;
 }
 
+.customWebsiteCardsGrid {
+  align-items: stretch;
+  padding-top: 14px;
+}
+
+.customWebsitePlanCard {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 420px;
+  overflow: visible;
+}
+
+.customWebsitePlanCard .planName {
+  overflow-wrap: normal;
+  word-break: keep-all;
+  white-space: nowrap;
+  font-size: clamp(17px, 1.3vw, 21px);
+}
+
+.customWebsiteBestFor {
+  margin: 10px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.customWebsiteMeta {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.customWebsiteMeta strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.customWebsiteIncludesLabel {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.customWebsitePlanCard .planCardScrollBody .servicePlanFeatures {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
 .planCardInner {
   display: flex;
   height: 100%;
@@ -237,6 +283,27 @@
 .planCardScrollBody::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: rgba(var(--color-primary-rgb), 0.45);
+}
+
+.customWebsitePlanCard .planCardScrollBody {
+  flex: 1 1 0;
+  min-height: 240px;
+  height: auto;
+  max-height: none;
+  margin-top: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.customWebsitePlanCard .planName,
+.customWebsitePlanCard .customWebsiteBestFor,
+.customWebsitePlanCard .planActions {
+  flex-shrink: 0;
+}
+
+.customWebsitePlanCard .planActions {
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .servicePlanCard .planActions {
@@ -475,6 +542,13 @@
   gap: 16px;
 }
 
+.cardsGrid.universalCardsGrid,
+.cardsGrid.customWebsiteCardsGrid,
+.serviceCardsGrid.universalCardsGrid,
+.serviceCardsGrid.customWebsiteCardsGrid {
+  align-items: stretch;
+}
+
 .cardsGridPair {
   width: 100%;
 }
@@ -514,6 +588,12 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-2xl);
   background: rgba(255, 255, 255, 0.05);
+}
+
+.universalPlanCard.planCard,
+.customWebsitePlanCard.planCard {
+  height: 100%;
+  min-height: 420px;
 }
 
 .planBadge {
@@ -849,9 +929,9 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .cardsGrid:not(.cardsGridPair):not(.universalCardsGrid),
-  .serviceCardsGrid:not(.cardsGridPair):not(.universalCardsGrid),
-  .productCardsGrid:not(.cardsGridPair):not(.universalCardsGrid) {
+  .cardsGrid:not(.cardsGridPair):not(.universalCardsGrid):not(.customWebsiteCardsGrid),
+  .serviceCardsGrid:not(.cardsGridPair):not(.universalCardsGrid):not(.customWebsiteCardsGrid),
+  .productCardsGrid:not(.cardsGridPair):not(.universalCardsGrid):not(.customWebsiteCardsGrid) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
