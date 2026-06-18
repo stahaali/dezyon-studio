@@ -1,9 +1,7 @@
-import { AboutCareers } from "@/components/About/AboutCareers/AboutCareers";
 import { AboutHelps } from "@/components/About/AboutHelps/AboutHelps";
 import { AboutHero } from "@/components/About/AboutHero/AboutHero";
-import { AboutShowcase } from "@/components/About/AboutShowcase/AboutShowcase";
 import { Team } from "@/components/Features/Team";
-import { Timeline } from "@/components/Features/Timeline";
+import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
 import { AboutValues } from "@/components/About/AboutValues/AboutValues";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
@@ -35,12 +33,10 @@ export default function AboutPage() {
       />
       <div className={styles.page}>
         <AboutHero />
-        <AboutShowcase />
         <AboutHelps />
+        <HomeStats />
         <AboutValues />
-        <Timeline />
         <Team theme="dark" />
-        <AboutCareers />
       </div>
     </>
   );

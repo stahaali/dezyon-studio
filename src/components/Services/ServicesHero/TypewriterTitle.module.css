@@ -69,3 +69,36 @@
     line-height: 1.08;
   }
 }
+
+/* Lock banner typography to the 1366px view on large screens */
+@media (min-width: 1920px) {
+  .title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .secondLine {
+    margin-top: 4px;
+  }
+
+  .wordHighlight {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.06em 0.32em 0.1em;
+    margin-inline: 0.04em;
+    border-radius: 0.22em;
+    background: var(--color-heading-highlight);
+    background-color: var(--color-heading-highlight);
+    transform: rotate(-2.5deg);
+    transform-origin: center center;
+    vertical-align: baseline;
+    min-width: 0;
+  }
+
+  .typewriter {
+    display: inline-block;
+    text-align: left;
+  }
+}

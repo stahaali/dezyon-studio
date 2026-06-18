@@ -34,11 +34,13 @@ type TranscriptEntry = {
 };
 
 type VapiSimliContextValue = {
+  isWidgetVisible: boolean;
   isConnected: boolean;
   isSpeaking: boolean;
   isLoading: boolean;
   transcript: TranscriptEntry[];
   error: string | null;
+  openWidget: () => void;
   startCall: () => Promise<void>;
   endCall: () => void;
 };
@@ -71,6 +73,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
   const intentionalDisconnectRef = useRef(false);
   const endCallRef = useRef<() => void>(() => {});
 
+  const [isWidgetVisible, setIsWidgetVisible] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isAvatarLive, setIsAvatarLive] = useState(false);
@@ -295,6 +298,10 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     await simli.start();
   }, [startVapiCall]);
 
+  const openWidget = useCallback(() => {
+    setIsWidgetVisible(true);
+  }, []);
+
   const startCall = useCallback(async () => {
     if (!isVapiConfigured()) {
       setError(
@@ -349,20 +356,24 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo(
     () => ({
+      isWidgetVisible,
       isConnected,
       isSpeaking,
       isLoading,
       transcript,
       error,
+      openWidget,
       startCall,
       endCall,
     }),
     [
+      isWidgetVisible,
       isConnected,
       isSpeaking,
       isLoading,
       transcript,
       error,
+      openWidget,
       startCall,
       endCall,
     ],

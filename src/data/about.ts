@@ -51,36 +51,28 @@ export const aboutStats = [
 
 export const aboutValues = [
   {
+    iconId: "impact",
     title: "Make An Impact",
     description:
       "We're building something big. Something that has the power to change the trajectory of any sized business for the better.",
-    icon: flaticonIcons.diamondColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
   {
+    iconId: "learn",
     title: "Learn",
     description:
       "Lexend team are masters of their craft. Even though we're all experts in our respective fields, we always make time to expand our minds.",
-    icon: flaticonIcons.trophyColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
   {
+    iconId: "fun",
     title: "Have Fun",
     description:
       "We work hard and play harder. We believe in the importance of celebrating wins big or small, for the business or individuals.",
-    icon: flaticonIcons.globeColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
   {
+    iconId: "empathy",
     title: "Empathy",
     description:
       "We strive to be empathetic to every customer and colleague and by doing so we can provide a better experience for all.",
-    icon: flaticonIcons.crownColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
 ] as const;
 

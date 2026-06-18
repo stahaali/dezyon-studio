@@ -192,6 +192,18 @@
   white-space: nowrap;
 }
 
+.wordHighlight {
+  display: inline-block;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background-color: var(--color-heading-highlight);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  vertical-align: baseline;
+}
+
 @media (max-width: 639px) {
   .heroTitle {
     white-space: normal;
@@ -246,20 +258,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-}
-
-.secondaryBtn {
-  background: rgba(146, 225, 58, 0.06) !important;
-  color: var(--color-primary) !important;
-  border: 1.5px solid rgba(146, 225, 58, 0.45) !important;
-  box-shadow: none !important;
-  backdrop-filter: blur(6px);
-}
-
-.secondaryBtn:hover {
-  background: rgba(146, 225, 58, 0.14) !important;
-  border-color: var(--color-primary) !important;
-  box-shadow: 0 0 28px rgba(146, 225, 58, 0.2) !important;
 }
 
 .heroMetrics {
@@ -1661,71 +1659,6 @@
   justify-content: center;
 }
 
-/* ── Final CTA ── */
-.finalCta {
-  padding-top: 0;
-  padding-bottom: var(--tw-section-y);
-}
-
-.finalCta .finalCtaContainer {
-  width: 100%;
-  max-width: 1280px;
-}
-
-.finalCtaBanner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 240px;
-  padding: 40px 24px;
-  border: 1px solid rgba(146, 225, 58, 0.18);
-  border-radius: var(--radius-2xl);
-  background:
-    radial-gradient(ellipse 80% 70% at 50% 0%, rgba(146, 225, 58, 0.08) 0%, transparent 60%),
-    #000200;
-  overflow: hidden;
-}
-
-.finalCtaContent {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 520px;
-  text-align: center;
-}
-
-.finalCtaHeading {
-  margin-bottom: 0;
-}
-
-.finalCtaIllustrationLeft,
-.finalCtaIllustrationRight {
-  display: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.finalCtaIllustrationLeft {
-  left: -8px;
-}
-
-.finalCtaIllustrationRight {
-  right: -8px;
-}
-
-.finalCtaIllustration {
-  display: block;
-  width: 180px;
-  height: auto;
-}
-
 /* ── Responsive ── */
 @media (min-width: 640px) {
   .pricingGrid {
@@ -1738,22 +1671,16 @@
     max-width: var(--container-max);
     margin-top: 0;
   }
-
-  .finalCta .finalCtaContainer {
-    max-width: var(--container-max);
-  }
 }
 
 @media (max-width: 576px) {
-  .hero,
-  .finalCta {
+  .hero {
     padding-inline: 0;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .hero,
-  .finalCta {
+  .hero {
     padding-inline: 0;
   }
 }
@@ -1924,11 +1851,6 @@
   .featureTitle {
     font-size: 14px;
   }
-
-  .finalCtaBanner {
-    padding: 44px 40px;
-    min-height: 260px;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -1995,46 +1917,72 @@
   .pricingCardFeatured:hover {
     transform: scale(1.04) translateY(-4px);
   }
+}
 
-  .finalCta {
+/* Lock hero banner to the 1366px view on large screens */
+@media (min-width: 1920px) {
+  .hero {
     padding-inline: 44px;
   }
 
-  .finalCtaIllustrationLeft,
-  .finalCtaIllustrationRight {
-    display: block;
+  .hero .heroContainer {
+    max-width: min(1192px, calc(100vw - 88px));
+    margin-top: 20px;
   }
 
-  .finalCtaBanner {
-    padding: 52px 80px;
-    min-height: 280px;
+  .heroBg {
+    inset: auto;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: min(1192px, calc(100vw - 88px));
+    transform: translateX(-50%);
   }
 
-  .finalCtaContent {
+  .heroGrid {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .heroContent .heroTitle {
+    font-size: 55px;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .heroSubtitle {
+    font-size: 1.7rem;
+  }
+
+  .heroDescription {
     max-width: 520px;
   }
 
-  .finalCtaIllustration {
-    width: 200px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .finalCtaBanner {
-    padding: 56px 100px;
-    min-height: 300px;
+  .heroDescription p {
+    font-size: 16px;
   }
 
-  .finalCtaIllustration {
-    width: 230px;
+  .heroCard {
+    width: min(100%, 500px);
   }
 
-  .finalCtaIllustrationLeft {
-    left: -16px;
+  .heroRings {
+    width: 420px;
+    height: 420px;
+    right: 8%;
   }
 
-  .finalCtaIllustrationRight {
-    right: -16px;
+  .heroOrbOne {
+    width: 280px;
+    height: 280px;
+    right: 10%;
+  }
+
+  .heroOrbTwo {
+    width: 220px;
+    height: 220px;
   }
 }
 

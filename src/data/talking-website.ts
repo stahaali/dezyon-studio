@@ -1,14 +1,14 @@
 export const talkingWebsiteHero = {
   badge: "AI-Powered Voice Sales",
-  title: "AI Talking Websites",
+  titlePrefix: "Talking ",
+  titleHighlight: "Website",
   subtitle: "Your Website That Speaks, Engages & Converts",
   description: [
     "Imagine a website that doesn't just display information—it actively talks to your visitors, answers questions, guides customers, and helps generate leads around the clock.",
     "Our Talking Websites are fully customized to match your brand, services, and customer journey, ensuring a seamless experience that converts visitors into customers.",
   ],
   ctas: {
-    primary: { label: "Get Started", href: "/contact" },
-    secondary: { label: "Book a Demo", href: "/contact" },
+    primary: { label: "Get Started" },
   },
 } as const;
 
@@ -224,9 +224,3 @@ export const talkingWebsiteBenefits = [
     stat: "∞",
   },
 ] as const;
-
-export const talkingWebsiteFinalCta = {
-  prefix: "Let Your Site ",
-  highlight: "Talk & Sell",
-  button: { label: "Get Started", href: "/contact" },
-} as const;

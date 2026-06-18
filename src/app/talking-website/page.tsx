@@ -1,3 +1,4 @@
+import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { TalkingWebsiteContent } from "@/components/TalkingWebsite/TalkingWebsiteContent";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
@@ -32,7 +33,9 @@ export default function TalkingWebsitePage() {
           }),
         ]}
       />
-      <TalkingWebsiteContent />
+      <TalkingWebsiteVoiceAssistant>
+        <TalkingWebsiteContent />
+      </TalkingWebsiteVoiceAssistant>
     </>
   );
 }

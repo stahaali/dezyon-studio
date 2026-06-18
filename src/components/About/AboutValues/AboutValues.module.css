@@ -1,15 +1,17 @@
 .section {
   background-color: #000200;
   padding: 56px 0 0;
+  overflow: hidden;
 }
 
 .container {
-  max-width: 1040px;
+  max-width: 1280px;
 }
 
 .sectionHeading {
   max-width: 100%;
   padding-top: 12px;
+  margin-bottom: 40px;
   overflow: visible;
 }
 
@@ -32,17 +34,27 @@
   vertical-align: baseline;
 }
 
-.grid {
+.row {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+}
+
+.cardCell {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.arrowBetween {
+  display: none;
 }
 
 .card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
-  padding: 32px;
+  padding: 24px;
   text-align: left;
   height: 100%;
 }
@@ -50,21 +62,17 @@
 .iconWrap {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 24px;
-}
-
-.icon {
-  width: 56px;
-  height: auto;
+  margin-bottom: 18px;
 }
 
 .cardTitle {
   margin: 0 0 12px;
-  white-space: nowrap;
-}
-
-.cardTitle span {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .cardDesc {
@@ -74,25 +82,76 @@
   margin: 0;
 }
 
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-}
-
 @media (min-width: 768px) {
   .card {
-    padding: 36px;
+    padding: 26px;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding-inline: 0;
+    max-width: min(1240px, calc(100vw - 88px));
+    padding-inline: 24px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 48px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .cardCell {
+    flex: 1 1 0;
+  }
+
+  .arrowBetween {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 28px;
+    align-self: center;
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .arrowIcon {
+    width: 40px;
+    height: 40px;
+    color: rgba(146, 225, 58, 0.28);
+    filter: drop-shadow(0 0 24px rgba(146, 225, 58, 0.2));
   }
 
   .card {
-    padding: 40px;
+    padding: 22px 18px;
+  }
+
+  .cardDesc {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .row {
+    gap: 6px;
+  }
+
+  .arrowBetween {
+    flex-basis: 32px;
+  }
+
+  .arrowIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .card {
+    padding: 24px 20px;
   }
 }

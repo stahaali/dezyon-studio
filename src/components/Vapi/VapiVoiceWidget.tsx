@@ -1,12 +1,12 @@
 "use client";
 
 import { Mic, PhoneOff } from "lucide-react";
-import { useEffect, useRef } from "react";
 import { useVapiSimli } from "@/context/VapiSimliContext";
 import styles from "./VapiVoiceWidget.module.css";
 
 export function VapiVoiceWidget() {
   const {
+    isWidgetVisible,
     isConnected,
     isSpeaking,
     isLoading,
@@ -16,16 +16,9 @@ export function VapiVoiceWidget() {
     endCall,
   } = useVapiSimli();
 
-  const autoStartAttemptedRef = useRef(false);
-
-  useEffect(() => {
-    if (autoStartAttemptedRef.current) {
-      return;
-    }
-
-    autoStartAttemptedRef.current = true;
-    void startCall();
-  }, [startCall]);
+  if (!isWidgetVisible) {
+    return null;
+  }
 
   const statusLabel = isSpeaking ? "Assistant speaking" : "Listening";
 

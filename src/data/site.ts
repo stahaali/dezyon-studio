@@ -11,7 +11,7 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Video Editing", href: "/video-editing" },
   { label: "Talking Website", href: "/talking-website" },
   // { label: "Combo Packages", href: "/combo-packages" },
   // { label: "Web Apps", href: "/web-apps" },
@@ -25,7 +25,7 @@ export const footerInformationLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Video Editing", href: "/video-editing" },
   { label: "Contact Us", href: "/contact" },
 ] as const;
 
@@ -60,13 +60,13 @@ export const leftRailLinks = [
 ] as const;
 
 export const footerSocialLinks = [
-  { href: "#", label: "Facebook" },
+  { href: "https://www.facebook.com/dezyonstudios/", label: "Facebook" },
   { href: "https://www.linkedin.com/company/dezyon-studio/", label: "LinkedIn" },
   { href: "https://www.instagram.com/dezyon.studio/", label: "Instagram" },
 ] as const;
 
 export const sideRailSocialLinks = [
-  { href: "#", label: "Facebook" },
+  { href: "https://www.facebook.com/dezyonstudios/", label: "Facebook" },
   { href: "#", label: "Twitter" },
   { href: "https://www.instagram.com/dezyon.studio/", label: "Instagram" },
   { href: "#", label: "Pinterest" },

@@ -7,6 +7,13 @@ import styles from "./AboutHero.module.css";
 export function AboutHero() {
   return (
     <section className={styles.section} aria-labelledby="about-hero-heading">
+      <div className={styles.heroBg} aria-hidden="true">
+        <div className={styles.heroMesh} />
+        <div className={styles.heroGridLines} />
+        <div className={`${styles.heroOrb} ${styles.heroOrbOne}`} />
+        <div className={`${styles.heroOrb} ${styles.heroOrbTwo}`} />
+      </div>
+
       <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.content}>

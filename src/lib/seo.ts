@@ -14,6 +14,7 @@ export type PageSeoKey =
   | "about"
   | "services"
   | "portfolio"
+  | "videoEditing"
   | "webApps"
   | "contact"
   | "websiteAudit"
@@ -114,6 +115,21 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
       "creative design work",
     ],
     path: "/portfolio",
+  },
+  videoEditing: {
+    title: "AI Content Creation & Video Editing Services | Dezyon Studio",
+    description:
+      "AI influencer creation, professional video editing, AI voiceovers, video generation, and social media content production for brands, coaches, agencies, and e-commerce.",
+    keywords: [
+      "AI content creation",
+      "AI influencer",
+      "video editing services",
+      "AI voiceovers",
+      "AI video generation",
+      "social media content production",
+      "Dezyon Studio video editing",
+    ],
+    path: "/video-editing",
   },
   webApps: {
     title: "Custom Web App & Portal Development Solutions",

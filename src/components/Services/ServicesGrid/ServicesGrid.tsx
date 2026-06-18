@@ -24,12 +24,10 @@ export function ServicesGrid() {
           {services.map((service, index) => (
             <ScrollReveal key={service.id} delay={index * 0.06} as="div">
               <ServiceCard
+                id={service.id}
                 title={service.title}
                 description={service.description}
-                icon={service.icon}
                 index={String(index + 1).padStart(2, "0")}
-                iconWidth={service.iconWidth}
-                iconHeight={service.iconHeight}
               />
             </ScrollReveal>
           ))}

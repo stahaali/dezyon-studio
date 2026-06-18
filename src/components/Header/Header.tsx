@@ -253,9 +253,8 @@ export function Header() {
                 className={styles.mobileSocialLink}
                 data-social={label.toLowerCase()}
                 aria-label={label}
-                {...(href !== "#"
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {socialIcons[label]}
               </a>

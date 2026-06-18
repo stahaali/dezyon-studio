@@ -1,5 +1,3 @@
-import { flaticonIcons } from "@/data/icons";
-
 const INTEGRATIONS_ASSETS = "/assets/img/integrations";
 
 export const servicesHero = {
@@ -75,44 +73,29 @@ export const services = [
     title: "Talking Websites",
     description:
       "Transform your website into an interactive experience with AI-powered virtual assistants that engage visitors, answer questions, and convert traffic into customers 24/7.",
-    icon: flaticonIcons.chatColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
   {
     id: "custom-website-development",
     title: "Custom Website Development",
     description:
       "Professional, responsive, and conversion-focused websites designed to help businesses establish a strong online presence and generate more leads.",
-    icon: flaticonIcons.internetColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
   {
     id: "ai-video-creation",
     title: "AI Video Creation",
     description:
       "Create high-quality AI-powered promotional videos, commercials, product showcases, social media content, and business presentations without traditional production costs.",
-    icon: flaticonIcons.trophyColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
   {
     id: "ai-marketing",
     title: "AI Marketing",
     description:
       "Leverage artificial intelligence to optimize campaigns, improve targeting, automate customer engagement, and maximize marketing performance.",
-    icon: flaticonIcons.globeColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
   {
     id: "ai-influencers",
     title: "AI Influencers",
     description:
       "Build AI-powered digital influencers and brand ambassadors that create engaging content, grow your social presence, and connect with audiences at scale.",
-    icon: flaticonIcons.crownColor,
-    iconWidth: 56,
-    iconHeight: 56,
   },
 ] as const;

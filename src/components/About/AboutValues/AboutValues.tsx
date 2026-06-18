@@ -1,8 +1,9 @@
-import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { Fragment } from "react";
 import { aboutValues } from "@/data/about";
+import { AboutValueIcon } from "@/components/About/AboutValues/AboutValueIcon";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
-import { SplitTitle } from "@/components/Shared/SplitTitle";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css";
 import styles from "./AboutValues.module.css";
@@ -25,30 +26,24 @@ export function AboutValues() {
           </div>
         </ScrollReveal>
 
-        <div className={styles.grid}>
+        <div className={styles.row}>
           {aboutValues.map((item, index) => (
-            <ScrollReveal key={item.title} delay={index * 0.06} as="article">
-              <article className={styles.card}>
-                <div className={styles.iconWrap}>
-                  <Image
-                    src={item.icon}
-                    alt=""
-                    width={item.iconWidth}
-                    height={item.iconHeight}
-                    className={styles.icon}
-                    aria-hidden="true"
-                  />
+            <Fragment key={item.title}>
+              {index > 0 ? (
+                <div className={styles.arrowBetween} aria-hidden="true">
+                  <ArrowRight className={styles.arrowIcon} strokeWidth={1.75} />
                 </div>
-                <SplitTitle
-                  as="h3"
-                  title={item.title}
-                  size="card"
-                  lineBreak={false}
-                  className={styles.cardTitle}
-                />
-                <p className={styles.cardDesc}>{item.description}</p>
-              </article>
-            </ScrollReveal>
+              ) : null}
+              <ScrollReveal delay={index * 0.06} className={styles.cardCell}>
+                <article className={styles.card}>
+                  <div className={styles.iconWrap}>
+                    <AboutValueIcon iconId={item.iconId} />
+                  </div>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <p className={styles.cardDesc}>{item.description}</p>
+                </article>
+              </ScrollReveal>
+            </Fragment>
           ))}
         </div>
       </Container>

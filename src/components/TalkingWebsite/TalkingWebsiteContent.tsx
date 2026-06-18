@@ -1,6 +1,5 @@
 import Image from "next/image";
 import {
-  ArrowRight,
   Bell,
   Bot,
   Brain,
@@ -34,7 +33,6 @@ import {
   talkingWebsiteBenefits,
   talkingWebsiteBenefitsIntro,
   talkingWebsiteFeatures,
-  talkingWebsiteFinalCta,
   talkingWebsiteHero,
   talkingWebsitePricing,
   talkingWebsiteSteps,
@@ -42,6 +40,7 @@ import {
   talkingWebsiteTaglines,
   talkingWebsiteUseCases,
 } from "@/data/talking-website";
+import { TalkingWebsiteHeroCta } from "@/components/TalkingWebsite/TalkingWebsiteHeroCta";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -125,7 +124,10 @@ export function TalkingWebsiteContent() {
                 className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.heroTitle}`}
               >
                 <span className={splitTitleStyles.lightOnDark}>
-                  {talkingWebsiteHero.title}
+                  {talkingWebsiteHero.titlePrefix}
+                  <span className={styles.wordHighlight}>
+                    {talkingWebsiteHero.titleHighlight}
+                  </span>
                 </span>
               </h1>
               <p className={styles.heroSubtitle}>{talkingWebsiteHero.subtitle}</p>
@@ -135,17 +137,7 @@ export function TalkingWebsiteContent() {
                 ))}
               </div>
               <div className={styles.heroCtas}>
-                <Button href={talkingWebsiteHero.ctas.primary.href} size="lg">
-                  {talkingWebsiteHero.ctas.primary.label}
-                  <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-                </Button>
-                <Button
-                  href={talkingWebsiteHero.ctas.secondary.href}
-                  size="lg"
-                  className={styles.secondaryBtn}
-                >
-                  {talkingWebsiteHero.ctas.secondary.label}
-                </Button>
+                <TalkingWebsiteHeroCta label={talkingWebsiteHero.ctas.primary.label} />
               </div>
               <ul className={styles.heroMetrics} aria-label="Product highlights">
                 {heroMetrics.map(({ icon: Icon, label }) => (
@@ -545,49 +537,6 @@ export function TalkingWebsiteContent() {
               </ScrollReveal>
             ))}
           </div>
-        </Container>
-      </section>
-
-      <section className={styles.finalCta} aria-labelledby="final-cta-heading">
-        <Container className={styles.finalCtaContainer}>
-          <ScrollReveal>
-            <div className={styles.finalCtaBanner}>
-              <div className={styles.finalCtaIllustrationLeft} aria-hidden="true">
-                <Image
-                  src="/assets/img/cta/talking.svg"
-                  alt=""
-                  width={195}
-                  height={254}
-                  className={styles.finalCtaIllustration}
-                />
-              </div>
-
-              <div className={styles.finalCtaContent}>
-                <PlansPricingHeading
-                  id="final-cta-heading"
-                  prefix={talkingWebsiteFinalCta.prefix}
-                  highlight={talkingWebsiteFinalCta.highlight}
-                  size="section"
-                  align="center"
-                  className={styles.finalCtaHeading}
-                />
-                <Button href={talkingWebsiteFinalCta.button.href} size="lg">
-                  {talkingWebsiteFinalCta.button.label}
-                  <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-                </Button>
-              </div>
-
-              <div className={styles.finalCtaIllustrationRight} aria-hidden="true">
-                <Image
-                  src="/assets/img/cta/chatting.svg"
-                  alt=""
-                  width={255}
-                  height={283}
-                  className={styles.finalCtaIllustration}
-                />
-              </div>
-            </div>
-          </ScrollReveal>
         </Container>
       </section>
     </div>

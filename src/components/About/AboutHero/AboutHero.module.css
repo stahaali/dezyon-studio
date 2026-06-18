@@ -9,6 +9,54 @@
   padding-bottom: 56px;
 }
 
+.heroBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroMesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 15% 20%, rgba(146, 225, 58, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 85% 75%, rgba(66, 147, 30, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(146, 225, 58, 0.08) 0%, transparent 60%);
+}
+
+.heroGridLines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, #000 15%, transparent 72%);
+}
+
+.heroOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.heroOrbOne {
+  top: 10%;
+  right: 8%;
+  width: 320px;
+  height: 320px;
+  background: rgba(146, 225, 58, 0.14);
+}
+
+.heroOrbTwo {
+  bottom: 5%;
+  left: 4%;
+  width: 240px;
+  height: 240px;
+  background: rgba(66, 147, 30, 0.12);
+}
+
 .container {
   position: relative;
   z-index: 1;
@@ -41,14 +89,22 @@
 
 .wordHighlight {
   display: inline-block;
-  padding: 0.06em 0.32em 0.1em;
-  margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
-  color: #000200;
+  padding: 0.05em 0.26em 0.07em !important;
+  margin-inline: 0.04em !important;
+  border-radius: 0.2em !important;
+  background: linear-gradient(
+    180deg,
+    #b4f252 0%,
+    #92e13a 38%,
+    #7dcc32 100%
+  ) !important;
+  background-color: transparent !important;
+  color: #000200 !important;
+  -webkit-text-fill-color: #000200 !important;
   transform: rotate(-2.5deg);
   transform-origin: center center;
   vertical-align: baseline;
+  box-shadow: 0 2px 14px rgba(146, 225, 58, 0.22);
 }
 
 .description {
@@ -110,8 +166,13 @@
   }
 
   .wordHighlight {
-    display: inline-block;
-    padding: 0.06em 0.34em 0.1em;
+    padding: 0.05em 0.28em 0.08em !important;
+    background: linear-gradient(
+      180deg,
+      #b8f55a 0%,
+      #92e13a 40%,
+      #82d836 100%
+    ) !important;
     transform: rotate(-2.5deg);
     transform-origin: center center;
     vertical-align: baseline;

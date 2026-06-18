@@ -1,3 +1,236 @@
+export const videoEditingHero = {
+  badge: "Editing Service",
+  titlePrefix: "AI-Powered Content Creation",
+  titleHighlight: "& Influencer Branding",
+  subtitle: "We Don't Just Edit Videos — We Build AI Brands",
+  description: [
+    "We help businesses, startups, coaches, agencies, and e-commerce brands grow with AI-generated content, AI influencers, video editing, voiceovers, and social media branding.",
+    "From creating a complete AI personality to producing viral content, we handle everything your brand needs to stand out online.",
+  ],
+  cta: { label: "Get Started", href: "/contact" },
+} as const;
+
+export const videoEditingHeroVisual = {
+  poster: "/assets/img/video-editing/hero-banner-poster.webp",
+  video: "/assets/video/video-editing/hero-banner.webm",
+  banner: "/assets/img/1.jpg",
+} as const;
+
+export const videoEditingServicesIntro = {
+  eyebrow: "What We Offer",
+  titlePrefix: "Our AI Content ",
+  titleHighlight: "Creation Services",
+  description:
+    "End-to-end AI content production for brands that want cinematic quality, viral reach, and consistent growth — without the overhead of a full in-house team.",
+} as const;
+
+export const videoEditingServices = [
+  {
+    id: "ai-influencer",
+    icon: "sparkles",
+    title: "AI Influencer Creation",
+    intro:
+      "Launch your own AI Influencer that represents your brand 24/7.",
+    sections: [
+      {
+        label: "What We Create",
+        items: [
+          "AI Influencer Design",
+          "AI Character Development",
+          "Brand Personality Creation",
+          "AI Avatar Videos",
+        ],
+      },
+      {
+        label: "Perfect for",
+        items: [
+          "Personal Brands",
+          "E-commerce Stores",
+          "Agencies",
+        ],
+      },
+    ],
+  },
+  {
+    id: "video-editing",
+    icon: "clapperboard",
+    title: "Professional Video Editing",
+    intro: "High-performance editing for:",
+    sections: [
+      {
+        label: "Formats",
+        listColumns: 2,
+        items: [
+          "YouTube Videos",
+          "Gaming Content",
+          "YouTube Shorts",
+          "Instagram Reels",
+          "TikTok Videos",
+          "Corporate Content",
+        ],
+      },
+    ],
+  },
+  {
+    id: "voiceovers",
+    icon: "mic",
+    title: "AI Voiceovers",
+    intro: "Human-like voiceovers powered by ElevenLabs and advanced AI voice tools.",
+    sections: [
+      {
+        label: "Services",
+        items: [
+          "AI Voice Cloning",
+          "Multi-Language Voice Generation",
+          "Commercial Voiceovers",
+        ],
+      },
+      {
+        label: "Benefits",
+        items: [
+          "Natural Human Voices",
+          "Brand Voice Consistency",
+          "Fast Production",
+        ],
+      },
+    ],
+  },
+  {
+    id: "ai-video",
+    icon: "video",
+    title: "AI Video Generation",
+    intro:
+      "Create studio-quality videos without expensive production teams using Runway, Higgsfield, Pika, Luma AI, and Kling AI.",
+    sections: [
+      {
+        label: "We Create",
+        listColumns: 2,
+        items: [
+          "AI Commercials",
+          "Product Videos",
+          "AI UGC Content",
+          "Social Media Ads",
+        ],
+      },
+    ],
+  },
+  {
+    id: "ai-images",
+    icon: "image",
+    title: "AI Image Generation & Branding",
+    intro:
+      "Create premium brand visuals using Midjourney, Adobe Firefly, and Ideogram.",
+    sections: [
+      {
+        label: "Deliverables",
+        listColumns: 2,
+        items: [
+          "Brand Images",
+          "Product Mockups",
+          "Social Media Creatives",
+          "Advertising Visuals",
+        ],
+      },
+    ],
+  },
+  {
+    id: "social-media",
+    icon: "share",
+    title: "Social Media Content Production",
+    intro: "We create content optimized for Instagram, TikTok, YouTube, Facebook, and LinkedIn.",
+    sections: [
+      {
+        label: "Content Includes",
+        listColumns: 2,
+        items: [
+          "Reels",
+          "Shorts",
+          "Viral Clips",
+          "Product Promotions",
+        ],
+      },
+    ],
+  },
+] as const;
+
+export const videoEditingToolsIntro = {
+  titlePrefix: "AI Tools ",
+  titleHighlight: "We Use",
+  description:
+    "Industry-leading AI and production tools we use to deliver cinematic quality, faster turnaround, and scalable content output.",
+} as const;
+
+export const videoEditingToolGroups = [
+  {
+    title: "Voice & Audio",
+    tools: [
+      { name: "ElevenLabs", href: "https://elevenlabs.io" },
+      { name: "Adobe Podcast", href: "https://podcast.adobe.com" },
+    ],
+  },
+  {
+    title: "AI Video",
+    tools: [
+      { name: "Runway", href: "https://runwayml.com" },
+      { name: "Higgsfield AI", href: "https://higgsfield.ai" },
+      { name: "Pika", href: "https://pika.art" },
+      { name: "Luma AI", href: "https://lumalabs.ai" },
+      { name: "Kling AI", href: "https://klingai.com" },
+    ],
+  },
+  {
+    title: "Editing & Motion Graphics",
+    tools: [
+      {
+        name: "Adobe Premiere Pro",
+        href: "https://www.adobe.com/products/premiere.html",
+      },
+      {
+        name: "Adobe After Effects",
+        href: "https://www.adobe.com/products/aftereffects.html",
+      },
+      {
+        name: "DaVinci Resolve",
+        href: "https://www.blackmagicdesign.com/products/davinciresolve",
+      },
+      { name: "CapCut", href: "https://www.capcut.com" },
+    ],
+  },
+  {
+    title: "Design & AI Images",
+    tools: [
+      { name: "Midjourney", href: "https://www.midjourney.com" },
+      { name: "Adobe Firefly", href: "https://firefly.adobe.com" },
+      { name: "Ideogram", href: "https://ideogram.ai" },
+    ],
+  },
+] as const;
+
+export const videoEditingBenefitsIntro = {
+  eyebrow: "Why Us",
+  titlePrefix: "Why Brands ",
+  titleHighlight: "Choose Us",
+} as const;
+
+export const videoEditingBenefits = [
+  "AI Influencer Creation",
+  "Complete Brand Building",
+  "AI Voiceovers",
+  "AI Commercial Production",
+  "Professional Video Editing",
+  "Social Media Growth Content",
+  "Fast Turnaround Times",
+  "High-Converting Ad Creatives",
+  "Scalable Content Production",
+] as const;
+
+export const videoEditingFinalCta = {
+  eyebrow: "Ready to Create?",
+  title: "Get started with AI Content",
+  screenImage: "/assets/img/video-editing/1.jpg",
+  primaryButton: { label: "Get Started", href: "/contact" },
+} as const;
+
 export type VideoEditingPlan = {
   id: string;
   name: string;
@@ -12,60 +245,57 @@ export type VideoEditingPlan = {
 export const videoEditingPlans: VideoEditingPlan[] = [
   {
     id: "starter",
-    name: "Business Starter",
-    bestFor: "Small businesses starting content creation",
+    name: "Content Starter",
+    bestFor: "Brands starting with short-form and edited content",
     features: [
-      "Basic Video Editing (Up to 10 videos/month)",
-      "Cuts, Transitions & Clean Edits",
-      "Color Correction (Basic)",
-      "Text + Simple Motion Graphics",
-      "Social Media Formats (Reels, Shorts, Posts)",
-      "Stock Footage Support (Limited)",
+      "Professional Video Editing (up to 8 videos/month)",
+      "YouTube Shorts, Reels & TikTok formats",
+      "Basic AI Voiceovers",
+      "Captions & Subtitles",
+      "Social Media Ready Exports",
       "1 Revision per video",
-      "Basic Brand Integration",
+      "Basic Branding (Logo + Colors)",
     ],
-    turnaroundTime: "2–3 days per video",
+    turnaroundTime: "2–4 days per video",
+    priceRange: "Custom quote",
     cta: { label: "Get Started", href: "/contact" },
     featured: false,
   },
   {
     id: "growth",
-    name: "Business Growth",
-    bestFor: "Brands needing consistent high-quality content",
+    name: "AI Brand Builder",
+    bestFor: "Coaches, agencies & e-commerce scaling with AI content",
     features: [
-      "Advanced Video Editing (30–50 videos/month)",
-      "Professional Motion Graphics",
-      "Advanced Transitions + Effects",
-      "Color Grading (Cinematic Level)",
-      "Audio Enhancement + Sound Design",
-      "Subtitles + Captions (Engagement Optimized)",
-      "Thumbnail Design (Optional Add-on)",
-      "Brand Style Editing System",
-      "Content Optimization for Social Media",
-      "3 Revisions per video",
+      "AI Influencer Creation & Character Development",
+      "AI Video Generation (commercials & UGC-style)",
+      "Professional Editing (up to 20 videos/month)",
+      "AI Voice Cloning & Multi-Language Voiceovers",
+      "AI Image & Brand Visual Production",
+      "Social Media Content Strategy",
+      "Viral Hooks & Short-Form Optimization",
+      "3 Revisions per deliverable",
     ],
-    turnaroundTime: "24–48 hours per video",
+    turnaroundTime: "5–10 days setup, 3–5 days per video",
+    priceRange: "Custom quote",
     cta: { label: "Get Started", href: "/contact" },
     featured: true,
   },
   {
     id: "enterprise",
-    name: "Business Enterprise",
-    bestFor: "Agencies, franchises, high-volume content brands",
+    name: "Enterprise Content",
+    bestFor: "High-volume brands needing scalable AI content systems",
     features: [
-      "High-End Video Editing (Scalable workflow)",
-      "Cinematic Editing + Advanced VFX",
-      "Full Motion Graphics Production",
-      "Brand Consistency System (Multi-platform)",
-      "Dedicated Editing Team",
-      "Priority Delivery Queue",
-      "Bulk Video Processing System",
-      "Advanced Color Grading Suite",
-      "Sound Design + Music Licensing Support",
-      "Dedicated Project Manager",
-      "24/7 Priority Support",
+      "Full AI Influencer & Digital Ambassador Program",
+      "Unlimited Scalable Content Production",
+      "AI Commercial & Ad Creative Production",
+      "Dedicated Content Strategist",
+      "Multi-Platform Social Media Production",
+      "Premium AI Tools Stack (Runway, ElevenLabs & more)",
+      "Fast Turnaround Priority Queue",
+      "High-Converting Ad Creative Optimization",
     ],
-    turnaroundTime: "Priority / Same-day options available",
+    turnaroundTime: "Custom SLA",
+    priceRange: "Custom quote",
     cta: { label: "Get Started", href: "/contact" },
     featured: false,
   },

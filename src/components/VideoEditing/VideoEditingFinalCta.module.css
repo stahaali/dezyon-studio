@@ -1,0 +1,376 @@
+.cta {
+  --ve-cta-laptop-height: 320px;
+
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 56px;
+  background: #000200;
+  overflow: visible;
+}
+
+.ctaContainer {
+  position: relative;
+  z-index: 1;
+  max-width: var(--tw-content-max);
+  overflow: visible;
+}
+
+.ctaCard {
+  position: relative;
+  overflow: visible;
+  border-radius: 24px;
+}
+
+.ctaCardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background: var(--brand-gradient-panel);
+  pointer-events: none;
+}
+
+.shapeOne,
+.shapeTwo,
+.shapeThree,
+.shapeFour {
+  position: absolute;
+  z-index: 1;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.shapeOne {
+  top: -12%;
+  right: 2%;
+  width: 42%;
+  height: 62%;
+  background: linear-gradient(160deg, rgba(66, 147, 30, 0.9) 0%, rgba(22, 67, 23, 0.78) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
+  transform: rotate(10deg);
+}
+
+.shapeTwo {
+  bottom: -16%;
+  right: 16%;
+  width: 34%;
+  height: 54%;
+  background: linear-gradient(155deg, rgba(88, 179, 38, 0.82) 0%, rgba(22, 67, 23, 0.72) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.14);
+  transform: rotate(-8deg);
+}
+
+.shapeThree {
+  top: 10%;
+  right: 30%;
+  width: 24%;
+  height: 42%;
+  background: linear-gradient(145deg, rgba(var(--color-primary-rgb), 0.28) 0%, rgba(66, 147, 30, 0.55) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.18);
+  transform: rotate(16deg);
+}
+
+.shapeFour {
+  top: 38%;
+  right: 6%;
+  width: 16%;
+  height: 30%;
+  background: linear-gradient(140deg, rgba(var(--color-primary-rgb), 0.24) 0%, rgba(66, 147, 30, 0.38) 100%);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.26);
+  transform: rotate(-12deg);
+}
+
+.ctaCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.22);
+}
+
+.ctaGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 28px;
+  text-align: left;
+}
+
+.ctaEyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.ctaTitle {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.ctaButtonOutline,
+.ctaButtonPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ctaButtonOutline {
+  border: 1.5px solid rgba(255, 255, 255, 0.92);
+  background: transparent;
+  color: #ffffff;
+}
+
+.ctaButtonOutline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.ctaButtonPrimary {
+  border: 1.5px solid var(--color-primary);
+  background: var(--color-primary);
+  color: #000200;
+}
+
+.ctaButtonPrimary:hover {
+  background: #a8eb4f;
+  border-color: #a8eb4f;
+  color: #000200;
+}
+
+.ctaVisual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: calc(var(--ve-cta-laptop-height) / 2);
+  padding: 0;
+  overflow: visible;
+}
+
+.ctaVisualGlow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  width: 78%;
+  height: 88%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(ellipse 72% 88% at 28% 50%, rgba(72, 196, 181, 0.34) 0%, transparent 62%),
+    radial-gradient(ellipse 68% 84% at 68% 48%, rgba(146, 225, 58, 0.38) 0%, transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.laptopWrap {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 300px);
+  height: var(--ve-cta-laptop-height);
+}
+
+.laptop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.42));
+}
+
+.laptopBezel {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 9px 9px 7px;
+  border: 2px solid #c5c9d0;
+  border-radius: 16px 16px 8px 8px;
+  background: linear-gradient(180deg, #eceff3 0%, #d7dbe1 48%, #c8cdd4 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.laptopCamera {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  z-index: 2;
+  width: 7px;
+  height: 7px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #6b7280;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.laptopScreen {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #11161c;
+  border-radius: 6px;
+  background: #0f1419;
+}
+
+.laptopScreenImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.laptopHinge {
+  flex-shrink: 0;
+  width: 100%;
+  height: 3px;
+  margin-top: -1px;
+  background: linear-gradient(180deg, #aeb4bd 0%, #8f96a0 100%);
+}
+
+.laptopBase {
+  flex-shrink: 0;
+  width: 114%;
+  height: 12px;
+  margin-left: -7%;
+  border-radius: 0 0 14px 14px;
+  background: linear-gradient(180deg, #d4d8de 0%, #b8bec7 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+}
+
+@media (min-width: 768px) {
+  .ctaGrid {
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+    align-items: end;
+  }
+
+  .ctaContent {
+    padding: 36px 32px 36px 52px;
+    gap: 20px;
+    align-self: center;
+  }
+
+  .ctaVisual {
+    align-self: end;
+    justify-content: flex-end;
+    padding-right: 52px;
+  }
+
+  .ctaVisualGlow {
+    left: auto;
+    right: 52px;
+    top: auto;
+    bottom: 0;
+    width: 72%;
+    height: calc(var(--ve-cta-laptop-height) * 0.55);
+    transform: translateY(-25%);
+  }
+
+  .laptopWrap {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ctaContent {
+    padding: 40px 40px 40px 56px;
+  }
+
+  .ctaTitle {
+    font-size: clamp(2.15rem, 2.8vw, 2.85rem);
+  }
+
+  .ctaVisual {
+    padding-right: 56px;
+  }
+
+  .ctaVisualGlow {
+    right: 56px;
+    width: 76%;
+    height: calc(var(--ve-cta-laptop-height) * 0.55);
+    transform: translateY(-25%);
+  }
+
+  .laptopWrap {
+    max-width: 380px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .laptopWrap {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta {
+    --ve-cta-laptop-height: min(320px, 62vw);
+  }
+
+  .ctaVisual {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .ctaVisualGlow {
+    left: 10%;
+    right: 10%;
+    top: auto;
+    bottom: 0;
+    width: auto;
+    height: calc(var(--ve-cta-laptop-height) * 0.55);
+    transform: translateY(-25%);
+  }
+
+  .laptopWrap {
+    width: min(100%, 280px);
+  }
+}

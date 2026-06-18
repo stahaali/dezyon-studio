@@ -1,35 +1,24 @@
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { ServiceIcon } from "@/components/Services/ServiceCard/ServiceIcon";
 import styles from "./ServiceCard.module.css";
 
 export interface ServiceCardProps {
+  id: string;
   title: string;
   description: string;
-  icon: string;
   index: string;
-  iconWidth?: number;
-  iconHeight?: number;
 }
 
 export function ServiceCard({
+  id,
   title,
   description,
-  icon,
   index,
-  iconWidth = 56,
-  iconHeight = 56,
 }: ServiceCardProps) {
   return (
     <article className={styles.card}>
       <div className={styles.cardHeader}>
-        <Image
-          src={icon}
-          alt=""
-          width={iconWidth}
-          height={iconHeight}
-          className={styles.icon}
-          aria-hidden="true"
-        />
+        <ServiceIcon serviceId={id} />
         <span className={styles.index}>{index}</span>
       </div>
 
