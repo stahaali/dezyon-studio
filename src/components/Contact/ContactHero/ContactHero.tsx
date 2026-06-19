@@ -1,10 +1,12 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { RecaptchaField } from "@/components/Contact/RecaptchaField/RecaptchaField";
-import { contactHero } from "@/data/contact";
+import { contactHero, contactReach } from "@/data/contact";
+import { useVapiSimli } from "@/context/VapiSimliContext";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -12,7 +14,8 @@ import styles from "./ContactHero.module.css";
 
 export function ContactHero() {
   const router = useRouter();
-  const { testimonial, fields } = contactHero;
+  const { openWidget, startCall } = useVapiSimli();
+  const { fields } = contactHero;
   const isSubmittingRef = useRef(false);
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [recaptchaKey, setRecaptchaKey] = useState(0);
@@ -80,8 +83,11 @@ export function ContactHero() {
     setIsSubmitting(true);
     setSubmitError("");
 
+    const contactApiUrl =
+      process.env.NODE_ENV === "development" ? "/api/contact/" : "/api/contact.php";
+
     try {
-      const response = await fetch("/api/contact.php", {
+      const response = await fetch(contactApiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -116,27 +122,55 @@ export function ContactHero() {
     }
   };
 
+  const handleVoiceChat = () => {
+    openWidget();
+    void startCall();
+  };
+
   return (
     <section className={styles.section} aria-labelledby="contact-hero-heading">
       <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.panel}>
-            <figure className={styles.testimonial}>
-              <Image
-                src={testimonial.image}
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className={styles.testimonialImage}
-              />
-              <figcaption className={styles.testimonialCaption}>
-                <blockquote className={styles.quote}>
-                  <p>&ldquo;{testimonial.quote}&rdquo;</p>
-                </blockquote>
-                <p className={styles.authorName}>{testimonial.name}</p>
-                <p className={styles.authorRole}>{testimonial.role}</p>
-              </figcaption>
-            </figure>
+            <div className={styles.reachSide}>
+              {contactReach.items.map((item) => (
+                <article key={item.title} className={styles.reachCard}>
+                  <span
+                    className={styles.reachIcon}
+                    style={{
+                      WebkitMaskImage: `url(${item.icon})`,
+                      maskImage: `url(${item.icon})`,
+                    }}
+                    aria-hidden="true"
+                  />
+                  <div className={styles.reachCardBody}>
+                    <h3 className={styles.reachTitle}>{item.title}</h3>
+                    <p className={styles.reachDesc}>{item.description}</p>
+                    {"action" in item.link && item.link.action === "voice-chat" ? (
+                      <button
+                        type="button"
+                        className={`${styles.reachLink} ${styles.reachLinkButton}`}
+                        onClick={handleVoiceChat}
+                      >
+                        <span>{item.link.label}</span>
+                        <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.link.href}
+                        className={styles.reachLink}
+                        {...(item.link.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        <span>{item.link.label}</span>
+                        <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                      </Link>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
 
             <div className={styles.formSide}>
               <h2 id="contact-hero-heading" className={styles.intro}>

@@ -540,6 +540,24 @@
     padding-bottom: 0;
   }
 
+  .heroText {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .title {
+    width: 100%;
+    max-width: 100%;
+    font-size: 28px;
+    line-height: 1.12;
+  }
+
+  .intro {
+    font-size: 17px;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+
   .brandsSection {
     padding: 20px 0 0;
   }

@@ -8,20 +8,42 @@ type StatValueProps = {
 };
 
 function parseStatValue(value: string) {
-  const suffix = value.endsWith("%") ? "%" : "";
-  const target = Number.parseInt(value.replace(/\D/g, ""), 10);
+  if (value.endsWith("%")) {
+    const target = Number.parseInt(value.replace(/\D/g, ""), 10);
+    return { type: "count" as const, target, suffix: "%" };
+  }
 
-  return { target, suffix };
+  if (/^\d+$/.test(value)) {
+    const target = Number.parseInt(value, 10);
+
+    if (value.length === 4 && target >= 1900 && target <= 2099) {
+      return { type: "count" as const, target, suffix: "" };
+    }
+
+    return { type: "count" as const, target, suffix: "+" };
+  }
+
+  return { type: "text" as const, text: value };
 }
 
 export function StatValue({ value }: StatValueProps) {
-  const { target, suffix } = parseStatValue(value);
-  const { count, ref } = useCountUp(target);
+  const parsed = parseStatValue(value);
+  const { count, ref } = useCountUp(
+    parsed.type === "count" ? parsed.target : 0,
+  );
+
+  if (parsed.type === "text") {
+    return (
+      <span ref={ref} className={styles.statValue}>
+        {parsed.text}
+      </span>
+    );
+  }
 
   return (
     <span ref={ref} className={styles.statValue}>
       {count}
-      {suffix}
+      {parsed.suffix}
     </span>
   );
 }

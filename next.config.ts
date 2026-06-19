@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
       { source: "/api/pagespeed.php", destination: "/api/pagespeed" },
       { source: "/api/audit-report.php", destination: "/api/audit-report" },
       { source: "/api/audit-history.php", destination: "/api/audit-history" },
+      { source: "/api/contact.php", destination: "/api/contact" },
     ];
   },
 };

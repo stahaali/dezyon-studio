@@ -29,6 +29,14 @@
   line-height: 1.1;
 }
 
+@media (max-width: 576px) {
+  .sizeHero {
+    font-size: 28px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+}
+
 .sizeSection {
   font-size: clamp(28px, 4vw, 48px);
   line-height: 1.15;

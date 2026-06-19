@@ -36,7 +36,7 @@ export function VideoEditingContent() {
             <ScrollReveal className={styles.heroContent}>
               <h1
                 id="video-editing-hero-heading"
-                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.heroTitle}`}
+                className={`${splitTitleStyles.title} ${styles.heroTitle}`}
               >
                 <span className={`${splitTitleStyles.lightOnDark} ${styles.heroTitleStack}`}>
                   <span className={styles.heroTitleLine}>{videoEditingHero.titlePrefix}</span>

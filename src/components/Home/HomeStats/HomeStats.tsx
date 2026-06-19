@@ -12,9 +12,11 @@ export function HomeStats() {
           <div className={styles.statsCard}>
             <div className={styles.statsGrid}>
               {stats.map((stat) => (
-                <div key={stat.label} className={styles.stat}>
+                <div key={stat.label || stat.value} className={styles.stat}>
                   <StatValue value={stat.value} />
-                  <span className={styles.statLabel}>{stat.label}</span>
+                  {stat.label ? (
+                    <span className={styles.statLabel}>{stat.label}</span>
+                  ) : null}
                 </div>
               ))}
             </div>

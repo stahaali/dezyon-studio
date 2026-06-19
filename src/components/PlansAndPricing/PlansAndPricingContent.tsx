@@ -20,37 +20,33 @@ export function PlansAndPricingContent() {
   return (
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="plans-pricing-heading">
+        <div className={styles.heroBg} aria-hidden="true">
+          <div className={styles.heroBgImage}>
+            <Image
+              src="/assets/img/pricing/pricing-banner.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className={styles.heroBgImageEl}
+            />
+          </div>
+          <div className={styles.heroBgOverlay} />
+        </div>
+
         <Container className={styles.heroContainer}>
           <ScrollReveal>
             <div className={styles.heroContent}>
               <div className={styles.heroHeadingWrap}>
-                <div className={styles.heroTitleRow}>
-                  <Image
-                    src={plansPricingPage.stars.left.src}
-                    alt=""
-                    width={plansPricingPage.stars.left.width}
-                    height={plansPricingPage.stars.left.height}
-                    className={styles.starLeft}
-                    aria-hidden="true"
-                  />
-                  <PlansPricingHeading
-                    as="h1"
-                    id="plans-pricing-heading"
-                    prefix={plansPricingPage.titlePrefix}
-                    highlight={plansPricingPage.titleHighlight}
-                    size="hero"
-                    align="center"
-                    className={styles.heroTitle}
-                  />
-                  <Image
-                    src={plansPricingPage.stars.right.src}
-                    alt=""
-                    width={plansPricingPage.stars.right.width}
-                    height={plansPricingPage.stars.right.height}
-                    className={styles.starRight}
-                    aria-hidden="true"
-                  />
-                </div>
+                <PlansPricingHeading
+                  as="h1"
+                  id="plans-pricing-heading"
+                  prefix={plansPricingPage.titlePrefix}
+                  highlight={plansPricingPage.titleHighlight}
+                  size="hero"
+                  align="center"
+                  className={styles.heroTitle}
+                />
               </div>
               <p className={styles.heroDescription}>{plansPricingPage.description}</p>
             </div>

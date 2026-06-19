@@ -1,14 +1,11 @@
 import { ContactBanner } from "@/components/Contact/ContactBanner/ContactBanner";
-import { ContactFAQ } from "@/components/Contact/ContactFAQ/ContactFAQ";
 import { ContactHero } from "@/components/Contact/ContactHero/ContactHero";
-import { ContactLogos } from "@/components/Contact/ContactLogos/ContactLogos";
-import { ContactReach } from "@/components/Contact/ContactReach/ContactReach";
+import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import {
   getBreadcrumbJsonLd,
   getContactPageJsonLd,
-  getFaqPageJsonLd,
 } from "@/lib/structured-data";
 import styles from "./page.module.css";
 
@@ -30,16 +27,14 @@ export default function ContactPage() {
             description: contactSeo.description,
             path: contactSeo.path,
           }),
-          getFaqPageJsonLd(),
         ]}
       />
-      <div className={styles.page}>
-        <ContactBanner />
-        <ContactHero />
-        <ContactReach />
-        <ContactFAQ />
-        <ContactLogos />
-      </div>
+      <TalkingWebsiteVoiceAssistant>
+        <div className={styles.page}>
+          <ContactBanner />
+          <ContactHero />
+        </div>
+      </TalkingWebsiteVoiceAssistant>
     </>
   );
 }

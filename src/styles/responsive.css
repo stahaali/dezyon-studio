@@ -8,6 +8,13 @@
   }
 }
 
+@media (max-width: 576px) {
+  :root {
+    --heading-highlight-font-size: 28px;
+    --heading-highlight-line-height: 1.12;
+  }
+}
+
 @media (min-width: 576px) {
   :root {
     --container-padding: 24px;

@@ -134,7 +134,7 @@
   align-items: center;
   justify-content: center;
   padding: 12px 18px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-button);
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;

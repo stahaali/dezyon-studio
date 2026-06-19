@@ -212,3 +212,32 @@
     margin-bottom: 56px;
   }
 }
+
+/* Lock services section to the 1366px view at 1600px and 1920px */
+@media (min-width: 1600px) {
+  .serviceTitle {
+    font-size: 1.2rem;
+  }
+
+  .servicesGrid {
+    gap: 20px;
+  }
+
+  .servicesHeader {
+    margin-bottom: 56px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .serviceTitle {
+    font-size: 1.2rem;
+  }
+
+  .servicesGrid {
+    gap: 20px;
+  }
+
+  .servicesHeader {
+    margin-bottom: 56px;
+  }
+}

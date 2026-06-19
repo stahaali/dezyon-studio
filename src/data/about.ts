@@ -62,7 +62,7 @@ export const aboutValues = [
     iconId: "learn",
     title: "Learn",
     description:
-      "Lexend team are masters of their craft. Even though we're all experts in our respective fields, we always make time to expand our minds.",
+      "Dezyon Studio are masters of their craft. Even though we're all experts in our respective fields, we always make time to expand our minds.",
   },
   {
     iconId: "fun",

@@ -13,7 +13,7 @@ export const videoEditingHero = {
 export const videoEditingHeroVisual = {
   poster: "/assets/img/video-editing/hero-banner-poster.webp",
   video: "/assets/video/video-editing/hero-banner.webm",
-  columnVideo: "/assets/img/video-editing/video-editing.mp4",
+  columnVideo: "/assets/img/video-editing/video-editing-banner.mp4",
 } as const;
 
 export const videoEditingServicesIntro = {

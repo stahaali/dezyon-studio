@@ -9,7 +9,7 @@ export function AboutCtaBanner() {
       <Container className={styles.container}>
         <Link href="/contact" className={styles.link}>
           <Image
-            src="/assets/img/about/about-cta.jpg"
+            src="/assets/img/about/about-cta1.jpg"
             alt="Get in touch with Dezyon Studio"
             width={1280}
             height={360}

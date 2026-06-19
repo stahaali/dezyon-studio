@@ -44,7 +44,7 @@ function buildConfigPhp(env) {
   const user = env.DB_USER || "u527758351_dezyonstudio";
   const pass = env.DB_PASSWORD || "";
   const name = env.DB_NAME || "u527758351_dezyonstudio";
-  const recipient = env.RECIPIENT_EMAIL || "hello@dezyonstudio.com, staha086@gmail.com, sc.rma.786@gmail.com, allahfinal@hotmail.com";
+  const recipient = env.RECIPIENT_EMAIL || "hello@dezyonstudio.com, staha086@gmail.com";
   const recaptchaSecret = env.RECAPTCHA_SECRET_KEY || "";
   const mailFrom = env.MAIL_FROM || "hello@dezyonstudio.com";
   const mailFromName = env.MAIL_FROM_NAME || "Dezyon Studio";

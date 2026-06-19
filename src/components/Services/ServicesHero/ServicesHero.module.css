@@ -337,6 +337,17 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .section {
+    padding-top: 0;
+  }
+
+  .heroCenter {
+    min-height: auto;
+    padding: calc(var(--header-height) + 56px) 0 56px;
+  }
+}
+
 @media (min-width: 992px) {
   .content {
     max-width: 620px;

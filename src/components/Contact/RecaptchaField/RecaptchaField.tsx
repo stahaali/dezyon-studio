@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { RECAPTCHA_SITE_KEY } from "@/lib/recaptcha-config";
+import { getClientRecaptchaSiteKey } from "@/lib/recaptcha-config";
+import { isLocalRecaptchaHost } from "@/lib/recaptcha-keys";
 import styles from "./RecaptchaField.module.css";
 
 type RecaptchaFieldProps = {
@@ -81,6 +82,16 @@ export function RecaptchaField({ widgetKey, onChange }: RecaptchaFieldProps) {
     let cancelled = false;
 
     const loadSiteKey = async () => {
+      if (
+        typeof window !== "undefined" &&
+        isLocalRecaptchaHost(window.location.hostname)
+      ) {
+        setSiteKey(getClientRecaptchaSiteKey());
+        setSiteKeyReady(true);
+        setLoadError("");
+        return;
+      }
+
       try {
         const response = await fetch("/recaptcha-site-key.json", { cache: "no-store" });
         if (response.ok) {
@@ -98,7 +109,7 @@ export function RecaptchaField({ widgetKey, onChange }: RecaptchaFieldProps) {
       }
 
       if (!cancelled) {
-        const fallbackKey = RECAPTCHA_SITE_KEY.trim();
+        const fallbackKey = getClientRecaptchaSiteKey().trim();
         setSiteKey(fallbackKey);
         setSiteKeyReady(true);
         if (!fallbackKey) {

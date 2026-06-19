@@ -1,0 +1,114 @@
+.button {
+  position: fixed;
+  bottom: 28px;
+  left: 20px;
+  z-index: 105;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1.5px solid rgba(146, 225, 58, 0.45);
+  border-radius: var(--radius-button);
+  background: var(--brand-gradient);
+  color: #000200;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.85);
+  box-shadow: 0 8px 24px rgba(0, 2, 0, 0.28);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1),
+    visibility 0.35s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.buttonVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.buttonVisible:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: var(--color-primary);
+  box-shadow: 0 14px 32px rgba(146, 225, 58, 0.38);
+}
+
+.buttonVisible:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 8px 20px rgba(0, 2, 0, 0.24);
+}
+
+.iconWrap {
+  display: flex;
+  animation: backToTopFloat 2.4s ease-in-out infinite;
+}
+
+.buttonVisible:hover .iconWrap {
+  animation: backToTopNudge 0.55s ease-in-out infinite;
+}
+
+.icon {
+  display: block;
+}
+
+@keyframes backToTopFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes backToTopNudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+  }
+
+  .buttonVisible:hover,
+  .buttonVisible:active {
+    transform: translateY(0) scale(1);
+  }
+
+  .iconWrap,
+  .buttonVisible:hover .iconWrap {
+    animation: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .button {
+    left: 64px;
+  }
+}
+
+@media (max-width: 576px) {
+  .button {
+    bottom: 22px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}

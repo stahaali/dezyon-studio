@@ -6,43 +6,37 @@ import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./ContactBanner.module.css";
 
 export function ContactBanner() {
-  const { stars } = contactBanner;
-
   return (
     <section className={styles.section} aria-labelledby="contact-banner-heading">
+      <div className={styles.heroBg} aria-hidden="true">
+        <div className={styles.heroBgImage}>
+          <Image
+            src="/assets/img/contact/contact-banner.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={styles.heroBgImageEl}
+          />
+        </div>
+        <div className={styles.heroBgOverlay} />
+      </div>
+
       <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.content}>
             <div className={styles.headingWrap}>
-              <div className={styles.titleRow}>
-                <Image
-                  src={stars.left.src}
-                  alt=""
-                  width={stars.left.width}
-                  height={stars.left.height}
-                  className={styles.starLeft}
-                  aria-hidden="true"
-                />
-                <h1
-                  id="contact-banner-heading"
-                  className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
-                >
-                  <span className={splitTitleStyles.lightOnDark}>
-                    {contactBanner.titlePrefix}
-                    <span className={styles.wordHighlight}>
-                      {contactBanner.titleHighlight}
-                    </span>
+              <h1
+                id="contact-banner-heading"
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
+              >
+                <span className={splitTitleStyles.lightOnDark}>
+                  {contactBanner.titlePrefix}
+                  <span className={styles.wordHighlight}>
+                    {contactBanner.titleHighlight}
                   </span>
-                </h1>
-                <Image
-                  src={stars.right.src}
-                  alt=""
-                  width={stars.right.width}
-                  height={stars.right.height}
-                  className={styles.starRight}
-                  aria-hidden="true"
-                />
-              </div>
+                </span>
+              </h1>
             </div>
             <p className={styles.description}>{contactBanner.description}</p>
           </div>

@@ -157,10 +157,10 @@ export const values = [
 ] as const;
 
 export const stats = [
-  { value: "2014", label: "Lexend founded" },
-  { value: "50", label: "Hardworking group" },
-  { value: "4600", label: "Document workflows" },
-  { value: "17%", label: "Taux convertion" },
+  { value: "9", label: "Years Experience" },
+  { value: "250", label: "Successful Launches" },
+  { value: "500", label: "AI-Powered Projects" },
+  { value: "24/7", label: "AI Automation Support" },
 ] as const;
 
 export const pricingPlans = [

@@ -1,11 +1,44 @@
 .section {
+  position: relative;
+  overflow: hidden;
   background-color: #000200;
   padding-top: calc(var(--header-height) + 48px);
   padding-bottom: 56px;
-  overflow: visible;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBgImageEl {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.55;
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 2, 0, 0.45) 0%,
+    rgba(0, 2, 0, 0.58) 50%,
+    rgba(0, 2, 0, 0.68) 100%
+  );
 }
 
 .container {
+  position: relative;
+  z-index: 2;
   max-width: 1280px;
 }
 
@@ -23,14 +56,6 @@
   margin: 0 auto 20px;
   padding-top: 10px;
   overflow: visible;
-}
-
-.titleRow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(12px, 1.5vw, 22px);
-  max-width: 100%;
 }
 
 .title {
@@ -52,26 +77,6 @@
   vertical-align: baseline;
 }
 
-.starLeft,
-.starRight {
-  flex-shrink: 0;
-  width: auto;
-  height: auto;
-  pointer-events: none;
-  filter: brightness(0) invert(1);
-}
-
-.starLeft {
-  width: 18px;
-  transform: rotate(-32deg);
-}
-
-.starRight {
-  width: 36px;
-  align-self: flex-start;
-  margin-top: 2px;
-}
-
 .description {
   margin: 0;
   font-size: clamp(15px, 2vw, 18px);
@@ -83,14 +88,6 @@
   .headingWrap {
     padding-top: 12px;
   }
-
-  .starLeft {
-    width: 20px;
-  }
-
-  .starRight {
-    width: 40px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -101,15 +98,6 @@
 
   .headingWrap {
     padding-top: 14px;
-  }
-
-  .starLeft {
-    width: 20px;
-  }
-
-  .starRight {
-    width: 42px;
-    margin-top: 0;
   }
 
   .description {
@@ -124,15 +112,6 @@
 
   .headingWrap {
     padding-top: 16px;
-  }
-
-  .starLeft {
-    width: 22px;
-  }
-
-  .starRight {
-    width: 46px;
-    margin-top: -2px;
   }
 }
 
@@ -149,32 +128,9 @@
     max-width: none;
   }
 
-  .titleRow {
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 20px;
-  }
-
   .title {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
     font-size: 72px;
     line-height: 1.05;
-  }
-
-  .starLeft {
-    width: 22px;
-    align-self: center;
-    margin-top: 0;
-  }
-
-  .starRight {
-    width: 48px;
-    align-self: flex-start;
-    margin-top: -4px;
   }
 
   .wordHighlight {

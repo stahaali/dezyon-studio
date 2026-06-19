@@ -1677,6 +1677,12 @@
   .hero {
     padding-inline: 0;
   }
+
+  .heroTitle {
+    font-size: 28px;
+    line-height: 1.12;
+    white-space: normal;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

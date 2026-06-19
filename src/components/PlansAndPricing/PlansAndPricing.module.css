@@ -4,12 +4,45 @@
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-top: calc(var(--header-height) + 48px);
   padding-bottom: 56px;
-  overflow: visible;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBgImageEl {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.55;
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 2, 0, 0.45) 0%,
+    rgba(0, 2, 0, 0.58) 50%,
+    rgba(0, 2, 0, 0.68) 100%
+  );
 }
 
 .heroContainer {
+  position: relative;
+  z-index: 2;
   max-width: 1280px;
 }
 
@@ -29,40 +62,12 @@
   overflow: visible;
 }
 
-.heroTitleRow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(12px, 1.5vw, 22px);
-  max-width: 100%;
-}
-
 .heroTitle {
   margin: 0;
   color: #ffffff;
   text-align: center;
   overflow: visible;
   line-height: 1.2;
-}
-
-.starLeft,
-.starRight {
-  flex-shrink: 0;
-  width: auto;
-  height: auto;
-  pointer-events: none;
-  filter: brightness(0) invert(1);
-}
-
-.starLeft {
-  width: 18px;
-  transform: rotate(-32deg);
-}
-
-.starRight {
-  width: 36px;
-  align-self: flex-start;
-  margin-top: 2px;
 }
 
 .heroDescription {
@@ -74,6 +79,7 @@
 }
 
 .main {
+  padding-top: 56px;
   padding-bottom: 56px;
 }
 
@@ -691,6 +697,12 @@
   margin-top: 16px;
 }
 
+.planActions .primaryBtn,
+.planActions .secondaryBtn {
+  width: 100%;
+  border-radius: var(--radius-button);
+}
+
 .linkBtn {
   display: inline-flex;
   align-items: center;
@@ -794,7 +806,7 @@
   align-items: center;
   justify-content: center;
   padding: 12px 18px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-button);
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
@@ -834,7 +846,7 @@
   gap: 10px;
   padding: 12px 22px;
   border: 1px solid rgba(var(--color-primary-rgb), 0.35);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-button);
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   color: #1a1a1a;
