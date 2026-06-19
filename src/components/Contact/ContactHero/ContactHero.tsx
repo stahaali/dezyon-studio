@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
@@ -135,12 +136,12 @@ export function ContactHero() {
             <div className={styles.reachSide}>
               {contactReach.items.map((item) => (
                 <article key={item.title} className={styles.reachCard}>
-                  <span
+                  <Image
+                    src={item.icon}
+                    alt=""
+                    width={44}
+                    height={44}
                     className={styles.reachIcon}
-                    style={{
-                      WebkitMaskImage: `url(${item.icon})`,
-                      maskImage: `url(${item.icon})`,
-                    }}
                     aria-hidden="true"
                   />
                   <div className={styles.reachCardBody}>
@@ -159,9 +160,19 @@ export function ContactHero() {
                       <Link
                         href={item.link.href}
                         className={styles.reachLink}
-                        {...(item.link.href.startsWith("http")
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
+                        target={
+                          item.link.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          item.link.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        aria-label={
+                          item.link.href.startsWith("tel:")
+                            ? `${item.link.label} - ${item.title}`
+                            : undefined
+                        }
                       >
                         <span>{item.link.label}</span>
                         <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
@@ -177,7 +188,11 @@ export function ContactHero() {
                 {contactHero.intro}
               </h2>
 
-              <form className={styles.form} onSubmit={handleSubmit}>
+              <form
+                id="contact-brief-form"
+                className={styles.form}
+                onSubmit={handleSubmit}
+              >
                 <div className={styles.row}>
                   <label className={styles.field}>
                     <span className={styles.srOnly}>{fields.name}</span>

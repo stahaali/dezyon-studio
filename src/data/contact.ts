@@ -1,13 +1,14 @@
 import { footerContact } from "@/data/site";
-import { flaticonIcons } from "@/data/icons";
 
 const CONTACT_ASSETS = "/assets/img/contact";
+const BRIEF_ICONS = "/assets/img/brief-icons";
+const contactPhoneDigits = footerContact.phone.replace(/\D/g, "");
 
 export const contactBanner = {
-  titlePrefix: "Let's get in ",
-  titleHighlight: "Touch.",
+  titlePrefix: "Start ",
+  titleHighlight: "Building.",
   description:
-    "Feel free to reach out to us using the options below, and our dedicated team will respond to your inquiries promptly.",
+    "This isn't just another digital product, it's a business asset built to grow with you.",
   stars: {
     left: { src: `${CONTACT_ASSETS}/star-2.svg`, width: 20, height: 28 },
     right: { src: `${CONTACT_ASSETS}/star-1.svg`, width: 42, height: 47 },
@@ -40,31 +41,37 @@ export const contactReach = {
   titleSuffix: "",
   items: [
     {
-      icon: flaticonIcons.locationLime,
-      title: "Visit Us",
-      description: "17418 Moreton Ln, Spring, TX 77379",
+      icon: `${BRIEF_ICONS}/01.png`,
+      title: "Call a Specialist",
+      description: "Talk directly with a live expert about your project.",
       link: {
-        label: "View on maps",
-        href: "https://maps.app.goo.gl/48gTfeRFbjdxpAiK9",
+        label: "Connect",
+        href: `tel:+${contactPhoneDigits}`,
       },
     },
     {
-      icon: flaticonIcons.chatLime,
-      title: "Via Chat",
-      description: "Get instant answers.",
-      link: { label: "Let's chat", href: "#", action: "voice-chat" },
+      icon: `${BRIEF_ICONS}/02.png`,
+      title: "Connect WhatsApp",
+      description: "Get instant support and answers from our team.",
+      link: {
+        label: "Connect",
+        href: `https://wa.me/${contactPhoneDigits}`,
+      },
     },
     {
-      icon: flaticonIcons.internetLime,
-      title: "Need Technical Help?",
-      description: "Report any bugs or issues for priority support.",
-      link: { label: "Send report", href: "#" },
+      icon: `${BRIEF_ICONS}/03.png`,
+      title: "Submit Brief",
+      description: "Tell us what you need and we'll prepare a solution.",
+      link: {
+        label: "Connect",
+        href: "#contact-brief-form",
+      },
     },
     {
-      icon: flaticonIcons.messageLime,
-      title: "Get a Quote",
-      description: "Tell us about your project for a tailored estimate.",
-      link: { label: "Get a quote", href: "/plans-and-pricing" },
+      icon: `${BRIEF_ICONS}/04.png`,
+      title: "Call Lara",
+      description: "Talk live with Lara, your AI Website Assistant.",
+      link: { label: "Connect", href: "#", action: "voice-chat" },
     },
   ],
 } as const;
