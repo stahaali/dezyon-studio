@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { ServiceIcon } from "@/components/Services/ServiceCard/ServiceIcon";
 import styles from "./ServiceCard.module.css";
 
@@ -24,11 +23,6 @@ export function ServiceCard({
 
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>
-
-      <span className={styles.link}>
-        Learn more
-        <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
-      </span>
     </article>
   );
 }
