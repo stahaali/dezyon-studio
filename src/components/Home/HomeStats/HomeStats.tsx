@@ -12,7 +12,7 @@ export function HomeStats() {
           <div className={styles.statsCard}>
             <div className={styles.statsGrid}>
               {stats.map((stat) => (
-                <div key={stat.label || stat.value} className={styles.stat}>
+                <div key={stat.label} className={styles.stat}>
                   <StatValue value={stat.value} />
                   {stat.label ? (
                     <span className={styles.statLabel}>{stat.label}</span>
