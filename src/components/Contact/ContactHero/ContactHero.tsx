@@ -129,7 +129,7 @@ export function ContactHero() {
   };
 
   return (
-    <section className={styles.section} aria-labelledby="contact-hero-heading">
+    <section className={styles.section} aria-label="Contact form">
       <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.panel}>
@@ -184,10 +184,6 @@ export function ContactHero() {
             </div>
 
             <div className={styles.formSide}>
-              <h2 id="contact-hero-heading" className={styles.intro}>
-                {contactHero.intro}
-              </h2>
-
               <form
                 id="contact-brief-form"
                 className={styles.form}

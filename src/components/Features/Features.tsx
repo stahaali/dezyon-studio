@@ -94,6 +94,7 @@ export function Features() {
                   light={
                     "titleLight" in activeTab ? activeTab.titleLight : undefined
                   }
+                  nowrapAccent={"titleAccent" in activeTab}
                   nowrapLight={"titleLight" in activeTab}
                   size="panel"
                   theme="dark"

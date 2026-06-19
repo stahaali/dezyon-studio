@@ -23,7 +23,6 @@ export const contactHero = {
     role: "Founder & CEO",
     image: `${CONTACT_ASSETS}/hero-contact.jpg`,
   },
-  intro: "Get Free Consultation",
   fields: {
     name: "Full name",
     email: "Your email",

@@ -20,6 +20,7 @@
   color: #000200;
 }
 
+.nowrapAccent,
 .nowrapLight {
   white-space: nowrap;
 }

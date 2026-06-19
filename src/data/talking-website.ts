@@ -117,7 +117,7 @@ export const talkingWebsitePricing = [
       "Priority support & SLA",
       "Custom workflows & API access",
     ],
-    cta: { label: "Book a Demo", href: "/contact" },
+    cta: { label: "Get Started", href: "/contact" },
     featured: false,
   },
 ] as const;

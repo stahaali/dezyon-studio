@@ -22,6 +22,7 @@ interface SplitTitleProps {
   className?: string;
   id?: string;
   lineBreak?: boolean;
+  nowrapAccent?: boolean;
   nowrapLight?: boolean;
 }
 
@@ -35,6 +36,7 @@ export function SplitTitle({
   className = "",
   id,
   lineBreak = true,
+  nowrapAccent = false,
   nowrapLight = false,
 }: SplitTitleProps) {
   const parts =
@@ -49,7 +51,11 @@ export function SplitTitle({
       id={id}
       className={`${styles.title} ${sizeClasses[size]} ${className}`.trim()}
     >
-      <span className={styles.accent}>{parts.accent}</span>
+      <span
+        className={`${styles.accent} ${nowrapAccent ? styles.nowrapAccent : ""}`.trim()}
+      >
+        {parts.accent}
+      </span>
       {parts.light ? (
         <>
           {lineBreak ? <br className={styles.breakOnSm} /> : " "}

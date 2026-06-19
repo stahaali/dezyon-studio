@@ -11,11 +11,15 @@ function isLocalHostname(hostname: string): boolean {
 }
 
 export function shouldEnableSiteProtections(hostname?: string): boolean {
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NEXT_PUBLIC_DISABLE_SITE_PROTECTIONS === "true") {
     return false;
   }
 
-  if (process.env.NEXT_PUBLIC_DISABLE_SITE_PROTECTIONS === "true") {
+  if (process.env.NEXT_PUBLIC_ENABLE_SITE_PROTECTIONS === "true") {
+    return true;
+  }
+
+  if (process.env.NODE_ENV !== "production") {
     return false;
   }
 
@@ -43,8 +47,9 @@ function isEditableTarget(target: EventTarget | null): boolean {
 
 function isBlockedShortcut(event: KeyboardEvent): boolean {
   const key = event.key.toLowerCase();
+  const keyCode = event.keyCode || event.which;
 
-  if (event.key === "F12") {
+  if (event.key === "F12" || keyCode === 123) {
     return true;
   }
 
@@ -52,7 +57,11 @@ function isBlockedShortcut(event: KeyboardEvent): boolean {
     return true;
   }
 
-  if (event.metaKey && event.altKey && key === "i") {
+  if (event.metaKey && event.altKey && ["i", "j", "c", "u"].includes(key)) {
+    return true;
+  }
+
+  if (event.metaKey && event.shiftKey && ["c", "i", "j"].includes(key)) {
     return true;
   }
 

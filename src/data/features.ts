@@ -33,6 +33,8 @@ export const smartFeatureTabs = [
     id: "tool-workflow",
     label: "AI Video Creation",
     title: "Create Smarter Publish Faster Grow Bigger",
+    titleAccent: "Create Smarter Publish Faster",
+    titleLight: "Grow Bigger",
     description:
       "AI Video Creation gives your business the power to produce professional videos at scale, helping you attract more customers and stand out in today's digital world.",
     image: "/assets/img/features/feature-image-061.jpg",
