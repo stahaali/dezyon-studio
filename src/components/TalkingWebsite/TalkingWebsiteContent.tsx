@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Bell,
   Bot,
@@ -40,6 +39,7 @@ import {
   talkingWebsiteTaglines,
   talkingWebsiteUseCases,
 } from "@/data/talking-website";
+import { TalkingWebsiteHeroBannerVideo } from "@/components/TalkingWebsite/TalkingWebsiteHeroBannerVideo";
 import { TalkingWebsiteHeroCta } from "@/components/TalkingWebsite/TalkingWebsiteHeroCta";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
@@ -151,68 +151,7 @@ export function TalkingWebsiteContent() {
 
             <ScrollReveal delay={0.1} className={styles.heroVisual}>
               <div className={styles.heroVisualGlow} aria-hidden="true" />
-              <div className={styles.heroCard}>
-                <div className={styles.heroBrowserBar} aria-hidden="true">
-                  <span className={styles.browserDot} />
-                  <span className={styles.browserDot} />
-                  <span className={styles.browserDot} />
-                  <span className={styles.browserUrl}>yoursite.com</span>
-                </div>
-                <div className={styles.heroCardHeader}>
-                  <span className={styles.liveDot} aria-hidden="true" />
-                  <span>AI Voice Assistant — Live</span>
-                  <span className={styles.liveBadge}>ONLINE</span>
-                </div>
-                <div className={styles.heroCardBody}>
-                  <Image
-                    src="/assets/img/cta/talking.svg"
-                    alt=""
-                    width={180}
-                    height={234}
-                    className={styles.heroIllustration}
-                    priority
-                  />
-                  <div className={styles.heroChat}>
-                    <div
-                      className={`${styles.chatBubbleUser} ${styles.chatBubbleAnimate}`}
-                      style={{ animationDelay: "0.2s" }}
-                    >
-                      &ldquo;Can I book a consultation this week?&rdquo;
-                    </div>
-                    <div
-                      className={`${styles.chatBubbleAi} ${styles.chatBubbleAnimate}`}
-                      style={{ animationDelay: "0.55s" }}
-                    >
-                      Absolutely — I have Tuesday at 2 PM or Thursday at 10 AM. Which works
-                      best?
-                    </div>
-                    <div
-                      className={`${styles.chatTyping} ${styles.chatBubbleAnimate}`}
-                      style={{ animationDelay: "0.9s" }}
-                      aria-hidden="true"
-                    >
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.heroCardFooter} aria-hidden="true">
-                  <div className={styles.voiceWave}>
-                    {Array.from({ length: 12 }).map((_, index) => (
-                      <span
-                        key={index}
-                        className={styles.voiceBar}
-                        style={{ animationDelay: `${index * 0.08}s` }}
-                      />
-                    ))}
-                  </div>
-                  <button type="button" className={styles.talkButton} tabIndex={-1}>
-                    <Mic size={16} strokeWidth={2} />
-                    Talk Now
-                  </button>
-                </div>
-              </div>
+              <TalkingWebsiteHeroBannerVideo />
             </ScrollReveal>
           </div>
         </Container>

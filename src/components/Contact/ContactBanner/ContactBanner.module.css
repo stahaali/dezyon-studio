@@ -21,7 +21,7 @@
 .heroBgImageEl {
   object-fit: cover;
   object-position: center;
-  opacity: 0.55;
+  opacity: 0.72;
 }
 
 .heroBgOverlay {
@@ -30,9 +30,9 @@
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(0, 2, 0, 0.45) 0%,
-    rgba(0, 2, 0, 0.58) 50%,
-    rgba(0, 2, 0, 0.68) 100%
+    rgba(0, 2, 0, 0.28) 0%,
+    rgba(0, 2, 0, 0.38) 50%,
+    rgba(0, 2, 0, 0.5) 100%
   );
 }
 
