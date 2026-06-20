@@ -458,14 +458,16 @@ export function TalkingWebsiteContent() {
                     <span className={styles.pricingNote}>{plan.priceNote}</span>
                   </div>
                   <p className={styles.pricingDescription}>{plan.description}</p>
-                  <ul className={styles.pricingFeatures}>
-                    {plan.features.map((feature) => (
-                      <li key={feature}>
-                        <Check size={16} strokeWidth={2.5} aria-hidden="true" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className={styles.pricingCardScrollBody}>
+                    <ul className={styles.pricingFeatures}>
+                      {plan.features.map((feature) => (
+                        <li key={feature}>
+                          <Check size={16} strokeWidth={2.5} aria-hidden="true" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   <Button
                     href={plan.cta.href}
                     size="md"
