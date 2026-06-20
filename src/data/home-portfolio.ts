@@ -12,24 +12,24 @@ function folderImages(folder: string, files: readonly string[]) {
 }
 
 const aiVideoImages = folderImages("/assets/img/video-creation", [
-  "2.jpeg",
-  "5.jpeg",
+  "2.webp",
+  "5.webp",
 ]);
 
 const talkingWebsiteImages = folderImages("/assets/img/talking-website", [
-  "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
-  "5.jpg",
-  "8.jpeg",
+  "1.webp",
+  "2.webp",
+  "3.webp",
+  "4.webp",
+  "5.webp",
+  "8.webp",
 ]);
 
 const aiMarketingImages = folderImages("/assets/img/marketing", [
-  "4.jpeg",
-  "6.jpeg",
-  "7.jpeg",
-  "9.jpeg",
+  "4.webp",
+  "6.webp",
+  "7.webp",
+  "9.webp",
 ]);
 
 const aiVideoTitles = [
@@ -99,6 +99,7 @@ function buildTabProjects(
     id: `${prefix}-${index + 1}`,
     title: titles[index] ?? `Project ${index + 1}`,
     image,
+    alt: titles[index] ?? `Project ${index + 1}`,
     href,
   }));
 }

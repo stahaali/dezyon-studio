@@ -7,7 +7,7 @@ import styles from "./VideoEditingHeroVisual.module.css";
 const BACKGROUND_PLAYBACK_RATE = 1.35;
 
 export function VideoEditingHeroVisual() {
-  const { poster, video } = videoEditingHeroVisual;
+  const { poster, posterAlt, video } = videoEditingHeroVisual;
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function VideoEditingHeroVisual() {
       <img
         className={styles.heroVideoThumb}
         src={poster}
-        alt=""
+        alt={posterAlt}
         width={1920}
         height={1080}
         fetchPriority="high"

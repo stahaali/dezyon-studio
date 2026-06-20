@@ -81,6 +81,7 @@ export const plansPricingPage = {
   titleHighlight: "Pricing",
   description:
     "Communications plans for business phone, AI receptionist, video, events, and conversation intelligence.",
+  bannerImageAlt: "Plans and pricing hero background",
   stars: packagesBanner.stars,
 } as const;
 

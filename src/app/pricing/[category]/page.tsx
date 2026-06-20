@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { PackagesBanner } from "@/components/Packages/PackagesBanner/PackagesBanner";
 import { PackagesCatalog } from "@/components/Packages/PackagesCatalog/PackagesCatalog";
-import { JsonLd } from "@/components/Seo/JsonLd";
+import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import {
   isPackageCategoryId,
   packageCategories,
@@ -9,10 +9,7 @@ import {
   type PackageCategoryId,
 } from "@/data/packages";
 import { createPricingCategoryMetadata } from "@/lib/seo";
-import {
-  getBreadcrumbJsonLd,
-  getWebPageJsonLd,
-} from "@/lib/structured-data";
+import { getPricingServiceDefinition } from "@/lib/structured-data";
 
 type PricingCategoryPageProps = {
   params: Promise<{ category: string }>;
@@ -49,19 +46,16 @@ export default async function PricingCategoryPage({ params }: PricingCategoryPag
 
   return (
     <>
-      <JsonLd
-        data={[
-          getBreadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Plans & Pricing", path: "/plans-and-pricing" },
-            { name: `${label} Pricing`, path: pagePath },
-          ]),
-          getWebPageJsonLd({
-            name: pageTitle,
-            description: meta.description,
-            path: pagePath,
-          }),
+      <PageSchema
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Plans & Pricing", path: "/plans-and-pricing" },
+          { name: `${label} Pricing`, path: pagePath },
         ]}
+        title={pageTitle}
+        description={meta.description}
+        path={pagePath}
+        services={getPricingServiceDefinition(category as PackageCategoryId)}
       />
       <PackagesBanner categoryId={category as PackageCategoryId} />
       <PackagesCatalog category={category as PackageCategoryId} />

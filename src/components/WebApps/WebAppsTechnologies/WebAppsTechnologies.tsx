@@ -43,7 +43,7 @@ export function WebAppsTechnologies() {
                     <div className={styles.iconWrap}>
                       <Image
                         src={segment.icon}
-                        alt=""
+                        alt={`${segment.title} icon`}
                         width={52}
                         height={52}
                         className={styles.icon}

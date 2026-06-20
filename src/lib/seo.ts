@@ -7,7 +7,7 @@ import {
 } from "@/data/packages";
 import { SITE_NAME, SITE_URL } from "./constants";
 
-export const DEFAULT_OG_IMAGE = "/assets/img/web-app/mobile-app-img1.jpg";
+export const DEFAULT_OG_IMAGE = "/assets/img/web-app/mobile-app-img1.webp";
 
 export type PageSeoKey =
   | "home"
@@ -37,7 +37,7 @@ export type PageSeoConfig = {
 
 export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
   home: {
-    title: "Talking Custom Website, Ai Videos, Ai Marketing, Ai Influencer & Branding",
+    title: "Talking Custom Website",
     description:
       "Dezyon Studio Where businesses leverage - Ai Video Creation, Ai Marketing, Talking Websites, Ai Influencer , Web Design, Branding, and Digital Marketing Services.",
     keywords: [
@@ -77,7 +77,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/",
   },
   about: {
-    title: "About Dezyon Studio | AI-Powered Websites, AI Videos, Digital Marketing & Branding",
+    title: "About Dezyon Studio | AI-Powered Website",
     description:
       "Dezyon Studio is a creative digital agency helping businesses grow through AI-powered solutions. We specialize in Talking Websites, Custom Website Development, AI Video Creation, AI Influencers, Branding, Digital Marketing, Content Creation, and Business Automation to increase engagement, leads, and sales.",
     keywords: [
@@ -90,7 +90,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/about",
   },
   services: {
-    title: "Dezyon Studio Services | Talking Websites, AI Videos, AI Marketing & Branding",
+    title: "Service Dezyon Studio | AI Growth Services",
     description:
       "Explore Dezyon Studio's AI-powered services including Talking Websites, Custom Website Development, AI Video Creation, AI Marketing, AI Influencers, Branding, Digital Marketing, Content Creation, YouTube Video Editing, and Business Automation solutions.",
     keywords: [
@@ -117,7 +117,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/portfolio",
   },
   videoEditing: {
-    title: "AI Content Creation & Video Editing Services | Dezyon Studio",
+    title: "Video Editing Dezyon Studio | AI-Powered Video Editing",
     description:
       "AI influencer creation, professional video editing, AI voiceovers, video generation, and social media content production for brands, coaches, agencies, and e-commerce.",
     keywords: [
@@ -144,10 +144,10 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
       "portal development hub",
     ],
     path: "/web-apps",
-    ogImage: "/assets/img/web-app/mobile-app-img2.jpg",
+    ogImage: "/assets/img/web-app/mobile-app-img2.webp",
   },
   contact: {
-    title: "Contact Dezyon Studio — Get a Free Quote",
+    title: "Contact | Dezyon Studio",
     description:
       "Get in touch with Dezyon Studio. Send us a message, explore other ways to reach us, or browse frequently asked questions about our design and development services.",
     keywords: [
@@ -175,7 +175,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/website-audit",
   },
   talkingWebsite: {
-    title: "AI Talking Websites | Interactive AI Website Solutions by Dezyon Studio",
+    title: "Talking Website Dezyon Studio | Interactive AI Website Solution",
     description:
       "Transform your business with AI Talking Websites by Dezyon Studio. Engage visitors with AI-powered virtual assistants, automate customer interactions, answer questions instantly, and increase leads and conversions 24/7.",
     keywords: [
@@ -190,7 +190,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     ogImage: "/assets/img/cta/talking.svg",
   },
   plansAndPricing: {
-    title: "Dezyon Studio Pricing | AI Talking Websites, AI Videos & Digital Solutions",
+    title: "Plans & Pricing Dezyon Studio | AI Marketing Services",
     description:
       "Choose the perfect Dezyon Studio plan for your business. Affordable pricing for AI Talking Websites, Website Development, AI Video Creation, AI Marketing, Branding, and Digital Growth Solutions.",
     keywords: [
@@ -217,7 +217,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/combo-packages",
   },
   privacyPolicy: {
-    title: "Privacy Policy & Data Protection",
+    title: "Privacy Policy | Dezyon Studio",
     description:
       "Read the Dezyon Studio privacy policy to understand how we collect, use, store, and protect your personal information across our website and services.",
     keywords: [
@@ -230,7 +230,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/privacy-policy",
   },
   termsAndConditions: {
-    title: "Terms and Conditions of Service",
+    title: "Terms & Condition | Dezyon Studio",
     description:
       "Review Dezyon Studio terms and conditions covering website use, service agreements, disclaimers, limitations of liability, and user responsibilities.",
     keywords: [
@@ -243,7 +243,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/terms-and-conditions",
   },
   refundPolicy: {
-    title: "Refund Policy for Design & Development Services",
+    title: "Refund Policy | Dezyon Studio",
     description:
       "Learn about Dezyon Studio's refund policy for design, branding, and development services, including eligibility, timelines, and how to submit a request.",
     keywords: [
@@ -357,7 +357,12 @@ export function getDocumentTitle(config: PageSeoConfig): string {
     config.path === "/about" ||
     config.path === "/services" ||
     config.path === "/talking-website" ||
-    config.path === "/plans-and-pricing"
+    config.path === "/plans-and-pricing" ||
+    config.path === "/video-editing" ||
+    config.path === "/contact" ||
+    config.path === "/privacy-policy" ||
+    config.path === "/terms-and-conditions" ||
+    config.path === "/refund-policy"
   ) {
     return config.title;
   }
@@ -373,12 +378,17 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
   const isServices = config.path === "/services";
   const isTalkingWebsite = config.path === "/talking-website";
   const isPlansAndPricing = config.path === "/plans-and-pricing";
+  const isVideoEditing = config.path === "/video-editing";
+  const isContact = config.path === "/contact";
+  const isPrivacyPolicy = config.path === "/privacy-policy";
+  const isTermsAndConditions = config.path === "/terms-and-conditions";
+  const isRefundPolicy = config.path === "/refund-policy";
   const documentTitle = getDocumentTitle(config);
   const openGraphTitle = documentTitle;
 
   return {
     title:
-      isHome || isAbout || isServices || isTalkingWebsite || isPlansAndPricing
+      isHome || isAbout || isServices || isTalkingWebsite || isPlansAndPricing || isVideoEditing || isContact || isPrivacyPolicy || isTermsAndConditions || isRefundPolicy
         ? { absolute: documentTitle }
         : config.title,
     description: config.description,

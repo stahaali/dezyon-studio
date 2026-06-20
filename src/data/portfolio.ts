@@ -7,8 +7,18 @@ export const portfolioBanner = {
   description:
     "Explore selected websites and digital experiences crafted for brands that want to stand out online.",
   stars: {
-    left: { src: `${CONTACT_ASSETS}/star-2.svg`, width: 20, height: 28 },
-    right: { src: `${CONTACT_ASSETS}/star-1.svg`, width: 42, height: 47 },
+    left: {
+      src: `${CONTACT_ASSETS}/star-2.svg`,
+      width: 20,
+      height: 28,
+      alt: "Decorative star accent",
+    },
+    right: {
+      src: `${CONTACT_ASSETS}/star-1.svg`,
+      width: 42,
+      height: 47,
+      alt: "Decorative star accent",
+    },
   },
   logoGrid: [
     "/assets/img/logos/brand-01.svg",
@@ -41,7 +51,7 @@ export const portfolioProjects = [
     id: "nova-commerce",
     title: "Nova Commerce",
     category: "E-commerce",
-    image: "/assets/img/features/feature-image-01.jpg",
+    image: "/assets/img/features/feature-image-01.webp",
     href: "#",
   },
   {

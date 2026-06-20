@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { WebsiteAuditTool } from "@/components/WebsiteAudit/WebsiteAuditTool";
-import { JsonLd } from "@/components/Seo/JsonLd";
+import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
-import { getBreadcrumbJsonLd, getWebPageJsonLd } from "@/lib/structured-data";
+import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
 
 export const metadata = createPageMetadata("websiteAudit");
 
@@ -11,18 +11,16 @@ export default function WebsiteAuditPage() {
 
   return (
     <>
-      <JsonLd
-        data={[
-          getBreadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Website Audit", path: "/website-audit" },
-          ]),
-          getWebPageJsonLd({
-            name: seo.title,
-            description: seo.description,
-            path: seo.path,
-          }),
+      <PageSchema
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Website Audit", path: "/website-audit" },
         ]}
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        services={SERVICE_PAGE_DEFINITIONS["/website-audit"]}
+        webApplication
       />
       <Suspense fallback={<div className="min-h-screen bg-[#000200]" />}>
         <WebsiteAuditTool />

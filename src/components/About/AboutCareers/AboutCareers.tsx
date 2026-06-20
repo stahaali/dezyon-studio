@@ -16,8 +16,7 @@ export function AboutCareers() {
         <div className={styles.illustrationLeft} aria-hidden="true">
           <Image
             src={illustrations.left.src}
-            alt=""
-            width={illustrations.left.width}
+            alt={illustrations.left.alt}
             height={illustrations.left.height}
             className={styles.illustrationLeftImg}
           />
@@ -25,16 +24,14 @@ export function AboutCareers() {
 
         <Image
           src={starOne.src}
-          alt=""
-          width={starOne.width}
+          alt={starOne.alt}
           height={starOne.height}
           className={styles.starOne}
           aria-hidden="true"
         />
         <Image
           src={starTwo.src}
-          alt=""
-          width={starTwo.width}
+          alt={starTwo.alt}
           height={starTwo.height}
           className={styles.starTwo}
           aria-hidden="true"
@@ -68,8 +65,7 @@ export function AboutCareers() {
         <div className={styles.illustrationRight} aria-hidden="true">
           <Image
             src={illustrations.right.src}
-            alt=""
-            width={illustrations.right.width}
+            alt={illustrations.right.alt}
             height={illustrations.right.height}
             className={styles.illustrationRightImg}
           />

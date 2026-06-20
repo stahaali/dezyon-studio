@@ -13,7 +13,6 @@ export function TermsContent() {
         titlePrefix={termsPage.titlePrefix}
         titleHighlight={termsPage.titleHighlight}
         description={termsPage.intro}
-        stars={termsPage.stars}
       />
 
       <Container className={styles.body}>

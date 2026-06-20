@@ -129,7 +129,7 @@ export function HomePortfolio({ showHeader = true }: { showHeader?: boolean }) {
                       <div className={styles.projectImageWrap}>
                         <Image
                           src={project.image}
-                          alt=""
+                          alt={project.alt}
                           fill
                           sizes="(max-width: 640px) 50vw, (max-width: 1023px) 50vw, 25vw"
                           className={styles.projectImage}

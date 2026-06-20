@@ -29,7 +29,7 @@ export function Values() {
                 <div className={styles.iconWrap}>
                   <Image
                     src={item.icon}
-                    alt=""
+                    alt={`${item.title} icon`}
                     width={80}
                     height={80}
                     className={styles.icon}

@@ -6,15 +6,10 @@ import { Team } from "@/components/Features/Team";
 import { CapabilitiesSection } from "@/components/Home/CapabilitiesSection/CapabilitiesSection";
 import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
 import { Hero } from "@/components/Hero/Hero";
-// import { Pricing } from "@/components/Pricing/Pricing";
-import { JsonLd } from "@/components/Seo/JsonLd";
+import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
+import { contactFaq } from "@/data/contact";
 import { createPageMetadata, getDocumentTitle, PAGE_SEO } from "@/lib/seo";
-import {
-  getBreadcrumbJsonLd,
-  getFaqPageJsonLd,
-  getWebPageJsonLd,
-} from "@/lib/structured-data";
 import styles from "./page.module.css";
 
 export const metadata = createPageMetadata("home");
@@ -24,23 +19,18 @@ export default function Home() {
 
   return (
     <>
-      <JsonLd
-        data={[
-          getBreadcrumbJsonLd([{ name: "Home", path: "/" }]),
-          getWebPageJsonLd({
-            name: getDocumentTitle(homeSeo),
-            description: homeSeo.description,
-            path: homeSeo.path,
-          }),
-          getFaqPageJsonLd(),
-        ]}
+      <PageSchema
+        breadcrumbs={[{ name: "Home", path: "/" }]}
+        title={getDocumentTitle(homeSeo)}
+        description={homeSeo.description}
+        path={homeSeo.path}
+        faq={contactFaq.items}
       />
       <div className={styles.home}>
         <Hero />
         <CapabilitiesSection />
         <Features />
         <HomeStats />
-        {/* <Pricing /> */}
         <CTA compact />
         <Testimonials />
         <Team theme="dark" />

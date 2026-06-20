@@ -23,8 +23,8 @@ export function PlansAndPricingContent() {
         <div className={styles.heroBg} aria-hidden="true">
           <div className={styles.heroBgImage}>
             <Image
-              src="/assets/img/pricing/pricing-banner.jpg"
-              alt=""
+              src="/assets/img/pricing/pricing-banner.webp"
+              alt={plansPricingPage.bannerImageAlt}
               fill
               priority
               sizes="100vw"

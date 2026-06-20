@@ -8,8 +8,18 @@ export const comboPackagesBanner = {
   description:
     "Bundled logo, website, and branding solutions — save more with all-in-one combo packages built for growing businesses.",
   stars: {
-    left: { src: `${CONTACT_ASSETS}/star-2.svg`, width: 20, height: 28 },
-    right: { src: `${CONTACT_ASSETS}/star-1.svg`, width: 42, height: 47 },
+    left: {
+      src: `${CONTACT_ASSETS}/star-2.svg`,
+      width: 20,
+      height: 28,
+      alt: "Decorative star accent",
+    },
+    right: {
+      src: `${CONTACT_ASSETS}/star-1.svg`,
+      width: 42,
+      height: 47,
+      alt: "Decorative star accent",
+    },
   },
 } as const;
 

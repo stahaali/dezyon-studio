@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import styles from "./Logo.module.css";
 
 const LOGO_SRC = {
-  light: "/assets/img/logo-1.png",
-  dark: "/assets/img/black-logo.jpg",
+  light: "/assets/img/logo-1.webp",
+  dark: "/assets/img/black-logo.webp",
 } as const;
 
 interface LogoProps {

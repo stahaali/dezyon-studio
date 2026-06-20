@@ -138,7 +138,7 @@ export function ContactHero() {
                 <article key={item.title} className={styles.reachCard}>
                   <Image
                     src={item.icon}
-                    alt=""
+                    alt={`${item.title} icon`}
                     width={44}
                     height={44}
                     className={styles.reachIcon}

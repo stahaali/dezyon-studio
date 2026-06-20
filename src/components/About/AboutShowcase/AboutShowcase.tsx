@@ -25,8 +25,7 @@ export function AboutShowcase() {
               </figure>
               <Image
                 src={left.illustration.src}
-                alt=""
-                width={left.illustration.width}
+                alt={left.illustration.alt}
                 height={left.illustration.height}
                 className={styles.illustrationLeft}
                 aria-hidden="true"
@@ -45,8 +44,7 @@ export function AboutShowcase() {
               </figure>
               <Image
                 src={right.illustration.src}
-                alt=""
-                width={right.illustration.width}
+                alt={right.illustration.alt}
                 height={right.illustration.height}
                 className={styles.illustrationRight}
                 aria-hidden="true"

@@ -11,8 +11,8 @@ export function ContactBanner() {
       <div className={styles.heroBg} aria-hidden="true">
         <div className={styles.heroBgImage}>
           <Image
-            src="/assets/img/contact/contact-banner.jpg"
-            alt=""
+            src="/assets/img/contact/contact-banner.webp"
+            alt={contactBanner.bannerImageAlt}
             fill
             priority
             sizes="100vw"

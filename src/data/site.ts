@@ -285,35 +285,35 @@ export const timeline = [
   {
     year: "2014",
     description: "Where the idea come up of Lexend :)",
-    image: `${PROCESS_ASSETS}/timeline-01.png`,
+    image: `${PROCESS_ASSETS}/timeline-01.webp`,
   },
   {
     year: "2015",
     description:
       "Launched our first business that can be created in minutes, build meaningful relationships.",
-    image: `${PROCESS_ASSETS}/timeline-02.png`,
+    image: `${PROCESS_ASSETS}/timeline-02.webp`,
   },
   {
     year: "2016",
     description: "Opened our new office in Toronto, CA",
-    image: `${PROCESS_ASSETS}/timeline-03.png`,
+    image: `${PROCESS_ASSETS}/timeline-03.webp`,
   },
   {
     year: "2019",
     description:
       "Moved to Silicon Valley whereas now we can focus on building out to help our employees.",
-    image: `${PROCESS_ASSETS}/timeline-04.png`,
+    image: `${PROCESS_ASSETS}/timeline-04.webp`,
     active: true,
   },
   {
     year: "2020",
     description: "Opened a new office in London, UK.",
-    image: `${PROCESS_ASSETS}/timeline-05.png`,
+    image: `${PROCESS_ASSETS}/timeline-05.webp`,
   },
   {
     year: "Today",
     description: "Top-rated software solution for service suppliers.",
-    image: `${PROCESS_ASSETS}/timeline-06.png`,
+    image: `${PROCESS_ASSETS}/timeline-06.webp`,
   },
 ] as const;
 
@@ -321,42 +321,42 @@ export const teamMembers = [
   {
     name: "Mark Zellers",
     role: "Founder & CEO",
-    image: "/assets/img/team/team-01.jpg",
+    image: "/assets/img/team/team-01.webp",
   },
   {
     name: "John Zellers",
     role: "Co-Founder",
-    image: "/assets/img/team/team-02.jpg",
+    image: "/assets/img/team/team-02.webp",
   },
   {
     name: "Kim Yun Son",
     role: "Engineering Manager",
-    image: "/assets/img/team/team-03.jpg",
+    image: "/assets/img/team/team-03.webp",
   },
   {
     name: "André Garcia",
     role: "Product Manager",
-    image: "/assets/img/team/team-04.jpg",
+    image: "/assets/img/team/team-04.webp",
   },
   {
     name: "Peter Lary",
     role: "UX Researcher",
-    image: "/assets/img/team/team-05.jpg",
+    image: "/assets/img/team/team-05.webp",
   },
   {
     name: "Henry Matt",
     role: "Customer Success",
-    image: "/assets/img/team/team-06.jpg",
+    image: "/assets/img/team/team-06.webp",
   },
   {
     name: "Natalia",
     role: "Lead of Fun",
-    image: "/assets/img/team/team-07.jpg",
+    image: "/assets/img/team/team-07.webp",
   },
   {
     name: "Larry",
     role: "Director of Joy",
-    image: "/assets/img/team/team-08.jpg",
+    image: "/assets/img/team/team-08.webp",
   },
 ] as const;
 

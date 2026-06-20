@@ -3,9 +3,13 @@ import styles from "./VideoEditingFinalCta.module.css";
 
 type VideoEditingCtaLaptopProps = {
   screenSrc: string;
+  screenAlt: string;
 };
 
-export function VideoEditingCtaLaptop({ screenSrc }: VideoEditingCtaLaptopProps) {
+export function VideoEditingCtaLaptop({
+  screenSrc,
+  screenAlt,
+}: VideoEditingCtaLaptopProps) {
   return (
     <div className={styles.laptop}>
       <div className={styles.laptopBezel}>
@@ -13,7 +17,7 @@ export function VideoEditingCtaLaptop({ screenSrc }: VideoEditingCtaLaptopProps)
         <div className={styles.laptopScreen}>
           <Image
             src={screenSrc}
-            alt=""
+            alt={screenAlt}
             fill
             sizes="(max-width: 768px) 62vw, 360px"
             className={styles.laptopScreenImage}

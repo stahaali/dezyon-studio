@@ -1,12 +1,8 @@
 import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { TalkingWebsiteContent } from "@/components/TalkingWebsite/TalkingWebsiteContent";
-import { JsonLd } from "@/components/Seo/JsonLd";
+import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
-import {
-  getBreadcrumbJsonLd,
-  getSoftwareApplicationJsonLd,
-  getWebPageJsonLd,
-} from "@/lib/structured-data";
+import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
 
 export const metadata = createPageMetadata("talkingWebsite");
 
@@ -15,23 +11,16 @@ export default function TalkingWebsitePage() {
 
   return (
     <>
-      <JsonLd
-        data={[
-          getBreadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Talking Website AI", path: "/talking-website" },
-          ]),
-          getWebPageJsonLd({
-            name: talkingWebsiteSeo.title,
-            description: talkingWebsiteSeo.description,
-            path: talkingWebsiteSeo.path,
-          }),
-          getSoftwareApplicationJsonLd({
-            name: talkingWebsiteSeo.title,
-            description: talkingWebsiteSeo.description,
-            path: talkingWebsiteSeo.path,
-          }),
+      <PageSchema
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Talking Website AI", path: "/talking-website" },
         ]}
+        title={talkingWebsiteSeo.title}
+        description={talkingWebsiteSeo.description}
+        path={talkingWebsiteSeo.path}
+        services={SERVICE_PAGE_DEFINITIONS["/talking-website"]}
+        softwareApplication
       />
       <TalkingWebsiteVoiceAssistant>
         <TalkingWebsiteContent />

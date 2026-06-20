@@ -5,9 +5,9 @@ import { createPageMetadata, getDocumentTitle, PAGE_SEO } from "./seo";
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: {
-    icon: [{ url: "/assets/img/favicon.jpg", type: "image/jpeg" }],
-    shortcut: "/assets/img/favicon.jpg",
-    apple: "/assets/img/favicon.jpg",
+    icon: [{ url: "/assets/img/favicon.webp", type: "image/webp" }],
+    shortcut: "/assets/img/favicon.webp",
+    apple: "/assets/img/favicon.webp",
   },
   ...createPageMetadata("home"),
   title: {

@@ -17,7 +17,7 @@ export function PortfolioGrid() {
                   <div className={styles.imageWrap}>
                     <Image
                       src={project.image}
-                      alt=""
+                      alt={`${project.title} — ${project.category} project preview`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className={styles.image}

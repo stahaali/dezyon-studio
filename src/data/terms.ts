@@ -1,9 +1,6 @@
-import { legalPageStars } from "@/data/legal";
-
 export const termsPage = {
-  titlePrefix: "Terms and ",
-  titleHighlight: "Conditions.",
-  stars: legalPageStars,
+  titlePrefix: "Terms & ",
+  titleHighlight: "Condition",
   intro:
     "Terms of use dolor sit amet consectetur, adipisicing elit. Recusandae provident ullam aperiam quo ad non corrupti sit vel quam repellat ipsa quod sed, repellendus adipisci, ducimus ea modi odio assumenda.",
   sections: [

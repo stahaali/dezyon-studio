@@ -32,7 +32,7 @@ export function Integrations() {
                   </div>
                   <Image
                     src={item.logo}
-                    alt=""
+                    alt={`${item.name} logo`}
                     width={40}
                     height={40}
                     className={styles.brandLogo}

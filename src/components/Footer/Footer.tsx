@@ -7,6 +7,7 @@ import {
   footerInformationLinks,
 } from "@/data/site";
 import { SITE_NAME } from "@/lib/constants";
+import { GoogleAnalytics } from "@/components/Seo/GoogleAnalytics";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
 import { CanadaFlag, UsaFlag } from "@/components/Footer/FooterFlags";
@@ -19,6 +20,7 @@ const officeFlags = {
 
 export function Footer() {
   return (
+    <>
     <footer id="contact" className={`page-section ${styles.footer}`}>
       <Container className={styles.footerContainer}>
         <div className={styles.grid}>
@@ -116,5 +118,7 @@ export function Footer() {
         </div>
       </Container>
     </footer>
+    <GoogleAnalytics />
+    </>
   );
 }

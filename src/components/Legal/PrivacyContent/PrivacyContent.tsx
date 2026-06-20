@@ -12,12 +12,11 @@ export function PrivacyContent() {
         id="privacy-heading"
         titlePrefix={privacyPage.titlePrefix}
         titleHighlight={privacyPage.titleHighlight}
-        stars={privacyPage.stars}
       />
 
       <Container className={styles.body}>
         <ScrollReveal>
-          <div className={styles.intro}>
+          <div className={`${styles.intro} ${styles.introCentered}`}>
             {privacyPage.intro.map((paragraph) => (
               <p key={paragraph.slice(0, 32)} className={styles.paragraph}>
                 {paragraph}

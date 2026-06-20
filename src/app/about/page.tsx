@@ -1,15 +1,10 @@
 import { AboutHelps } from "@/components/About/AboutHelps/AboutHelps";
 import { AboutHero } from "@/components/About/AboutHero/AboutHero";
-import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner";
 import { Team } from "@/components/Features/Team";
 import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
 import { AboutValues } from "@/components/About/AboutValues/AboutValues";
-import { JsonLd } from "@/components/Seo/JsonLd";
+import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
-import {
-  getAboutPageJsonLd,
-  getBreadcrumbJsonLd,
-} from "@/lib/structured-data";
 import styles from "./page.module.css";
 
 export const metadata = createPageMetadata("about");
@@ -19,18 +14,15 @@ export default function AboutPage() {
 
   return (
     <>
-      <JsonLd
-        data={[
-          getBreadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "About", path: "/about" },
-          ]),
-          getAboutPageJsonLd({
-            name: aboutSeo.title,
-            description: aboutSeo.description,
-            path: aboutSeo.path,
-          }),
+      <PageSchema
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
         ]}
+        title={aboutSeo.title}
+        description={aboutSeo.description}
+        path={aboutSeo.path}
+        variant="about"
       />
       <div className={styles.page}>
         <AboutHero />
@@ -38,7 +30,6 @@ export default function AboutPage() {
         <HomeStats />
         <AboutValues />
         <Team theme="dark" />
-        <AboutCtaBanner />
       </div>
     </>
   );

@@ -30,7 +30,7 @@ export function ContactReach() {
               <article className={styles.card}>
                 <Image
                   src={item.icon}
-                  alt=""
+                  alt={`${item.title} icon`}
                   width={52}
                   height={52}
                   className={styles.icon}

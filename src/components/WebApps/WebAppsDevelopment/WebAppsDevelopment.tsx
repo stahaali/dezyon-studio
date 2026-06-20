@@ -38,7 +38,7 @@ export function WebAppsDevelopment() {
                   </span>
                   <Image
                     src={card.icon}
-                    alt=""
+                    alt={`${card.title} icon`}
                     width={72}
                     height={72}
                     className={styles.cardIcon}

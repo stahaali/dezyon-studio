@@ -9,8 +9,18 @@ export const webAppsBanner = {
   description:
     "Scalable web applications built for performance, security, and growth — from MVPs to enterprise platforms.",
   stars: {
-    left: { src: `${CONTACT_ASSETS}/star-2.svg`, width: 20, height: 28 },
-    right: { src: `${CONTACT_ASSETS}/star-1.svg`, width: 42, height: 47 },
+    left: {
+      src: `${CONTACT_ASSETS}/star-2.svg`,
+      width: 20,
+      height: 28,
+      alt: "Decorative star accent",
+    },
+    right: {
+      src: `${CONTACT_ASSETS}/star-1.svg`,
+      width: 42,
+      height: 47,
+      alt: "Decorative star accent",
+    },
   },
 } as const;
 
@@ -42,7 +52,7 @@ export const webAppsTrust = [
 ] as const;
 
 export const webAppsB2B = {
-  image: "/assets/img/web-app/mobile-app-img1.jpg",
+  image: "/assets/img/web-app/mobile-app-img1.webp",
   imageAlt: "Developer reviewing application code on a smartphone",
   titlePrefix: "For Every Industry, ",
   titleHighlight: "B2B Portal services",
@@ -94,7 +104,7 @@ export const webAppsDevelopment = {
 } as const;
 
 export const webAppsTechnologies = {
-  image: "/assets/img/web-app/mobile-app-img2.jpg",
+  image: "/assets/img/web-app/mobile-app-img2.webp",
   imageAlt: "Designer sketching mobile app wireframes at a workspace desk",
   titlePrefix: "Your ",
   titleHighlight: "Portal hub",

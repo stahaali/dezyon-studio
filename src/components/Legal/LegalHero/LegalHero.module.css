@@ -33,6 +33,21 @@
   max-width: 100%;
 }
 
+.titleRowPlain {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.titleRowPlain .title {
+  width: 100%;
+  text-align: center;
+}
+
+.titleRowPlain .title span {
+  text-align: center;
+}
+
 .title {
   margin: 0;
   text-align: center;

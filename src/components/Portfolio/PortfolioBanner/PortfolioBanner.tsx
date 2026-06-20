@@ -23,7 +23,7 @@ export function PortfolioBanner() {
               <div className={styles.titleRow}>
                 <Image
                   src={stars.left.src}
-                  alt=""
+                  alt={stars.left.alt}
                   width={stars.left.width}
                   height={stars.left.height}
                   className={styles.starLeft}
@@ -42,7 +42,7 @@ export function PortfolioBanner() {
                 </h1>
                 <Image
                   src={stars.right.src}
-                  alt=""
+                  alt={stars.right.alt}
                   width={stars.right.width}
                   height={stars.right.height}
                   className={styles.starRight}

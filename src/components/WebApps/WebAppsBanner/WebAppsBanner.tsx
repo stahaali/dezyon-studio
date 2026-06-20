@@ -18,7 +18,7 @@ export function WebAppsBanner() {
               <div className={styles.titleRow}>
                 <Image
                   src={stars.left.src}
-                  alt=""
+                  alt={stars.left.alt}
                   width={stars.left.width}
                   height={stars.left.height}
                   className={styles.starLeft}
@@ -37,8 +37,7 @@ export function WebAppsBanner() {
                 </h1>
                 <Image
                   src={stars.right.src}
-                  alt=""
-                  width={stars.right.width}
+                  alt={stars.right.alt}
                   height={stars.right.height}
                   className={styles.starRight}
                   aria-hidden="true"

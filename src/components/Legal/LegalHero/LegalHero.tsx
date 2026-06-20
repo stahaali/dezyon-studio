@@ -9,9 +9,9 @@ type LegalHeroProps = {
   titlePrefix: string;
   titleHighlight: string;
   description?: string;
-  stars: {
-    left: { src: string; width: number; height: number };
-    right: { src: string; width: number; height: number };
+  stars?: {
+    left: { src: string; width: number; height: number; alt: string };
+    right: { src: string; width: number; height: number; alt: string };
   };
 };
 
@@ -28,15 +28,17 @@ export function LegalHero({
         <ScrollReveal>
           <div className={styles.content}>
             <div className={styles.headingWrap}>
-              <div className={styles.titleRow}>
-                <Image
-                  src={stars.left.src}
-                  alt=""
-                  width={stars.left.width}
-                  height={stars.left.height}
-                  className={styles.starLeft}
-                  aria-hidden="true"
-                />
+              <div className={`${styles.titleRow} ${!stars ? styles.titleRowPlain : ""}`.trim()}>
+                {stars ? (
+                  <Image
+                    src={stars.left.src}
+                    alt={stars.left.alt}
+                    width={stars.left.width}
+                    height={stars.left.height}
+                    className={styles.starLeft}
+                    aria-hidden="true"
+                  />
+                ) : null}
                 <h1
                   id={id}
                   className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
@@ -46,14 +48,16 @@ export function LegalHero({
                     <span className={styles.wordHighlight}>{titleHighlight}</span>
                   </span>
                 </h1>
-                <Image
-                  src={stars.right.src}
-                  alt=""
-                  width={stars.right.width}
-                  height={stars.right.height}
-                  className={styles.starRight}
-                  aria-hidden="true"
-                />
+                {stars ? (
+                  <Image
+                    src={stars.right.src}
+                    alt={stars.right.alt}
+                    width={stars.right.width}
+                    height={stars.right.height}
+                    className={styles.starRight}
+                    aria-hidden="true"
+                  />
+                ) : null}
               </div>
             </div>
             {description ? <p className={styles.description}>{description}</p> : null}

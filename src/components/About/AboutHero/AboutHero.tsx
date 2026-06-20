@@ -11,8 +11,8 @@ export function AboutHero() {
       <div className={styles.heroBg} aria-hidden="true">
         <div className={styles.heroBgImage}>
           <Image
-            src="/assets/img/about/about-banner.jpeg"
-            alt=""
+            src="/assets/img/about/about-banner.webp"
+            alt={aboutHero.bannerImageAlt}
             fill
             priority
             sizes="100vw"

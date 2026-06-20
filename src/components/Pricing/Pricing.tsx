@@ -63,7 +63,7 @@ export function Pricing() {
                 {isPopular && (
                   <Image
                     src={MONEY_ILLUSTRATION}
-                    alt=""
+                    alt="Money illustration for popular Business plan"
                     width={257}
                     height={187}
                     className={styles.moneyIllustration}

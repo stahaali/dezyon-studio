@@ -6,13 +6,20 @@ export const homeCtaContent = {
 } as const;
 
 export const homeCtaImages = {
-  heroVisual: "/assets/img/social1.png",
+  heroVisual: "/assets/img/social1.webp",
+  heroVisualAlt: "Social media and digital growth illustration",
   ugc: [
-    "/assets/img/talking-website/1.jpg",
-    "/assets/img/talking-website/3.jpg",
-    "/assets/img/talking-website/5.jpg",
+    "/assets/img/talking-website/1.webp",
+    "/assets/img/talking-website/3.webp",
+    "/assets/img/talking-website/5.webp",
   ],
-  marketingThumb: "/assets/img/marketing/4.jpeg",
+  ugcAlts: [
+    "UGC creator sample photo 1",
+    "UGC creator sample photo 2",
+    "UGC creator sample photo 3",
+  ],
+  marketingThumb: "/assets/img/marketing/4.webp",
+  marketingThumbAlt: "Digital marketing campaign thumbnail",
 } as const;
 
 export const homeCtaCards = {

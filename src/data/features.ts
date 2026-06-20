@@ -26,7 +26,7 @@ export const smartFeatureTabs = [
     titleLight: "A 24/7 Sales Representative",
     description:
       "Most websites leave visitors searching for answers. A Talking Website starts the conversation instantly, helping potential customers find what they need in seconds.",
-    image: "/assets/img/features/feature-image-05.jpg",
+    image: "/assets/img/features/feature-image-05.webp",
     showTrafficOverlay: false,
   },
   {
@@ -37,7 +37,7 @@ export const smartFeatureTabs = [
     titleLight: "Grow Bigger",
     description:
       "AI Video Creation gives your business the power to produce professional videos at scale, helping you attract more customers and stand out in today's digital world.",
-    image: "/assets/img/features/feature-image-061.jpg",
+    image: "/assets/img/features/feature-image-061.webp",
     video: "/assets/video/portfolio-banner.mp4",
     showTrafficOverlay: false,
   },
@@ -49,7 +49,7 @@ export const smartFeatureTabs = [
     titleLight: "Into a Growth Engine",
     description:
       "Most businesses waste time and money on marketing that doesn't reach the right audience. AI Marketing uses intelligent data analysis and automation to help you attract, engage, and convert more customers with greater efficiency.",
-    image: "/assets/img/features/feature-image-03.jpg",
+    image: "/assets/img/features/feature-image-03.webp",
     showTrafficOverlay: false,
   },
 ] as const;

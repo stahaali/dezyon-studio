@@ -12,6 +12,7 @@ export const videoEditingHero = {
 
 export const videoEditingHeroVisual = {
   poster: "/assets/img/video-editing/hero-banner-poster.webp",
+  posterAlt: "Video editing showcase poster frame",
   video: "/assets/video/video-editing/hero-banner.webm",
   columnVideo: "/assets/img/video-editing/video-editing-banner.mp4",
 } as const;
@@ -227,7 +228,8 @@ export const videoEditingBenefits = [
 export const videoEditingFinalCta = {
   eyebrow: "Ready to Create?",
   title: "Get started with AI Content",
-  screenImage: "/assets/img/video-editing/1.jpg",
+  screenImage: "/assets/img/video-editing/1.webp",
+  screenImageAlt: "AI video editing interface shown on laptop screen",
   primaryButton: { label: "Get Started", href: "/contact" },
 } as const;
 

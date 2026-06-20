@@ -1,4 +1,7 @@
 const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"]);
+const DEVTOOLS_SIZE_GAP = 160;
+const DEVTOOLS_CHECK_MS = 700;
+const DEVTOOLS_OVERLAY_ID = "site-devtools-overlay";
 
 function isLocalHostname(hostname: string): boolean {
   const normalized = hostname.toLowerCase();
@@ -76,6 +79,52 @@ function isBlockedShortcut(event: KeyboardEvent): boolean {
   return false;
 }
 
+function isDevToolsLikelyOpen(): boolean {
+  return (
+    window.outerWidth - window.innerWidth > DEVTOOLS_SIZE_GAP ||
+    window.outerHeight - window.innerHeight > DEVTOOLS_SIZE_GAP
+  );
+}
+
+function showDevToolsOverlay() {
+  if (document.getElementById(DEVTOOLS_OVERLAY_ID)) {
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.id = DEVTOOLS_OVERLAY_ID;
+  overlay.setAttribute("role", "alert");
+  overlay.setAttribute("aria-live", "assertive");
+  overlay.textContent = "Developer tools are not allowed on this site.";
+  overlay.style.cssText =
+    "position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:#000200;color:#ffffff;font:600 18px/1.4 system-ui,sans-serif;text-align:center;padding:24px;";
+
+  document.body.appendChild(overlay);
+}
+
+function hideDevToolsOverlay() {
+  document.getElementById(DEVTOOLS_OVERLAY_ID)?.remove();
+}
+
+function attachDevToolsGuard() {
+  const checkLayout = () => {
+    if (isDevToolsLikelyOpen()) {
+      showDevToolsOverlay();
+      return;
+    }
+
+    hideDevToolsOverlay();
+  };
+
+  checkLayout();
+  const layoutInterval = window.setInterval(checkLayout, DEVTOOLS_CHECK_MS);
+
+  return () => {
+    window.clearInterval(layoutInterval);
+    hideDevToolsOverlay();
+  };
+}
+
 export function attachSiteProtections() {
   const handleContextMenu = (event: MouseEvent) => {
     if (isEditableTarget(event.target)) {
@@ -120,6 +169,8 @@ export function attachSiteProtections() {
   document.addEventListener("dragstart", handleDragStart);
   document.addEventListener("keydown", handleKeyDown, true);
 
+  const detachDevToolsGuard = attachDevToolsGuard();
+
   return () => {
     document.body.classList.remove("site-protected");
     document.removeEventListener("contextmenu", handleContextMenu);
@@ -127,5 +178,6 @@ export function attachSiteProtections() {
     document.removeEventListener("cut", handleCopy);
     document.removeEventListener("dragstart", handleDragStart);
     document.removeEventListener("keydown", handleKeyDown, true);
+    detachDevToolsGuard();
   };
 }

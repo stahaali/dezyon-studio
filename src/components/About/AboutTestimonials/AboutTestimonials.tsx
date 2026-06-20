@@ -35,7 +35,7 @@ export function AboutTestimonials() {
                 <footer className={styles.author}>
                   <Image
                     src={item.avatar}
-                    alt=""
+                    alt={`${item.name}, ${item.role}`}
                     width={40}
                     height={40}
                     className={styles.avatar}

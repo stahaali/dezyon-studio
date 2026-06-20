@@ -13,7 +13,6 @@ export function RefundContent() {
         titlePrefix={refundPage.titlePrefix}
         titleHighlight={refundPage.titleHighlight}
         description={refundPage.intro}
-        stars={refundPage.stars}
       />
 
       <Container className={styles.body}>

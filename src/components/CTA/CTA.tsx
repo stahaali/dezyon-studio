@@ -20,16 +20,19 @@ import styles from "./CTA.module.css";
 
 type CTAProps = {
   compact?: boolean;
+  containerClassName?: string;
 };
 
-export function CTA({ compact = false }: CTAProps) {
+export function CTA({ compact = false, containerClassName = "" }: CTAProps) {
   return (
     <section
       id="contact"
       className={`page-section ${styles.section} ${compact ? styles.sectionCompact : ""}`.trim()}
       aria-labelledby="cta-heading"
     >
-      <Container className={styles.ctaContainer}>
+      <Container
+        className={containerClassName || styles.ctaContainer}
+      >
         <ScrollReveal>
           <div
             className={`${styles.stage} ${compact ? styles.stageCompact : ""}`.trim()}
@@ -60,7 +63,7 @@ export function CTA({ compact = false }: CTAProps) {
                     >
                       <Image
                         src={src}
-                        alt=""
+                        alt={homeCtaImages.ugcAlts[index]}
                         width={58}
                         height={92}
                         className={styles.photoImg}
@@ -99,7 +102,7 @@ export function CTA({ compact = false }: CTAProps) {
                   <div className={styles.marketingThumb}>
                     <Image
                       src={homeCtaImages.marketingThumb}
-                      alt=""
+                      alt={homeCtaImages.marketingThumbAlt}
                       width={176}
                       height={78}
                       className={styles.photoImg}
@@ -138,7 +141,7 @@ export function CTA({ compact = false }: CTAProps) {
               <div className={styles.heroVisual}>
                 <Image
                   src={homeCtaImages.heroVisual}
-                  alt=""
+                  alt={homeCtaImages.heroVisualAlt}
                   width={1080}
                   height={720}
                   className={styles.heroVisualImg}

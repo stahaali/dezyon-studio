@@ -53,7 +53,10 @@ export function VideoEditingFinalCta() {
               <div className={styles.ctaVisual} aria-hidden="true">
                 <div className={styles.ctaVisualGlow} />
                 <div className={styles.laptopWrap}>
-                  <VideoEditingCtaLaptop screenSrc={videoEditingFinalCta.screenImage} />
+                  <VideoEditingCtaLaptop
+                    screenSrc={videoEditingFinalCta.screenImage}
+                    screenAlt={videoEditingFinalCta.screenImageAlt}
+                  />
                 </div>
               </div>
             </div>

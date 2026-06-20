@@ -6,8 +6,18 @@ export const packagesBanner = {
   description:
     "Flexible plans for logos, websites, branding, and digital growth — pick what fits your business.",
   stars: {
-    left: { src: `${CONTACT_ASSETS}/star-2.svg`, width: 20, height: 28 },
-    right: { src: `${CONTACT_ASSETS}/star-1.svg`, width: 42, height: 47 },
+    left: {
+      src: `${CONTACT_ASSETS}/star-2.svg`,
+      width: 20,
+      height: 28,
+      alt: "Decorative star accent",
+    },
+    right: {
+      src: `${CONTACT_ASSETS}/star-1.svg`,
+      width: 42,
+      height: 47,
+      alt: "Decorative star accent",
+    },
   },
 } as const;
 

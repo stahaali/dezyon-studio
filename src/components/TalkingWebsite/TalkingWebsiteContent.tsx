@@ -41,6 +41,7 @@ import {
 } from "@/data/talking-website";
 import { TalkingWebsiteHeroBannerVideo } from "@/components/TalkingWebsite/TalkingWebsiteHeroBannerVideo";
 import { TalkingWebsiteHeroCta } from "@/components/TalkingWebsite/TalkingWebsiteHeroCta";
+import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -478,6 +479,8 @@ export function TalkingWebsiteContent() {
           </div>
         </Container>
       </section>
+
+      <AboutCtaBanner />
     </div>
   );
 }

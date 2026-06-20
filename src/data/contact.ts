@@ -9,9 +9,20 @@ export const contactBanner = {
   titleHighlight: "Building.",
   description:
     "This isn't just another digital product, it's a business asset built to grow with you.",
+  bannerImageAlt: "Abstract background for Start Building contact section",
   stars: {
-    left: { src: `${CONTACT_ASSETS}/star-2.svg`, width: 20, height: 28 },
-    right: { src: `${CONTACT_ASSETS}/star-1.svg`, width: 42, height: 47 },
+    left: {
+      src: `${CONTACT_ASSETS}/star-2.svg`,
+      width: 20,
+      height: 28,
+      alt: "Decorative star accent",
+    },
+    right: {
+      src: `${CONTACT_ASSETS}/star-1.svg`,
+      width: 42,
+      height: 47,
+      alt: "Decorative star accent",
+    },
   },
 } as const;
 
@@ -21,7 +32,7 @@ export const contactHero = {
       "This software simplifies the website building process, making it a breeze to manage our online presence.",
     name: "David Larry",
     role: "Founder & CEO",
-    image: `${CONTACT_ASSETS}/hero-contact.jpg`,
+    image: `${CONTACT_ASSETS}/hero-contact.webp`,
   },
   fields: {
     name: "Full name",
@@ -40,7 +51,7 @@ export const contactReach = {
   titleSuffix: "",
   items: [
     {
-      icon: `${BRIEF_ICONS}/01.png`,
+      icon: `${BRIEF_ICONS}/01.webp`,
       title: "Call a Specialist",
       description: "Talk directly with a live expert about your project.",
       link: {
@@ -49,7 +60,7 @@ export const contactReach = {
       },
     },
     {
-      icon: `${BRIEF_ICONS}/02.png`,
+      icon: `${BRIEF_ICONS}/02.webp`,
       title: "Connect WhatsApp",
       description: "Get instant support and answers from our team.",
       link: {
@@ -58,7 +69,7 @@ export const contactReach = {
       },
     },
     {
-      icon: `${BRIEF_ICONS}/03.png`,
+      icon: `${BRIEF_ICONS}/03.webp`,
       title: "Submit Brief",
       description: "Tell us what you need and we'll prepare a solution.",
       link: {
@@ -67,7 +78,7 @@ export const contactReach = {
       },
     },
     {
-      icon: `${BRIEF_ICONS}/04.png`,
+      icon: `${BRIEF_ICONS}/04.webp`,
       title: "Call Lara",
       description: "Talk live with Lara, your AI Website Assistant.",
       link: { label: "Connect", href: "#", action: "voice-chat" },

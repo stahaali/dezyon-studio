@@ -1,9 +1,9 @@
 export const HERO_ASSETS = "/assets/img/homebanner";
 
 export const heroAvatars = [
-  { src: `${HERO_ASSETS}/03.png`, alt: "Member avatar" },
-  { src: `${HERO_ASSETS}/02.png`, alt: "Member avatar" },
-  { src: `${HERO_ASSETS}/08.png`, alt: "Member avatar" },
+  { src: `${HERO_ASSETS}/03.webp`, alt: "Member avatar" },
+  { src: `${HERO_ASSETS}/02.webp`, alt: "Member avatar" },
+  { src: `${HERO_ASSETS}/08.webp`, alt: "Member avatar" },
 ] as const;
 
 export const LOGO_ASSETS = "/assets/img/logos";
@@ -49,7 +49,7 @@ export type HeroSliderImage = {
 export const heroSliderColumns: HeroSliderImage[][] = [
   [
     {
-      src: "/assets/img/web-app/mobile-app-img1.jpg",
+      src: "/assets/img/web-app/mobile-app-img1.webp",
       alt: "Nova Commerce web application preview",
     },
     {
@@ -67,7 +67,7 @@ export const heroSliderColumns: HeroSliderImage[][] = [
   ],
   [
     {
-      src: "/assets/img/web-app/mobile-app-img2.jpg",
+      src: "/assets/img/web-app/mobile-app-img2.webp",
       alt: "Custom web portal interface",
     },
     {
@@ -89,7 +89,7 @@ export const heroSliderColumns: HeroSliderImage[][] = [
       alt: "Creative agency portfolio project",
     },
     {
-      src: "/assets/img/web-app/mobile-app-img1.jpg",
+      src: "/assets/img/web-app/mobile-app-img1.webp",
       alt: "E-commerce web application design",
     },
     {
@@ -97,7 +97,7 @@ export const heroSliderColumns: HeroSliderImage[][] = [
       alt: "Mobile app marketing website",
     },
     {
-      src: "/assets/img/web-app/mobile-app-img2.jpg",
+      src: "/assets/img/web-app/mobile-app-img2.webp",
       alt: "B2B portal development preview",
     },
   ],
