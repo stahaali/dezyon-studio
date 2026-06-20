@@ -454,8 +454,8 @@ export function TalkingWebsiteContent() {
                   ) : null}
                   <h3 className={styles.pricingName}>{plan.name}</h3>
                   <div className={styles.pricingAmount}>
-                    {/* <span className={styles.pricingPrice}>{plan.price}</span>
-                    <span className={styles.pricingNote}>{plan.priceNote}</span> */}
+                    <span className={styles.pricingPrice}>{plan.price}</span>
+                    <span className={styles.pricingNote}>{plan.priceNote}</span>
                   </div>
                   <p className={styles.pricingDescription}>{plan.description}</p>
                   <ul className={styles.pricingFeatures}>
