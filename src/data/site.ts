@@ -156,11 +156,13 @@ export const values = [
   },
 ] as const;
 
+export type StatId = "experience" | "launches" | "projects" | "support";
+
 export const stats = [
-  { value: "9", label: "Years Experience" },
-  { value: "250", label: "Successful Launches" },
-  { value: "500", label: "AI-Powered Projects" },
-  { value: "24/7", label: "AI Automation Support" },
+  { id: "experience" as const, value: "9", label: "Years Experience" },
+  { id: "launches" as const, value: "250", label: "Successful Launches" },
+  { id: "projects" as const, value: "500", label: "AI-Powered Projects" },
+  { id: "support" as const, value: "24/7", label: "AI Automation Support" },
 ] as const;
 
 export const pricingPlans = [

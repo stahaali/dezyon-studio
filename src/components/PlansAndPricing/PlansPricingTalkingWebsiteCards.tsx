@@ -1,27 +1,30 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { talkingWebsitePlans } from "@/data/talking-website";
+import { talkingWebsitePricing } from "@/data/talking-website";
 import styles from "./PlansAndPricing.module.css";
 
 export function PlansPricingTalkingWebsiteCards() {
   return (
-    <div
-      className={`${styles.cardsGrid} ${styles.serviceCardsGrid} ${styles.universalCardsGrid} ${styles.customWebsiteCardsGrid}`}
-    >
-      {talkingWebsitePlans.map((plan) => (
+    <div className={`${styles.cardsGrid} ${styles.serviceCardsGrid} ${styles.universalCardsGrid}`}>
+      {talkingWebsitePricing.map((plan) => (
         <article
           key={plan.id}
-          className={`${styles.planCard} ${styles.servicePlanCard} ${styles.customWebsitePlanCard} ${
+          className={`${styles.planCard} ${styles.servicePlanCard} ${styles.universalPlanCard} ${
             plan.featured ? styles.servicePlanCardFeatured : ""
           }`.trim()}
         >
           {plan.featured ? <span className={styles.planBadge}>Most Popular</span> : null}
           <div className={styles.planCardInner}>
             <h3 className={styles.planName}>{plan.name}</h3>
-            <p className={styles.customWebsiteBestFor}>Best for: {plan.bestFor}</p>
+            <div className={styles.planPricing}>
+              <div className={styles.planPriceRow}>
+                <p className={styles.planPrice}>{plan.price}</p>
+                <span className={styles.planMeta}>{plan.priceNote}</span>
+              </div>
+            </div>
+            <p className={styles.planDescription}>{plan.description}</p>
 
             <div className={styles.planCardScrollBody}>
-              <p className={styles.customWebsiteIncludesLabel}>Includes:</p>
               <ul className={styles.servicePlanFeatures}>
                 {plan.features.map((feature) => (
                   <li key={feature}>
@@ -30,17 +33,6 @@ export function PlansPricingTalkingWebsiteCards() {
                   </li>
                 ))}
               </ul>
-
-              {plan.deliveryTime ? (
-                <p className={styles.customWebsiteMeta}>
-                  <strong>Delivery Time:</strong> {plan.deliveryTime}
-                </p>
-              ) : null}
-              {plan.priceRange ? (
-                <p className={styles.customWebsiteMeta}>
-                  <strong>Price Range:</strong> {plan.priceRange}
-                </p>
-              ) : null}
             </div>
 
             <div className={styles.planActions}>

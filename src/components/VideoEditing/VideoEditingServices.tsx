@@ -10,10 +10,12 @@ import {
   Video,
   type LucideIcon,
 } from "lucide-react";
+import { TalkingWebsiteGradientIcon } from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon";
 import {
   videoEditingServices,
   videoEditingServicesIntro,
 } from "@/data/video-editing";
+import { videoEditingServiceTones } from "@/components/VideoEditing/video-editing-icon-tones";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
@@ -51,6 +53,7 @@ export function VideoEditingServices() {
         <div className={styles.servicesGrid}>
           {videoEditingServices.map((service, index) => {
             const Icon = serviceIcons[service.icon] ?? Sparkles;
+            const tone = videoEditingServiceTones[index];
 
             return (
               <ScrollReveal
@@ -61,9 +64,11 @@ export function VideoEditingServices() {
               >
                 <div className={styles.cardInner}>
                   <div className={styles.cardTop}>
-                    <div className={styles.serviceIconWrap}>
-                      <Icon size={22} strokeWidth={1.85} aria-hidden="true" />
-                    </div>
+                    <TalkingWebsiteGradientIcon
+                      icon={Icon}
+                      tone={tone}
+                      size="tagline"
+                    />
                     <span className={styles.serviceIndex}>
                       {String(index + 1).padStart(2, "0")}
                     </span>

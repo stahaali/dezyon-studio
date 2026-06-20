@@ -8,10 +8,12 @@ import {
   Video,
   type LucideIcon,
 } from "lucide-react";
+import { TalkingWebsiteGradientIcon } from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon";
 import {
   videoEditingToolGroups,
   videoEditingToolsIntro,
 } from "@/data/video-editing";
+import { videoEditingToolTones } from "@/components/VideoEditing/video-editing-icon-tones";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
@@ -50,6 +52,7 @@ export function VideoEditingTools() {
         <div className={styles.toolsGrid}>
           {videoEditingToolGroups.map((group, index) => {
             const Icon = toolIcons[group.title] ?? Video;
+            const tone = videoEditingToolTones[index];
 
             return (
               <ScrollReveal
@@ -60,9 +63,11 @@ export function VideoEditingTools() {
               >
                 <div className={styles.cardInner}>
                   <div className={styles.cardTop}>
-                    <div className={styles.toolIconWrap}>
-                      <Icon size={22} strokeWidth={1.85} aria-hidden="true" />
-                    </div>
+                    <TalkingWebsiteGradientIcon
+                      icon={Icon}
+                      tone={tone}
+                      size="tagline"
+                    />
                     <span className={styles.toolIndex}>
                       {String(index + 1).padStart(2, "0")}
                     </span>

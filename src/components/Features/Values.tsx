@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { values, stats } from "@/data/site";
+import { values } from "@/data/site";
+import { StatsGrid } from "@/components/Shared/StatsGrid/StatsGrid";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { SplitTitle } from "@/components/Shared/SplitTitle";
@@ -50,16 +51,7 @@ export function Values() {
         </div>
 
         <ScrollReveal delay={0.15}>
-          <div className={styles.statsCard}>
-            <div className={styles.statsGrid}>
-              {stats.map((stat) => (
-                <div key={stat.label} className={styles.stat}>
-                  <span className={styles.statValue}>{stat.value}</span>
-                  <span className={styles.statLabel}>{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <StatsGrid variant="light" animate={false} />
         </ScrollReveal>
       </Container>
     </section>

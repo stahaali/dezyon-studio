@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Star } from "lucide-react";
 import { heroAvatars, heroContent, heroRating } from "@/data/hero";
 import { BrandSlider } from "@/components/Hero/BrandSlider";
+import { HeroTypewriterHighlight } from "@/components/Hero/HeroTypewriterHighlight";
 // import { HeroImageSlider } from "@/components/Hero/HeroImageSlider";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
@@ -37,14 +38,11 @@ export function Hero() {
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
             >
               <span className={splitTitleStyles.lightOnDark}>
-                {heroContent.titlePrefix}
-                <span className={styles.wordHighlight}>
-                  {heroContent.titleHighlight}
-                </span>{" "}
-                {heroContent.titleSuffix}
-                <span className={styles.titleLine2}>
-                  {heroContent.titleLine2}
+                <span className={styles.titleLine1}>
+                  {heroContent.titlePrefix}{" "}
+                  <HeroTypewriterHighlight phrases={heroContent.typewriterPhrases} />
                 </span>
+                <span className={styles.titleLine2}>{heroContent.titleLine2}</span>
               </span>
             </h1>
 

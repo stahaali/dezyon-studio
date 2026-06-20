@@ -26,10 +26,16 @@ export const heroRating = {
 } as const;
 
 export const heroContent = {
-  titlePrefix: "Meet Our ",
-  titleHighlight: "WebOps AI",
-  titleSuffix: "Team",
-  titleLine2: "For Your Business",
+  titlePrefix: "Meet Our",
+  titleLine2: "Team For Your Business",
+  typewriterPhrases: [
+    "WebOps",
+    "Branding & Design",
+    "Talking Website",
+    "Website Design",
+    "Video Ads",
+    "Social Marketing",
+  ],
   intro:
     "Where creators become brands and brands become businesses.",
   subtitle:

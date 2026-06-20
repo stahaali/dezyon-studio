@@ -39,7 +39,7 @@ export const talkingWebsiteSteps = [
   },
   {
     step: 4,
-    title: "Lead Qualification",
+    title: "WhatsApp & Email Notifications",
     message: "I ask the right questions and capture qualified lead details.",
   },
   {
@@ -58,10 +58,9 @@ export const talkingWebsiteFeatures = [
   "Real-Time Voice Conversations",
   "Appointment Scheduling",
   "Lead Qualification",
-  "Call Transfers",
+  "WhatsApp & Email Notifications",
   "Multi-Language Support",
   "CRM Integration",
-  "Business Training AI",
   "24/7 Availability",
 ] as const;
 
@@ -137,78 +136,6 @@ export const talkingWebsitePricing = [
     featured: false,
   },
 ] as const;
-
-export type TalkingWebsitePlan = {
-  id: string;
-  name: string;
-  bestFor: string;
-  features: readonly string[];
-  deliveryTime?: string;
-  priceRange?: string;
-  cta: { label: string; href: string };
-  featured?: boolean;
-};
-
-export const talkingWebsitePlans: TalkingWebsitePlan[] = [
-  {
-    id: "starter",
-    name: "Business Starter",
-    bestFor: "Small businesses starting AI website journey",
-    features: [
-      "Basic Talking Website Setup",
-      "1 AI Voice Assistant (FAQ based)",
-      "Basic Script Training (Business Info)",
-      "Contact Form + Lead Capture",
-      "WhatsApp Integration",
-      "Mobile Responsive Design",
-      "Basic UI Customization",
-      "1 Month Support",
-    ],
-    deliveryTime: "5–7 days",
-    cta: { label: "Get Started", href: "/contact" },
-    featured: false,
-  },
-  {
-    id: "growth",
-    name: "Business Growth",
-    bestFor: "Businesses needing smart conversations + automation",
-    features: [
-      "Advanced Talking Website (AI Powered)",
-      "Smart AI Assistant (Context-aware responses)",
-      "FAQ + Sales Conversation Training",
-      "Lead Qualification System (Auto filtering)",
-      "CRM Integration (Leads sync)",
-      "Multi-page Website Integration",
-      "Analytics & Visitor Tracking",
-      "Speed Optimized AI Responses",
-      "3 Months Support",
-    ],
-    deliveryTime: "10–15 days",
-    cta: { label: "Get Started", href: "/contact" },
-    featured: true,
-  },
-  {
-    id: "enterprise",
-    name: "Business Enterprise",
-    bestFor: "High-volume brands, franchises, enterprises",
-    features: [
-      "Fully Custom AI Voice + Chat System",
-      "Advanced NLP Training on Business Data",
-      "Multi-language Support",
-      "API Integrations (CRM, ERP, Internal Tools)",
-      "Advanced Lead Automation Funnel",
-      "Human Handoff System (AI → Human)",
-      "Dedicated AI Model Tuning",
-      "Enterprise Security Setup",
-      "Dedicated Account Manager",
-      "Priority Support (6–12 Months)",
-      "Scalability for High Traffic",
-    ],
-    deliveryTime: "20–30 days",
-    cta: { label: "Get Started", href: "/contact" },
-    featured: false,
-  },
-];
 
 export const talkingWebsiteBenefitsIntro =
   "Let me tell you why businesses choose us — here's why a Talking Website is worth it:" as const;

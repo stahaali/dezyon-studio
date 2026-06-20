@@ -1,7 +1,7 @@
 "use client";
 
 import { useCountUp } from "@/hooks/useCountUp";
-import styles from "./HomeStats.module.css";
+import gridStyles from "@/components/Shared/StatsGrid/StatsGrid.module.css";
 
 type StatValueProps = {
   value: string;
@@ -32,16 +32,18 @@ export function StatValue({ value }: StatValueProps) {
     parsed.type === "count" ? parsed.target : 0,
   );
 
+  const valueClass = `${gridStyles.statValue} ${gridStyles.statValueDark}`.trim();
+
   if (parsed.type === "text") {
     return (
-      <span ref={ref} className={styles.statValue}>
+      <span ref={ref} className={valueClass}>
         {parsed.text}
       </span>
     );
   }
 
   return (
-    <span ref={ref} className={styles.statValue}>
+    <span ref={ref} className={valueClass}>
       {count}
       {parsed.suffix}
     </span>

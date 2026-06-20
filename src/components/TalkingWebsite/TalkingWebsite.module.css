@@ -283,10 +283,6 @@
   color: rgba(255, 255, 255, 0.82);
 }
 
-.heroMetrics li svg {
-  color: var(--color-primary);
-}
-
 .heroVisual {
   position: relative;
   display: flex;
@@ -668,20 +664,6 @@
   opacity: 1;
 }
 
-.taglineCardIcon {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: rgba(146, 225, 58, 0.1);
-  border: 1px solid rgba(146, 225, 58, 0.2);
-  color: var(--color-primary);
-}
-
 .taglineCardText {
   position: relative;
   z-index: 1;
@@ -751,19 +733,6 @@
   padding: 14px 16px;
   border-bottom: 1px solid rgba(146, 225, 58, 0.14);
   background: rgba(0, 0, 0, 0.45);
-}
-
-.stepsAssistantAvatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(146, 225, 58, 0.14);
-  border: 1px solid rgba(146, 225, 58, 0.32);
-  color: var(--color-primary);
-  box-shadow: 0 0 20px rgba(146, 225, 58, 0.15);
 }
 
 .stepsAssistantMeta {
@@ -913,11 +882,6 @@
     transform: scaleY(0.15);
     opacity: 0.65;
   }
-}
-
-.aiVoiceBot {
-  color: var(--color-primary);
-  filter: drop-shadow(0 0 14px rgba(146, 225, 58, 0.35));
 }
 
 .aiVoiceMouth {
@@ -1103,19 +1067,6 @@
   color: rgba(146, 225, 58, 0.65);
 }
 
-.stepIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(146, 225, 58, 0.1);
-  border: 1px solid rgba(146, 225, 58, 0.24);
-  color: var(--color-primary);
-  box-shadow: 0 0 18px rgba(146, 225, 58, 0.1);
-}
-
 .stepTitle {
   margin: 0 0 6px;
   font-size: clamp(15px, 1.8vw, 17px);
@@ -1207,20 +1158,6 @@
   opacity: 1;
 }
 
-.featureIcon {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: rgba(146, 225, 58, 0.1);
-  border: 1px solid rgba(146, 225, 58, 0.2);
-  color: var(--color-primary);
-}
-
 .featureTitle {
   position: relative;
   z-index: 1;
@@ -1266,20 +1203,11 @@
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
 }
 
-.useCaseIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(146, 225, 58, 0.1);
-  border: 1px solid rgba(146, 225, 58, 0.22);
-  color: var(--color-primary);
+.useCaseGradientIcon {
   transition: transform var(--transition-base);
 }
 
-.useCaseCard:hover .useCaseIcon {
+.useCaseCard:hover .useCaseGradientIcon {
   transform: scale(1.06);
 }
 
@@ -1307,18 +1235,6 @@
   border-left: 3px solid rgba(146, 225, 58, 0.55);
   border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.02);
-}
-
-.benefitsInsightIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(146, 225, 58, 0.1);
-  border: 1px solid rgba(146, 225, 58, 0.24);
-  color: var(--color-primary);
 }
 
 .benefitsInsightCopy {
@@ -1433,25 +1349,6 @@
   position: absolute;
   top: 18px;
   right: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(146, 225, 58, 0.08);
-  border: 1px solid rgba(146, 225, 58, 0.18);
-  color: rgba(146, 225, 58, 0.55);
-  transition:
-    color var(--transition-base),
-    border-color var(--transition-base),
-    background var(--transition-base);
-}
-
-.benefitResultCard:hover .benefitResultIcon {
-  color: var(--color-primary);
-  border-color: rgba(146, 225, 58, 0.35);
-  background: rgba(146, 225, 58, 0.12);
 }
 
 .benefitResultStat {
@@ -1500,12 +1397,6 @@
 
 .benefitResultCardLead .benefitResultStat {
   font-size: clamp(28px, 4vw, 36px);
-}
-
-.benefitResultCardLead .benefitResultIcon {
-  color: var(--color-primary);
-  border-color: rgba(146, 225, 58, 0.3);
-  background: rgba(146, 225, 58, 0.12);
 }
 
 /* ── Pricing ── */

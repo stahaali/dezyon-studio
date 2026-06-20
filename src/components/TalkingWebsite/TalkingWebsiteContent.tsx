@@ -4,7 +4,6 @@ import {
   Brain,
   Briefcase,
   Building2,
-  Calendar,
   CalendarCheck,
   Check,
   Clock,
@@ -12,22 +11,28 @@ import {
   DollarSign,
   Filter,
   Globe,
-  Languages,
   Mail,
   MessageCircle,
   Mic,
   MousePointerClick,
-  Sparkles,
-  PhoneForwarded,
-  Plug,
   Scale,
   ShoppingCart,
+  Sparkles,
   Stethoscope,
   TrendingUp,
   Users,
   Wrench,
   Zap,
 } from "lucide-react";
+import { TalkingWebsiteFeatureIcon } from "@/components/TalkingWebsite/TalkingWebsiteFeatureIcon";
+import {
+  TalkingWebsiteGradientIcon,
+  talkingWebsiteBenefitTones,
+  talkingWebsiteHeroMetricTones,
+  talkingWebsiteStepTones,
+  talkingWebsiteTaglineTones,
+  talkingWebsiteUseCaseTones,
+} from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon";
 import {
   talkingWebsiteBenefits,
   talkingWebsiteBenefitsIntro,
@@ -56,17 +61,6 @@ const stepIcons = [
   Filter,
   CalendarCheck,
   Mail,
-] as const;
-
-const featureIcons = [
-  Mic,
-  Calendar,
-  Users,
-  PhoneForwarded,
-  Languages,
-  Plug,
-  Brain,
-  Clock,
 ] as const;
 
 const useCaseIcons = [
@@ -117,7 +111,7 @@ export function TalkingWebsiteContent() {
           <div className={styles.heroGrid}>
             <ScrollReveal className={styles.heroContent}>
               <span className={styles.badge}>
-                <Sparkles size={14} aria-hidden="true" />
+                <TalkingWebsiteGradientIcon icon={Sparkles} tone="empathy" size="label" />
                 {talkingWebsiteHero.badge}
               </span>
               <h1
@@ -141,9 +135,13 @@ export function TalkingWebsiteContent() {
                 <TalkingWebsiteHeroCta label={talkingWebsiteHero.ctas.primary.label} />
               </div>
               <ul className={styles.heroMetrics} aria-label="Product highlights">
-                {heroMetrics.map(({ icon: Icon, label }) => (
+                {heroMetrics.map(({ icon: Icon, label }, index) => (
                   <li key={label}>
-                    <Icon size={15} strokeWidth={2} aria-hidden="true" />
+                    <TalkingWebsiteGradientIcon
+                      icon={Icon}
+                      tone={talkingWebsiteHeroMetricTones[index]}
+                      size="metric"
+                    />
                     <span>{label}</span>
                   </li>
                 ))}
@@ -167,9 +165,11 @@ export function TalkingWebsiteContent() {
               return (
                 <ScrollReveal key={tagline} delay={0.04 + index * 0.05} as="article">
                   <article className={styles.taglineCard}>
-                    <div className={styles.taglineCardIcon} aria-hidden="true">
-                      <TaglineIcon size={20} strokeWidth={1.75} />
-                    </div>
+                    <TalkingWebsiteGradientIcon
+                      icon={TaglineIcon}
+                      tone={talkingWebsiteTaglineTones[index]}
+                      size="tagline"
+                    />
                     <p className={styles.taglineCardText}>{tagline}</p>
                   </article>
                 </ScrollReveal>
@@ -199,9 +199,7 @@ export function TalkingWebsiteContent() {
             <ScrollReveal className={styles.stepsGuide}>
               <div className={styles.stepsAssistantPanel}>
                 <div className={styles.stepsAssistantHeader}>
-                  <span className={styles.stepsAssistantAvatar} aria-hidden="true">
-                    <Bot size={18} strokeWidth={1.75} />
-                  </span>
+                  <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="step" />
                   <div className={styles.stepsAssistantMeta}>
                     <span className={styles.stepsAssistantName}>AI Voice Assistant</span>
                     <span className={styles.stepsAssistantStatus}>
@@ -224,7 +222,7 @@ export function TalkingWebsiteContent() {
                         <span className={styles.aiVoiceEye} />
                         <span className={styles.aiVoiceEye} />
                       </div>
-                      <Bot size={36} strokeWidth={1.5} className={styles.aiVoiceBot} />
+                      <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="step" />
                       <div className={styles.aiVoiceMouth}>
                         {Array.from({ length: 7 }).map((_, index) => (
                           <span
@@ -250,7 +248,7 @@ export function TalkingWebsiteContent() {
 
                 <article className={styles.stepsIntroBubble}>
                   <span className={styles.stepsIntroLabel}>
-                    <Mic size={12} strokeWidth={2} aria-hidden="true" />
+                    <TalkingWebsiteGradientIcon icon={Mic} tone="voice" size="label" />
                     AI Assistant
                   </span>
                   <p>{talkingWebsiteStepsIntro}</p>
@@ -271,11 +269,13 @@ export function TalkingWebsiteContent() {
                     <article className={styles.stepMessage}>
                       <span className={styles.stepTimelineDot} aria-hidden="true" />
                       <div className={styles.stepMessageHeader}>
-                        <div className={styles.stepIcon} aria-hidden="true">
-                          <Icon size={18} strokeWidth={1.75} />
-                        </div>
+                        <TalkingWebsiteGradientIcon
+                          icon={Icon}
+                          tone={talkingWebsiteStepTones[index]}
+                          size="step"
+                        />
                         <span className={styles.stepAiTag}>
-                          <Bot size={12} strokeWidth={2} aria-hidden="true" />
+                          <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="label" />
                           Step {String(item.step).padStart(2, "0")}
                         </span>
                       </div>
@@ -307,20 +307,14 @@ export function TalkingWebsiteContent() {
           </ScrollReveal>
 
           <div className={styles.featuresGrid}>
-            {talkingWebsiteFeatures.map((feature, index) => {
-              const Icon = featureIcons[index];
-
-              return (
-                <ScrollReveal key={feature} delay={index * 0.04} as="article">
-                  <article className={styles.featureCard}>
-                    <div className={styles.featureIcon} aria-hidden="true">
-                      <Icon size={20} strokeWidth={1.75} />
-                    </div>
-                    <h3 className={styles.featureTitle}>{feature}</h3>
-                  </article>
-                </ScrollReveal>
-              );
-            })}
+            {talkingWebsiteFeatures.map((feature, index) => (
+              <ScrollReveal key={feature} delay={index * 0.04} as="article">
+                <article className={styles.featureCard}>
+                  <TalkingWebsiteFeatureIcon index={index} />
+                  <h3 className={styles.featureTitle}>{feature}</h3>
+                </article>
+              </ScrollReveal>
+            ))}
           </div>
         </Container>
       </section>
@@ -348,9 +342,12 @@ export function TalkingWebsiteContent() {
               return (
                 <ScrollReveal key={useCase} delay={index * 0.04} as="article">
                   <article className={styles.useCaseCard}>
-                    <div className={styles.useCaseIcon} aria-hidden="true">
-                      <Icon size={18} strokeWidth={1.75} />
-                    </div>
+                    <TalkingWebsiteGradientIcon
+                      icon={Icon}
+                      tone={talkingWebsiteUseCaseTones[index]}
+                      size="useCase"
+                      className={styles.useCaseGradientIcon}
+                    />
                     <span>{useCase}</span>
                   </article>
                 </ScrollReveal>
@@ -379,12 +376,10 @@ export function TalkingWebsiteContent() {
           <div className={styles.benefitsLayout}>
             <ScrollReveal>
               <article className={styles.benefitsInsight}>
-                <span className={styles.benefitsInsightIcon} aria-hidden="true">
-                  <Bot size={22} strokeWidth={1.75} />
-                </span>
+                <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="insight" />
                 <div className={styles.benefitsInsightCopy}>
                   <span className={styles.benefitsInsightLabel}>
-                    <Sparkles size={12} strokeWidth={2} aria-hidden="true" />
+                    <TalkingWebsiteGradientIcon icon={Sparkles} tone="empathy" size="label" />
                     AI Recommendation
                   </span>
                   <p>{talkingWebsiteBenefitsIntro}</p>
@@ -410,9 +405,12 @@ export function TalkingWebsiteContent() {
                     <article
                       className={`${styles.benefitResultCard} ${index === 0 ? styles.benefitResultCardLead : ""}`}
                     >
-                      <span className={styles.benefitResultIcon} aria-hidden="true">
-                        <Icon size={20} strokeWidth={1.75} />
-                      </span>
+                      <TalkingWebsiteGradientIcon
+                        icon={Icon}
+                        tone={talkingWebsiteBenefitTones[index]}
+                        size="benefit"
+                        className={styles.benefitResultIcon}
+                      />
                       <div className={styles.benefitResultStat}>{benefit.stat}</div>
                       <div className={styles.benefitResultContent}>
                         <h3 className={styles.benefitResultTitle}>{benefit.title}</h3>

@@ -58,7 +58,7 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 760px;
+  max-width: 960px;
   margin-inline: auto;
   color: #ffffff;
 }
@@ -113,21 +113,63 @@
 }
 
 .title {
-  margin: 0 0 16px;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 16px;
   font-size: clamp(36px, 5.5vw, 52px);
   line-height: 1.08;
 }
 
 .wordHighlight {
   display: inline-block;
+  width: fit-content;
   padding: 0.06em 0.32em 0.1em;
-  margin-inline: 0.04em 0.1em;
+  margin-inline: 0.04em;
   border-radius: 0.22em;
   background: var(--brand-gradient);
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
   vertical-align: baseline;
+}
+
+.typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  color: #000200;
+}
+
+.titleLine1 {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.22em;
+  white-space: nowrap;
+}
+
+.titleLine2 {
+  display: block;
+  margin-top: 0.08em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.typewriterText {
+  display: inline;
+}
+
+.typewriterCursor {
+  display: inline;
+  color: #000200;
+  font-weight: 400;
+  animation: heroTypewriterBlink 1s step-end infinite;
+}
+
+@keyframes heroTypewriterBlink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .intro,
@@ -548,8 +590,13 @@
   .title {
     width: 100%;
     max-width: 100%;
-    font-size: 28px;
+    margin-inline: auto;
+    font-size: clamp(24px, 7vw, 28px);
     line-height: 1.12;
+  }
+
+  .titleLine1 {
+    gap: 0.16em;
   }
 
   .intro {
@@ -603,10 +650,6 @@
   }
 }
 
-.titleLine2 {
-  display: inline;
-}
-
 @media (min-width: 1400px) {
   .hero {
     min-height: auto;
@@ -624,18 +667,21 @@
   }
 
   .heroText {
-    max-width: 760px;
+    max-width: 960px;
   }
 
   .title {
+    width: max-content;
+    max-width: 100%;
+    margin-inline: auto;
     font-size: 61px;
     line-height: 1.08;
     letter-spacing: inherit;
   }
 
   .titleLine2 {
-    display: inline;
-    margin-top: 0;
+    display: block;
+    margin-top: 0.08em;
   }
 
   .title .wordHighlight {
