@@ -90,9 +90,9 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/about",
   },
   services: {
-    title: "Service Dezyon Studio | AI Growth Services",
+    title: "Marketing Dezyon Studio | AI Growth Marketing",
     description:
-      "Explore Dezyon Studio's AI-powered services including Talking Websites, Custom Website Development, AI Video Creation, AI Marketing, AI Influencers, Branding, Digital Marketing, Content Creation, YouTube Video Editing, and Business Automation solutions.",
+      "Stop wasting time learning AI tools. Dezyon Studio delivers done-for-you marketing with AI-powered content, video reels, social media management, paid ads, and lead generation systems.",
     keywords: [
       "logo design services",
       "branding services",
@@ -101,7 +101,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
       "digital marketing agency",
       "animation services",
     ],
-    path: "/services",
+    path: "/marketing",
   },
   portfolio: {
     title: "Portfolio of Websites, Brands & Digital Projects",
@@ -355,7 +355,7 @@ export function getDocumentTitle(config: PageSeoConfig): string {
 
   if (
     config.path === "/about" ||
-    config.path === "/services" ||
+    config.path === "/marketing" ||
     config.path === "/talking-website" ||
     config.path === "/plans-and-pricing" ||
     config.path === "/video-editing" ||
@@ -375,7 +375,7 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
   const ogImage = resolveOgImage(config.ogImage ?? DEFAULT_OG_IMAGE);
   const isHome = config.path === "/";
   const isAbout = config.path === "/about";
-  const isServices = config.path === "/services";
+  const isMarketing = config.path === "/marketing";
   const isTalkingWebsite = config.path === "/talking-website";
   const isPlansAndPricing = config.path === "/plans-and-pricing";
   const isVideoEditing = config.path === "/video-editing";
@@ -388,7 +388,7 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
 
   return {
     title:
-      isHome || isAbout || isServices || isTalkingWebsite || isPlansAndPricing || isVideoEditing || isContact || isPrivacyPolicy || isTermsAndConditions || isRefundPolicy
+      isHome || isAbout || isMarketing || isTalkingWebsite || isPlansAndPricing || isVideoEditing || isContact || isPrivacyPolicy || isTermsAndConditions || isRefundPolicy
         ? { absolute: documentTitle }
         : config.title,
     description: config.description,

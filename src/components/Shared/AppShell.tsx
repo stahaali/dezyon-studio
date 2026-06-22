@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { MobileMenuProvider } from "@/context/MobileMenuContext";
 import { GoogleAnalytics } from "@/components/Seo/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/Seo/MicrosoftClarity";
 import { Footer } from "@/components/Footer/Footer";
 import { GoogleTranslatePreload } from "@/components/Header/GoogleTranslatePreload";
 import { Header } from "@/components/Header/Header";
@@ -19,10 +20,17 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <MobileMenuProvider>
       <SiteSecurity />
-      <GoogleTranslatePreload />
-      <Header />
+      {!isAuditPage ? <GoogleTranslatePreload /> : null}
+      {!isAuditPage ? <Header /> : null}
       <main className="flex-1">{children}</main>
-      {!isAuditPage ? <Footer /> : <GoogleAnalytics />}
+      {!isAuditPage ? (
+        <Footer />
+      ) : (
+        <>
+          <GoogleAnalytics />
+          <MicrosoftClarity />
+        </>
+      )}
       {!isAuditPage ? <LeftSideRail /> : null}
       {!isAuditPage ? <SideRail /> : null}
       {!isAuditPage ? <BackToTop /> : null}

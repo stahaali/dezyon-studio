@@ -20,8 +20,8 @@ const PAGE_SCHEMA_INVENTORY = [
     schemas: ["BreadcrumbList", "AboutPage"],
   },
   {
-    page: "Services",
-    path: "/services",
+    page: "Marketing",
+    path: "/marketing",
     schemas: ["BreadcrumbList", "WebPage", "Service (catalog)"],
   },
   {

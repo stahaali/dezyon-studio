@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const outDir = path.join(process.cwd(), "out");
-const siteUrl = "https://dezyonstudio.com";
+const siteUrl = "https://www.dezyonstudio.com";
 
 if (!fs.existsSync(outDir)) {
   console.warn("[build-info] out/ folder not found. Skipping BUILD.txt.");

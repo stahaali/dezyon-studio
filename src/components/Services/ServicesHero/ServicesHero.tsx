@@ -1,12 +1,28 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
+import { marketingHero } from "@/data/marketing-hero";
 import { servicesHero } from "@/data/services";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { TypewriterTitle } from "@/components/Services/ServicesHero/TypewriterTitle";
 import styles from "./ServicesHero.module.css";
 
-export function ServicesHero() {
-  const { floatingIcons, cta } = servicesHero;
+type HeroConfig = typeof servicesHero | typeof marketingHero;
+
+type ServicesHeroProps = {
+  hero?: HeroConfig;
+};
+
+function getOrbitPosition(angle: number, radius: number) {
+  const radians = (angle * Math.PI) / 180;
+  const x = Math.cos(radians) * radius;
+  const y = Math.sin(radians) * radius;
+
+  return { x, y };
+}
+
+export function ServicesHero({ hero = marketingHero }: ServicesHeroProps) {
+  const { floatingIcons, cta } = hero;
 
   return (
     <section className={styles.section} aria-labelledby="services-hero-heading">
@@ -24,21 +40,43 @@ export function ServicesHero() {
             <span className={styles.ring} />
           </div>
 
-          {floatingIcons.map((icon) => {
-            const positionClass = styles[icon.className as keyof typeof styles];
+          {floatingIcons.map((icon, index) => {
+            const orbit =
+              "angle" in icon && "radius" in icon
+                ? getOrbitPosition(icon.angle, icon.radius)
+                : null;
+            const positionClass =
+              "className" in icon
+                ? styles[icon.className as keyof typeof styles]
+                : undefined;
 
             return (
               <div
-                key={icon.className}
-                className={`${styles.floatingIconWrap} ${positionClass}`}
+                key={icon.alt}
+                className={`${styles.floatingIconWrap} ${positionClass ?? ""}`.trim()}
+                style={
+                  orbit
+                    ? ({
+                        "--orbit-x": `${orbit.x}px`,
+                        "--orbit-y": `${orbit.y}px`,
+                      } as CSSProperties)
+                    : undefined
+                }
               >
-                <div className={styles.iconFloat}>
+                <div
+                  className={styles.iconFloat}
+                  style={{
+                    animationDuration: `${4.4 + (index % 4) * 0.35}s`,
+                    animationDelay: `${index * 0.12}s`,
+                  }}
+                >
                   <Image
                     src={icon.src}
                     alt={icon.alt}
                     width={icon.width}
                     height={icon.height}
                     className={styles.floatingIcon}
+                    style={{ animationDelay: `${index * 0.15}s` }}
                   />
                 </div>
               </div>
@@ -48,17 +86,17 @@ export function ServicesHero() {
 
         <Container className={styles.container}>
           <div className={styles.content}>
-            <span className={styles.badge}>{servicesHero.badge}</span>
+            <span className={styles.badge}>{hero.badge}</span>
 
             <TypewriterTitle
               id="services-hero-heading"
-              prefix={servicesHero.titlePrefix}
-              suffix={servicesHero.titleSuffix}
-              phrases={servicesHero.typewriterPhrases}
+              prefix={hero.titlePrefix}
+              suffix={hero.titleSuffix}
+              phrases={hero.typewriterPhrases}
               className={styles.title}
             />
 
-            <p className={styles.description}>{servicesHero.description}</p>
+            <p className={styles.description}>{hero.description}</p>
 
             <Button href={cta.href} size="lg" className={styles.cta}>
               {cta.label}

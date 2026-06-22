@@ -10,6 +10,7 @@ import { useStickyHeader, useLockBodyScroll } from "@/hooks/useStickyHeader";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
 import { LanguageTranslator } from "@/components/Header/LanguageTranslator";
+import { isPathActive, normalizePathname } from "@/lib/paths";
 import styles from "./Header.module.css";
 
 const headerPhoneHref = `tel:${footerContact.phone.replace(/\D/g, "")}`;
@@ -36,14 +37,6 @@ const socialIcons = {
     </svg>
   ),
 } as const;
-
-function isNavLinkActive(pathname: string, href: string) {
-  if (href === "/") {
-    return pathname === "/";
-  }
-
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
 
 function NavLinkItem({
   href,
@@ -79,14 +72,14 @@ export function Header() {
   }, []);
 
   const showHeader = isHeaderVisible || mobileOpen;
+  const currentPath = normalizePathname(pathname);
   const isPricingActive =
     hasMounted &&
-    (pathname === pricingNav.href ||
-      pathname.startsWith("/pricing/") ||
-      pathname.startsWith("/plans-and-pricing/"));
+    (isPathActive(pathname, pricingNav.href) ||
+      currentPath.startsWith("/pricing"));
 
   const isLinkActive = (href: string) =>
-    hasMounted && isNavLinkActive(pathname, href);
+    hasMounted && isPathActive(pathname, href);
 
   return (
     <>

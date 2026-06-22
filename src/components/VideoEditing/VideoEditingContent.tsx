@@ -14,7 +14,7 @@ import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
-import { VideoEditingFinalCta } from "@/components/VideoEditing/VideoEditingFinalCta";
+import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
 import { VideoEditingHeroBannerImage } from "@/components/VideoEditing/VideoEditingHeroBannerImage";
 import { VideoEditingHeroVisual } from "@/components/VideoEditing/VideoEditingHeroVisual";
 import { VideoEditingServices } from "@/components/VideoEditing/VideoEditingServices";
@@ -105,7 +105,7 @@ export function VideoEditingContent() {
         </Container>
       </section>
 
-      <VideoEditingFinalCta />
+      <MarketingCtaBanner />
     </div>
   );
 }

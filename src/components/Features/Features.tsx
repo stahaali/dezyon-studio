@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { smartFeatureTabs, smartFeaturesSection } from "@/data/features";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -101,10 +100,6 @@ export function Features() {
                   className={styles.panelTitle}
                 />
                 <p className={styles.panelDesc}>{activeTab.description}</p>
-                <a href="#integrations" className={styles.ctaLink}>
-                  Let&apos;s find out
-                  <ArrowRight size={16} />
-                </a>
               </div>
             </div>
           </div>

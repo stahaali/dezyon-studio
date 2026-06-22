@@ -1,0 +1,35 @@
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.megaphone {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+}
+
+.users {
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+}
+
+.sparkles {
+  background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+}
+
+.shield {
+  background: linear-gradient(135deg, #22c55e 0%, #14b8a6 100%);
+}
+
+.pointer {
+  background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+}
+
+.trending {
+  background: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
+}

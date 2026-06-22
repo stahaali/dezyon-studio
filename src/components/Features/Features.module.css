@@ -234,25 +234,7 @@
   font-size: clamp(15px, 2vw, 18px);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.72);
-  margin: 0 0 20px;
-}
-
-.ctaLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-primary);
-  transition: gap var(--transition-fast);
-}
-
-.ctaLink svg {
-  color: var(--color-primary);
-}
-
-.ctaLink:hover {
-  gap: 10px;
+  margin: 0;
 }
 
 @media (max-width: 575px) {

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isSamePath } from "@/lib/paths";
 import styles from "./Logo.module.css";
 
 const LOGO_SRC = {
@@ -24,7 +25,7 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
       className={`${styles.logo} ${className}`.trim()}
       aria-label="Dezyon Studio home"
       onClick={(event) => {
-        if (pathname === "/") {
+        if (isSamePath(pathname, "/")) {
           event.preventDefault();
           window.scrollTo({ top: 0, behavior: "smooth" });
         }

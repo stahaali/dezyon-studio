@@ -10,7 +10,7 @@ export const pricingNav = {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Marketing", href: "/marketing" },
   { label: "Video Editing", href: "/video-editing" },
   { label: "Talking Website", href: "/talking-website" },
   // { label: "Combo Packages", href: "/combo-packages" },
@@ -24,7 +24,7 @@ export const footerAbout =
 export const footerInformationLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Marketing", href: "/marketing" },
   { label: "Video Editing", href: "/video-editing" },
   { label: "Contact Us", href: "/contact" },
 ] as const;

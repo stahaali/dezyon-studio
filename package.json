@@ -16,6 +16,7 @@
     "start": "next start",
     "lint": "eslint",
     "images:webp": "node scripts/convert-images-to-webp.js",
+    "images:marketing": "node scripts/convert-marketing-images.js",
     "images:refs": "node scripts/update-image-references.js",
     "schema:validate": "node scripts/validate-schema.js"
   },

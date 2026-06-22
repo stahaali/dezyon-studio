@@ -45,6 +45,11 @@ export const contactHero = {
   emailLink: { label: "email", href: `mailto:${footerContact.email}` },
 } as const;
 
+export const contactVoiceWidgetAvatar = {
+  src: `${BRIEF_ICONS}/04.webp`,
+  alt: "Lara, AI website assistant",
+} as const;
+
 export const contactReach = {
   titlePrefix: "Other Ways To ",
   titleHighlight: "Reach Us",
@@ -75,6 +80,7 @@ export const contactReach = {
       link: {
         label: "Connect",
         href: "#contact-brief-form",
+        action: "focus-brief-form",
       },
     },
     {

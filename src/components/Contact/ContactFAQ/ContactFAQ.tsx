@@ -11,6 +11,7 @@ import styles from "./ContactFAQ.module.css";
 
 type ContactFAQProps = {
   twoColumn?: boolean;
+  sectionClassName?: string;
 };
 
 type FaqItem = (typeof contactFaq.items)[number];
@@ -88,7 +89,10 @@ function FaqItemCard({
   );
 }
 
-export function ContactFAQ({ twoColumn = false }: ContactFAQProps) {
+export function ContactFAQ({
+  twoColumn = false,
+  sectionClassName = "",
+}: ContactFAQProps) {
   const [openIndex, setOpenIndex] = useState(-1);
   const items = contactFaq.items;
   const midpoint = Math.ceil(items.length / 2);
@@ -118,7 +122,10 @@ export function ContactFAQ({ twoColumn = false }: ContactFAQProps) {
   );
 
   return (
-    <section className={styles.section} aria-labelledby="contact-faq-heading">
+    <section
+      className={`${styles.section} ${sectionClassName}`.trim()}
+      aria-labelledby="contact-faq-heading"
+    >
       <Container>
         <ScrollReveal>
           <h2

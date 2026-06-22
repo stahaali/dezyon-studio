@@ -1,0 +1,44 @@
+.avatarWrap {
+  position: fixed;
+  right: 20px;
+  bottom: 78px;
+  z-index: 11;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.avatarWrap:hover {
+  transform: translateY(-2px);
+}
+
+.avatarWrap:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.avatar {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(146, 225, 58, 0.55);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 577px) {
+  .avatarWrap {
+    right: 60px;
+    bottom: 82px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .avatarWrap {
+    right: 20px;
+  }
+}

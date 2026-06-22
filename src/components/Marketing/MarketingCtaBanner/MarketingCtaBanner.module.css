@@ -1,0 +1,45 @@
+.section {
+  background-color: #000200;
+  padding-top: 0;
+  padding-bottom: 40px;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1280 / 400;
+  min-height: 160px;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  background-color: #111111;
+  background-image: var(--cta-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity var(--transition-fast);
+}
+
+.link:hover {
+  opacity: 0.92;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

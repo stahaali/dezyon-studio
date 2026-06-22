@@ -15,9 +15,10 @@ import styles from "./ContactHero.module.css";
 
 export function ContactHero() {
   const router = useRouter();
-  const { openWidget, startCall } = useVapiSimli();
+  const { openWidget } = useVapiSimli();
   const { fields } = contactHero;
   const isSubmittingRef = useRef(false);
+  const nameInputRef = useRef<HTMLInputElement>(null);
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [recaptchaKey, setRecaptchaKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -125,7 +126,11 @@ export function ContactHero() {
 
   const handleVoiceChat = () => {
     openWidget();
-    void startCall();
+  };
+
+  const handleFocusBriefForm = () => {
+    nameInputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    nameInputRef.current?.focus();
   };
 
   return (
@@ -152,6 +157,16 @@ export function ContactHero() {
                         type="button"
                         className={`${styles.reachLink} ${styles.reachLinkButton}`}
                         onClick={handleVoiceChat}
+                      >
+                        <span>{item.link.label}</span>
+                        <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                      </button>
+                    ) : "action" in item.link &&
+                      item.link.action === "focus-brief-form" ? (
+                      <button
+                        type="button"
+                        className={`${styles.reachLink} ${styles.reachLinkButton}`}
+                        onClick={handleFocusBriefForm}
                       >
                         <span>{item.link.label}</span>
                         <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
@@ -193,6 +208,8 @@ export function ContactHero() {
                   <label className={styles.field}>
                     <span className={styles.srOnly}>{fields.name}</span>
                     <input
+                      ref={nameInputRef}
+                      id="contact-full-name"
                       type="text"
                       name="name"
                       placeholder={fields.name}

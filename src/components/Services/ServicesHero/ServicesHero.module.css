@@ -44,6 +44,7 @@
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  --orbit-scale: 0.72;
 }
 
 .circles {
@@ -96,6 +97,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translate(
+    calc(-50% + var(--orbit-x, 0px) * var(--orbit-scale)),
+    calc(-50% + var(--orbit-y, 0px) * var(--orbit-scale))
+  );
 }
 
 .iconFloat {
@@ -111,60 +116,6 @@
   display: block;
   animation: iconFocus 5s ease-in-out infinite;
   will-change: transform, filter, opacity;
-}
-
-.iconSlack .iconFloat {
-  animation-duration: 4.8s;
-  animation-delay: 0s;
-}
-
-.iconStripe .iconFloat {
-  animation-duration: 5.4s;
-  animation-delay: 0.7s;
-}
-
-.iconHubspot .iconFloat {
-  animation-duration: 5s;
-  animation-delay: 1.2s;
-}
-
-.iconZapier .iconFloat {
-  animation-duration: 4.6s;
-  animation-delay: 0.4s;
-}
-
-.iconSalesforce .iconFloat {
-  animation-duration: 5.6s;
-  animation-delay: 1.5s;
-}
-
-.iconPaypal .iconFloat {
-  animation-duration: 4.4s;
-  animation-delay: 0.9s;
-}
-
-.iconSlack .floatingIcon {
-  animation-delay: 0s;
-}
-
-.iconStripe .floatingIcon {
-  animation-delay: 0.8s;
-}
-
-.iconHubspot .floatingIcon {
-  animation-delay: 1.6s;
-}
-
-.iconZapier .floatingIcon {
-  animation-delay: 0.4s;
-}
-
-.iconSalesforce .floatingIcon {
-  animation-delay: 2s;
-}
-
-.iconPaypal .floatingIcon {
-  animation-delay: 1.2s;
 }
 
 @keyframes iconDrift {
@@ -195,30 +146,6 @@
     opacity: 1;
     filter: drop-shadow(0 8px 24px rgba(var(--color-primary-rgb), 0.38));
   }
-}
-
-.iconSlack {
-  transform: translate(calc(-50% - 210px), calc(-50% - 120px));
-}
-
-.iconStripe {
-  transform: translate(calc(-50% + 220px), calc(-50% - 150px));
-}
-
-.iconHubspot {
-  transform: translate(calc(-50% - 300px), calc(-50% + 10px));
-}
-
-.iconZapier {
-  transform: translate(calc(-50% + 310px), calc(-50% + 60px));
-}
-
-.iconSalesforce {
-  transform: translate(calc(-50% - 180px), calc(-50% + 200px));
-}
-
-.iconPaypal {
-  transform: translate(calc(-50% + 200px), calc(-50% + 210px));
 }
 
 .container {
@@ -274,6 +201,10 @@
 }
 
 @media (min-width: 768px) {
+  .decorLayer {
+    --orbit-scale: 1;
+  }
+
   .content {
     max-width: 600px;
     padding-inline: 24px;
@@ -311,30 +242,6 @@
     width: 1000px;
     height: 1000px;
   }
-
-  .iconSlack {
-    transform: translate(calc(-50% - 300px), calc(-50% - 150px));
-  }
-
-  .iconStripe {
-    transform: translate(calc(-50% + 310px), calc(-50% - 180px));
-  }
-
-  .iconHubspot {
-    transform: translate(calc(-50% - 400px), calc(-50% + 20px));
-  }
-
-  .iconZapier {
-    transform: translate(calc(-50% + 410px), calc(-50% + 80px));
-  }
-
-  .iconSalesforce {
-    transform: translate(calc(-50% - 260px), calc(-50% + 190px));
-  }
-
-  .iconPaypal {
-    transform: translate(calc(-50% + 280px), calc(-50% + 195px));
-  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -359,7 +266,6 @@
   }
 }
 
-/* Lock banner layout to the 1366px view from 1400px and up */
 @media (min-width: 1400px) {
   .heroCenter {
     min-height: calc(100vh - var(--header-height));
@@ -387,55 +293,6 @@
   .floatingIcon {
     width: 44px;
   }
-
-  .ring:nth-child(1) {
-    width: 340px;
-    height: 340px;
-  }
-
-  .ring:nth-child(2) {
-    width: 500px;
-    height: 500px;
-  }
-
-  .ring:nth-child(3) {
-    width: 660px;
-    height: 660px;
-  }
-
-  .ring:nth-child(4) {
-    width: 820px;
-    height: 820px;
-  }
-
-  .ring:nth-child(5) {
-    width: 1000px;
-    height: 1000px;
-  }
-
-  .iconSlack {
-    transform: translate(calc(-50% - 300px), calc(-50% - 150px));
-  }
-
-  .iconStripe {
-    transform: translate(calc(-50% + 310px), calc(-50% - 180px));
-  }
-
-  .iconHubspot {
-    transform: translate(calc(-50% - 400px), calc(-50% + 20px));
-  }
-
-  .iconZapier {
-    transform: translate(calc(-50% + 410px), calc(-50% + 80px));
-  }
-
-  .iconSalesforce {
-    transform: translate(calc(-50% - 260px), calc(-50% + 190px));
-  }
-
-  .iconPaypal {
-    transform: translate(calc(-50% + 280px), calc(-50% + 195px));
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -446,12 +303,7 @@
 }
 
 @media (max-width: 767px) {
-  .iconSlack,
-  .iconStripe,
-  .iconHubspot,
-  .iconZapier,
-  .iconSalesforce,
-  .iconPaypal {
+  .floatingIconWrap {
     display: none;
   }
 

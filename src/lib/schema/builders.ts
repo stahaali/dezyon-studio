@@ -232,7 +232,7 @@ export function buildServicesCatalogSchema() {
       name: service.title,
       description: service.description,
       serviceType: service.title,
-      path: servicePathById[service.id] ?? "/services",
+      path: servicePathById[service.id] ?? "/marketing",
     })),
     {
       name: "Web Design",
@@ -260,17 +260,17 @@ export function buildServicesCatalogSchema() {
       description:
         "Business automation solutions that streamline workflows, customer engagement, and marketing operations.",
       serviceType: "Business Automation",
-      path: "/services",
+      path: "/marketing",
     },
   ];
 
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${buildCanonicalUrl("/services")}#service-catalog`,
-    name: `${ORG_NAME} Services`,
+    "@id": `${buildCanonicalUrl("/marketing")}#service-catalog`,
+    name: `${ORG_NAME} Marketing`,
     description: ORG_DESCRIPTION,
-    url: buildCanonicalUrl("/services"),
+    url: buildCanonicalUrl("/marketing"),
     provider: organizationReference(),
     areaServed: {
       "@type": "Place",

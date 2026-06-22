@@ -8,6 +8,7 @@ import {
 } from "@/data/site";
 import { SITE_NAME } from "@/lib/constants";
 import { GoogleAnalytics } from "@/components/Seo/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/Seo/MicrosoftClarity";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
 import { CanadaFlag, UsaFlag } from "@/components/Footer/FooterFlags";
@@ -119,6 +120,7 @@ export function Footer() {
       </Container>
     </footer>
     <GoogleAnalytics />
+    <MicrosoftClarity />
     </>
   );
 }
