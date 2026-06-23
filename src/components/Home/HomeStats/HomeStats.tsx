@@ -3,9 +3,16 @@ import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { StatsGrid } from "@/components/Shared/StatsGrid/StatsGrid";
 import styles from "./HomeStats.module.css";
 
-export function HomeStats() {
+type HomeStatsProps = {
+  className?: string;
+};
+
+export function HomeStats({ className = "" }: HomeStatsProps) {
   return (
-    <section className={styles.section} aria-label="Company statistics">
+    <section
+      className={`${styles.section} ${className}`.trim()}
+      aria-label="Company statistics"
+    >
       <Container>
         <ScrollReveal>
           <StatsGrid variant="dark" animate />

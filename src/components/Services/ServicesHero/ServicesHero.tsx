@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { MarketingHeroScrollWrapper } from "@/components/Marketing/MarketingHeroFloatingCards/MarketingHeroScrollWrapper";
 import { marketingHero } from "@/data/marketing-hero";
 import { servicesHero } from "@/data/services";
 import { Button } from "@/components/Shared/Button";
@@ -11,6 +12,7 @@ type HeroConfig = typeof servicesHero | typeof marketingHero;
 
 type ServicesHeroProps = {
   hero?: HeroConfig;
+  scrollCards?: boolean;
 };
 
 function getOrbitPosition(angle: number, radius: number) {
@@ -21,11 +23,14 @@ function getOrbitPosition(angle: number, radius: number) {
   return { x, y };
 }
 
-export function ServicesHero({ hero = marketingHero }: ServicesHeroProps) {
+export function ServicesHero({
+  hero = marketingHero,
+  scrollCards = false,
+}: ServicesHeroProps) {
   const { floatingIcons, cta } = hero;
 
-  return (
-    <section className={styles.section} aria-labelledby="services-hero-heading">
+  const heroBody = (
+    <>
       <div className={styles.bg} aria-hidden="true" />
 
       <div className={styles.heroCenter}>
@@ -104,6 +109,20 @@ export function ServicesHero({ hero = marketingHero }: ServicesHeroProps) {
           </div>
         </Container>
       </div>
+    </>
+  );
+
+  if (scrollCards) {
+    return (
+      <MarketingHeroScrollWrapper className={styles.section}>
+        {heroBody}
+      </MarketingHeroScrollWrapper>
+    );
+  }
+
+  return (
+    <section className={styles.section} aria-labelledby="services-hero-heading">
+      {heroBody}
     </section>
   );
 }

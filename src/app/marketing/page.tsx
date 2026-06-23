@@ -24,7 +24,7 @@ export default function MarketingPage() {
         serviceCatalog
       />
       <div className={styles.page}>
-        <ServicesHero />
+        <ServicesHero scrollCards />
         <MarketingWhyChoose />
         <MarketingVideoReels />
         <MarketingSolutions />

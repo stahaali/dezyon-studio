@@ -37,9 +37,9 @@ export type PageSeoConfig = {
 
 export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
   home: {
-    title: "Talking Custom Website",
+    title: "AI Talking Websites, Web Development & Digital Marketing",
     description:
-      "Dezyon Studio Where businesses leverage - Ai Video Creation, Ai Marketing, Talking Websites, Ai Influencer , Web Design, Branding, and Digital Marketing Services.",
+      "Dezyon Studio helps businesses grow with AI Talking Websites, Custom Website Development, AI Video Creation, Digital Marketing, Video Editing, AI Receptionists, and Branding Solutions.",
     keywords: [
       "AI Talking Website",
       "AI Receptionist",

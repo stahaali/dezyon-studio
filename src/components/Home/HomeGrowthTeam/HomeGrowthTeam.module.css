@@ -9,13 +9,16 @@
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   max-width: 820px;
   margin: 0 auto 36px;
   text-align: center;
 }
 
 .title {
-  margin: 0 0 14px;
+  margin: 0;
   color: #ffffff;
   line-height: 1.15;
 }

@@ -60,6 +60,7 @@ export const customWebsitePlans: CustomWebsitePlan[] = [
     features: [
       "Fully Custom Scalable Website / Web App",
       "Advanced AI Voice / AI Receptionist System",
+      "Analytics Setup (Google Analytics + Tracking)",
       "Multi-location / Franchise Support",
       "Advanced Automation (CRM, Email, WhatsApp)",
       "API Integrations (Custom Systems)",

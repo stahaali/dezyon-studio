@@ -1,0 +1,96 @@
+.cardsLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.card {
+  position: absolute;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.cardShell {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.55),
+    0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #111111;
+}
+
+.mediaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visibilityAll {
+  display: block;
+}
+
+.visibilityTablet {
+  display: none;
+}
+
+.visibilityDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .visibilityTablet {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .visibilityDesktop {
+    display: block;
+  }
+
+  .visibilityTablet:not(.visibilityDesktop) {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .visibilityTablet,
+  .visibilityDesktop {
+    display: none !important;
+  }
+
+  .cardShell {
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .visibilityDesktop {
+    display: none !important;
+  }
+}
+
+/* Laptop 1366px — slightly narrower side cards so hero copy stays clear */
+@media (min-width: 1200px) and (max-width: 1366px) {
+  .card {
+    width: clamp(200px, 21vw, 272px) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    will-change: auto;
+  }
+}

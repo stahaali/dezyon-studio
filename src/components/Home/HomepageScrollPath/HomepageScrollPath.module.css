@@ -1,0 +1,45 @@
+.pathLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.path {
+  fill: none;
+  stroke: url(#homeScrollPathGradient);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.05;
+  filter: drop-shadow(0 0 8px rgba(var(--color-primary-rgb), 0.02));
+}
+
+.pathGlow {
+  fill: none;
+  stroke: url(#homeScrollPathGradient);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.015;
+  filter: blur(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .path,
+  .pathGlow {
+    opacity: 0.05;
+    filter: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .path {
+    opacity: 0.05;
+  }
+}

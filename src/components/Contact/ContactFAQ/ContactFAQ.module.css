@@ -3,8 +3,12 @@
   padding: 0 0 56px;
 }
 
+.titleWrap {
+  margin-bottom: 56px;
+}
+
 .title {
-  margin: 0 0 72px;
+  margin: 0;
   text-align: center;
   color: #ffffff;
   overflow: visible;

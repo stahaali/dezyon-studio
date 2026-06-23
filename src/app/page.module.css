@@ -2,3 +2,8 @@
   background-color: #000200;
   color: #ffffff;
 }
+
+.aboveScrollPath {
+  position: relative;
+  z-index: 2;
+}

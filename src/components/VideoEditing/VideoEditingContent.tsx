@@ -7,6 +7,7 @@ import {
 import {
   videoEditingBenefits,
   videoEditingBenefitsIntro,
+  videoEditingCtaBanner,
   videoEditingHero,
 } from "@/data/video-editing";
 import { Button } from "@/components/Shared/Button";
@@ -105,7 +106,7 @@ export function VideoEditingContent() {
         </Container>
       </section>
 
-      <MarketingCtaBanner />
+      <MarketingCtaBanner banner={videoEditingCtaBanner} />
     </div>
   );
 }

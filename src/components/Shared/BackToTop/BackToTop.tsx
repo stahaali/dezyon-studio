@@ -2,12 +2,14 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { ChevronUp } from "lucide-react";
+import { useSmoothScrollTo } from "@/hooks/useSmoothScrollTo";
 import styles from "./BackToTop.module.css";
 
 const SCROLL_THRESHOLD = 360;
 
 export function BackToTop() {
   const [visible, setVisible] = useState(false);
+  const scrollToTop = useSmoothScrollTo();
 
   useEffect(() => {
     const onScroll = () => {
@@ -19,15 +21,15 @@ export function BackToTop() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  const handleScrollToTop = useCallback(() => {
+    scrollToTop(0);
+  }, [scrollToTop]);
 
   return (
     <button
       type="button"
       className={`${styles.button} ${visible ? styles.buttonVisible : ""}`.trim()}
-      onClick={scrollToTop}
+      onClick={handleScrollToTop}
       aria-label="Back to top"
       title="Back to top"
       aria-hidden={!visible}

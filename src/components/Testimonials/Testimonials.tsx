@@ -5,9 +5,16 @@ import sectionHeadingStyles from "@/components/Shared/SectionHeading.module.css"
 import { TestimonialsSlider } from "./TestimonialsSlider";
 import styles from "./Testimonials.module.css";
 
-export function Testimonials() {
+type TestimonialsProps = {
+  className?: string;
+};
+
+export function Testimonials({ className = "" }: TestimonialsProps) {
   return (
-    <section id="testimonials" className={`page-section ${styles.section}`}>
+    <section
+      id="testimonials"
+      className={`page-section ${styles.section} ${className}`.trim()}
+    >
       <Container>
         <ScrollReveal>
           <div

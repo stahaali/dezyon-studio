@@ -222,7 +222,12 @@ export function TalkingWebsiteContent() {
                         <span className={styles.aiVoiceEye} />
                         <span className={styles.aiVoiceEye} />
                       </div>
-                      <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="step" />
+                      <TalkingWebsiteGradientIcon
+                        icon={Bot}
+                        tone="learn"
+                        size="step"
+                        className={styles.aiVoiceBotIcon}
+                      />
                       <div className={styles.aiVoiceMouth}>
                         {Array.from({ length: 7 }).map((_, index) => (
                           <span

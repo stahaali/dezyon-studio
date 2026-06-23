@@ -225,6 +225,14 @@ export const videoEditingBenefits = [
   "Scalable Content Production",
 ] as const;
 
+export const videoEditingCtaBanner = {
+  src: "/assets/img/marketing/cta.webp",
+  alt: "Edit. Post. Get noticed. Start your video editing with Dezyon Studio",
+  href: "/contact",
+  width: 1024,
+  height: 341,
+} as const;
+
 export const videoEditingFinalCta = {
   eyebrow: "Ready to Create?",
   title: "Get started with AI Content",

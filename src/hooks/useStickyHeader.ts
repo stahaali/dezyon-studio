@@ -1,5 +1,6 @@
 "use client";
 
+import { useLenis } from "lenis/react";
 import { useEffect, useRef, useState } from "react";
 
 const SCROLL_DELTA = 8;
@@ -51,21 +52,28 @@ export function useMediaQuery(query: string) {
 }
 
 export function useLockBodyScroll(locked: boolean) {
-  useEffect(() => {
-    if (locked) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
-      document.body.style.overflow = "hidden";
+  const lenis = useLenis();
 
-      return () => {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        document.body.style.overflow = "";
-        window.scrollTo(0, scrollY);
-      };
+  useEffect(() => {
+    if (!locked) return;
+
+    if (lenis) {
+      lenis.stop();
+      return () => lenis.start();
     }
-  }, [locked]);
+
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollY);
+    };
+  }, [locked, lenis]);
 }

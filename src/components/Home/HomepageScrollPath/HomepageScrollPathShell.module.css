@@ -1,0 +1,4 @@
+.shell {
+  position: relative;
+  isolation: isolate;
+}

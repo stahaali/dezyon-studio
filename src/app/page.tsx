@@ -1,3 +1,4 @@
+import { HomepageScrollPathShell } from "@/components/Home/HomepageScrollPath/HomepageScrollPathShell";
 import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { ContactFAQ } from "@/components/Contact/ContactFAQ/ContactFAQ";
 import { CTA } from "@/components/CTA/CTA";
@@ -20,26 +21,29 @@ import styles from "./page.module.css";
 
 const homeCanonical = buildCanonicalUrl("/");
 const baseHomeMetadata = createPageMetadata("home");
+const homeTitle =
+  "Dezyon Studio | AI Talking Websites, Web Development & Digital Marketing";
+const homeDescription = PAGE_SEO.home.description;
 
 export const metadata: Metadata = {
   ...baseHomeMetadata,
   title: {
-    absolute: "Dezyon Studio",
+    absolute: homeTitle,
   },
-  description: "AI-powered growth partnerships and digital automation.",
+  description: homeDescription,
   alternates: {
     canonical: homeCanonical,
   },
   openGraph: {
     ...baseHomeMetadata.openGraph,
     url: homeCanonical,
-    title: "Dezyon Studio",
-    description: "AI-powered growth partnerships and digital automation.",
+    title: homeTitle,
+    description: homeDescription,
   },
   twitter: {
     ...baseHomeMetadata.twitter,
-    title: "Dezyon Studio",
-    description: "AI-powered growth partnerships and digital automation.",
+    title: homeTitle,
+    description: homeDescription,
   },
 };
 
@@ -56,16 +60,16 @@ export default function HomePage() {
         faq={contactFaq.items}
       />
       <TalkingWebsiteVoiceAssistant>
-        <div className={styles.home}>
+        <HomepageScrollPathShell className={styles.home}>
           <Hero />
           <CapabilitiesSection />
           <Features />
-          <HomeStats />
+          <HomeStats className={styles.aboveScrollPath} />
           <CTA compact />
-          <Testimonials />
+          <Testimonials className={styles.aboveScrollPath} />
           <HomeGrowthTeam />
-          <ContactFAQ twoColumn />
-        </div>
+          <ContactFAQ twoColumn sectionClassName={styles.aboveScrollPath} />
+        </HomepageScrollPathShell>
       </TalkingWebsiteVoiceAssistant>
     </>
   );

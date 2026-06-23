@@ -21,13 +21,18 @@ import styles from "./CTA.module.css";
 type CTAProps = {
   compact?: boolean;
   containerClassName?: string;
+  className?: string;
 };
 
-export function CTA({ compact = false, containerClassName = "" }: CTAProps) {
+export function CTA({
+  compact = false,
+  containerClassName = "",
+  className = "",
+}: CTAProps) {
   return (
     <section
       id="contact"
-      className={`page-section ${styles.section} ${compact ? styles.sectionCompact : ""}`.trim()}
+      className={`page-section ${styles.section} ${compact ? styles.sectionCompact : ""} ${className}`.trim()}
       aria-labelledby="cta-heading"
     >
       <Container

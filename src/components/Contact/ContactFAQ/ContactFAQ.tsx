@@ -127,7 +127,7 @@ export function ContactFAQ({
       aria-labelledby="contact-faq-heading"
     >
       <Container>
-        <ScrollReveal>
+        <ScrollReveal className={styles.titleWrap}>
           <h2
             id="contact-faq-heading"
             className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
