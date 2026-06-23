@@ -8,7 +8,10 @@ type MarketingHeroCardProps = {
 
 export function MarketingHeroCard({ card }: MarketingHeroCardProps) {
   return (
-    <div className={styles.imageCard}>
+    <div
+      className={styles.imageCard}
+      style={card.aspectRatio ? { aspectRatio: card.aspectRatio } : undefined}
+    >
       <Image
         src={card.image}
         alt={card.imageAlt}

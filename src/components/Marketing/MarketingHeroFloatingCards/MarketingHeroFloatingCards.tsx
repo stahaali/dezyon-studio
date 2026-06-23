@@ -9,6 +9,7 @@ import {
 import { useMemo } from "react";
 import {
   marketingHeroFloatingCards,
+  MARKETING_HERO_CARD_SIZE,
   type HeroCardVisibility,
   type MarketingHeroFloatingCard,
 } from "@/data/marketing-hero-cards";
@@ -19,20 +20,21 @@ type MarketingHeroFloatingCardsProps = {
   scrollProgress: MotionValue<number>;
 };
 
-const STAGGER_WINDOW = 0.16;
+const STAGGER_WINDOW = 0.24;
+const SCATTER_DISTANCE = 110;
+
+function getScatterY(top: string, parallax: number) {
+  const topPercent = Number.parseFloat(top);
+
+  if (topPercent <= 35) return -28 * parallax;
+  if (topPercent >= 65) return 28 * parallax;
+  return 0;
+}
 
 function visibilityClass(visibility: HeroCardVisibility) {
   if (visibility === "all") return styles.visibilityAll;
   if (visibility === "tablet") return styles.visibilityTablet;
   return styles.visibilityDesktop;
-}
-
-function getScatterY(top: string, parallax: number) {
-  const topPercent = Number.parseFloat(top);
-
-  if (topPercent <= 38) return -42 * parallax;
-  if (topPercent >= 62) return 42 * parallax;
-  return 0;
 }
 
 function buildScatterOrder(cards: MarketingHeroFloatingCard[]) {
@@ -61,6 +63,16 @@ function buildScatterOrder(cards: MarketingHeroFloatingCard[]) {
   return orderMap;
 }
 
+function clampOffsetX(card: MarketingHeroFloatingCard) {
+  const offsetX = card.offsetX ?? 0;
+
+  if (card.side === "left") {
+    return Math.min(offsetX, 24);
+  }
+
+  return Math.max(offsetX, -24);
+}
+
 function FloatingCard({
   card,
   scatterOrder,
@@ -86,16 +98,18 @@ function FloatingCard({
   });
 
   const scatterX =
-    card.side === "left" ? -200 * card.parallax : 200 * card.parallax;
+    card.side === "left" ? -SCATTER_DISTANCE * card.parallax : SCATTER_DISTANCE * card.parallax;
   const scatterY = getScatterY(card.top, card.parallax);
+  const baseOffsetX = clampOffsetX(card);
+  const baseOffsetY = card.offsetY ?? 0;
 
-  const x = useTransform(cardProgress, [0, 1], [0, scatterX]);
-  const y = useTransform(cardProgress, [0, 1], [0, scatterY]);
-  const opacity = useTransform(cardProgress, [0, 0.55, 1], [1, 0.75, 0]);
+  const x = useTransform(cardProgress, [0, 1], [baseOffsetX, baseOffsetX + scatterX]);
+  const y = useTransform(cardProgress, [0, 1], [baseOffsetY, baseOffsetY + scatterY]);
+  const opacity = useTransform(cardProgress, [0, 0.75, 1], [1, 0.92, 0.12]);
   const scale = useTransform(
     cardProgress,
     [0, 1],
-    [card.depthScale, card.depthScale * 0.86],
+    [card.depthScale, card.depthScale * 0.92],
   );
 
   const sideStyle =
@@ -103,16 +117,20 @@ function FloatingCard({
       ? { left: card.inset, right: "auto" as const }
       : { right: card.inset, left: "auto" as const };
 
+  const cardWidth = MARKETING_HERO_CARD_SIZE.width;
+  const widthMin = Math.round(cardWidth * 0.7);
+  const widthVw = Number((cardWidth / 12).toFixed(1));
+
   return (
     <motion.div
-      className={`${styles.card} ${visibilityClass(card.visibility)}`}
+      className={`${styles.card} ${card.side === "left" ? styles.cardLeft : styles.cardRight} ${visibilityClass(card.visibility)}`}
       style={{
         top: card.top,
-        width: `clamp(180px, 34vw, ${card.width}px)`,
+        width: `clamp(${widthMin}px, ${widthVw}vw, ${cardWidth}px)`,
         zIndex: card.zIndex,
         ...sideStyle,
-        x: reducedMotion ? 0 : x,
-        y: reducedMotion ? 0 : y,
+        x: reducedMotion ? baseOffsetX : x,
+        y: reducedMotion ? baseOffsetY : y,
         opacity: reducedMotion ? 1 : opacity,
         scale: reducedMotion ? card.depthScale : scale,
         rotate: card.rotation,

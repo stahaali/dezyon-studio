@@ -1,9 +1,17 @@
 .cardsLayer {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
   pointer-events: none;
   overflow: visible;
+}
+
+.cardLeft,
+.cardRight {
+  max-width: min(300px, 30vw);
 }
 
 .card {
@@ -15,11 +23,11 @@
 
 .cardShell {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow:
-    0 28px 70px rgba(0, 0, 0, 0.55),
-    0 8px 24px rgba(0, 0, 0, 0.28);
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 10px 28px rgba(0, 0, 0, 0.32);
 }
 
 .imageCard {
@@ -79,13 +87,6 @@
 @media (min-width: 768px) and (max-width: 1199px) {
   .visibilityDesktop {
     display: none !important;
-  }
-}
-
-/* Laptop 1366px — slightly narrower side cards so hero copy stays clear */
-@media (min-width: 1200px) and (max-width: 1366px) {
-  .card {
-    width: clamp(200px, 21vw, 272px) !important;
   }
 }
 

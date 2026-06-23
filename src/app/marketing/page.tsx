@@ -1,3 +1,4 @@
+import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
 import { MarketingSolutions } from "@/components/Marketing/MarketingSolutions/MarketingSolutions";
 import { MarketingVideoReels } from "@/components/Marketing/MarketingVideoReels/MarketingVideoReels";
 import { MarketingWhyChoose } from "@/components/Marketing/MarketingWhyChoose/MarketingWhyChoose";
@@ -24,10 +25,11 @@ export default function MarketingPage() {
         serviceCatalog
       />
       <div className={styles.page}>
-        <ServicesHero scrollCards />
+        <ServicesHero />
         <MarketingWhyChoose />
         <MarketingVideoReels />
         <MarketingSolutions />
+        <MarketingCtaBanner />
       </div>
     </>
   );

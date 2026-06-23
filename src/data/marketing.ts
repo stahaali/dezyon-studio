@@ -152,9 +152,9 @@ export const marketingClosing = {
 } as const;
 
 export const marketingCtaBanner = {
-  src: "/assets/img/marketing/cta.webp",
-  alt: "Edit. Post. Get noticed. Start your marketing with Dezyon Studio",
+  src: "/assets/img/marketing/cta2.webp",
+  alt: "Let's discuss your business today. Get in touch with Dezyon Studio for marketing services",
   href: "/contact",
   width: 1280,
-  height: 582,
+  height: 423,
 } as const;

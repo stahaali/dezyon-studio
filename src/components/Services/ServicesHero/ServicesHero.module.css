@@ -23,6 +23,15 @@
   padding: 48px 0 100px;
 }
 
+.heroCenterWithCards {
+  z-index: 3;
+  isolation: isolate;
+}
+
+.sectionWithCards {
+  --hero-card-safe-gutter: clamp(250px, 28vw, 360px);
+}
+
 .glow {
   position: absolute;
   top: 50%;
@@ -203,6 +212,16 @@
 @media (min-width: 768px) {
   .decorLayer {
     --orbit-scale: 1;
+  }
+
+  .heroCenterWithCards {
+    padding-inline: var(--hero-card-safe-gutter, clamp(250px, 28vw, 360px));
+  }
+
+  .heroCenterWithCards .content {
+    position: relative;
+    z-index: 4;
+    max-width: 560px;
   }
 
   .content {

@@ -9,7 +9,7 @@ type MarketingHeroScrollWrapperProps = {
   children: ReactNode;
 };
 
-const SCROLL_ANIMATION_DISTANCE = 320;
+const SCROLL_ANIMATION_DISTANCE = 980;
 
 export function MarketingHeroScrollWrapper({
   className,

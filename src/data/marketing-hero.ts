@@ -35,7 +35,6 @@ function placeOnRing(
 
 function buildMarketingFloatingIcons(): FloatingIcon[] {
   return [
-    // Ring 3 — evenly spaced, away from center copy
     ...placeOnRing(
       [
         { src: `${MARKETING_TOOLS}/adobe-premiere.svg`, alt: "Adobe Premiere Pro" },
@@ -46,8 +45,6 @@ function buildMarketingFloatingIcons(): FloatingIcon[] {
       RING_3,
       -135,
     ),
-
-    // Ring 4
     ...placeOnRing(
       [
         { src: `${MARKETING_TOOLS}/luma-ai.svg`, alt: "Luma AI" },
@@ -59,8 +56,6 @@ function buildMarketingFloatingIcons(): FloatingIcon[] {
       RING_4,
       -126,
     ),
-
-    // Ring 5
     ...placeOnRing(
       [
         { src: `${MARKETING_TOOLS}/instagram.svg`, alt: "Instagram" },

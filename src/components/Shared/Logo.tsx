@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSmoothScrollTo } from "@/hooks/useSmoothScrollTo";
 import { isSamePath } from "@/lib/paths";
 import styles from "./Logo.module.css";
 
@@ -19,7 +18,6 @@ interface LogoProps {
 
 export function Logo({ variant = "light", className = "" }: LogoProps) {
   const pathname = usePathname();
-  const scrollToTop = useSmoothScrollTo();
 
   return (
     <Link
@@ -29,7 +27,7 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
       onClick={(event) => {
         if (isSamePath(pathname, "/")) {
           event.preventDefault();
-          scrollToTop(0);
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       }}
     >

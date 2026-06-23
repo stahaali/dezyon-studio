@@ -1,31 +1,34 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
-import { videoEditingCtaBanner } from "@/data/video-editing";
+import { marketingCtaBanner } from "@/data/marketing";
 import { Container } from "@/components/Shared/Container";
 import styles from "./MarketingCtaBanner.module.css";
 
-type CtaBannerConfig = typeof videoEditingCtaBanner;
+type CtaBannerConfig = typeof marketingCtaBanner;
 
 type MarketingCtaBannerProps = {
   banner?: CtaBannerConfig;
 };
 
 export function MarketingCtaBanner({
-  banner = videoEditingCtaBanner,
+  banner = marketingCtaBanner,
 }: MarketingCtaBannerProps) {
+  const aspectRatio = `${banner.width} / ${banner.height}`;
+
   return (
     <section className={styles.section} aria-label="Contact Dezyon Studio">
-      <Container className={styles.container}>
-        <Link href={banner.href} className={styles.link}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={banner.src}
-            alt={banner.alt}
-            width={banner.width}
-            height={banner.height}
-            className={styles.image}
-            loading="lazy"
-            decoding="async"
-          />
+      <Container className={styles.shell}>
+        <Link
+          href={banner.href}
+          className={styles.link}
+          style={
+            {
+              "--cta-image": `url("${banner.src}")`,
+              "--cta-aspect": aspectRatio,
+            } as CSSProperties
+          }
+        >
+          <span className={styles.srOnly}>{banner.alt}</span>
         </Link>
       </Container>
     </section>

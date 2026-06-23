@@ -33,7 +33,7 @@ export function ServicesHero({
     <>
       <div className={styles.bg} aria-hidden="true" />
 
-      <div className={styles.heroCenter}>
+      <div className={`${styles.heroCenter} ${scrollCards ? styles.heroCenterWithCards : ""}`.trim()}>
         <div className={styles.glow} aria-hidden="true" />
 
         <div className={styles.decorLayer} aria-hidden="true">
@@ -114,7 +114,9 @@ export function ServicesHero({
 
   if (scrollCards) {
     return (
-      <MarketingHeroScrollWrapper className={styles.section}>
+      <MarketingHeroScrollWrapper
+        className={`${styles.section} ${styles.sectionWithCards}`}
+      >
         {heroBody}
       </MarketingHeroScrollWrapper>
     );

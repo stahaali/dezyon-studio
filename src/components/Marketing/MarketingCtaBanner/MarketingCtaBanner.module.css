@@ -1,41 +1,26 @@
+/* Same container width as Footer (.footerContainer) */
 .section {
   background-color: #000200;
   padding-top: 0;
   padding-bottom: 40px;
-  padding-inline: 44px;
 }
 
-.container {
+.shell {
   max-width: 1280px;
-}
-
-@media (max-width: 576px) {
-  .section {
-    padding-inline: 0;
-  }
-
-  .container {
-    max-width: none;
-    margin-inline: 0;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .section {
-    padding-inline: 0;
-  }
-
-  .container {
-    max-width: none;
-    margin-inline: 0;
-  }
 }
 
 .link {
   display: block;
+  width: 100%;
+  aspect-ratio: var(--cta-aspect, 1280 / 423);
+  min-height: 180px;
   overflow: hidden;
   border-radius: var(--radius-2xl);
-  line-height: 0;
+  background-color: #111111;
+  background-image: var(--cta-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: opacity var(--transition-fast);
 }
 
@@ -48,8 +33,14 @@
   outline-offset: 4px;
 }
 
-.image {
-  display: block;
-  width: 100%;
-  height: auto;
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
