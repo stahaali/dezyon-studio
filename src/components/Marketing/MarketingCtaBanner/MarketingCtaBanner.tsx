@@ -4,7 +4,13 @@ import { marketingCtaBanner } from "@/data/marketing";
 import { Container } from "@/components/Shared/Container";
 import styles from "./MarketingCtaBanner.module.css";
 
-type CtaBannerConfig = typeof marketingCtaBanner;
+type CtaBannerConfig = {
+  src: string;
+  alt: string;
+  href: string;
+  width: number;
+  height: number;
+};
 
 type MarketingCtaBannerProps = {
   banner?: CtaBannerConfig;

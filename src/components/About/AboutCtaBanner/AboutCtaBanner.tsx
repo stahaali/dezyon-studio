@@ -9,10 +9,10 @@ export function AboutCtaBanner() {
       <Container className={styles.container}>
         <Link href="/contact" className={styles.link}>
           <Image
-            src="/assets/img/about/about-cta1.webp"
-            alt="Get in touch with Dezyon Studio"
-            width={1280}
-            height={360}
+            src="/assets/img/about/about-cta5.webp"
+            alt="Success is not a goal. Get in touch with Dezyon Studio"
+            width={1024}
+            height={341}
             sizes="(max-width: 1280px) 100vw, 1280px"
             className={styles.image}
           />

@@ -1,15 +1,41 @@
 .section {
   position: relative;
   overflow: hidden;
+  min-height: 100dvh;
+  box-sizing: border-box;
   padding-top: var(--header-height);
   background-color: #000200;
 }
 
-.bg {
+.heroBg {
   position: absolute;
   inset: 0;
-  background-color: #000200;
   z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBgImageEl {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.6;
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 2, 0, 0.4) 0%,
+    rgba(0, 2, 0, 0.5) 50%,
+    rgba(0, 2, 0, 0.62) 100%
+  );
 }
 
 .heroCenter {

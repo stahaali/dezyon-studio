@@ -5,11 +5,12 @@ export const talkingWebsiteHero = {
   subtitle: "Your Website That Speaks, Engages & Converts",
   description: [
     "Imagine a website that doesn't just display information—it actively talks to your visitors, answers questions, guides customers, and helps generate leads around the clock.",
-    "Our Talking Websites are fully customized to match your brand, services, and customer journey, ensuring a seamless experience that converts visitors into customers.",
   ],
   ctas: {
     primary: { label: "Get Started" },
   },
+  bannerImage: "/assets/img/talking-website/talking-website-banner.webp",
+  bannerImageAlt: "Team collaborating around a talking website project",
 } as const;
 
 export const talkingWebsiteTaglines = [

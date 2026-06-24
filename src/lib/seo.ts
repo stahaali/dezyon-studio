@@ -9,6 +9,10 @@ import { SITE_NAME, SITE_URL } from "./constants";
 
 export const DEFAULT_OG_IMAGE = "/assets/img/web-app/mobile-app-img1.webp";
 
+/** Homepage `<title>` — descriptive length for Bing/Google (≈55–70 chars). */
+export const HOME_DOCUMENT_TITLE =
+  "Dezyon Studio | AI Talking Websites, Web Development & Digital Marketing Agency";
+
 export type PageSeoKey =
   | "home"
   | "about"
@@ -37,7 +41,7 @@ export type PageSeoConfig = {
 
 export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
   home: {
-    title: "AI Talking Websites, Web Development & Digital Marketing",
+    title: "AI Talking Websites, Web Development & Digital Marketing Agency",
     description:
       "Dezyon Studio helps businesses grow with AI Talking Websites, Custom Website Development, AI Video Creation, Digital Marketing, Video Editing, AI Receptionists, and Branding Solutions.",
     keywords: [
@@ -350,7 +354,7 @@ function resolveOgImage(path: string): string {
 
 export function getDocumentTitle(config: PageSeoConfig): string {
   if (config.path === "/") {
-    return `${SITE_NAME} | ${config.title}`;
+    return HOME_DOCUMENT_TITLE;
   }
 
   if (

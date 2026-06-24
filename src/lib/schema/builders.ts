@@ -1,6 +1,6 @@
 import { contactFaq } from "@/data/contact";
 import { services } from "@/data/services";
-import { buildCanonicalUrl } from "@/lib/seo";
+import { buildCanonicalUrl, HOME_DOCUMENT_TITLE } from "@/lib/seo";
 import {
   BUSINESS_CATEGORIES,
   LOCAL_BUSINESS_ID,
@@ -58,7 +58,8 @@ export function buildWebsiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": WEBSITE_ID,
-    name: ORG_NAME,
+    name: HOME_DOCUMENT_TITLE,
+    alternateName: ORG_NAME,
     url: SCHEMA_SITE_URL,
     description: ORG_DESCRIPTION,
     publisher: organizationReference(),

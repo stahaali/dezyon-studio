@@ -29,9 +29,25 @@ export function ServicesHero({
 }: ServicesHeroProps) {
   const { floatingIcons, cta } = hero;
 
+  const bannerImage = "bannerImage" in hero ? hero.bannerImage : undefined;
+
   const heroBody = (
     <>
-      <div className={styles.bg} aria-hidden="true" />
+      {bannerImage ? (
+        <div className={styles.heroBg} aria-hidden="true">
+          <div className={styles.heroBgImage}>
+            <Image
+              src={bannerImage}
+              alt={"bannerImageAlt" in hero ? hero.bannerImageAlt : ""}
+              fill
+              priority
+              sizes="100vw"
+              className={styles.heroBgImageEl}
+            />
+          </div>
+          <div className={styles.heroBgOverlay} />
+        </div>
+      ) : null}
 
       <div className={`${styles.heroCenter} ${scrollCards ? styles.heroCenterWithCards : ""}`.trim()}>
         <div className={styles.glow} aria-hidden="true" />

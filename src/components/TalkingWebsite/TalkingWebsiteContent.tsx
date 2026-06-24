@@ -24,6 +24,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import { TalkingWebsiteFeatureIcon } from "@/components/TalkingWebsite/TalkingWebsiteFeatureIcon";
 import {
   TalkingWebsiteGradientIcon,
@@ -44,7 +45,6 @@ import {
   talkingWebsiteTaglines,
   talkingWebsiteUseCases,
 } from "@/data/talking-website";
-import { TalkingWebsiteHeroBannerVideo } from "@/components/TalkingWebsite/TalkingWebsiteHeroBannerVideo";
 import { TalkingWebsiteHeroCta } from "@/components/TalkingWebsite/TalkingWebsiteHeroCta";
 import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner";
 import { Button } from "@/components/Shared/Button";
@@ -96,15 +96,17 @@ export function TalkingWebsiteContent() {
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="talking-website-hero-heading">
         <div className={styles.heroBg} aria-hidden="true">
-          <div className={styles.heroMesh} />
-          <div className={styles.heroGridLines} />
-          <div className={`${styles.heroOrb} ${styles.heroOrbOne}`} />
-          <div className={`${styles.heroOrb} ${styles.heroOrbTwo}`} />
-          <div className={styles.heroRings}>
-            <span className={styles.heroRing} />
-            <span className={styles.heroRing} />
-            <span className={styles.heroRing} />
+          <div className={styles.heroBgImage}>
+            <Image
+              src={talkingWebsiteHero.bannerImage}
+              alt={talkingWebsiteHero.bannerImageAlt}
+              fill
+              priority
+              sizes="100vw"
+              className={styles.heroBgImageEl}
+            />
           </div>
+          <div className={styles.heroBgOverlay} />
         </div>
 
         <Container className={styles.heroContainer}>
@@ -146,11 +148,6 @@ export function TalkingWebsiteContent() {
                   </li>
                 ))}
               </ul>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.1} className={styles.heroVisual}>
-              <div className={styles.heroVisualGlow} aria-hidden="true" />
-              <TalkingWebsiteHeroBannerVideo />
             </ScrollReveal>
           </div>
         </Container>
