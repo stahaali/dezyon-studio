@@ -1,0 +1,54 @@
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+}
+
+.swiper :global(.swiper-wrapper) {
+  align-items: flex-end;
+  transition-timing-function: linear !important;
+}
+
+.slide {
+  width: clamp(132px, 18vw, 220px) !important;
+  height: auto;
+}
+
+.card {
+  width: 100%;
+}
+
+.cardImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 400 / 810;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.slide:hover .cardImage {
+  transform: translateY(-8px);
+  box-shadow:
+    0 24px 52px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(var(--color-primary-rgb), 0.35);
+}
+
+@media (min-width: 992px) {
+  .slide {
+    width: clamp(160px, 14vw, 220px) !important;
+  }
+}

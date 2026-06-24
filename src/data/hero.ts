@@ -1,5 +1,8 @@
 export const HERO_ASSETS = "/assets/img/homebanner";
 
+export const heroBannerImage = `${HERO_ASSETS}/homebanner-1.webp`;
+export const heroBannerImageAlt = "Dezyon Studio digital agency hero background";
+
 export const heroAvatars = [
   { src: `${HERO_ASSETS}/03.webp`, alt: "Member avatar" },
   { src: `${HERO_ASSETS}/02.webp`, alt: "Member avatar" },

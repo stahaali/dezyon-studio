@@ -1,5 +1,6 @@
 import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { TalkingWebsiteContent } from "@/components/TalkingWebsite/TalkingWebsiteContent";
+import { contactVoiceWidgetAvatar } from "@/data/contact";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
@@ -22,7 +23,11 @@ export default function TalkingWebsitePage() {
         services={SERVICE_PAGE_DEFINITIONS["/talking-website"]}
         softwareApplication
       />
-      <TalkingWebsiteVoiceAssistant>
+      <TalkingWebsiteVoiceAssistant
+        showContactAvatar
+        avatarSrc={contactVoiceWidgetAvatar.src}
+        avatarAlt={contactVoiceWidgetAvatar.alt}
+      >
         <TalkingWebsiteContent />
       </TalkingWebsiteVoiceAssistant>
     </>

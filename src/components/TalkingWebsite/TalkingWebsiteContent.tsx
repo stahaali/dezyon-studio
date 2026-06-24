@@ -453,9 +453,12 @@ export function TalkingWebsiteContent() {
                     <span className={styles.pricingBadge}>Most Popular</span>
                   ) : null}
                   <h3 className={styles.pricingName}>{plan.name}</h3>
-                  <div className={styles.pricingAmount}>
-                    <span className={styles.pricingPrice}>{plan.price}</span>
-                    <span className={styles.pricingNote}>{plan.priceNote}</span>
+                  <div className={styles.pricingAmountWrap}>
+                    <div className={styles.pricingAmount}>
+                      <span className={styles.pricingPrice}>{plan.price}</span>
+                      <span className={styles.pricingNote}>{plan.priceNote}</span>
+                    </div>
+                    <p className={styles.pricingSetup}>{plan.setupPrice}</p>
                   </div>
                   <p className={styles.pricingDescription}>{plan.description}</p>
                   <div className={styles.pricingCardScrollBody}>

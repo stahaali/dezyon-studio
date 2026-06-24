@@ -81,6 +81,7 @@ export const talkingWebsitePricing = [
     name: "Starter",
     price: "$99",
     priceNote: "/ Month",
+    setupPrice: "Setup Prices",
     description: "Perfect for small businesses.",
     features: [
       "100 AI Call Minutes Included",
@@ -100,6 +101,7 @@ export const talkingWebsitePricing = [
     name: "Growth",
     price: "$299",
     priceNote: "/ Month",
+    setupPrice: "Setup Prices",
     description: "For growing businesses needing automation.",
     features: [
       "500 AI Call Minutes Included",
@@ -120,6 +122,7 @@ export const talkingWebsitePricing = [
     name: "Business",
     price: "$599",
     priceNote: "/ Month",
+    setupPrice: "Setup Prices",
     description: "For high-volume businesses and agencies.",
     features: [
       "1,500 AI Call Minutes Included",

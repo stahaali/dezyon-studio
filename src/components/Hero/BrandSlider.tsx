@@ -6,8 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { heroBrands } from "@/data/hero";
 import styles from "./BrandSlider.module.css";
 
-import "swiper/css";
-
 const sliderBrands = [...heroBrands, ...heroBrands];
 
 export function BrandSlider() {

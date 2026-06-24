@@ -15,20 +15,27 @@
   overflow: hidden;
 }
 
-.heroBgVideo {
+.heroBgImage {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+}
+
+.heroBgImageEl {
   object-fit: cover;
-  object-position: center center;
-  opacity: 0.35;
+  object-position: center;
+  opacity: 0.6;
 }
 
 .heroBgOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 2, 0, 0.55);
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 2, 0, 0.4) 0%,
+    rgba(0, 2, 0, 0.5) 50%,
+    rgba(0, 2, 0, 0.62) 100%
+  );
 }
 
 .hero .heroOuter {
@@ -448,10 +455,6 @@
     animation: none;
     opacity: 0;
   }
-
-  .heroBgVideo {
-    display: none;
-  }
 }
 
 .brandsSection {
@@ -713,5 +716,32 @@
   .hero .heroOuter,
   .brandsOuter {
     max-width: 1280px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding-top: var(--header-height);
+    padding-bottom: 48px;
+  }
+
+  .heroBg {
+    inset: 0;
+    height: auto;
+  }
+
+  .hero .heroOuter {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .heroGrid {
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
   }
 }

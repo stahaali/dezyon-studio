@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Star } from "lucide-react";
-import { heroAvatars, heroContent, heroRating } from "@/data/hero";
+import { heroAvatars, heroBannerImage, heroBannerImageAlt, heroContent, heroRating } from "@/data/hero";
 import { BrandSlider } from "@/components/Hero/BrandSlider";
 import { HeroTypewriterHighlight } from "@/components/Hero/HeroTypewriterHighlight";
 // import { HeroImageSlider } from "@/components/Hero/HeroImageSlider";
@@ -19,14 +19,16 @@ export function Hero() {
     <>
       <section className={styles.hero} aria-labelledby="hero-heading">
         <div className={styles.heroBg} aria-hidden="true">
-          <video
-            className={styles.heroBgVideo}
-            src="/assets/video/homebanner.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+          <div className={styles.heroBgImage}>
+            <Image
+              src={heroBannerImage}
+              alt={heroBannerImageAlt}
+              fill
+              priority
+              sizes="100vw"
+              className={styles.heroBgImageEl}
+            />
+          </div>
           <div className={styles.heroBgOverlay} />
         </div>
 

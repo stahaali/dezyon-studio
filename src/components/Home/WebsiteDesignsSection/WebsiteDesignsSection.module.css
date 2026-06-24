@@ -1,0 +1,97 @@
+.section {
+  width: 100%;
+  max-width: none;
+  background-color: #000200;
+  padding-top: 0;
+  padding-bottom: 56px;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.showcaseStage {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--container-padding);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.headingBlock {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 48px;
+  padding-block: 6px;
+  overflow: visible;
+}
+
+.titleComposition {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  overflow: visible;
+}
+
+.headingWord {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.wordLight {
+  color: #ffffff;
+}
+
+.wordHighlight {
+  display: inline-block;
+  padding: 0.14em 0.3em 0.16em;
+  border-radius: 0.16em;
+  background: var(--brand-gradient);
+  color: #000200;
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  line-height: 1.1;
+}
+
+.trackWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+@media (max-width: 575px) {
+  .headingBlock {
+    margin-bottom: 36px;
+    padding-block: 4px;
+  }
+
+  .titleComposition {
+    gap: 8px;
+  }
+
+  .wordHighlight {
+    transform: rotate(-2deg);
+  }
+}

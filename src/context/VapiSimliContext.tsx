@@ -10,13 +10,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import Vapi from "@vapi-ai/web";
-import {
-  generateIceServers,
-  generateSimliSessionToken,
-  LogLevel,
-  SimliClient,
-} from "simli-client";
+import type VapiClient from "@vapi-ai/web";
+import type { SimliClient } from "simli-client";
 import { isSimliConfigured, SIMLI_API_KEY, SIMLI_FACE_ID } from "@/lib/simli-config";
 import {
   isVapiConfigured,
@@ -65,7 +60,7 @@ function muteVapiInternalAudio() {
 }
 
 export function VapiSimliProvider({ children }: { children: ReactNode }) {
-  const vapiRef = useRef<Vapi | null>(null);
+  const vapiRef = useRef<VapiClient | null>(null);
   const simliRef = useRef<SimliClient | null>(null);
   const avatarVideoRef = useRef<HTMLVideoElement | null>(null);
   const avatarAudioRef = useRef<HTMLAudioElement | null>(null);
@@ -117,7 +112,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const attachVapiListeners = useCallback(
-    (vapi: Vapi) => {
+    (vapi: VapiClient) => {
       vapi.on("call-start", () => {
         transferActiveRef.current = false;
         setIsConnected(true);
@@ -212,33 +207,38 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     [connectVapiAudioToSimli],
   );
 
-  useEffect(() => {
-    if (!isVapiConfigured()) {
-      return;
+  const ensureVapi = useCallback(async () => {
+    if (vapiRef.current || !isVapiConfigured()) {
+      return vapiRef.current;
     }
 
+    const { default: Vapi } = await import("@vapi-ai/web");
     const vapi = new Vapi(VAPI_PUBLIC_KEY);
     vapiRef.current = vapi;
     attachVapiListeners(vapi);
+    return vapi;
+  }, [attachVapiListeners]);
 
+  useEffect(() => {
     return () => {
       simliRef.current?.stop();
-      vapi.stop();
+      vapiRef.current?.stop();
       vapiRef.current = null;
       simliRef.current = null;
     };
-  }, [attachVapiListeners]);
+  }, []);
 
   const startVapiCall = useCallback(async () => {
-    if (!vapiRef.current) {
+    const vapi = await ensureVapi();
+    if (!vapi) {
       throw new Error("Vapi is not initialized.");
     }
 
-    await vapiRef.current.start(
+    await vapi.start(
       VAPI_ASSISTANT_ID,
       createVapiTransferAssistantOverrides(),
     );
-  }, []);
+  }, [ensureVapi]);
 
   const startSimliSession = useCallback(async () => {
     const video = avatarVideoRef.current;
@@ -247,6 +247,13 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     if (!video || !audio) {
       throw new Error("Avatar media elements are not ready.");
     }
+
+    const {
+      generateIceServers,
+      generateSimliSessionToken,
+      LogLevel,
+      SimliClient: SimliClientConstructor,
+    } = await import("simli-client");
 
     const simliConfig = {
       faceId: SIMLI_FACE_ID,
@@ -261,7 +268,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     });
 
     const iceServers = await generateIceServers(SIMLI_API_KEY);
-    const simli = new SimliClient(
+    const simli = new SimliClientConstructor(
       session_token,
       video,
       audio,

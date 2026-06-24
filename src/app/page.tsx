@@ -1,13 +1,6 @@
-import { HomepageScrollPathShell } from "@/components/Home/HomepageScrollPath/HomepageScrollPathShell";
-import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
-import { ContactFAQ } from "@/components/Contact/ContactFAQ/ContactFAQ";
-import { CTA } from "@/components/CTA/CTA";
-import { Features } from "@/components/Features/Features";
-import { CapabilitiesSection } from "@/components/Home/CapabilitiesSection/CapabilitiesSection";
-import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/Hero/Hero";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { contactFaq } from "@/data/contact";
 import {
   buildCanonicalUrl,
@@ -18,6 +11,48 @@ import {
 } from "@/lib/seo";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
+
+const HomepageScrollPathShell = dynamic(
+  () =>
+    import("@/components/Home/HomepageScrollPath/HomepageScrollPathShell").then(
+      (module) => module.HomepageScrollPathShell,
+    ),
+);
+
+const CapabilitiesSection = dynamic(
+  () =>
+    import("@/components/Home/CapabilitiesSection/CapabilitiesSection").then(
+      (module) => module.CapabilitiesSection,
+    ),
+);
+
+const WebsiteDesignsSection = dynamic(() =>
+  import("@/components/Home/WebsiteDesignsSection/WebsiteDesignsSection").then(
+    (module) => module.WebsiteDesignsSection,
+  ),
+);
+
+const HomeStats = dynamic(() =>
+  import("@/components/Home/HomeStats/HomeStats").then(
+    (module) => module.HomeStats,
+  ),
+);
+
+const CTA = dynamic(() =>
+  import("@/components/CTA/CTA").then((module) => module.CTA),
+);
+
+const Testimonials = dynamic(() =>
+  import("@/components/Testimonials/Testimonials").then(
+    (module) => module.Testimonials,
+  ),
+);
+
+const ContactFAQ = dynamic(() =>
+  import("@/components/Contact/ContactFAQ/ContactFAQ").then(
+    (module) => module.ContactFAQ,
+  ),
+);
 
 const homeCanonical = buildCanonicalUrl("/");
 const baseHomeMetadata = createPageMetadata("home");
@@ -58,17 +93,15 @@ export default function HomePage() {
         path={homeSeo.path}
         faq={contactFaq.items}
       />
-      <TalkingWebsiteVoiceAssistant>
-        <HomepageScrollPathShell className={styles.home}>
-          <Hero />
-          <CapabilitiesSection />
-          <Features />
-          <HomeStats className={styles.aboveScrollPath} />
-          <CTA compact />
-          <Testimonials className={styles.aboveScrollPath} />
-          <ContactFAQ twoColumn sectionClassName={styles.aboveScrollPath} />
-        </HomepageScrollPathShell>
-      </TalkingWebsiteVoiceAssistant>
+      <HomepageScrollPathShell className={styles.home}>
+        <Hero />
+        <CapabilitiesSection />
+        <WebsiteDesignsSection />
+        <HomeStats className={styles.aboveScrollPath} />
+        <CTA compact />
+        <Testimonials className={styles.aboveScrollPath} />
+        <ContactFAQ twoColumn sectionClassName={styles.aboveScrollPath} />
+      </HomepageScrollPathShell>
     </>
   );
 }
