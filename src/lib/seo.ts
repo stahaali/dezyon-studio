@@ -9,9 +9,9 @@ import { SITE_NAME, SITE_URL } from "./constants";
 
 export const DEFAULT_OG_IMAGE = "/assets/img/web-app/mobile-app-img1.webp";
 
-/** Homepage `<title>` — descriptive length for Bing/Google (≈55–70 chars). */
+/** Homepage `<title>` — descriptive length for Bing/Google (≈55–65 chars). */
 export const HOME_DOCUMENT_TITLE =
-  "Dezyon Studio | AI Talking Websites, Web Development & Digital Marketing Agency";
+  "Dezyon Studio | AI Talking Websites & Digital Marketing Agency";
 
 export type PageSeoKey =
   | "home"
@@ -41,7 +41,7 @@ export type PageSeoConfig = {
 
 export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
   home: {
-    title: "AI Talking Websites, Web Development & Digital Marketing Agency",
+    title: "AI Talking Websites & Digital Marketing Agency",
     description:
       "Dezyon Studio helps businesses grow with AI Talking Websites, Custom Website Development, AI Video Creation, Digital Marketing, Video Editing, AI Receptionists, and Branding Solutions.",
     keywords: [
@@ -81,7 +81,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/",
   },
   about: {
-    title: "About Dezyon Studio | AI-Powered Website",
+    title: "About Dezyon Studio | AI-Powered Digital Agency & Web Design",
     description:
       "Dezyon Studio is a creative digital agency helping businesses grow through AI-powered solutions. We specialize in Talking Websites, Custom Website Development, AI Video Creation, AI Influencers, Branding, Digital Marketing, Content Creation, and Business Automation to increase engagement, leads, and sales.",
     keywords: [
@@ -94,7 +94,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/about",
   },
   services: {
-    title: "Marketing Dezyon Studio | AI Growth Marketing",
+    title: "Digital Marketing Dezyon Studio | AI Growth & Content Services",
     description:
       "Stop wasting time learning AI tools. Dezyon Studio delivers done-for-you marketing with AI-powered content, video reels, social media management, paid ads, and lead generation systems.",
     keywords: [
@@ -151,7 +151,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     ogImage: "/assets/img/web-app/mobile-app-img2.webp",
   },
   contact: {
-    title: "Contact | Dezyon Studio",
+    title: "Contact Dezyon Studio | Web Design, Branding & AI Marketing",
     description:
       "Get in touch with Dezyon Studio. Send us a message, explore other ways to reach us, or browse frequently asked questions about our design and development services.",
     keywords: [
@@ -221,7 +221,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/combo-packages",
   },
   privacyPolicy: {
-    title: "Privacy Policy | Dezyon Studio",
+    title: "Privacy Policy | Dezyon Studio — Data Protection & Cookies",
     description:
       "Read the Dezyon Studio privacy policy to understand how we collect, use, store, and protect your personal information across our website and services.",
     keywords: [
@@ -234,7 +234,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/privacy-policy",
   },
   termsAndConditions: {
-    title: "Terms & Condition | Dezyon Studio",
+    title: "Terms & Conditions | Dezyon Studio Website & Services",
     description:
       "Review Dezyon Studio terms and conditions covering website use, service agreements, disclaimers, limitations of liability, and user responsibilities.",
     keywords: [
@@ -247,7 +247,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/terms-and-conditions",
   },
   refundPolicy: {
-    title: "Refund Policy | Dezyon Studio",
+    title: "Refund Policy | Dezyon Studio Design & Development Services",
     description:
       "Learn about Dezyon Studio's refund policy for design, branding, and development services, including eligibility, timelines, and how to submit a request.",
     keywords: [
@@ -260,7 +260,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/refund-policy",
   },
   thankYou: {
-    title: "Thank You — Message Received",
+    title: "Thank You | Dezyon Studio — Your Message Was Received",
     description:
       "Your contact form submission was received successfully. The Dezyon Studio team will get back to you shortly.",
     keywords: ["contact confirmation", "Dezyon Studio thank you"],
@@ -366,7 +366,10 @@ export function getDocumentTitle(config: PageSeoConfig): string {
     config.path === "/contact" ||
     config.path === "/privacy-policy" ||
     config.path === "/terms-and-conditions" ||
-    config.path === "/refund-policy"
+    config.path === "/refund-policy" ||
+    config.path === "/packages" ||
+    config.path === "/contact/thank-you" ||
+    config.path.startsWith("/pricing/")
   ) {
     return config.title;
   }
@@ -387,12 +390,15 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
   const isPrivacyPolicy = config.path === "/privacy-policy";
   const isTermsAndConditions = config.path === "/terms-and-conditions";
   const isRefundPolicy = config.path === "/refund-policy";
+  const isPackages = config.path === "/packages";
+  const isThankYou = config.path === "/contact/thank-you";
+  const isPricingCategory = config.path.startsWith("/pricing/");
   const documentTitle = getDocumentTitle(config);
   const openGraphTitle = documentTitle;
 
   return {
     title:
-      isHome || isAbout || isMarketing || isTalkingWebsite || isPlansAndPricing || isVideoEditing || isContact || isPrivacyPolicy || isTermsAndConditions || isRefundPolicy
+      isHome || isAbout || isMarketing || isTalkingWebsite || isPlansAndPricing || isVideoEditing || isContact || isPrivacyPolicy || isTermsAndConditions || isRefundPolicy || isPackages || isThankYou || isPricingCategory
         ? { absolute: documentTitle }
         : config.title,
     description: config.description,
@@ -455,7 +461,7 @@ export function createPricingCategoryMetadata(categoryId: PackageCategoryId): Me
   const meta = packageCategoryMeta[categoryId];
 
   return buildPageMetadata({
-    title: `${label} Pricing Packages`,
+    title: `Dezyon Studio ${label} Packages — Pricing, Plans & Services`,
     description: meta.description,
     keywords: PRICING_CATEGORY_KEYWORDS[categoryId],
     path: getPricingCategoryPath(categoryId),
