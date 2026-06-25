@@ -44,3 +44,44 @@
   white-space: nowrap;
   border: 0;
 }
+
+@media (max-width: 576px) {
+  .section {
+    padding-bottom: 32px;
+  }
+
+  .link {
+    aspect-ratio: var(--cta-aspect, 1280 / 423);
+    min-height: 0;
+    border-radius: var(--radius-xl);
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  .link {
+    aspect-ratio: 1280 / 423;
+    min-height: 168px;
+    background-position: 66% center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .section {
+    padding-bottom: 44px;
+  }
+
+  .link {
+    min-height: 220px;
+    background-position: 58% center;
+  }
+}
+
+@media (min-width: 992px) {
+  .link {
+    min-height: 280px;
+    background-position: center;
+  }
+}

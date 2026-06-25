@@ -72,7 +72,7 @@ function buildMarketingFloatingIcons(): FloatingIcon[] {
 
 export const marketingHero = {
   ...servicesHero,
-  bannerImage: "/assets/img/marketing/marketing-banner.webp",
-  bannerImageAlt: "Digital marketing and audience growth background",
+  bannerImage: "/assets/img/talking-website/talking-website-banner.webp",
+  bannerImageAlt: "Hands holding smartphones showing social media and digital content",
   floatingIcons: buildMarketingFloatingIcons(),
 } as const;

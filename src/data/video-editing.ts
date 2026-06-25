@@ -8,6 +8,8 @@ export const videoEditingHero = {
     "From creating a complete AI personality to producing viral content, we handle everything your brand needs to stand out online.",
   ],
   cta: { label: "Get Started", href: "/contact" },
+  bannerImage: "/assets/img/video-editing/video-bg.webp",
+  bannerImageAlt: "Video editor working at a multi-monitor editing workstation",
 } as const;
 
 export const videoEditingHeroVisual = {
