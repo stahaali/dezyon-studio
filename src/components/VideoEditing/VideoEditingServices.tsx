@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Check,
   Clapperboard,
   Image as ImageIcon,
   Mic,
@@ -16,6 +15,7 @@ import {
   videoEditingServicesIntro,
 } from "@/data/video-editing";
 import { videoEditingServiceTones } from "@/components/VideoEditing/video-editing-icon-tones";
+import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
@@ -47,6 +47,9 @@ export function VideoEditingServices() {
               align="center"
               className={styles.servicesHeading}
             />
+            <p className={styles.servicesDescription}>
+              {videoEditingServicesIntro.description}
+            </p>
           </header>
         </ScrollReveal>
 
@@ -60,54 +63,26 @@ export function VideoEditingServices() {
                 key={service.id}
                 delay={index * 0.05}
                 as="article"
-                className={`${styles.serviceCard} ${styles.accentBrand}`}
+                className={styles.serviceCard}
               >
-                <div className={styles.cardInner}>
-                  <div className={styles.cardTop}>
-                    <TalkingWebsiteGradientIcon
-                      icon={Icon}
-                      tone={tone}
-                      size="tagline"
-                    />
-                    <span className={styles.serviceIndex}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
+                <div className={styles.iconFloating} aria-hidden="true">
+                  <TalkingWebsiteGradientIcon
+                    icon={Icon}
+                    tone={tone}
+                    size="feature"
+                  />
+                </div>
 
+                <div className={styles.cardInner}>
                   <h3 className={styles.serviceTitle}>{service.title}</h3>
                   <p className={styles.serviceIntro}>{service.intro}</p>
-
-                  <div
-                    className={`${styles.serviceBody} ${
-                      service.sections.length > 1
-                        ? styles.serviceBodyColumns
-                        : styles.serviceBodyStack
-                    }`}
+                  <Button
+                    href={videoEditingServicesIntro.cta.href}
+                    size="sm"
+                    className={styles.cardCta}
                   >
-                    {service.sections.map((section) => (
-                      <div key={section.label} className={styles.serviceBlock}>
-                        <h4 className={styles.serviceLabel}>{section.label}</h4>
-                        <ul
-                          className={`${styles.serviceList} ${
-                            "listColumns" in section && section.listColumns === 2
-                              ? styles.serviceListColumns
-                              : ""
-                          }`.trim()}
-                        >
-                          {section.items.map((item) => (
-                            <li key={item}>
-                              <Check
-                                size={14}
-                                strokeWidth={2.5}
-                                aria-hidden="true"
-                              />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
+                    {videoEditingServicesIntro.cta.label}
+                  </Button>
                 </div>
               </ScrollReveal>
             );

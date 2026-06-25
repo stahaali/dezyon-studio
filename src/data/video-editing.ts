@@ -1,11 +1,11 @@
 export const videoEditingHero = {
   badge: "Editing Service",
-  titlePrefix: "AI-Powered Content Creation",
-  titleHighlight: "& Influencer Branding",
-  subtitle: "We Don't Just Edit Videos — We Build AI Brands",
+  titlePrefix: "Hire Expert Video Editors",
+  titleHighlight: "Crafting Brands",
+  subtitle: "Struggling to Create Professional Business Videos Even After Trying Multiple AI Tools?",
   description: [
-    "We help businesses, startups, coaches, agencies, and e-commerce brands grow with AI-generated content, AI influencers, video editing, voiceovers, and social media branding.",
-    "From creating a complete AI personality to producing viral content, we handle everything your brand needs to stand out online.",
+    "Don't waste hours learning complicated software or generating content that doesn't deliver results.",
+    "At Dezyon Studio, our professional video editing team is available 24/7 to transform your ideas into high-quality, engaging videos that help your business stand out. We provide timely updates, regular follow-ups, and fast turnaround times—most projects completed within 24 hours."
   ],
   cta: { label: "Get Started", href: "/contact" },
   bannerImage: "/assets/img/video-editing/video-bg.webp",
@@ -25,6 +25,7 @@ export const videoEditingServicesIntro = {
   titleHighlight: "Creation Services",
   description:
     "End-to-end AI content production for brands that want cinematic quality, viral reach, and consistent growth — without the overhead of a full in-house team.",
+  cta: { label: "Learn More", href: "/contact" },
 } as const;
 
 export const videoEditingServices = [
@@ -34,69 +35,18 @@ export const videoEditingServices = [
     title: "AI Influencer Creation",
     intro:
       "Launch your own AI Influencer that represents your brand 24/7.",
-    sections: [
-      {
-        label: "What We Create",
-        items: [
-          "AI Influencer Design",
-          "AI Character Development",
-          "Brand Personality Creation",
-          "AI Avatar Videos",
-        ],
-      },
-      {
-        label: "Perfect for",
-        items: [
-          "Personal Brands",
-          "E-commerce Stores",
-          "Agencies",
-        ],
-      },
-    ],
   },
   {
     id: "video-editing",
     icon: "clapperboard",
     title: "Professional Video Editing",
-    intro: "High-performance editing for:",
-    sections: [
-      {
-        label: "Formats",
-        listColumns: 2,
-        items: [
-          "YouTube Videos",
-          "Gaming Content",
-          "YouTube Shorts",
-          "Instagram Reels",
-          "TikTok Videos",
-          "Corporate Content",
-        ],
-      },
-    ],
+    intro: "High-performance editing for YouTube, Shorts, Reels, TikTok, gaming, and corporate content.",
   },
   {
     id: "voiceovers",
     icon: "mic",
     title: "AI Voiceovers",
     intro: "Human-like voiceovers powered by ElevenLabs and advanced AI voice tools.",
-    sections: [
-      {
-        label: "Services",
-        items: [
-          "AI Voice Cloning",
-          "Multi-Language Voice Generation",
-          "Commercial Voiceovers",
-        ],
-      },
-      {
-        label: "Benefits",
-        items: [
-          "Natural Human Voices",
-          "Brand Voice Consistency",
-          "Fast Production",
-        ],
-      },
-    ],
   },
   {
     id: "ai-video",
@@ -104,18 +54,6 @@ export const videoEditingServices = [
     title: "AI Video Generation",
     intro:
       "Create studio-quality videos without expensive production teams using Runway, Higgsfield, Pika, Luma AI, and Kling AI.",
-    sections: [
-      {
-        label: "We Create",
-        listColumns: 2,
-        items: [
-          "AI Commercials",
-          "Product Videos",
-          "AI UGC Content",
-          "Social Media Ads",
-        ],
-      },
-    ],
   },
   {
     id: "ai-images",
@@ -123,36 +61,12 @@ export const videoEditingServices = [
     title: "AI Image Generation & Branding",
     intro:
       "Create premium brand visuals using Midjourney, Adobe Firefly, and Ideogram.",
-    sections: [
-      {
-        label: "Deliverables",
-        listColumns: 2,
-        items: [
-          "Brand Images",
-          "Product Mockups",
-          "Social Media Creatives",
-          "Advertising Visuals",
-        ],
-      },
-    ],
   },
   {
     id: "social-media",
     icon: "share",
     title: "Social Media Content Production",
     intro: "We create content optimized for Instagram, TikTok, YouTube, Facebook, and LinkedIn.",
-    sections: [
-      {
-        label: "Content Includes",
-        listColumns: 2,
-        items: [
-          "Reels",
-          "Shorts",
-          "Viral Clips",
-          "Product Promotions",
-        ],
-      },
-    ],
   },
 ] as const;
 
@@ -210,9 +124,17 @@ export const videoEditingToolGroups = [
 ] as const;
 
 export const videoEditingBenefitsIntro = {
-  eyebrow: "Why Us",
   titlePrefix: "Why Brands ",
   titleHighlight: "Choose Us",
+  description:
+    "We help businesses, startups, coaches, agencies, and e-commerce brands grow with AI-generated content, AI influencers, video editing, voiceovers, and social media branding.",
+} as const;
+
+export const videoEditingWhyChooseVisual = {
+  mainImage: "/assets/img/video-editing/about-01.webp",
+  mainImageAlt: "Professional reviewing content on a tablet in a video editing studio",
+  insetImage: "/assets/img/video-editing/about-02.webp",
+  insetImageAlt: "Creator reviewing multi-screen video feeds in a production control room",
 } as const;
 
 export const videoEditingBenefits = [

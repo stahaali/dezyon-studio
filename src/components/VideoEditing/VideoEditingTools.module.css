@@ -1,8 +1,4 @@
 .tools {
-  --vt-primary: var(--color-primary);
-  --vt-primary-rgb: var(--color-primary-rgb);
-  --vt-gap: 10px;
-
   position: relative;
   padding-top: 0;
   padding-bottom: 56px;
@@ -21,7 +17,7 @@
   align-items: center;
   gap: 16px;
   max-width: 720px;
-  margin: 0 auto 48px;
+  margin: 0 auto 40px;
   text-align: center;
 }
 
@@ -36,64 +32,30 @@
   color: rgba(255, 255, 255, 0.68);
 }
 
-.toolsGrid {
+.toolsPanel {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  align-items: stretch;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
 }
 
-.toolsGrid > article {
+.toolsColumn {
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-
-.toolCard {
-  --card-accent: var(--vt-primary);
-  --card-accent-soft: rgba(var(--vt-primary-rgb), 0.14);
-
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-}
-
-.cardInner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: var(--vt-gap);
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  padding: 22px 20px 24px;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.cardTop {
-  display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 18px;
+  padding: 28px 24px 30px;
 }
 
-.toolIndex {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.28);
+.toolsColumnDivider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.toolTitle {
+.columnTitle {
   margin: 0;
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.02em;
@@ -102,111 +64,105 @@
 
 .toolList {
   display: flex;
-  flex: 1;
   flex-direction: column;
-  gap: var(--vt-gap);
+  gap: 10px;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.toolLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.88);
-  text-decoration: none;
-}
-
-.toolLink span {
+.toolItem {
   min-width: 0;
 }
 
-.toolLink svg {
+.toolLink {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.toolCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  color: var(--card-accent);
-  opacity: 0.85;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: rgba(var(--color-primary-rgb), 0.14);
+  color: var(--color-primary);
 }
 
-.accentPrimary {
-  --card-accent: var(--color-primary);
-  --card-accent-soft: rgba(var(--vt-primary-rgb), 0.16);
+.toolLink span:last-child {
+  min-width: 0;
 }
 
-@media (min-width: 576px) {
-  .toolsGrid {
+.toolLink:hover {
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .toolsPanel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
-}
-
-@media (min-width: 768px) {
-  .toolsGrid {
-    gap: 18px;
   }
 
-  .toolsHeader {
-    margin-bottom: 44px;
+  .toolsColumn {
+    padding: 30px 26px 32px;
+  }
+
+  .toolsColumnDivider {
+    border-bottom: none;
+  }
+
+  .toolsColumn:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .toolsColumn:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
 @media (min-width: 992px) {
-  .toolsGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-  }
-
-  .cardInner {
-    padding: 24px 20px 26px;
-  }
-
   .toolsHeader {
     margin-bottom: 48px;
   }
+
+  .toolsPanel {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .toolsColumn {
+    padding: 34px 28px 36px;
+  }
+
+  .toolsColumn:nth-child(odd) {
+    border-right: none;
+  }
+
+  .toolsColumn:nth-child(-n + 2) {
+    border-bottom: none;
+  }
+
+  .toolsColumn:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
-/* Lock tools section to the 1366px view at 1600px and 1920px */
 @media (min-width: 1600px) {
   .toolsDescription {
     font-size: 17px;
   }
 
-  .toolTitle {
+  .columnTitle {
     font-size: 1.125rem;
-  }
-
-  .toolsGrid {
-    gap: 18px;
-  }
-
-  .toolsHeader {
-    margin-bottom: 48px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .toolsDescription {
-    font-size: 17px;
-  }
-
-  .toolTitle {
-    font-size: 1.125rem;
-  }
-
-  .toolsGrid {
-    gap: 18px;
-  }
-
-  .toolsHeader {
-    margin-bottom: 48px;
   }
 }

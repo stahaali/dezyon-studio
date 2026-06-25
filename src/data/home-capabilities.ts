@@ -1,5 +1,7 @@
 import { heroBrands } from "@/data/hero";
 
+const CAPABILITIES_ASSETS = "/assets/img/home-capabilities";
+
 export const homeCapabilitiesSection = {
   titlePrefix: "We ",
   titleHighlight: "Transform",
@@ -49,7 +51,7 @@ export const homeCapabilitiesTabs = [
       "Chat Bot Integration",
       "Website Maintenance & Support",
     ],
-    backgroundImage: null,
+    backgroundImage: `${CAPABILITIES_ASSETS}/development-bg.webp`,
   },
   {
     id: "webops",
@@ -69,7 +71,7 @@ export const homeCapabilitiesTabs = [
       "AI Lead Generation",
       "AI Appointment Booking",
     ],
-    backgroundImage: null,
+    backgroundImage: `${CAPABILITIES_ASSETS}/webops-bg.webp`,
   },
   {
     id: "digitalbranding",
@@ -85,7 +87,7 @@ export const homeCapabilitiesTabs = [
       "AI Avatar Creation",
       "Digital Brand Ambassadors",
       "Brand Personality Creation",
-      "Social Media Content Strategy"
+      "Social Media Content Strategy",
     ],
     backgroundImage: null,
   },
@@ -104,7 +106,7 @@ export const homeCapabilitiesTabs = [
       "Technical SEO",
       "Design and development",
     ],
-    backgroundImage: null,
+    backgroundImage: `${CAPABILITIES_ASSETS}/seo-bg.webp`,
   },
 ] as const;
 

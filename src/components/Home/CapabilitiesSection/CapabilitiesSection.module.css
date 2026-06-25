@@ -101,27 +101,59 @@
   box-shadow: none;
 }
 
-.tabBtnActiverebrand,
-.tabBtnActivedevelopment,
-.tabBtnActivewebops,
-.tabBtnActivedigitalbranding,
-.tabBtnActiveseo {
+.tabBtnActiverebrand {
   background: var(--brand-gradient-panel);
   border-color: rgba(var(--color-primary-rgb), 0.28);
 }
 
+.tabBtnActivedevelopment {
+  background: linear-gradient(135deg, #05122a 0%, #082248 48%, #040e20 100%);
+  border-color: rgba(147, 197, 253, 0.28);
+}
+
+.tabBtnActivewebops {
+  background: linear-gradient(135deg, #1c0c34 0%, #2e124e 48%, #120826 100%);
+  border-color: rgba(216, 180, 254, 0.28);
+}
+
+.tabBtnActivedigitalbranding {
+  background: linear-gradient(135deg, #4c0a2a 0%, #7c1c44 48%, #2a081c 100%);
+  border-color: rgba(251, 207, 232, 0.28);
+}
+
+.tabBtnActiveseo {
+  background: linear-gradient(135deg, #2a1808 0%, #48260c 48%, #1c1006 100%);
+  border-color: rgba(253, 186, 116, 0.28);
+}
+
 .tabBtnActiverebrand:hover,
-.tabBtnActiverebrand:active,
-.tabBtnActivedevelopment:hover,
-.tabBtnActivedevelopment:active,
-.tabBtnActivewebops:hover,
-.tabBtnActivewebops:active,
-.tabBtnActivedigitalbranding:hover,
-.tabBtnActivedigitalbranding:active,
-.tabBtnActiveseo:hover,
-.tabBtnActiveseo:active {
+.tabBtnActiverebrand:active {
   background: var(--brand-gradient-panel);
   border-color: rgba(var(--color-primary-rgb), 0.28);
+}
+
+.tabBtnActivedevelopment:hover,
+.tabBtnActivedevelopment:active {
+  background: linear-gradient(135deg, #05122a 0%, #082248 48%, #040e20 100%);
+  border-color: rgba(147, 197, 253, 0.28);
+}
+
+.tabBtnActivewebops:hover,
+.tabBtnActivewebops:active {
+  background: linear-gradient(135deg, #1c0c34 0%, #2e124e 48%, #120826 100%);
+  border-color: rgba(216, 180, 254, 0.28);
+}
+
+.tabBtnActivedigitalbranding:hover,
+.tabBtnActivedigitalbranding:active {
+  background: linear-gradient(135deg, #4c0a2a 0%, #7c1c44 48%, #2a081c 100%);
+  border-color: rgba(251, 207, 232, 0.28);
+}
+
+.tabBtnActiveseo:hover,
+.tabBtnActiveseo:active {
+  background: linear-gradient(135deg, #2a1808 0%, #48260c 48%, #1c1006 100%);
+  border-color: rgba(253, 186, 116, 0.28);
 }
 
 .tabBtnActive:hover {
@@ -150,12 +182,18 @@
   overflow: hidden;
 }
 
-.panelBgrebrand,
+.panelBgrebrand {
+  background: var(--brand-gradient-panel);
+}
+
 .panelBgdevelopment,
 .panelBgwebops,
-.panelBgseo,
+.panelBgseo {
+  background: #061018;
+}
+
 .panelBgdigitalbranding {
-  background: var(--brand-gradient-panel);
+  background: #1a0814;
 }
 
 .panelBgImage {
@@ -178,12 +216,44 @@
   pointer-events: none;
 }
 
-.panelBgrebrand .panelBgOverlay,
-.panelBgdevelopment .panelBgOverlay,
-.panelBgwebops .panelBgOverlay,
-.panelBgseo .panelBgOverlay,
-.panelBgdigitalbranding .panelBgOverlay {
+.panelBgrebrand .panelBgOverlay {
   display: none;
+}
+
+.panelBgdevelopment .panelBgOverlay {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 18, 42, 0.9) 0%,
+    rgba(8, 34, 72, 0.78) 48%,
+    rgba(4, 14, 32, 0.92) 100%
+  );
+}
+
+.panelBgwebops .panelBgOverlay {
+  background: linear-gradient(
+    135deg,
+    rgba(28, 12, 52, 0.9) 0%,
+    rgba(46, 18, 78, 0.76) 48%,
+    rgba(18, 8, 38, 0.92) 100%
+  );
+}
+
+.panelBgdigitalbranding .panelBgOverlay {
+  background: linear-gradient(
+    135deg,
+    rgba(76, 10, 42, 0.92) 0%,
+    rgba(124, 28, 68, 0.78) 48%,
+    rgba(42, 8, 28, 0.94) 100%
+  );
+}
+
+.panelBgseo .panelBgOverlay {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 24, 8, 0.9) 0%,
+    rgba(72, 38, 12, 0.76) 48%,
+    rgba(28, 16, 6, 0.92) 100%
+  );
 }
 
 .shapeOne,
@@ -251,6 +321,86 @@
   transform: rotate(-12deg);
   animation-name: shapeRevealFour;
   animation-delay: 0.36s;
+}
+
+.panelBgdevelopment .shapeOne {
+  background: linear-gradient(160deg, rgba(56, 132, 220, 0.82) 0%, rgba(24, 78, 156, 0.68) 100%);
+  border-color: rgba(147, 197, 253, 0.22);
+}
+
+.panelBgdevelopment .shapeTwo {
+  background: linear-gradient(155deg, rgba(30, 96, 180, 0.74) 0%, rgba(14, 58, 122, 0.62) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.panelBgdevelopment .shapeThree {
+  background: linear-gradient(145deg, rgba(72, 148, 228, 0.58) 0%, rgba(28, 88, 168, 0.46) 100%);
+  border-color: rgba(147, 197, 253, 0.16);
+}
+
+.panelBgdevelopment .shapeFour {
+  background: linear-gradient(140deg, rgba(96, 165, 250, 0.22) 0%, rgba(37, 99, 235, 0.34) 100%);
+  border-color: rgba(147, 197, 253, 0.2);
+}
+
+.panelBgwebops .shapeOne {
+  background: linear-gradient(160deg, rgba(132, 84, 220, 0.82) 0%, rgba(88, 44, 168, 0.68) 100%);
+  border-color: rgba(216, 180, 254, 0.22);
+}
+
+.panelBgwebops .shapeTwo {
+  background: linear-gradient(155deg, rgba(104, 58, 188, 0.74) 0%, rgba(68, 32, 132, 0.62) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.panelBgwebops .shapeThree {
+  background: linear-gradient(145deg, rgba(148, 98, 228, 0.58) 0%, rgba(84, 48, 168, 0.46) 100%);
+  border-color: rgba(216, 180, 254, 0.16);
+}
+
+.panelBgwebops .shapeFour {
+  background: linear-gradient(140deg, rgba(192, 132, 252, 0.22) 0%, rgba(124, 58, 237, 0.34) 100%);
+  border-color: rgba(216, 180, 254, 0.2);
+}
+
+.panelBgdigitalbranding .shapeOne {
+  background: linear-gradient(160deg, rgba(236, 72, 153, 0.82) 0%, rgba(157, 23, 77, 0.68) 100%);
+  border-color: rgba(251, 207, 232, 0.22);
+}
+
+.panelBgdigitalbranding .shapeTwo {
+  background: linear-gradient(155deg, rgba(219, 39, 119, 0.74) 0%, rgba(131, 24, 67, 0.62) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.panelBgdigitalbranding .shapeThree {
+  background: linear-gradient(145deg, rgba(244, 114, 182, 0.58) 0%, rgba(190, 24, 93, 0.46) 100%);
+  border-color: rgba(251, 207, 232, 0.16);
+}
+
+.panelBgdigitalbranding .shapeFour {
+  background: linear-gradient(140deg, rgba(252, 231, 243, 0.22) 0%, rgba(236, 72, 153, 0.34) 100%);
+  border-color: rgba(251, 207, 232, 0.2);
+}
+
+.panelBgseo .shapeOne {
+  background: linear-gradient(160deg, rgba(220, 132, 56, 0.82) 0%, rgba(168, 84, 24, 0.68) 100%);
+  border-color: rgba(253, 186, 116, 0.22);
+}
+
+.panelBgseo .shapeTwo {
+  background: linear-gradient(155deg, rgba(188, 96, 30, 0.74) 0%, rgba(132, 62, 18, 0.62) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.panelBgseo .shapeThree {
+  background: linear-gradient(145deg, rgba(228, 148, 72, 0.58) 0%, rgba(168, 92, 32, 0.46) 100%);
+  border-color: rgba(253, 186, 116, 0.16);
+}
+
+.panelBgseo .shapeFour {
+  background: linear-gradient(140deg, rgba(251, 191, 36, 0.22) 0%, rgba(217, 119, 6, 0.34) 100%);
+  border-color: rgba(253, 186, 116, 0.2);
 }
 
 @keyframes panelBgReveal {

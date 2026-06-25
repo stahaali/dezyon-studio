@@ -1,18 +1,18 @@
 "use client";
 
 import {
+  Check,
   Clapperboard,
-  ExternalLink,
   Image as ImageIcon,
   Mic,
   Video,
   type LucideIcon,
 } from "lucide-react";
-import { TalkingWebsiteGradientIcon } from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon";
 import {
   videoEditingToolGroups,
   videoEditingToolsIntro,
 } from "@/data/video-editing";
+import { TalkingWebsiteGradientIcon } from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon";
 import { videoEditingToolTones } from "@/components/VideoEditing/video-editing-icon-tones";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -49,56 +49,47 @@ export function VideoEditingTools() {
           </header>
         </ScrollReveal>
 
-        <div className={styles.toolsGrid}>
-          {videoEditingToolGroups.map((group, index) => {
-            const Icon = toolIcons[group.title] ?? Video;
-            const tone = videoEditingToolTones[index];
+        <ScrollReveal delay={0.06}>
+          <div className={styles.toolsPanel}>
+            {videoEditingToolGroups.map((group, index) => {
+              const Icon = toolIcons[group.title] ?? Video;
+              const isLast = index === videoEditingToolGroups.length - 1;
 
-            return (
-              <ScrollReveal
-                key={group.title}
-                delay={index * 0.06}
-                as="article"
-                className={`${styles.toolCard} ${styles.accentPrimary}`}
-              >
-                <div className={styles.cardInner}>
-                  <div className={styles.cardTop}>
-                    <TalkingWebsiteGradientIcon
-                      icon={Icon}
-                      tone={tone}
-                      size="tagline"
-                    />
-                    <span className={styles.toolIndex}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
+              return (
+                <article
+                  key={group.title}
+                  className={`${styles.toolsColumn} ${!isLast ? styles.toolsColumnDivider : ""}`.trim()}
+                >
+                  <TalkingWebsiteGradientIcon
+                    icon={Icon}
+                    tone={videoEditingToolTones[index]}
+                    size="feature"
+                  />
 
-                  <h3 className={styles.toolTitle}>{group.title}</h3>
+                  <h3 className={styles.columnTitle}>{group.title}</h3>
 
                   <ul className={styles.toolList}>
                     {group.tools.map((tool) => (
-                      <li key={tool.name}>
+                      <li key={tool.name} className={styles.toolItem}>
                         <a
                           href={tool.href}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={styles.toolLink}
                         >
+                          <span className={styles.toolCheck} aria-hidden="true">
+                            <Check size={12} strokeWidth={2.8} />
+                          </span>
                           <span>{tool.name}</span>
-                          <ExternalLink
-                            size={14}
-                            strokeWidth={2}
-                            aria-hidden="true"
-                          />
                         </a>
                       </li>
                     ))}
                   </ul>
-                </div>
-              </ScrollReveal>
-            );
-          })}
-        </div>
+                </article>
+              );
+            })}
+          </div>
+        </ScrollReveal>
       </Container>
     </section>
   );

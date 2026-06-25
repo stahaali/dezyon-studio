@@ -2,12 +2,9 @@
 
 import {
   ArrowRight,
-  Check,
 } from "lucide-react";
 import Image from "next/image";
 import {
-  videoEditingBenefits,
-  videoEditingBenefitsIntro,
   videoEditingCtaBanner,
   videoEditingHero,
 } from "@/data/video-editing";
@@ -15,10 +12,10 @@ import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
-import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
 import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
 import { VideoEditingServices } from "@/components/VideoEditing/VideoEditingServices";
 import { VideoEditingTools } from "@/components/VideoEditing/VideoEditingTools";
+import { VideoEditingWhyChoose } from "@/components/VideoEditing/VideoEditingWhyChoose";
 import styles from "./VideoEditing.module.css";
 
 export function VideoEditingContent() {
@@ -46,12 +43,10 @@ export function VideoEditingContent() {
                 id="video-editing-hero-heading"
                 className={`${splitTitleStyles.title} ${styles.heroTitle}`}
               >
-                <span className={`${splitTitleStyles.lightOnDark} ${styles.heroTitleStack}`}>
-                  <span className={styles.heroTitleLine}>{videoEditingHero.titlePrefix}</span>
-                  <span className={styles.heroTitleLine}>
-                    <span className={styles.wordHighlight}>
-                      {videoEditingHero.titleHighlight}
-                    </span>
+                <span className={splitTitleStyles.lightOnDark}>
+                  {videoEditingHero.titlePrefix}
+                  <span className={styles.wordHighlight}>
+                    {videoEditingHero.titleHighlight}
                   </span>
                 </span>
               </h1>
@@ -74,40 +69,9 @@ export function VideoEditingContent() {
 
       <VideoEditingServices />
 
+      <VideoEditingWhyChoose />
+
       <VideoEditingTools />
-
-      <section
-        className={styles.benefits}
-        aria-labelledby="video-editing-benefits-heading"
-      >
-        <Container className={styles.sectionContainer}>
-          <ScrollReveal>
-            <div className={styles.sectionIntro}>
-              <PlansPricingHeading
-                id="video-editing-benefits-heading"
-                prefix={videoEditingBenefitsIntro.titlePrefix}
-                highlight={videoEditingBenefitsIntro.titleHighlight}
-                size="section"
-                align="center"
-              />
-            </div>
-          </ScrollReveal>
-
-          <ul className={styles.benefitsGrid}>
-            {videoEditingBenefits.map((benefit, index) => (
-              <ScrollReveal
-                key={benefit}
-                delay={index * 0.04}
-                as="li"
-                className={styles.benefitItem}
-              >
-                <Check size={18} strokeWidth={2.5} aria-hidden="true" />
-                <span>{benefit}</span>
-              </ScrollReveal>
-            ))}
-          </ul>
-        </Container>
-      </section>
 
       <MarketingCtaBanner banner={videoEditingCtaBanner} />
     </div>
