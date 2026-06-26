@@ -14,7 +14,8 @@ import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
 import { VideoEditingServices } from "@/components/VideoEditing/VideoEditingServices";
-import { VideoEditingTools } from "@/components/VideoEditing/VideoEditingTools";
+import { VideoEditingFeaturedProjects } from "@/components/VideoEditing/VideoEditingFeaturedProjects";
+import { VideoEditingProcess } from "@/components/VideoEditing/VideoEditingProcess";
 import { VideoEditingWhyChoose } from "@/components/VideoEditing/VideoEditingWhyChoose";
 import styles from "./VideoEditing.module.css";
 
@@ -41,7 +42,7 @@ export function VideoEditingContent() {
             <ScrollReveal className={styles.heroContent}>
               <h1
                 id="video-editing-hero-heading"
-                className={`${splitTitleStyles.title} ${styles.heroTitle}`}
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.heroTitle}`}
               >
                 <span className={splitTitleStyles.lightOnDark}>
                   {videoEditingHero.titlePrefix}
@@ -71,7 +72,9 @@ export function VideoEditingContent() {
 
       <VideoEditingWhyChoose />
 
-      <VideoEditingTools />
+      <VideoEditingFeaturedProjects />
+
+      <VideoEditingProcess />
 
       <MarketingCtaBanner banner={videoEditingCtaBanner} />
     </div>

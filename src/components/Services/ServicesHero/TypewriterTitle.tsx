@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./TypewriterTitle.module.css";
 
 interface TypewriterTitleProps {
@@ -61,7 +62,10 @@ export function TypewriterTitle({
   ]);
 
   return (
-    <h1 id={id} className={`${styles.title} ${className}`.trim()}>
+    <h1
+      id={id}
+      className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title} ${className}`.trim()}
+    >
       <span className={styles.prefix}>{prefix}</span>
       <span className={styles.secondLine}>
         {suffix ? <span className={styles.suffix}>{suffix} </span> : null}

@@ -139,7 +139,11 @@ export function ServicesHero({
   }
 
   return (
-    <section className={styles.section} aria-labelledby="services-hero-heading">
+    <section
+      className={styles.section}
+      aria-labelledby="services-hero-heading"
+      data-section-reveal="skip"
+    >
       {heroBody}
     </section>
   );

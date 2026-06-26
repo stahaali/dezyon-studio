@@ -13,6 +13,7 @@ export function ContactVoiceFloatingAvatar({
   alt,
 }: ContactVoiceFloatingAvatarProps) {
   const { openWidget } = useVapiSimli();
+  const isVideo = /\.(mp4|webm|ogg)(\?.*)?$/i.test(src);
 
   return (
     <button
@@ -21,7 +22,19 @@ export function ContactVoiceFloatingAvatar({
       onClick={openWidget}
       aria-label="Open Talk to us voice assistant"
     >
-      <img src={src} alt={alt} width={80} height={80} className={styles.avatar} />
+      {isVideo ? (
+        <video
+          src={src}
+          className={styles.avatar}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+        />
+      ) : (
+        <img src={src} alt={alt} width={80} height={80} className={styles.avatar} />
+      )}
     </button>
   );
 }

@@ -15,7 +15,6 @@ import {
   videoEditingServicesIntro,
 } from "@/data/video-editing";
 import { videoEditingServiceTones } from "@/components/VideoEditing/video-editing-icon-tones";
-import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
@@ -76,13 +75,6 @@ export function VideoEditingServices() {
                 <div className={styles.cardInner}>
                   <h3 className={styles.serviceTitle}>{service.title}</h3>
                   <p className={styles.serviceIntro}>{service.intro}</p>
-                  <Button
-                    href={videoEditingServicesIntro.cta.href}
-                    size="sm"
-                    className={styles.cardCta}
-                  >
-                    {videoEditingServicesIntro.cta.label}
-                  </Button>
                 </div>
               </ScrollReveal>
             );

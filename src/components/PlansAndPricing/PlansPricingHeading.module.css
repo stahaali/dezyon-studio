@@ -15,14 +15,32 @@
 
 .wordHighlight {
   display: inline-block;
-  padding: 0.06em 0.32em 0.1em;
+  padding: 0.05em 0.26em 0.07em;
   margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background: var(--brand-gradient);
+  border-radius: 0.2em;
+  background: linear-gradient(
+    180deg,
+    #b4f252 0%,
+    #92e13a 38%,
+    #7dcc32 100%
+  );
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
   vertical-align: baseline;
   font: inherit;
   letter-spacing: inherit;
+  box-shadow: 0 2px 14px rgba(146, 225, 58, 0.22);
+}
+
+@media (min-width: 1400px) {
+  .wordHighlight {
+    padding: 0.05em 0.28em 0.08em;
+    background: linear-gradient(
+      180deg,
+      #b8f55a 0%,
+      #92e13a 40%,
+      #82d836 100%
+    );
+  }
 }

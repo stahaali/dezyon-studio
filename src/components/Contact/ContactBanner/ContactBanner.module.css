@@ -67,14 +67,20 @@
 
 .wordHighlight {
   display: inline-block;
-  padding: 0.06em 0.32em 0.1em;
+  padding: 0.05em 0.26em 0.07em;
   margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  border-radius: 0.2em;
+  background: linear-gradient(
+    180deg,
+    #b4f252 0%,
+    #92e13a 38%,
+    #7dcc32 100%
+  );
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
   vertical-align: baseline;
+  box-shadow: 0 2px 14px rgba(146, 225, 58, 0.22);
 }
 
 .description {
@@ -128,16 +134,13 @@
     max-width: none;
   }
 
-  .title {
-    font-size: 72px;
-    line-height: 1.05;
-  }
-
   .wordHighlight {
-    display: inline-block;
-    padding: 0.06em 0.34em 0.1em;
-    transform: rotate(-2.5deg);
-    transform-origin: center center;
-    vertical-align: baseline;
+    padding: 0.05em 0.28em 0.08em;
+    background: linear-gradient(
+      180deg,
+      #b8f55a 0%,
+      #92e13a 40%,
+      #82d836 100%
+    );
   }
 }

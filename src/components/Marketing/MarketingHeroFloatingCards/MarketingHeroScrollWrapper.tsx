@@ -26,6 +26,7 @@ export function MarketingHeroScrollWrapper({
     <section
       className={className}
       aria-labelledby="services-hero-heading"
+      data-section-reveal="skip"
     >
       {children}
       <MarketingHeroFloatingCards scrollProgress={scrollYProgress} />

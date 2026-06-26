@@ -29,8 +29,11 @@ export function MarketingWhyChoose() {
           {marketingWhyChoose.items.map((item, index) => (
             <ScrollReveal key={item.id} delay={index * 0.06} as="article">
               <article className={styles.card}>
-                <div className={styles.iconWrap}>
-                  <MarketingWhyChooseIcon iconId={item.icon} />
+                <div className={styles.iconSlot}>
+                  <MarketingWhyChooseIcon
+                    iconId={item.icon}
+                    className={styles.cardIcon}
+                  />
                 </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>

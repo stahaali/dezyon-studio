@@ -157,11 +157,6 @@
     max-width: none;
   }
 
-  .title {
-    font-size: 72px;
-    line-height: 1.05;
-  }
-
   .wordHighlight {
     padding: 0.05em 0.28em 0.08em !important;
     background: linear-gradient(

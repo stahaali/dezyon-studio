@@ -85,6 +85,10 @@
     gap: 32px;
   }
 
+  .statsGrid[data-count="3"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .statLabel {
     font-size: 15px;
   }

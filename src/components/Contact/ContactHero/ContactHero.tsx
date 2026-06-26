@@ -134,7 +134,11 @@ export function ContactHero() {
   };
 
   return (
-    <section className={styles.section} aria-label="Contact form">
+    <section
+      className={styles.section}
+      aria-label="Contact form"
+      data-section-reveal="skip"
+    >
       <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.panel}>

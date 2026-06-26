@@ -11,6 +11,7 @@ import { Header } from "@/components/Header/Header";
 import { BackToTop } from "@/components/Shared/BackToTop/BackToTop";
 import { LeftSideRail } from "@/components/Shared/LeftSideRail/LeftSideRail";
 import { SideRail } from "@/components/Shared/SideRail/SideRail";
+import { SectionScrollAnimator } from "@/components/Shared/SectionScrollAnimator";
 import { SiteSecurity } from "@/components/Shared/SiteSecurity";
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -19,6 +20,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <MobileMenuProvider>
+      <SectionScrollAnimator />
       <SiteSecurity />
       {!isAuditPage ? <GoogleTranslatePreload /> : null}
       {!isAuditPage ? <Header /> : null}

@@ -162,39 +162,7 @@
   overflow: visible;
   text-align: center;
   white-space: normal;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  font-size: clamp(32px, 5vw, 48px);
-  line-height: 1.1;
-}
-
-@media (max-width: 576px) {
-  .heroTitle {
-    font-size: 28px;
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-  }
-}
-
-@media (min-width: 640px) {
-  .heroTitle {
-    font-size: clamp(36px, 4.5vw, 56px);
-  }
-}
-
-@media (min-width: 992px) {
-  .heroTitle {
-    font-size: clamp(42px, 3.5vw, 60px);
-    line-height: 1.08;
-  }
-}
-
-@media (min-width: 1400px) {
-  .heroTitle {
-    font-size: 48px;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-  }
+  line-height: 1.2;
 }
 
 /* ── Hero ── */
@@ -277,14 +245,32 @@
 
 .wordHighlight {
   display: inline-block;
-  padding: 0.06em 0.32em 0.1em;
+  padding: 0.05em 0.26em 0.07em;
   margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  border-radius: 0.2em;
+  background: linear-gradient(
+    180deg,
+    #b4f252 0%,
+    #92e13a 38%,
+    #7dcc32 100%
+  );
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
   vertical-align: baseline;
+  box-shadow: 0 2px 14px rgba(146, 225, 58, 0.22);
+}
+
+@media (min-width: 1400px) {
+  .wordHighlight {
+    padding: 0.05em 0.28em 0.08em;
+    background: linear-gradient(
+      180deg,
+      #b8f55a 0%,
+      #92e13a 40%,
+      #82d836 100%
+    );
+  }
 }
 
 .badge {

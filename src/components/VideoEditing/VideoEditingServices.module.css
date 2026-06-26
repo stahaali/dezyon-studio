@@ -101,15 +101,6 @@
   color: rgba(255, 255, 255, 0.68);
 }
 
-.cardCta {
-  margin-top: auto;
-  min-width: 140px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 12px;
-  font-weight: 700;
-}
-
 @media (max-width: 575px) {
   .servicesHeader {
     margin-bottom: 44px;

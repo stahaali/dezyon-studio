@@ -26,26 +26,52 @@ export function MarketingSolutions() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.08}>
-          <div className={styles.panel}>
-            <div className={styles.grid}>
-              {marketingSolutions.items.map((item, index) => (
-                <ScrollReveal key={item.id} delay={index * 0.05} as="article">
-                  <article className={styles.card}>
-                    <div className={styles.cardTop}>
+        <div className={styles.grid}>
+          {marketingSolutions.items.map((item, index) => (
+            <ScrollReveal key={item.id} delay={index * 0.05} as="article">
+              <article className={styles.card}>
+                <div className={styles.iconVisual}>
+                  <div className={styles.iconRingWrap}>
+                    <svg
+                      className={styles.iconRing}
+                      viewBox="0 0 120 120"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="60"
+                        cy="60"
+                        r="44.625"
+                        fill="none"
+                        className={styles.iconRingFill}
+                        strokeWidth="17.25"
+                      />
+                      <circle
+                        cx="60"
+                        cy="60"
+                        r="54"
+                        fill="none"
+                        className={styles.iconRingBorder}
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+
+                    <span className={styles.iconInner}>
                       <MarketingSolutionsIcon iconId={item.icon} />
-                      <span className={styles.cardIndex} aria-hidden="true">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <h3 className={styles.cardTitle}>{item.title}</h3>
-                    <p className={styles.cardDesc}>{item.description}</p>
-                  </article>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
+                    </span>
+                  </div>
+
+                  <span className={styles.iconStem} aria-hidden="true">
+                    <span className={styles.iconStemLine} />
+                    <span className={styles.iconStemDot} />
+                  </span>
+                </div>
+
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDesc}>{item.description}</p>
+              </article>
+            </ScrollReveal>
+          ))}
+        </div>
       </Container>
     </section>
   );

@@ -17,7 +17,11 @@ export function Hero() {
 
   return (
     <>
-      <section className={styles.hero} aria-labelledby="hero-heading">
+      <section
+        className={styles.hero}
+        aria-labelledby="hero-heading"
+        data-section-reveal="skip"
+      >
         <div className={styles.heroBg} aria-hidden="true">
           <div className={styles.heroBgImage}>
             <Image

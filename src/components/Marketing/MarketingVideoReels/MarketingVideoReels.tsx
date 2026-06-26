@@ -8,9 +8,11 @@ import styles from "./MarketingVideoReels.module.css";
 export function MarketingVideoReels() {
   return (
     <section className={styles.section} aria-labelledby="marketing-reels-heading">
+      <div className={styles.sectionBg} aria-hidden="true" />
+
       <Container className={styles.container}>
         <ScrollReveal>
-          <div className={styles.header}>
+          <div className={styles.topRow}>
             <h2
               id="marketing-reels-heading"
               className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
@@ -26,25 +28,26 @@ export function MarketingVideoReels() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.08}>
-          <div className={styles.panel}>
-            <p className={styles.subtitle}>{marketingVideoReels.subtitle}</p>
+        <ul className={styles.grid}>
+          {marketingVideoReels.items.map((item, index) => (
+            <ScrollReveal key={item.id} delay={index * 0.05} as="li">
+              <li className={styles.card}>
+                <span className={styles.cardHoverBadge} aria-hidden="true" />
 
-            <ul className={styles.grid}>
-              {marketingVideoReels.items.map((item, index) => (
-                <ScrollReveal
-                  key={item.id}
-                  delay={index * 0.05}
-                  as="li"
-                  className={styles.card}
-                >
-                  <MarketingVideoReelsIcon iconId={item.icon} />
+                <div className={styles.cardContent}>
+                  <span className={styles.cardIndex} aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                   <span className={styles.cardLabel}>{item.label}</span>
-                </ScrollReveal>
-              ))}
-            </ul>
-          </div>
-        </ScrollReveal>
+                </div>
+                <MarketingVideoReelsIcon
+                  iconId={item.icon}
+                  className={styles.cardIcon}
+                />
+              </li>
+            </ScrollReveal>
+          ))}
+        </ul>
       </Container>
     </section>
   );

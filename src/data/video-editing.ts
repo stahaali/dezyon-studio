@@ -70,56 +70,55 @@ export const videoEditingServices = [
   },
 ] as const;
 
-export const videoEditingToolsIntro = {
-  titlePrefix: "AI Tools ",
-  titleHighlight: "We Use",
+export const videoEditingFeaturedProjectsIntro = {
+  titlePrefix: "Showcasing Our ",
+  titleHighlight: "Creative Projects",
   description:
-    "Industry-leading AI and production tools we use to deliver cinematic quality, faster turnaround, and scalable content output.",
+    "Our feature projects highlight our finest creativity and technical mastery. Every production captures emotions, details, and moments that leave lasting impressions. From corporate films to cinematic stories, we bring your vision to life.",
 } as const;
 
-export const videoEditingToolGroups = [
+export const videoEditingFeaturedProjects = [
   {
-    title: "Voice & Audio",
-    tools: [
-      { name: "ElevenLabs", href: "https://elevenlabs.io" },
-      { name: "Adobe Podcast", href: "https://podcast.adobe.com" },
-    ],
+    id: "documentary",
+    category: "Inspirational Documentary",
+    title: "Inspirational and Impactful Documentary Stories",
+    image: "/assets/img/video-editing/about-01.webp",
+    imageAlt: "Film crew capturing an inspirational documentary scene",
   },
   {
-    title: "AI Video",
-    tools: [
-      { name: "Runway", href: "https://runwayml.com" },
-      { name: "Higgsfield AI", href: "https://higgsfield.ai" },
-      { name: "Pika", href: "https://pika.art" },
-      { name: "Luma AI", href: "https://lumalabs.ai" },
-      { name: "Kling AI", href: "https://klingai.com" },
-    ],
+    id: "music-video",
+    category: "Music Video Clip",
+    title: "Creative Music Clip And Video Production",
+    image: "/assets/img/video-editing/about-02.webp",
+    imageAlt: "Artist performing during a music video production shoot",
   },
   {
-    title: "Editing & Motion Graphics",
-    tools: [
-      {
-        name: "Adobe Premiere Pro",
-        href: "https://www.adobe.com/products/premiere.html",
-      },
-      {
-        name: "Adobe After Effects",
-        href: "https://www.adobe.com/products/aftereffects.html",
-      },
-      {
-        name: "DaVinci Resolve",
-        href: "https://www.blackmagicdesign.com/products/davinciresolve",
-      },
-      { name: "CapCut", href: "https://www.capcut.com" },
-    ],
+    id: "live-event",
+    category: "Live Event Broadcast",
+    title: "Professional Event Broadcast And Video Production",
+    image: "/assets/img/video-editing/video-bg.webp",
+    imageAlt: "Professional camera setup for live event broadcast production",
   },
   {
-    title: "Design & AI Images",
-    tools: [
-      { name: "Midjourney", href: "https://www.midjourney.com" },
-      { name: "Adobe Firefly", href: "https://firefly.adobe.com" },
-      { name: "Ideogram", href: "https://ideogram.ai" },
-    ],
+    id: "educational-animation",
+    category: "Educational Animation",
+    title: "Creative Event And Educational Animation Production",
+    image: "/assets/img/video-editing/hero-banner-poster.webp",
+    imageAlt: "Editor working on educational animation content",
+  },
+  {
+    id: "short-drama",
+    category: "Short Drama Story",
+    title: "Creative Event And Short Drama Video Production",
+    image: "/assets/img/video-editing/1.webp",
+    imageAlt: "Actors on set during a short drama video production",
+  },
+  {
+    id: "product-reviews",
+    category: "Product or Service Reviews",
+    title: "Creative And Professional Product Review Video",
+    image: "/assets/img/video-editing/2.webp",
+    imageAlt: "Product review video shoot with professional lighting",
   },
 ] as const;
 
@@ -147,6 +146,41 @@ export const videoEditingBenefits = [
   "Fast Turnaround Times",
   "High-Converting Ad Creatives",
   "Scalable Content Production",
+] as const;
+
+export const videoEditingProcessIntro = {
+  titlePrefix: "Our ",
+  titleHighlight: "Editing Process",
+} as const;
+
+export const videoEditingProcessSteps = [
+  {
+    id: "requirements",
+    step: "1",
+    title: "Define Requirements",
+    description:
+      "We capture your goals, audience, and creative direction to shape a clear brief before editing begins.",
+    image: "/assets/img/video-editing/about-01.webp",
+    imageAlt: "Team discussing video project requirements in a studio",
+  },
+  {
+    id: "production",
+    step: "2",
+    title: "Edit & Production",
+    description:
+      "Our editors refine footage, add motion, sound, and effects, then share progress updates for fast feedback.",
+    image: "/assets/img/video-editing/about-02.webp",
+    imageAlt: "Video editors collaborating during post-production",
+  },
+  {
+    id: "delivery",
+    step: "3",
+    title: "Final Delivery",
+    description:
+      "You receive polished, platform-ready exports optimized for quality, consistency, and performance.",
+    image: "/assets/img/video-editing/1.webp",
+    imageAlt: "Final video delivery preview on a professional editing screen",
+  },
 ] as const;
 
 export const videoEditingCtaBanner = {

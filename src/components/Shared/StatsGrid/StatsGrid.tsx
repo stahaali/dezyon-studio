@@ -1,4 +1,4 @@
-import { stats } from "@/data/site";
+import { stats, type StatId } from "@/data/site";
 import { StatValue } from "@/components/Home/HomeStats/StatValue";
 import { StatIcon } from "@/components/Shared/StatsGrid/StatIcon";
 import styles from "./StatsGrid.module.css";
@@ -6,19 +6,30 @@ import styles from "./StatsGrid.module.css";
 type StatsGridProps = {
   variant?: "dark" | "light";
   animate?: boolean;
+  colorful?: boolean;
+  excludeIds?: StatId[];
 };
 
-export function StatsGrid({ variant = "dark", animate = true }: StatsGridProps) {
+export function StatsGrid({
+  variant = "dark",
+  animate = true,
+  colorful = false,
+  excludeIds = [],
+}: StatsGridProps) {
   const isDark = variant === "dark";
+  const visibleStats = stats.filter((stat) => !excludeIds.includes(stat.id));
 
   return (
     <div
       className={`${styles.statsCard} ${isDark ? styles.statsCardDark : styles.statsCardLight}`.trim()}
     >
-      <div className={styles.statsGrid}>
-        {stats.map((stat) => (
+      <div
+        className={styles.statsGrid}
+        data-count={visibleStats.length}
+      >
+        {visibleStats.map((stat) => (
           <div key={stat.id} className={styles.stat}>
-            <StatIcon statId={stat.id} label={stat.label} />
+            <StatIcon statId={stat.id} label={stat.label} colorful={colorful} />
             {animate ? (
               <StatValue value={stat.value} />
             ) : (

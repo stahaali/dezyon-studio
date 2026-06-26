@@ -17,36 +17,39 @@ type MarketingVideoReelsIconId =
   | "mouse-pointer"
   | "trending-up";
 
-type MarketingVideoReelsTone =
-  | "megaphone"
-  | "users"
-  | "sparkles"
-  | "shield"
-  | "pointer"
-  | "trending";
-
-const iconMap: Record<
-  MarketingVideoReelsIconId,
-  { Icon: LucideIcon; tone: MarketingVideoReelsTone }
-> = {
-  megaphone: { Icon: Megaphone, tone: "megaphone" },
-  users: { Icon: Users, tone: "users" },
-  sparkles: { Icon: Sparkles, tone: "sparkles" },
-  shield: { Icon: ShieldCheck, tone: "shield" },
-  "mouse-pointer": { Icon: MousePointerClick, tone: "pointer" },
-  "trending-up": { Icon: TrendingUp, tone: "trending" },
+const iconMap: Record<MarketingVideoReelsIconId, LucideIcon> = {
+  megaphone: Megaphone,
+  users: Users,
+  sparkles: Sparkles,
+  shield: ShieldCheck,
+  "mouse-pointer": MousePointerClick,
+  "trending-up": TrendingUp,
 };
 
 type MarketingVideoReelsIconProps = {
   iconId: MarketingVideoReelsIconId;
+  className?: string;
+  size?: "md" | "sm";
 };
 
-export function MarketingVideoReelsIcon({ iconId }: MarketingVideoReelsIconProps) {
-  const { Icon, tone } = iconMap[iconId];
+export function MarketingVideoReelsIcon({
+  iconId,
+  className = "",
+  size = "md",
+}: MarketingVideoReelsIconProps) {
+  const Icon = iconMap[iconId];
+  const isSmall = size === "sm";
 
   return (
-    <span className={`${styles.iconWrap} ${styles[tone]}`}>
-      <Icon size={22} strokeWidth={1.9} aria-hidden="true" />
+    <span
+      className={`${styles.iconWrap} ${isSmall ? styles.iconWrapSm : ""} ${className}`.trim()}
+      aria-hidden="true"
+    >
+      <Icon
+        size={isSmall ? 16 : 42}
+        strokeWidth={isSmall ? 2 : 1.5}
+        color="currentColor"
+      />
     </span>
   );
 }

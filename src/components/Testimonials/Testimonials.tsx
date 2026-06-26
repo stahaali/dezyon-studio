@@ -7,13 +7,17 @@ import styles from "./Testimonials.module.css";
 
 type TestimonialsProps = {
   className?: string;
+  noPaddingTop?: boolean;
 };
 
-export function Testimonials({ className = "" }: TestimonialsProps) {
+export function Testimonials({
+  className = "",
+  noPaddingTop = false,
+}: TestimonialsProps) {
   return (
     <section
       id="testimonials"
-      className={`page-section ${styles.section} ${className}`.trim()}
+      className={`page-section ${styles.section} ${noPaddingTop ? styles.noPaddingTop : ""} ${className}`.trim()}
     >
       <Container>
         <ScrollReveal>

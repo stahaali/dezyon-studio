@@ -21,40 +21,31 @@ type MarketingWhyChooseIconId =
   | "growth"
   | "results";
 
-type MarketingWhyChooseTone =
-  | "team"
-  | "ai"
-  | "reels"
-  | "graphics"
-  | "social"
-  | "leads"
-  | "growth"
-  | "results";
-
-const iconMap: Record<
-  MarketingWhyChooseIconId,
-  { Icon: LucideIcon; tone: MarketingWhyChooseTone }
-> = {
-  team: { Icon: Users, tone: "team" },
-  ai: { Icon: Sparkles, tone: "ai" },
-  reels: { Icon: Clapperboard, tone: "reels" },
-  graphics: { Icon: Palette, tone: "graphics" },
-  social: { Icon: CalendarDays, tone: "social" },
-  leads: { Icon: Target, tone: "leads" },
-  growth: { Icon: TrendingUp, tone: "growth" },
-  results: { Icon: BarChart3, tone: "results" },
+const iconMap: Record<MarketingWhyChooseIconId, LucideIcon> = {
+  team: Users,
+  ai: Sparkles,
+  reels: Clapperboard,
+  graphics: Palette,
+  social: CalendarDays,
+  leads: Target,
+  growth: TrendingUp,
+  results: BarChart3,
 };
 
 type MarketingWhyChooseIconProps = {
   iconId: MarketingWhyChooseIconId;
+  className?: string;
 };
 
-export function MarketingWhyChooseIcon({ iconId }: MarketingWhyChooseIconProps) {
-  const { Icon, tone } = iconMap[iconId];
+export function MarketingWhyChooseIcon({
+  iconId,
+  className = "",
+}: MarketingWhyChooseIconProps) {
+  const Icon = iconMap[iconId];
 
   return (
-    <span className={`${styles.iconWrap} ${styles[tone]}`}>
-      <Icon size={26} strokeWidth={1.85} aria-hidden="true" />
+    <span className={`${styles.iconWrap} ${className}`.trim()} aria-hidden="true">
+      <Icon size={30} strokeWidth={1.6} color="currentColor" />
     </span>
   );
 }

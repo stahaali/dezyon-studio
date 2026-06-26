@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -20,9 +20,18 @@ export function ScrollReveal({
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const Component = motion[as] as typeof motion.div;
 
+  useEffect(() => {
+    const section = ref.current?.closest("section");
+    if (!section) return;
+    section.dataset.hasInnerReveal = "true";
+    section.classList.remove("section-reveal");
+    section.classList.add("section-reveal-visible");
+  }, []);
+
   return (
     <Component
       ref={ref}
+      data-scroll-reveal=""
       className={className}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

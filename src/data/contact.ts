@@ -46,7 +46,7 @@ export const contactHero = {
 } as const;
 
 export const contactVoiceWidgetAvatar = {
-  src: `${BRIEF_ICONS}/04.webp`,
+  src: `${BRIEF_ICONS}/lara-video.mp4`,
   alt: "Lara, AI website assistant",
 } as const;
 

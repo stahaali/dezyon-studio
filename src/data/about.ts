@@ -40,12 +40,19 @@ export const aboutHelps = {
     highlight: "Digital Solutions",
   },
   paragraphs: [
-    "Dezyon Studio - Where creators become brands and brands become businesses. Where AI Meets Creativity to Build Future-Ready Businesses Dezyon Studio is a modern digital agency focused on transforming how businesses grow in the online world. We don’t just build websites or create content—we design intelligent digital systems powered by AI that help brands attract, engage, and convert customers more effectively. In a world where attention is everything, we help businesses stand out with solutions that are not only visually powerful but also smart and interactive. We specialize in Custom Website Development, Talking Website, AI Video Creation, AI Receptionist Systems, and Professional Video Editing, AI Video Reels & Business Branding Ads"
+    "Dezyon Studio - Where creators become brands and brands become businesses. Where AI Meets Creativity to Build Future-Ready Businesses Dezyon Studio is a modern digital agency focused on transforming how businesses grow in the online world.",
   ],
-  illustration: {
-    src: `${ABOUT_ASSETS}/walking.svg`,
-    width: 224,
-    height: 226,
+  features: [
+    { label: "Creative Visual Storytelling", tone: "impact" },
+    { label: "High-Quality Production", tone: "fun" },
+    { label: "Professional Video Editing", tone: "learn" },
+    { label: "Modern Video Equipment", tone: "schedule" },
+  ] as const,
+  visuals: {
+    leftImage: `${ABOUT_ASSETS}/hero-about-01.webp`,
+    leftImageAlt: "Creative professional in a video production studio",
+    rightImage: `${ABOUT_ASSETS}/hero-about-02.webp`,
+    rightImageAlt: "Videographer capturing cinematic footage outdoors",
   },
 } as const;
 

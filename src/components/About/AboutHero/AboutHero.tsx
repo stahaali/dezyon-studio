@@ -7,7 +7,11 @@ import styles from "./AboutHero.module.css";
 
 export function AboutHero() {
   return (
-    <section className={styles.section} aria-labelledby="about-hero-heading">
+    <section
+      className={styles.section}
+      aria-labelledby="about-hero-heading"
+      data-section-reveal="skip"
+    >
       <div className={styles.heroBg} aria-hidden="true">
         <div className={styles.heroBgImage}>
           <Image

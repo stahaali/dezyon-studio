@@ -13,9 +13,9 @@ export function HomeStats({ className = "" }: HomeStatsProps) {
       className={`${styles.section} ${className}`.trim()}
       aria-label="Company statistics"
     >
-      <Container>
+      <Container className={styles.container}>
         <ScrollReveal>
-          <StatsGrid variant="dark" animate />
+          <StatsGrid variant="dark" animate colorful />
         </ScrollReveal>
       </Container>
     </section>

@@ -1,15 +1,14 @@
 .title {
   margin: 0;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  font-size: clamp(32px, 5vw, 48px);
-  line-height: 1.1;
   text-align: center;
+  line-height: 1.2;
+  overflow: visible;
 }
 
 .prefix {
   display: block;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .secondLine {
@@ -24,14 +23,20 @@
 .wordHighlight {
   display: inline-block;
   width: fit-content;
-  padding: 0.06em 0.32em 0.1em;
+  padding: 0.05em 0.26em 0.07em;
   margin-inline: 0.04em;
-  border-radius: 0.22em;
-  background-color: var(--color-heading-highlight);
+  border-radius: 0.2em;
+  background: linear-gradient(
+    180deg,
+    #b4f252 0%,
+    #92e13a 38%,
+    #7dcc32 100%
+  );
   color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
   vertical-align: baseline;
+  box-shadow: 0 2px 14px rgba(146, 225, 58, 0.22);
 }
 
 .typewriter {
@@ -58,12 +63,6 @@
 }
 
 @media (max-width: 576px) {
-  .title {
-    font-size: 28px;
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-  }
-
   .prefix {
     display: block;
   }
@@ -86,48 +85,20 @@
   }
 }
 
-@media (min-width: 640px) {
-  .title {
-    font-size: clamp(36px, 4.5vw, 56px);
-  }
-}
-
-@media (min-width: 992px) {
-  .title {
-    font-size: clamp(42px, 3.5vw, 60px);
-    line-height: 1.08;
-  }
-}
-
-/* Lock banner typography to the 1366px view from 1400px and up */
 @media (min-width: 1400px) {
-  .title {
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-  }
-
-  .secondLine {
-    margin-top: 4px;
-  }
-
   .wordHighlight {
-    display: inline-block;
-    width: fit-content;
-    padding: 0.06em 0.32em 0.1em;
-    margin-inline: 0.04em;
-    border-radius: 0.22em;
-    background: var(--color-heading-highlight);
-    background-color: var(--color-heading-highlight);
-    transform: rotate(-2.5deg);
-    transform-origin: center center;
-    vertical-align: baseline;
-    min-width: 0;
+    padding: 0.05em 0.28em 0.08em;
+    background: linear-gradient(
+      180deg,
+      #b8f55a 0%,
+      #92e13a 40%,
+      #82d836 100%
+    );
   }
+}
 
-  .typewriter {
-    display: inline-block;
-    text-align: left;
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
   }
 }

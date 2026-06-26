@@ -1,8 +1,8 @@
 import { AboutHelps } from "@/components/About/AboutHelps/AboutHelps";
 import { AboutHero } from "@/components/About/AboutHero/AboutHero";
 import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner";
-import { HomeStats } from "@/components/Home/HomeStats/HomeStats";
 import { AboutValues } from "@/components/About/AboutValues/AboutValues";
+import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -27,8 +27,8 @@ export default function AboutPage() {
       <div className={styles.page}>
         <AboutHero />
         <AboutHelps />
-        <HomeStats />
         <AboutValues />
+        <Testimonials noPaddingTop />
         <AboutCtaBanner />
       </div>
     </>

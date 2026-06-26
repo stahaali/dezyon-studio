@@ -172,7 +172,7 @@
 }
 
 .submit {
-  width: 100%;
+  width: fit-content;
   margin-top: 4px;
   padding-block: 14px !important;
   font-weight: 700;

@@ -23,7 +23,11 @@ export function LegalHero({
   stars,
 }: LegalHeroProps) {
   return (
-    <section className={styles.section} aria-labelledby={id}>
+    <section
+      className={styles.section}
+      aria-labelledby={id}
+      data-section-reveal="skip"
+    >
       <Container className={styles.container}>
         <ScrollReveal>
           <div className={styles.content}>
