@@ -2,13 +2,7 @@ import dynamic from "next/dynamic";
 import { Hero } from "@/components/Hero/Hero";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { contactFaq } from "@/data/contact";
-import {
-  buildCanonicalUrl,
-  createPageMetadata,
-  getDocumentTitle,
-  HOME_DOCUMENT_TITLE,
-  PAGE_SEO,
-} from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, getDocumentTitle, PAGE_SEO } from "@/lib/seo";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -54,31 +48,9 @@ const ContactFAQ = dynamic(() =>
   ),
 );
 
-const homeCanonical = buildCanonicalUrl("/");
-const baseHomeMetadata = createPageMetadata("home");
-const homeTitle = HOME_DOCUMENT_TITLE;
-const homeDescription = PAGE_SEO.home.description;
-
 export const metadata: Metadata = {
-  ...baseHomeMetadata,
-  title: {
-    absolute: homeTitle,
-  },
-  description: homeDescription,
-  alternates: {
-    canonical: homeCanonical,
-  },
-  openGraph: {
-    ...baseHomeMetadata.openGraph,
-    url: homeCanonical,
-    title: homeTitle,
-    description: homeDescription,
-  },
-  twitter: {
-    ...baseHomeMetadata.twitter,
-    title: homeTitle,
-    description: homeDescription,
-  },
+  ...createPageMetadata("home"),
+  alternates: createPageAlternates(PAGE_SEO.home.path),
 };
 
 export default function HomePage() {

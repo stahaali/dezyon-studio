@@ -30,7 +30,6 @@ export const packageCategories = [
   { id: "shopify", label: "Shopify" },
   { id: "video-animation", label: "Video animation" },
   { id: "seo", label: "SEO" },
-  { id: "smm", label: "SMM" },
   { id: "web-portal", label: "Web Portal" },
 ] as const;
 
@@ -700,63 +699,6 @@ const seoPlans: PackagePlan[] = [
   },
 ];
 
-const smmPlans: PackagePlan[] = [
-  {
-    id: "smm-startup",
-    name: "STARTUP PLAN",
-    price: 399,
-    wasPrice: 0,
-    priceSubtitle: "First Month Payment",
-    hideWasPrice: true,
-    features: [
-      "3 postings per week (per network) for Facebook, Twitter, Instagram, and Google+",
-      "Content Creation",
-      "Business Page Optimization",
-      "Social Media Strategy (Overview)",
-      "Facebook Likes Campaign",
-      "Monthly Progress report",
-      "Copy Writing",
-    ],
-    note: "$950 - Quarterly Plan; $300 - Recurring Monthly Payment.",
-  },
-  {
-    id: "smm-scaling",
-    name: "SCALING PLAN",
-    price: 795,
-    wasPrice: 0,
-    priceSubtitle: "First Month Payment",
-    hideWasPrice: true,
-    features: [
-      "Copywriting & Visual designs",
-      "Business Page Optimization",
-      "Ad Campaign Management",
-      "Spam monitoring",
-      "Monthly Progress report",
-      "5 postings per week for Facebook, Twitter, Instagram, and Google+",
-      "Reputation Management",
-    ],
-    note: "$1800 - Quarterly Plan; $450 - Recurring Monthly Payment.",
-  },
-  {
-    id: "smm-venture",
-    name: "VENTURE PLAN",
-    price: 1295,
-    wasPrice: 0,
-    priceSubtitle: "First Month Payment",
-    hideWasPrice: true,
-    features: [
-      "Copywriting & Visual designs",
-      "Business Page Optimization",
-      "Ad Campaign Management",
-      "Spam monitoring",
-      "8 postings per week for Facebook, Twitter, Instagram, and Google+",
-      "Reputation Management",
-      "Social Account Setup",
-    ],
-    note: "$3000 - Quarterly Plan; $700 - Recurring Monthly Payment.",
-  },
-];
-
 const webPortalPlans: PackagePlan[] = [
   {
     id: "web-portal-beginner",
@@ -856,12 +798,6 @@ export const packageCategoryMeta: Record<
     description:
       "Search engine optimization plans with audits, keyword targeting, and on-page optimization.",
   },
-  smm: {
-    titlePrefix: "SMM ",
-    titleHighlight: "Packages.",
-    description:
-      "Social media marketing packages for content, campaigns, and consistent channel growth.",
-  },
   "web-portal": {
     titlePrefix: "Web Portal ",
     titleHighlight: "Packages.",
@@ -887,7 +823,6 @@ export const packagePlansByCategory: Record<PackageCategoryId, PackagePlan[]> = 
   shopify: shopifyPlans,
   "video-animation": videoAnimationPlans,
   seo: seoPlans,
-  smm: smmPlans,
   "web-portal": webPortalPlans,
 };
 

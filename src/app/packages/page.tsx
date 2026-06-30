@@ -1,24 +1,21 @@
+import { redirect } from "next/navigation";
 import { getPricingCategoryPath } from "@/data/packages";
-import { buildCanonicalUrl, buildPageMetadata } from "@/lib/seo";
+import { buildPageMetadata, createPageAlternates } from "@/lib/seo";
+import type { Metadata } from "next";
 
-export const metadata = buildPageMetadata({
-  title: "Dezyon Studio Packages — Logo, Website & Branding Pricing",
-  description: "Browse Dezyon Studio design and development packages.",
-  keywords: ["design packages", "website packages", "Dezyon Studio pricing"],
-  path: "/packages",
-  noIndex: true,
-});
+const logoPricingPath = getPricingCategoryPath("logo");
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "Dezyon Studio Packages — Logo, Website & Branding Pricing",
+    description: "Browse Dezyon Studio design and development packages.",
+    keywords: ["design packages", "website packages", "Dezyon Studio pricing"],
+    path: logoPricingPath,
+    noIndex: true,
+  }),
+  alternates: createPageAlternates(logoPricingPath),
+};
 
 export default function PackagesPage() {
-  const redirectUrl = buildCanonicalUrl(getPricingCategoryPath("logo"));
-
-  return (
-    <>
-      <meta httpEquiv="refresh" content={`0;url=${redirectUrl}`} />
-      <p>
-        Redirecting to{" "}
-        <a href={redirectUrl}>logo pricing packages</a>...
-      </p>
-    </>
-  );
+  redirect(logoPricingPath);
 }

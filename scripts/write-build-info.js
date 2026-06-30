@@ -1,8 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const { getSiteUrlFromEnv } = require("./resolve-site-url");
 
 const outDir = path.join(process.cwd(), "out");
-const siteUrl = "https://www.dezyonstudio.com";
+const siteUrl = getSiteUrlFromEnv();
 
 if (!fs.existsSync(outDir)) {
   console.warn("[build-info] out/ folder not found. Skipping BUILD.txt.");

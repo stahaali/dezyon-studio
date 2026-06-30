@@ -2,10 +2,14 @@ import { ComboAdvanceSection } from "@/components/ComboPackages/ComboAdvanceSect
 import { ComboPackagesBanner } from "@/components/ComboPackages/ComboPackagesBanner/ComboPackagesBanner";
 import { ComboPackagesCatalog } from "@/components/ComboPackages/ComboPackagesCatalog/ComboPackagesCatalog";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("comboPackages");
+export const metadata: Metadata = {
+  ...createPageMetadata("comboPackages"),
+  alternates: createPageAlternates(PAGE_SEO.comboPackages.path),
+};
 
 export default function ComboPackagesPage() {
   const comboSeo = PAGE_SEO.comboPackages;

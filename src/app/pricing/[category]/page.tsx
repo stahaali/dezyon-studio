@@ -3,12 +3,13 @@ import { PackagesBanner } from "@/components/Packages/PackagesBanner/PackagesBan
 import { PackagesCatalog } from "@/components/Packages/PackagesCatalog/PackagesCatalog";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import {
+  getPricingCategoryPath,
   isPackageCategoryId,
   packageCategories,
   packageCategoryMeta,
   type PackageCategoryId,
 } from "@/data/packages";
-import { createPricingCategoryMetadata } from "@/lib/seo";
+import { createPageAlternates, createPricingCategoryMetadata } from "@/lib/seo";
 import { getPricingServiceDefinition } from "@/lib/structured-data";
 
 type PricingCategoryPageProps = {
@@ -25,10 +26,19 @@ export async function generateMetadata({ params }: PricingCategoryPageProps) {
   const { category } = await params;
 
   if (!isPackageCategoryId(category)) {
-    return createPricingCategoryMetadata("logo");
+    const path = getPricingCategoryPath("logo");
+    return {
+      ...createPricingCategoryMetadata("logo"),
+      alternates: createPageAlternates(path),
+    };
   }
 
-  return createPricingCategoryMetadata(category);
+  const path = getPricingCategoryPath(category);
+
+  return {
+    ...createPricingCategoryMetadata(category),
+    alternates: createPageAlternates(path),
+  };
 }
 
 export default async function PricingCategoryPage({ params }: PricingCategoryPageProps) {

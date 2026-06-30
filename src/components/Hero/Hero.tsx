@@ -45,7 +45,7 @@ export function Hero() {
             >
               <span className={splitTitleStyles.lightOnDark}>
                 <span className={styles.titleLine1}>
-                  {heroContent.titlePrefix}{" "}
+                  <span className={styles.titlePrefix}>{heroContent.titlePrefix}</span>
                   <HeroTypewriterHighlight phrases={heroContent.typewriterPhrases} />
                 </span>
                 <span className={styles.titleLine2}>{heroContent.titleLine2}</span>

@@ -5,6 +5,15 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
+  # www -> non-www (301 permanent)
+  RewriteCond %{HTTP_HOST} ^www\.dezyonstudio\.com$ [NC]
+  RewriteRule ^(.*)$ https://dezyonstudio.com/$1 [R=301,L]
+
+  # Force HTTPS on apex domain
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} ^dezyonstudio\.com$ [NC]
+  RewriteRule ^(.*)$ https://dezyonstudio.com/$1 [R=301,L]
+
   # Legacy packages route -> logo pricing
   RewriteRule ^packages/?$ pricing/logo/ [R=301,L]
 

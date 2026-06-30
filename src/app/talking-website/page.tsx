@@ -2,10 +2,11 @@ import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVo
 import { TalkingWebsiteContent } from "@/components/TalkingWebsite/TalkingWebsiteContent";
 import { contactVoiceWidgetAvatar } from "@/data/contact";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { buildPageSeoMetadata, PAGE_SEO } from "@/lib/seo";
 import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("talkingWebsite");
+export const metadata: Metadata = buildPageSeoMetadata("talkingWebsite");
 
 export default function TalkingWebsitePage() {
   const talkingWebsiteSeo = PAGE_SEO.talkingWebsite;

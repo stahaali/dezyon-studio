@@ -3,6 +3,9 @@
  * Run: node scripts/validate-schema.js
  */
 
+const { getSiteUrlFromEnv } = require("./resolve-site-url");
+const SCHEMA_SITE_URL = getSiteUrlFromEnv();
+
 const PAGE_SCHEMA_INVENTORY = [
   {
     page: "Global (all pages via layout)",
@@ -102,7 +105,7 @@ function validateSampleSchemas() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Dezyon Studio",
-      url: "https://www.dezyonstudio.com",
+      url: SCHEMA_SITE_URL,
     },
     {
       "@context": "https://schema.org",
@@ -147,7 +150,6 @@ function main() {
     "shopify",
     "video-animation",
     "seo",
-    "smm",
     "web-portal",
   ];
   for (const category of categories) {

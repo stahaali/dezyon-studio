@@ -50,7 +50,6 @@ const pricingServiceNames: Record<PackageCategoryId, { name: string; serviceType
   shopify: { name: "Shopify Development", serviceType: "E-Commerce Development" },
   "video-animation": { name: "AI Video Ads", serviceType: "Video Production" },
   seo: { name: "SEO Services", serviceType: "Search Engine Optimization" },
-  smm: { name: "Social Media Marketing", serviceType: "Social Media Marketing" },
   "web-portal": { name: "Web Portal Development", serviceType: "Web Application Development" },
 };
 

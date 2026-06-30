@@ -1,8 +1,12 @@
 import { RefundContent } from "@/components/Legal/RefundContent/RefundContent";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("refundPolicy");
+export const metadata: Metadata = {
+  ...createPageMetadata("refundPolicy"),
+  alternates: createPageAlternates(PAGE_SEO.refundPolicy.path),
+};
 
 export default function RefundPolicyPage() {
   const refundSeo = PAGE_SEO.refundPolicy;

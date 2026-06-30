@@ -67,7 +67,7 @@ export const footerSocialLinks = [
 
 export const sideRailSocialLinks = [
   { href: "https://www.facebook.com/dezyonstudios/", label: "Facebook" },
-  { href: "#", label: "Twitter" },
+  { href: "https://x.com/Dezyonstudio", label: "Twitter" },
   { href: "https://www.instagram.com/dezyon.studio/", label: "Instagram" },
   { href: "#", label: "Pinterest" },
   { href: "https://www.linkedin.com/company/dezyon-studio/", label: "LinkedIn" },
@@ -214,6 +214,28 @@ export const standardFeatures = [
   "Approval workflows",
   "Salesforce integration*",
 ] as const;
+
+export const testimonialClientAvatars = [
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1463453091185-61582044d556?w=96&h=96&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=96&h=96&fit=crop&q=80",
+] as const;
+
+export function getTestimonialAvatar(name: string): string {
+  const hash = [...name].reduce(
+    (sum, char, index) => sum + char.charCodeAt(0) * (index + 1),
+    0,
+  );
+
+  return testimonialClientAvatars[hash % testimonialClientAvatars.length];
+}
 
 const feedbackBase = [
   {

@@ -5,7 +5,8 @@ import {
   packageCategoryMeta,
   type PackageCategoryId,
 } from "@/data/packages";
-import { SITE_NAME, SITE_URL } from "./constants";
+import { SITE_NAME } from "./constants";
+import { CANONICAL_SITE_ORIGIN } from "@/lib/site-url";
 
 export const DEFAULT_OG_IMAGE = "/assets/img/web-app/mobile-app-img1.webp";
 
@@ -326,12 +327,6 @@ const PRICING_CATEGORY_KEYWORDS: Record<PackageCategoryId, string[]> = {
     "SEO service plans",
     "website SEO cost",
   ],
-  smm: [
-    "social media marketing packages",
-    "SMM pricing",
-    "social media management plans",
-    "digital marketing packages",
-  ],
   "web-portal": [
     "web portal development packages",
     "custom portal pricing",
@@ -340,24 +335,43 @@ const PRICING_CATEGORY_KEYWORDS: Record<PackageCategoryId, string[]> = {
   ],
 };
 
-export function buildCanonicalUrl(path: string): string {
-  const base = SITE_URL.replace(/\/$/, "");
+export function getCanonicalOrigin(): string {
+  return CANONICAL_SITE_ORIGIN;
+}
 
+export function normalizeCanonicalPath(path: string): string {
   if (!path || path === "/") {
-    return `${base}/`;
+    return "/";
   }
 
-  const normalized = path.startsWith("/") ? path : `/${path}`;
+  let normalized = path.trim();
+
+  if (!normalized.startsWith("/")) {
+    normalized = `/${normalized}`;
+  }
 
   if (/\.[a-z0-9]+$/i.test(normalized)) {
-    return `${base}${normalized}`;
+    return normalized;
   }
 
-  return `${base}${normalized.endsWith("/") ? normalized : `${normalized}/`}`;
+  normalized = normalized.replace(/\/+$/, "");
+  return `${normalized}/`;
+}
+
+export function buildCanonicalUrl(path: string): string {
+  return `${getCanonicalOrigin()}${normalizeCanonicalPath(path)}`;
+}
+
+export function createPageAlternates(path: string): NonNullable<Metadata["alternates"]> {
+  const canonical = buildCanonicalUrl(path);
+
+  return {
+    canonical,
+  };
 }
 
 function resolveOgImage(path: string): string {
-  return path.startsWith("http") ? path : `${SITE_URL}${path}`;
+  return path.startsWith("http") ? path : `${getCanonicalOrigin()}${path}`;
 }
 
 export function getDocumentTitle(config: PageSeoConfig): string {
@@ -387,6 +401,7 @@ export function getDocumentTitle(config: PageSeoConfig): string {
 
 export function buildPageMetadata(config: PageSeoConfig): Metadata {
   const canonical = buildCanonicalUrl(config.path);
+  const alternates = createPageAlternates(config.path);
   const ogImage = resolveOgImage(config.ogImage ?? DEFAULT_OG_IMAGE);
   const isHome = config.path === "/";
   const isAbout = config.path === "/about";
@@ -411,9 +426,7 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
         : config.title,
     description: config.description,
     keywords: config.keywords,
-    alternates: {
-      canonical,
-    },
+    alternates,
     robots: config.noIndex
       ? {
           index: false,
@@ -461,6 +474,42 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
 
 export function createPageMetadata(key: PageSeoKey): Metadata {
   return buildPageMetadata(PAGE_SEO[key]);
+}
+
+/** Pins canonical, og:url, and og:image to CANONICAL_SITE_ORIGIN (never www). */
+export function buildPageSeoMetadata(key: PageSeoKey): Metadata {
+  const config = PAGE_SEO[key];
+  const canonical = buildCanonicalUrl(config.path);
+  const ogImage = resolveOgImage(config.ogImage ?? DEFAULT_OG_IMAGE);
+  const base = buildPageMetadata(config);
+  const openGraphBase =
+    base.openGraph && typeof base.openGraph === "object" ? base.openGraph : {};
+  const twitterBase =
+    base.twitter && typeof base.twitter === "object" ? base.twitter : {};
+
+  return {
+    ...base,
+    metadataBase: new URL(CANONICAL_SITE_ORIGIN),
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      ...openGraphBase,
+      url: canonical,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${config.title} — ${SITE_NAME}`,
+        },
+      ],
+    },
+    twitter: {
+      ...twitterBase,
+      images: [ogImage],
+    },
+  };
 }
 
 export function createPricingCategoryMetadata(categoryId: PackageCategoryId): Metadata {

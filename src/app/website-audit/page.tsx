@@ -1,10 +1,14 @@
 import { Suspense } from "react";
 import { WebsiteAuditTool } from "@/components/WebsiteAudit/WebsiteAuditTool";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("websiteAudit");
+export const metadata: Metadata = {
+  ...createPageMetadata("websiteAudit"),
+  alternates: createPageAlternates(PAGE_SEO.websiteAudit.path),
+};
 
 export default function WebsiteAuditPage() {
   const seo = PAGE_SEO.websiteAudit;

@@ -23,6 +23,7 @@
   "dependencies": {
     "@fancyapps/ui": "^6.1.14",
     "@fontsource/lexend": "^5.2.11",
+    "@next/third-parties": "^16.2.9",
     "@vapi-ai/web": "^2.5.2",
     "framer-motion": "^12.40.0",
     "gsap": "^3.15.0",

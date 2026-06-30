@@ -105,7 +105,7 @@ export const plansPricingServiceTabs = [
   },
   {
     id: "ai-video-creation",
-    label: "AI Video Creation",
+    label: "Marketing Studio",
     title: "Create Smarter Publish Faster Grow Bigger",
     description:
       "AI Video Creation gives your business the power to produce professional videos at scale.",

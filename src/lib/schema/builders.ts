@@ -250,13 +250,6 @@ export function buildServicesCatalogSchema() {
       path: "/pricing/branding",
     },
     {
-      name: "Social Media Marketing",
-      description:
-        "Social media marketing services for content creation, campaign management, and audience growth.",
-      serviceType: "Social Media Marketing",
-      path: "/pricing/smm",
-    },
-    {
       name: "Automation",
       description:
         "Business automation solutions that streamline workflows, customer engagement, and marketing operations.",

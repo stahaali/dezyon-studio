@@ -21,10 +21,10 @@ export const videoEditingHeroVisual = {
 
 export const videoEditingServicesIntro = {
   eyebrow: "What We Offer",
-  titlePrefix: "Our AI Content ",
-  titleHighlight: "Creation Services",
+  titlePrefix: "Discovery & Strategy ",
+  titleHighlight: "Brand Focused",
   description:
-    "End-to-end AI content production for brands that want cinematic quality, viral reach, and consistent growth — without the overhead of a full in-house team.",
+    "We start by understanding your brand, goals, target audience, and the purpose of your video. Whether it's for social media, YouTube, advertising, or corporate use, we create a clear editing strategy before production begins.",
   cta: { label: "Learn More", href: "/contact" },
 } as const;
 
@@ -32,9 +32,9 @@ export const videoEditingServices = [
   {
     id: "ai-influencer",
     icon: "sparkles",
-    title: "AI Influencer Creation",
+    title: "Influencer Creation",
     intro:
-      "Launch your own AI Influencer that represents your brand 24/7.",
+      "Launch your own virtual influencer that represents your brand 24/7.",
   },
   {
     id: "video-editing",
@@ -45,20 +45,20 @@ export const videoEditingServices = [
   {
     id: "voiceovers",
     icon: "mic",
-    title: "AI Voiceovers",
-    intro: "Human-like voiceovers powered by ElevenLabs and advanced AI voice tools.",
+    title: "Voiceovers",
+    intro: "Human-like voiceovers powered by ElevenLabs and advanced voice tools.",
   },
   {
     id: "ai-video",
     icon: "video",
-    title: "AI Video Generation",
+    title: "Video Generation",
     intro:
       "Create studio-quality videos without expensive production teams using Runway, Higgsfield, Pika, Luma AI, and Kling AI.",
   },
   {
     id: "ai-images",
     icon: "image",
-    title: "AI Image Generation & Branding",
+    title: "Image Generation & Branding",
     intro:
       "Create premium brand visuals using Midjourney, Adobe Firefly, and Ideogram.",
   },
@@ -126,7 +126,7 @@ export const videoEditingBenefitsIntro = {
   titlePrefix: "Why Brands ",
   titleHighlight: "Choose Us",
   description:
-    "We help businesses, startups, coaches, agencies, and e-commerce brands grow with AI-generated content, AI influencers, video editing, voiceovers, and social media branding.",
+    "We help businesses, startups, coaches, agencies, and e-commerce brands grow with quality content, digital influencers, video editing, voiceovers, and social media branding.",
 } as const;
 
 export const videoEditingWhyChooseVisual = {
@@ -137,10 +137,10 @@ export const videoEditingWhyChooseVisual = {
 } as const;
 
 export const videoEditingBenefits = [
-  "AI Influencer Creation",
+  "Influencer Creation",
   "Complete Brand Building",
-  "AI Voiceovers",
-  "AI Commercial Production",
+  "Voiceovers",
+  "Commercial Production",
   "Professional Video Editing",
   "Social Media Growth Content",
   "Fast Turnaround Times",
@@ -193,9 +193,9 @@ export const videoEditingCtaBanner = {
 
 export const videoEditingFinalCta = {
   eyebrow: "Ready to Create?",
-  title: "Get started with AI Content",
+  title: "Get started with Content",
   screenImage: "/assets/img/video-editing/1.webp",
-  screenImageAlt: "AI video editing interface shown on laptop screen",
+  screenImageAlt: "Video editing interface shown on laptop screen",
   primaryButton: { label: "Get Started", href: "/contact" },
 } as const;
 
@@ -218,7 +218,7 @@ export const videoEditingPlans: VideoEditingPlan[] = [
     features: [
       "Professional Video Editing (up to 8 videos/month)",
       "YouTube Shorts, Reels & TikTok formats",
-      "Basic AI Voiceovers",
+      "Basic Voiceovers",
       "Captions & Subtitles",
       "Social Media Ready Exports",
       "1 Revision per video",
@@ -231,14 +231,14 @@ export const videoEditingPlans: VideoEditingPlan[] = [
   },
   {
     id: "growth",
-    name: "AI Brand Builder",
-    bestFor: "Coaches, agencies & e-commerce scaling with AI content",
+    name: "Brand Builder",
+    bestFor: "Coaches, agencies & e-commerce scaling with premium content",
     features: [
-      "AI Influencer Creation & Character Development",
-      "AI Video Generation (commercials & UGC-style)",
+      "Influencer Creation & Character Development",
+      "Video Generation (commercials & UGC-style)",
       "Professional Editing (up to 20 videos/month)",
-      "AI Voice Cloning & Multi-Language Voiceovers",
-      "AI Image & Brand Visual Production",
+      "Voice Cloning & Multi-Language Voiceovers",
+      "Image & Brand Visual Production",
       "Social Media Content Strategy",
       "Viral Hooks & Short-Form Optimization",
       "3 Revisions per deliverable",
@@ -251,14 +251,14 @@ export const videoEditingPlans: VideoEditingPlan[] = [
   {
     id: "enterprise",
     name: "Enterprise Content",
-    bestFor: "High-volume brands needing scalable AI content systems",
+    bestFor: "High-volume brands needing scalable content systems",
     features: [
-      "Full AI Influencer & Digital Ambassador Program",
+      "Full Influencer & Digital Ambassador Program",
       "Unlimited Scalable Content Production",
-      "AI Commercial & Ad Creative Production",
+      "Commercial & Ad Creative Production",
       "Dedicated Content Strategist",
       "Multi-Platform Social Media Production",
-      "Premium AI Tools Stack (Runway, ElevenLabs & more)",
+      "Premium Tools Stack (Runway, ElevenLabs & more)",
       "Fast Turnaround Priority Queue",
       "High-Converting Ad Creative Optimization",
     ],

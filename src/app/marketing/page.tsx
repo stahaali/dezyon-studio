@@ -4,10 +4,11 @@ import { MarketingVideoReels } from "@/components/Marketing/MarketingVideoReels/
 import { MarketingWhyChoose } from "@/components/Marketing/MarketingWhyChoose/MarketingWhyChoose";
 import { ServicesHero } from "@/components/Services/ServicesHero/ServicesHero";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { buildPageSeoMetadata, PAGE_SEO } from "@/lib/seo";
 import styles from "./page.module.css";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("services");
+export const metadata: Metadata = buildPageSeoMetadata("services");
 
 export default function MarketingPage() {
   const marketingSeo = PAGE_SEO.services;

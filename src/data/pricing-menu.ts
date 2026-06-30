@@ -18,7 +18,6 @@ const categoryColors: Record<PackageCategoryId, string> = {
   shopify: BRAND_GREEN,
   "video-animation": "#ef4444",
   seo: "#eab308",
-  smm: "#ec4899",
   "web-portal": "#6366f1",
 };
 

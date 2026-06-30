@@ -3,10 +3,14 @@ import { ContactHero } from "@/components/Contact/ContactHero/ContactHero";
 import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { contactVoiceWidgetAvatar } from "@/data/contact";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import styles from "./page.module.css";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("contact");
+export const metadata: Metadata = {
+  ...createPageMetadata("contact"),
+  alternates: createPageAlternates(PAGE_SEO.contact.path),
+};
 
 export default function ContactPage() {
   const contactSeo = PAGE_SEO.contact;

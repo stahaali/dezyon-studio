@@ -1,10 +1,14 @@
 import { VideoEditingContent } from "@/components/VideoEditing/VideoEditingContent";
 import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("videoEditing");
+export const metadata: Metadata = {
+  ...createPageMetadata("videoEditing"),
+  alternates: createPageAlternates(PAGE_SEO.videoEditing.path),
+};
 
 export default function VideoEditingPage() {
   const videoEditingSeo = PAGE_SEO.videoEditing;

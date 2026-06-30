@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { Star } from "lucide-react";
-import { testimonials } from "@/data/site";
+import { getTestimonialAvatar, testimonials } from "@/data/site";
 import styles from "./Testimonials.module.css";
 
 type Testimonial = (typeof testimonials)[number];
@@ -35,6 +36,14 @@ function TestimonialCard({ item }: { item: Testimonial }) {
       </blockquote>
 
       <footer className={styles.author}>
+        <Image
+          src={getTestimonialAvatar(item.name)}
+          alt=""
+          width={32}
+          height={32}
+          className={styles.avatar}
+          aria-hidden="true"
+        />
         <cite className={styles.name}>{formatReviewName(item.name)}</cite>
       </footer>
     </article>

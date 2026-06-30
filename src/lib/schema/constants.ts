@@ -1,8 +1,9 @@
 import { footerContact, footerSocialLinks, sideRailSocialLinks } from "@/data/site";
 import { SITE_NAME } from "@/lib/constants";
 import { buildCanonicalUrl } from "@/lib/seo";
+import { CANONICAL_SITE_ORIGIN } from "@/lib/site-url";
 
-export const SCHEMA_SITE_URL = "https://www.dezyonstudio.com";
+export const SCHEMA_SITE_URL = CANONICAL_SITE_ORIGIN;
 
 export const ORG_ID = `${SCHEMA_SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SCHEMA_SITE_URL}/#website`;

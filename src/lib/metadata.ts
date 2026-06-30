@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { SITE_NAME, SITE_URL } from "./constants";
-import { createPageMetadata, getDocumentTitle, PAGE_SEO } from "./seo";
+import { SITE_DESCRIPTION, SITE_NAME } from "./constants";
+import { CANONICAL_SITE_ORIGIN } from "./site-url";
+import { HOME_DOCUMENT_TITLE } from "./seo";
 
 export const siteMetadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(CANONICAL_SITE_ORIGIN),
   icons: {
     icon: [{ url: "/assets/img/favicon.webp", type: "image/webp" }],
     shortcut: "/assets/img/favicon.webp",
     apple: "/assets/img/favicon.webp",
   },
-  ...createPageMetadata("home"),
   title: {
-    default: getDocumentTitle(PAGE_SEO.home),
+    default: HOME_DOCUMENT_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
+  description: SITE_DESCRIPTION,
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,

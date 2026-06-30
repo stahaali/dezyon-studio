@@ -11,16 +11,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   children: ReactNode;
   className?: string;
+  animated?: boolean;
 }
 
 function ButtonInner({
   variant,
+  animated,
   children,
 }: {
   variant: ButtonVariant;
+  animated: boolean;
   children: ReactNode;
 }) {
-  if (variant === "ghost") {
+  if (variant === "ghost" || !animated) {
     return <>{children}</>;
   }
 
@@ -41,22 +44,28 @@ export function Button({
   href,
   children,
   className = "",
+  animated = true,
   ...props
 }: ButtonProps) {
+  const useAnimation = animated && variant !== "ghost";
   const classes =
-    `${styles.button} ${styles[variant]} ${styles[size]} ${variant === "ghost" ? "" : styles.animated} ${className}`.trim();
+    `${styles.button} ${styles[variant]} ${styles[size]} ${useAnimation ? styles.animated : ""} ${className}`.trim();
 
   if (href) {
     return (
       <Link href={href} className={classes}>
-        <ButtonInner variant={variant}>{children}</ButtonInner>
+        <ButtonInner variant={variant} animated={useAnimation}>
+          {children}
+        </ButtonInner>
       </Link>
     );
   }
 
   return (
     <button className={classes} {...props}>
-      <ButtonInner variant={variant}>{children}</ButtonInner>
+      <ButtonInner variant={variant} animated={useAnimation}>
+        {children}
+      </ButtonInner>
     </button>
   );
 }

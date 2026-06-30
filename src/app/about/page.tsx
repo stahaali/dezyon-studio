@@ -4,10 +4,14 @@ import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner
 import { AboutValues } from "@/components/About/AboutValues/AboutValues";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import type { Metadata } from "next";
 import styles from "./page.module.css";
 
-export const metadata = createPageMetadata("about");
+export const metadata: Metadata = {
+  ...createPageMetadata("about"),
+  alternates: createPageAlternates(PAGE_SEO.about.path),
+};
 
 export default function AboutPage() {
   const aboutSeo = PAGE_SEO.about;

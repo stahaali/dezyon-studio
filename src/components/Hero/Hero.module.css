@@ -154,6 +154,10 @@
   white-space: nowrap;
 }
 
+.titlePrefix {
+  display: inline;
+}
+
 .titleLine2 {
   display: block;
   margin-top: 0.08em;
@@ -589,7 +593,39 @@
   }
 
   .titleLine1 {
-    gap: 0.16em;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.14em;
+    white-space: normal;
+  }
+
+  .titlePrefix {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .title .wordHighlight {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    padding: 0.06em 0.28em 0.08em !important;
+    margin-inline: 0 !important;
+    max-width: min(100%, calc(100vw - 2 * var(--container-padding)));
+    min-width: 17ch;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .title .typewriter {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .titleLine2 {
+    white-space: normal;
+    max-width: 100%;
   }
 
   .intro {

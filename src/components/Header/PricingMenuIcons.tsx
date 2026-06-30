@@ -69,14 +69,6 @@ const iconPaths: Record<PackageCategoryId, ReactNode> = {
       <path d="M16 16l3.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
     </>
   ),
-  smm: (
-    <>
-      <circle cx="8" cy="12" r="2.2" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="16" cy="8" r="2.2" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="16" cy="16" r="2.2" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M10 11l4-2M10 13l4 2" stroke="currentColor" strokeWidth="1.6" />
-    </>
-  ),
   "web-portal": (
     <>
       <rect x="4" y="5" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.8" />

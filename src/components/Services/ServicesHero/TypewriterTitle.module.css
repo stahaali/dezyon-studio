@@ -65,23 +65,40 @@
 @media (max-width: 576px) {
   .prefix {
     display: block;
+    white-space: nowrap;
   }
 
   .secondLine {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 0.14em;
     margin-top: 2px;
   }
 
   .suffix {
     display: block;
+    white-space: nowrap;
   }
 
-  .wordHighlight {
-    display: inline-block;
+  .title .wordHighlight {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    padding: 0.06em 0.28em 0.08em !important;
+    margin-inline: 0 !important;
+    max-width: min(100%, calc(100vw - 2 * var(--container-padding)));
+    min-width: 17ch;
+    text-align: center;
     white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .typewriter {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    max-width: 100%;
   }
 }
 

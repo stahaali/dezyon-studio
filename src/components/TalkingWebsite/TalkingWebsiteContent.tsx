@@ -474,6 +474,7 @@ export function TalkingWebsiteContent() {
                   <Button
                     href={plan.cta.href}
                     size="md"
+                    animated={false}
                     className={styles.pricingCta}
                   >
                     {plan.cta.label}

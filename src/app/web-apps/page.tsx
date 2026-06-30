@@ -5,10 +5,14 @@ import { WebAppsDevelopment } from "@/components/WebApps/WebAppsDevelopment/WebA
 import { WebAppsPackages } from "@/components/WebApps/WebAppsPackages/WebAppsPackages";
 import { WebAppsTechnologies } from "@/components/WebApps/WebAppsTechnologies/WebAppsTechnologies";
 import { WebAppsTrust } from "@/components/WebApps/WebAppsTrust/WebAppsTrust";
-import { createPageMetadata, PAGE_SEO } from "@/lib/seo";
+import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
+import type { Metadata } from "next";
 
-export const metadata = createPageMetadata("webApps");
+export const metadata: Metadata = {
+  ...createPageMetadata("webApps"),
+  alternates: createPageAlternates(PAGE_SEO.webApps.path),
+};
 
 export default function WebAppsPage() {
   const webAppsSeo = PAGE_SEO.webApps;
