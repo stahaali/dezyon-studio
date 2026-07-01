@@ -5,6 +5,7 @@ import {
   footerBottomLinks,
   footerContact,
   footerInformationLinks,
+  footerInformationLinksSecondary,
 } from "@/data/site";
 import { SITE_NAME } from "@/lib/constants";
 import { Container } from "@/components/Shared/Container";
@@ -30,21 +31,32 @@ export function Footer() {
 
           <div className={styles.linksCol}>
             <h3 className={styles.colTitle}>Information</h3>
-            <ul className={styles.linkList}>
-              {footerInformationLinks.map((link) => (
-                <li key={link.label}>
-                  {link.href.startsWith("/") ? (
+            <div className={styles.linksGrid}>
+              <ul className={styles.linkList}>
+                {footerInformationLinks.map((link) => (
+                  <li key={link.label}>
+                    {link.href.startsWith("/") ? (
+                      <Link href={link.href} className={styles.link}>
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href={link.href} className={styles.link}>
+                        {link.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <ul className={styles.linkList}>
+                {footerInformationLinksSecondary.map((link) => (
+                  <li key={link.label}>
                     <Link href={link.href} className={styles.link}>
                       {link.label}
                     </Link>
-                  ) : (
-                    <a href={link.href} className={styles.link}>
-                      {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className={styles.contactCol}>

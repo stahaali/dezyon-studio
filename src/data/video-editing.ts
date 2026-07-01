@@ -82,43 +82,43 @@ export const videoEditingFeaturedProjects = [
     id: "documentary",
     category: "Inspirational Documentary",
     title: "Inspirational and Impactful Documentary Stories",
-    image: "/assets/img/video-editing/about-01.webp",
-    imageAlt: "Film crew capturing an inspirational documentary scene",
+    image: "/assets/img/video-editing/video-5.webp",
+    imageAlt: "Creative professional reviewing video content on a tablet",
   },
   {
     id: "music-video",
     category: "Music Video Clip",
     title: "Creative Music Clip And Video Production",
-    image: "/assets/img/video-editing/about-02.webp",
-    imageAlt: "Artist performing during a music video production shoot",
+    image: "/assets/img/video-editing/video-6.webp",
+    imageAlt: "Performer on stage during a cinematic music video shoot",
   },
   {
     id: "live-event",
     category: "Live Event Broadcast",
     title: "Professional Event Broadcast And Video Production",
-    image: "/assets/img/video-editing/video-bg.webp",
-    imageAlt: "Professional camera setup for live event broadcast production",
+    image: "/assets/img/video-editing/video-7.webp",
+    imageAlt: "Broadcast control room with multiple live production monitors",
   },
   {
     id: "educational-animation",
     category: "Educational Animation",
     title: "Creative Event And Educational Animation Production",
-    image: "/assets/img/video-editing/hero-banner-poster.webp",
-    imageAlt: "Editor working on educational animation content",
+    image: "/assets/img/video-editing/video-8.webp",
+    imageAlt: "Storyboard planning for educational animation production",
   },
   {
     id: "short-drama",
     category: "Short Drama Story",
     title: "Creative Event And Short Drama Video Production",
-    image: "/assets/img/video-editing/1.webp",
-    imageAlt: "Actors on set during a short drama video production",
+    image: "/assets/img/video-editing/video-9.webp",
+    imageAlt: "Couple enjoying an outdoor cafe scene during a video shoot",
   },
   {
     id: "product-reviews",
     category: "Product or Service Reviews",
     title: "Creative And Professional Product Review Video",
-    image: "/assets/img/video-editing/2.webp",
-    imageAlt: "Product review video shoot with professional lighting",
+    image: "/assets/img/video-editing/video-10.webp",
+    imageAlt: "Group reviewing content together for a product review video",
   },
 ] as const;
 
@@ -130,10 +130,10 @@ export const videoEditingBenefitsIntro = {
 } as const;
 
 export const videoEditingWhyChooseVisual = {
-  mainImage: "/assets/img/video-editing/about-01.webp",
+  mainImage: "/assets/img/video-editing/video-3.webp",
   mainImageAlt: "Professional reviewing content on a tablet in a video editing studio",
-  insetImage: "/assets/img/video-editing/about-02.webp",
-  insetImageAlt: "Creator reviewing multi-screen video feeds in a production control room",
+  insetImage: "/assets/img/video-editing/video-4.webp",
+  insetImageAlt: "Video production team working in a green screen studio",
 } as const;
 
 export const videoEditingBenefits = [

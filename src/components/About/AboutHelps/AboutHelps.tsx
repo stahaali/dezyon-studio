@@ -50,37 +50,15 @@ export function AboutHelps() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.08} className={styles.visualCol}>
-            <div className={styles.visualGrid}>
-              <figure className={styles.figure}>
-                <Image
-                  src={visuals.leftImage}
-                  alt={visuals.leftImageAlt}
-                  fill
-                  sizes="(max-width: 991px) 42vw, 18vw"
-                  className={styles.image}
-                />
-              </figure>
-
-              <div className={styles.playWrap} aria-hidden="true">
-                <span className={styles.playOuter}>
-                  <span className={styles.playRipple} />
-                  <span className={`${styles.playRipple} ${styles.playRippleDelay}`} />
-                  <span className={styles.playInner}>
-                    <span className={styles.playTriangle} />
-                  </span>
-                </span>
-              </div>
-
-              <figure className={styles.figure}>
-                <Image
-                  src={visuals.rightImage}
-                  alt={visuals.rightImageAlt}
-                  fill
-                  sizes="(max-width: 991px) 42vw, 18vw"
-                  className={styles.image}
-                />
-              </figure>
-            </div>
+            <figure className={styles.figure}>
+              <Image
+                src={visuals.image}
+                alt={visuals.imageAlt}
+                fill
+                sizes="(max-width: 991px) 90vw, 42vw"
+                className={styles.image}
+              />
+            </figure>
           </ScrollReveal>
         </div>
       </Container>

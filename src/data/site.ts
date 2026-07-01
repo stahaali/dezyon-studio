@@ -29,6 +29,11 @@ export const footerInformationLinks = [
   { label: "Contact Us", href: "/contact" },
 ] as const;
 
+export const footerInformationLinksSecondary = [
+  { label: "Talking Website", href: "/talking-website" },
+  { label: "Plans & Pricing", href: "/plans-and-pricing" },
+] as const;
+
 export const footerOffices = [
   {
     id: "usa",

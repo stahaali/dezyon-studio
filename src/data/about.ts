@@ -49,10 +49,8 @@ export const aboutHelps = {
     { label: "Modern Video Equipment", tone: "schedule" },
   ] as const,
   visuals: {
-    leftImage: `${ABOUT_ASSETS}/hero-about-01.webp`,
-    leftImageAlt: "Creative professional in a video production studio",
-    rightImage: `${ABOUT_ASSETS}/hero-about-02.webp`,
-    rightImageAlt: "Videographer capturing cinematic footage outdoors",
+    image: `${ABOUT_ASSETS}/about-2.webp`,
+    imageAlt: "Dezyon Studio professional presenting business growth insights",
   },
 } as const;
 
