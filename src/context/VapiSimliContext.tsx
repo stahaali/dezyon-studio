@@ -312,7 +312,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
   const startCall = useCallback(async () => {
     if (!isVapiConfigured()) {
       setError(
-        "Add NEXT_PUBLIC_VAPI_PUBLIC_KEY in .env.local, then restart the dev server.",
+        "Add NEXT_PUBLIC_VAPI_PUBLIC_KEY in .env, then restart the dev server.",
       );
       return;
     }

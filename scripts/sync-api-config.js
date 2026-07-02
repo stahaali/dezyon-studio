@@ -185,7 +185,7 @@ try {
 } catch (error) {
   console.warn(`[sync-api-config] ${error.message}`);
   console.warn(
-    "[sync-api-config] Skipping config.php — add DB_USER, DB_PASSWORD, and DB_NAME to .env.local for contact form / audit API."
+    "[sync-api-config] Skipping config.php — add DB_USER, DB_PASSWORD, and DB_NAME to .env for contact form / audit API."
   );
   process.exit(0);
 }

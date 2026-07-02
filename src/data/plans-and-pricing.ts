@@ -30,7 +30,7 @@ export const customWebsitePlans: CustomWebsitePlan[] = [
     ],
     deliveryTime: "5–7 days",
     priceRange: "Affordable entry-level",
-    cta: { label: "Get Started", href: "/contact" },
+    cta: { label: "Get Subscribe", href: "/contact" },
     featured: false,
   },
   {
@@ -50,7 +50,7 @@ export const customWebsitePlans: CustomWebsitePlan[] = [
     ],
     deliveryTime: "10–15 days",
     priceRange: "Mid-level investment",
-    cta: { label: "Get Started", href: "/contact" },
+    cta: { label: "Get Subscribe", href: "/contact" },
     featured: true,
   },
   {
@@ -72,7 +72,7 @@ export const customWebsitePlans: CustomWebsitePlan[] = [
     ],
     deliveryTime: "20–30 days",
     priceRange: "Premium / Custom Quote",
-    cta: { label: "Get Started", href: "/contact" },
+    cta: { label: "Get Subscribe", href: "/contact" },
     featured: false,
   },
 ];

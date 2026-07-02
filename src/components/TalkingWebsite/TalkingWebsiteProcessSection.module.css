@@ -1,0 +1,198 @@
+.section {
+  --hex-w: clamp(176px, 14.5vw, 228px);
+  --hex-h: calc(var(--hex-w) * 1.08);
+  --hex-gap: clamp(20px, 2.4vw, 32px);
+
+  position: relative;
+  padding-block: var(--tw-section-y);
+  overflow: hidden;
+}
+
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='98' viewBox='0 0 84 98'%3E%3Cpath d='M42 1l41 23.5v47L42 95 1 71.5V24.5L42 1z' fill='none' stroke='rgba(255%2C255%2C255%2C0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 84px 98px;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  margin-bottom: clamp(44px, 5.5vw, 64px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(var(--color-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(146, 225, 58, 0.9);
+}
+
+.heading {
+  margin: 0;
+}
+
+.introText {
+  max-width: 640px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #ffffff;
+}
+
+.honeycombGrid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--hex-gap);
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(12px, 2vw, 24px);
+  padding-bottom: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--hex-gap);
+  flex-shrink: 0;
+}
+
+.columnMiddle {
+  margin-top: calc((var(--hex-h) + var(--hex-gap)) / 2);
+}
+
+.hexCard {
+  width: var(--hex-w);
+  transition: transform 0.25s ease;
+}
+
+.hexCard:hover {
+  transform: translateY(-4px);
+}
+
+.hexShape {
+  position: relative;
+  width: 100%;
+  min-height: var(--hex-h);
+  background: #2c2f36;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+.hexShape::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  pointer-events: none;
+}
+
+.hexInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  min-height: var(--hex-h);
+  padding: clamp(22px, 2.4vw, 30px) clamp(18px, 2vw, 26px) clamp(20px, 2.2vw, 28px);
+}
+
+.hexIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(50px, 5vw, 60px);
+  height: clamp(50px, 5vw, 60px);
+  margin-bottom: clamp(12px, 1.4vw, 16px);
+  border-radius: 50%;
+  color: #92e13a;
+  background: #23262b;
+  border: 1px solid rgba(146, 225, 58, 0.28);
+  box-shadow: 0 0 18px rgba(146, 225, 58, 0.14);
+  flex-shrink: 0;
+}
+
+.hexTitle {
+  margin: 0 0 10px;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 800;
+  line-height: 1.38;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.hexMessage {
+  margin: 0;
+  max-width: 95%;
+  font-size: clamp(10px, 0.84vw, 12px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 991px) {
+  .honeycombGrid {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(146, 225, 58, 0.35) transparent;
+    padding-inline: 20px 36px;
+    max-width: 100%;
+    scroll-snap-type: x proximity;
+  }
+
+  .column {
+    scroll-snap-align: center;
+  }
+
+  .section {
+    --hex-w: 196px;
+    --hex-gap: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    --hex-w: 172px;
+    --hex-gap: 18px;
+  }
+
+  .introText {
+    font-size: 14px;
+  }
+
+  .hexInner {
+    padding-inline: 14px;
+  }
+}

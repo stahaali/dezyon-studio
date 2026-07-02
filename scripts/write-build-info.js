@@ -92,10 +92,10 @@ console.log("[build-info] The _next folder is required — do not skip it.");
 const configPath = path.join(outDir, "api", "config.php");
 if (!fs.existsSync(configPath)) {
   console.warn(
-    "[build-info] No out/api/config.php — contact form and audit API need DB credentials in .env.local before Hostinger deploy."
+    "[build-info] No out/api/config.php — contact form and audit API need DB credentials in .env before Hostinger deploy."
   );
   console.warn(
-    "[build-info] Add DB_HOST, DB_USER, DB_PASSWORD, DB_NAME to .env.local, then rebuild."
+    "[build-info] Add DB_HOST, DB_USER, DB_PASSWORD, DB_NAME to .env, then rebuild."
   );
 } else {
   console.log("[build-info] Verified out/api/config.php");

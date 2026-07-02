@@ -68,7 +68,7 @@ export async function POST(request: Request) {
         {
           success: false,
           message:
-            "Database is not configured. Add DB_HOST, DB_USER, DB_PASSWORD, and DB_NAME to .env.local.",
+            "Database is not configured. Add DB_HOST, DB_USER, DB_PASSWORD, and DB_NAME to .env.",
         },
         { status: 500 },
       );

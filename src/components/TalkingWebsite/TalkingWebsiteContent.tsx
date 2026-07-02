@@ -4,17 +4,12 @@ import {
   Brain,
   Briefcase,
   Building2,
-  CalendarCheck,
   Check,
   Clock,
   Cloud,
   DollarSign,
-  Filter,
-  Globe,
-  Mail,
   MessageCircle,
   Mic,
-  MousePointerClick,
   Scale,
   ShoppingCart,
   Sparkles,
@@ -30,7 +25,6 @@ import {
   TalkingWebsiteGradientIcon,
   talkingWebsiteBenefitTones,
   talkingWebsiteHeroMetricTones,
-  talkingWebsiteStepTones,
   talkingWebsiteTaglineTones,
   talkingWebsiteUseCaseTones,
 } from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon";
@@ -40,12 +34,11 @@ import {
   talkingWebsiteFeatures,
   talkingWebsiteHero,
   talkingWebsitePricing,
-  talkingWebsiteSteps,
-  talkingWebsiteStepsIntro,
   talkingWebsiteTaglines,
   talkingWebsiteUseCases,
 } from "@/data/talking-website";
 import { TalkingWebsiteHeroCta } from "@/components/TalkingWebsite/TalkingWebsiteHeroCta";
+import { TalkingWebsiteProcessSection } from "@/components/TalkingWebsite/TalkingWebsiteProcessSection";
 import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
@@ -54,14 +47,12 @@ import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
 import styles from "./TalkingWebsite.module.css";
 
-const stepIcons = [
-  Globe,
-  MousePointerClick,
-  Bot,
-  Filter,
-  CalendarCheck,
-  Mail,
-] as const;
+const sectionEyebrows = {
+  features: "Capabilities",
+  industries: "Industries",
+  benefits: "Results",
+  pricing: "Plans",
+} as const;
 
 const useCaseIcons = [
   Building2,
@@ -82,14 +73,6 @@ const heroMetrics = [
   { icon: Clock, label: "24/7 Live" },
   { icon: Zap, label: "Instant Reply" },
 ] as const;
-
-const sectionEyebrows = {
-  steps: "Process",
-  features: "Capabilities",
-  industries: "Industries",
-  benefits: "Results",
-  pricing: "Plans",
-} as const;
 
 export function TalkingWebsiteContent() {
   return (
@@ -176,121 +159,7 @@ export function TalkingWebsiteContent() {
         </Container>
       </section>
 
-      <section className={styles.stepsSection} aria-labelledby="how-it-works-heading">
-        <Container className={styles.sectionContainer}>
-          <ScrollReveal>
-            <div className={styles.sectionIntro}>
-              <span className={styles.sectionEyebrow}>{sectionEyebrows.steps}</span>
-              <PlansPricingHeading
-                id="how-it-works-heading"
-                prefix="How It "
-                highlight="Works"
-                size="section"
-                align="center"
-                className={styles.sectionHeading}
-              />
-            </div>
-          </ScrollReveal>
-
-          <div className={styles.stepsShowcase}>
-            <ScrollReveal className={styles.stepsGuide}>
-              <div className={styles.stepsAssistantPanel}>
-                <div className={styles.stepsAssistantHeader}>
-                  <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="step" />
-                  <div className={styles.stepsAssistantMeta}>
-                    <span className={styles.stepsAssistantName}>AI Voice Assistant</span>
-                    <span className={styles.stepsAssistantStatus}>
-                      <span className={styles.liveDot} />
-                      Explaining process
-                    </span>
-                  </div>
-                </div>
-
-                <div className={styles.stepsAssistantVisual} aria-hidden="true">
-                  <div className={styles.stepsGuideGlow} />
-                  <div className={styles.aiVoiceAvatar}>
-                    <div className={styles.aiVoiceRings}>
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                    <div className={styles.aiVoiceFace}>
-                      <div className={styles.aiVoiceEyes}>
-                        <span className={styles.aiVoiceEye} />
-                        <span className={styles.aiVoiceEye} />
-                      </div>
-                      <TalkingWebsiteGradientIcon
-                        icon={Bot}
-                        tone="learn"
-                        size="step"
-                        className={styles.aiVoiceBotIcon}
-                      />
-                      <div className={styles.aiVoiceMouth}>
-                        {Array.from({ length: 7 }).map((_, index) => (
-                          <span
-                            key={index}
-                            className={styles.aiLipBar}
-                            style={{ animationDelay: `${index * 0.09}s` }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <span className={styles.aiVoiceCaption}>AI Speaking</span>
-                  </div>
-                  <div className={styles.stepsWave}>
-                    {Array.from({ length: 14 }).map((_, index) => (
-                      <span
-                        key={index}
-                        className={styles.stepsWaveBar}
-                        style={{ animationDelay: `${index * 0.06}s` }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <article className={styles.stepsIntroBubble}>
-                  <span className={styles.stepsIntroLabel}>
-                    <TalkingWebsiteGradientIcon icon={Mic} tone="voice" size="label" />
-                    AI Assistant
-                  </span>
-                  <p>{talkingWebsiteStepsIntro}</p>
-                </article>
-              </div>
-              <div className={styles.stepsSpeechBridge} aria-hidden="true">
-                <span className={styles.stepsSpeechPulse} />
-              </div>
-            </ScrollReveal>
-
-            <div className={styles.stepsTimeline}>
-              <div className={styles.stepsTimelineLine} aria-hidden="true" />
-              {talkingWebsiteSteps.map((item, index) => {
-                const Icon = stepIcons[index];
-
-                return (
-                  <ScrollReveal key={item.step} delay={0.06 + index * 0.06} as="article">
-                    <article className={styles.stepMessage}>
-                      <span className={styles.stepTimelineDot} aria-hidden="true" />
-                      <div className={styles.stepMessageHeader}>
-                        <TalkingWebsiteGradientIcon
-                          icon={Icon}
-                          tone={talkingWebsiteStepTones[index]}
-                          size="step"
-                        />
-                        <span className={styles.stepAiTag}>
-                          <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="label" />
-                          Step {String(item.step).padStart(2, "0")}
-                        </span>
-                      </div>
-                      <h3 className={styles.stepTitle}>{item.title}</h3>
-                      <p className={styles.stepMessageText}>{item.message}</p>
-                    </article>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
-          </div>
-        </Container>
-      </section>
+      <TalkingWebsiteProcessSection />
 
       <section className={styles.featuresSection} aria-labelledby="features-heading">
         <Container className={styles.sectionContainer}>
