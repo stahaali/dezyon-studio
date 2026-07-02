@@ -14,6 +14,11 @@ import {
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
+import {
+  TalkingWebsiteGradientIcon,
+  talkingWebsiteStepTones,
+  type GradientTone,
+} from "./TalkingWebsiteGradientIcon";
 import styles from "./TalkingWebsiteProcessSection.module.css";
 
 const stepIcons = [
@@ -37,22 +42,25 @@ type HexStepProps = {
   icon: LucideIcon;
   title: string;
   message: string;
-  index: number;
+  tone: GradientTone;
 };
 
-function HexStep({ icon: Icon, title, message, index }: HexStepProps) {
+function HexStep({ icon, title, message, tone }: HexStepProps) {
   return (
-    <ScrollReveal delay={0.05 + index * 0.07} as="article" className={styles.hexCard}>
+    <article className={styles.hexCard}>
       <div className={styles.hexShape}>
         <div className={styles.hexInner}>
-          <div className={styles.hexIconWrap}>
-            <Icon size={26} strokeWidth={1.75} aria-hidden="true" />
-          </div>
+          <TalkingWebsiteGradientIcon
+            icon={icon}
+            tone={tone}
+            size="tagline"
+            className={styles.hexIcon}
+          />
           <h3 className={styles.hexTitle}>{title}</h3>
           <p className={styles.hexMessage}>{message}</p>
         </div>
       </div>
-    </ScrollReveal>
+    </article>
   );
 }
 
@@ -61,7 +69,7 @@ export function TalkingWebsiteProcessSection() {
     <section className={styles.section} aria-labelledby="how-it-works-heading">
       <div className={styles.bgPattern} aria-hidden="true" />
 
-      <Container className={styles.container}>
+      <Container className={styles.introContainer}>
         <ScrollReveal>
           <div className={styles.intro}>
             <span className={styles.eyebrow}>Process</span>
@@ -76,7 +84,9 @@ export function TalkingWebsiteProcessSection() {
             <p className={styles.introText}>{talkingWebsiteStepsIntro}</p>
           </div>
         </ScrollReveal>
+      </Container>
 
+      <div className={styles.honeycombWrap}>
         <div className={styles.honeycombGrid}>
           {honeycombColumns.map((columnSteps, colIndex) => {
             const isMiddle = columnSteps.length === 1;
@@ -84,7 +94,7 @@ export function TalkingWebsiteProcessSection() {
             return (
               <div
                 key={colIndex}
-                className={`${styles.column} ${isMiddle ? styles.columnMiddle : ""}`}
+                className={`${styles.column} ${isMiddle ? styles.columnMiddle : ""} ${columnSteps.length === 2 ? styles.columnDouble : ""}`}
               >
                 {columnSteps.map((stepIndex) => {
                   const item = talkingWebsiteSteps[stepIndex];
@@ -96,7 +106,7 @@ export function TalkingWebsiteProcessSection() {
                       icon={Icon}
                       title={item.title}
                       message={item.message}
-                      index={stepIndex}
+                      tone={talkingWebsiteStepTones[stepIndex]}
                     />
                   );
                 })}
@@ -104,7 +114,7 @@ export function TalkingWebsiteProcessSection() {
             );
           })}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

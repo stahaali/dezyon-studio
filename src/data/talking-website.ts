@@ -35,7 +35,7 @@ export const talkingWebsiteSteps = [
   },
   {
     step: 3,
-    title: "AI Voice Assistant Responds",
+    title: "Dezyon Studio Assistant Responds",
     message: "I answer questions, explain your services, and keep them engaged.",
   },
   {

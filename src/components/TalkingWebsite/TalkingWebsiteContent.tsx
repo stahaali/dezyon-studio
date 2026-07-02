@@ -1,6 +1,5 @@
 import {
   Bell,
-  Bot,
   Brain,
   Briefcase,
   Building2,
@@ -65,6 +64,14 @@ const useCaseIcons = [
 ] as const;
 
 const benefitIcons = [TrendingUp, Zap, DollarSign, Bell, Users] as const;
+
+const benefitAccentClasses = [
+  styles.benefitAccentTl,
+  styles.benefitAccentTc,
+  styles.benefitAccentTr,
+  styles.benefitAccentBl,
+  styles.benefitAccentBc,
+] as const;
 
 const taglineIcons = [MessageCircle, Sparkles, Users] as const;
 
@@ -241,57 +248,32 @@ export function TalkingWebsiteContent() {
                 align="center"
                 className={styles.sectionHeading}
               />
+              <p className={styles.benefitsIntro}>{talkingWebsiteBenefitsIntro}</p>
             </div>
           </ScrollReveal>
 
-          <div className={styles.benefitsLayout}>
-            <ScrollReveal>
-              <article className={styles.benefitsInsight}>
-                <TalkingWebsiteGradientIcon icon={Bot} tone="learn" size="insight" />
-                <div className={styles.benefitsInsightCopy}>
-                  <span className={styles.benefitsInsightLabel}>
-                    <TalkingWebsiteGradientIcon icon={Sparkles} tone="empathy" size="label" />
-                    AI Recommendation
-                  </span>
-                  <p>{talkingWebsiteBenefitsIntro}</p>
-                </div>
-                <div className={styles.benefitsInsightWave} aria-hidden="true">
-                  {Array.from({ length: 10 }).map((_, index) => (
-                    <span
-                      key={index}
-                      className={styles.benefitsInsightWaveBar}
-                      style={{ animationDelay: `${index * 0.07}s` }}
+          <div className={styles.benefitsGrid}>
+            {talkingWebsiteBenefits.map((benefit, index) => {
+              const Icon = benefitIcons[index];
+
+              return (
+                <ScrollReveal key={benefit.title} delay={index * 0.05} as="article">
+                  <article
+                    className={`${styles.benefitCard} ${benefitAccentClasses[index]} ${index === 1 ? styles.benefitCardActive : ""}`}
+                  >
+                    <TalkingWebsiteGradientIcon
+                      icon={Icon}
+                      tone={talkingWebsiteBenefitTones[index]}
+                      size="feature"
+                      className={styles.benefitIcon}
                     />
-                  ))}
-                </div>
-              </article>
-            </ScrollReveal>
-
-            <div className={styles.benefitsResultsGrid}>
-              {talkingWebsiteBenefits.map((benefit, index) => {
-                const Icon = benefitIcons[index];
-
-                return (
-                  <ScrollReveal key={benefit.title} delay={0.05 + index * 0.05} as="article">
-                    <article
-                      className={`${styles.benefitResultCard} ${index === 0 ? styles.benefitResultCardLead : ""}`}
-                    >
-                      <TalkingWebsiteGradientIcon
-                        icon={Icon}
-                        tone={talkingWebsiteBenefitTones[index]}
-                        size="benefit"
-                        className={styles.benefitResultIcon}
-                      />
-                      <div className={styles.benefitResultStat}>{benefit.stat}</div>
-                      <div className={styles.benefitResultContent}>
-                        <h3 className={styles.benefitResultTitle}>{benefit.title}</h3>
-                        <p className={styles.benefitResultDesc}>{benefit.description}</p>
-                      </div>
-                    </article>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
+                    <span className={styles.benefitStat}>{benefit.stat}</span>
+                    <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+                    <p className={styles.benefitDesc}>{benefit.description}</p>
+                  </article>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </Container>
       </section>
