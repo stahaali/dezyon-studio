@@ -12,7 +12,7 @@
 }
 
 .page > section:not(.hero) {
-  background: #000200;
+  background-color: #000200;
 }
 
 .sectionContainer {
@@ -1282,7 +1282,7 @@
   margin-top: 48px;
 }
 
-.benefitsGrid > article {
+.benefitsGrid > * {
   height: 100%;
   min-width: 0;
   overflow: visible;
@@ -1292,53 +1292,167 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
+  justify-content: flex-end;
+  align-items: stretch;
+  text-align: left;
   height: 100%;
-  min-height: 240px;
-  padding: 36px 28px 32px;
+  min-height: 300px;
+  padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.025);
-  overflow: visible;
+  overflow: hidden;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
-.benefitCardActive {
-  border-color: rgba(146, 225, 58, 0.32);
-  background: rgba(146, 225, 58, 0.04);
-}
-
-.benefitCardActive::after {
-  content: "";
+.benefitCardHover {
   position: absolute;
-  inset: 0;
+  inset: -1px;
   z-index: 0;
+  overflow: hidden;
   border-radius: inherit;
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(146, 225, 58, 0.12) 0%,
-    transparent 55%
-  );
   pointer-events: none;
 }
 
-.benefitCardActive > * {
-  position: relative;
-  z-index: 1;
+.benefitCardHoverBg {
+  display: block;
+  width: calc(25% + 0.2px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: translate3d(0, 101%, 0);
+  background: var(--brand-gradient);
+  transition: transform 0.38s ease;
+  will-change: transform;
 }
 
-.benefitIcon {
-  flex-shrink: 0;
+.benefitCardHoverBg1 {
+  left: 0;
+  transition-delay: 0.08s;
+}
+
+.benefitCardHoverBg2 {
+  left: 25%;
+  transition-delay: 0.16s;
+}
+
+.benefitCardHoverBg3 {
+  left: 50%;
+  transition-delay: 0.24s;
+}
+
+.benefitCardHoverBg4 {
+  left: 75%;
+  transition-delay: 0.32s;
+}
+
+.benefitCard:hover .benefitCardHoverBg {
+  transform: translate3d(0, 0, 0);
+}
+
+.benefitCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.benefitCardMain {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  gap: 12px;
+  padding: 28px 28px 24px;
+}
+
+.benefitCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.benefitIconBox {
+  position: relative;
+  display: inline-flex;
   margin-bottom: 4px;
 }
 
-.benefitStat {
-  font-size: clamp(20px, 2.2vw, 26px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--color-primary);
+.benefitIconBox::before,
+.benefitIconBox::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  z-index: 2;
+  transition:
+    transform 0.5s ease,
+    background-color 0.4s ease;
+  background-color: var(--color-primary);
+}
+
+.benefitIconBox::before {
+  top: -4px;
+  right: -4px;
+}
+
+.benefitIconBox::after {
+  left: -4px;
+  bottom: -4px;
+}
+
+.benefitCard:hover .benefitIconBox::before {
+  transform: translateX(-60px);
+  background-color: #ffffff;
+}
+
+.benefitCard:hover .benefitIconBox::after {
+  transform: translateX(60px);
+  background-color: #ffffff;
+}
+
+.benefitIcon {
+  background: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  transition:
+    background-color 0.4s ease,
+    box-shadow 0.4s ease,
+    color 0.4s ease;
+}
+
+.benefitCard:hover .benefitIcon {
+  background: #000200 !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+}
+
+.benefitsGrid > *:nth-child(1) .benefitIcon {
+  color: #0d9488;
+}
+
+.benefitsGrid > *:nth-child(2) .benefitIcon {
+  color: #ea580c;
+}
+
+.benefitsGrid > *:nth-child(3) .benefitIcon {
+  color: #d97706;
+}
+
+.benefitsGrid > *:nth-child(4) .benefitIcon {
+  color: #db2777;
+}
+
+.benefitsGrid > *:nth-child(5) .benefitIcon {
+  color: #7c3aed;
+}
+
+.benefitsGrid > *:nth-child(6) .benefitIcon {
+  color: #2563eb;
 }
 
 .benefitTitle {
@@ -1347,70 +1461,23 @@
   font-weight: 700;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.92);
+  transition: color 0.4s ease;
+}
+
+.benefitCard:hover .benefitTitle {
+  color: #ffffff;
 }
 
 .benefitDesc {
   margin: 0;
-  max-width: 300px;
   font-size: 14px;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.62);
+  transition: color 0.4s ease;
 }
 
-.benefitAccentTl::before,
-.benefitAccentTr::before,
-.benefitAccentBl::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  width: 48px;
-  height: 48px;
-  pointer-events: none;
-}
-
-.benefitAccentTl::before {
-  top: 0;
-  left: 0;
-  border-top: 3px solid var(--color-primary);
-  border-left: 3px solid var(--color-primary);
-  border-top-left-radius: var(--radius-xl);
-}
-
-.benefitAccentTr::before {
-  top: 0;
-  right: 0;
-  border-top: 3px solid var(--color-primary);
-  border-right: 3px solid var(--color-primary);
-  border-top-right-radius: var(--radius-xl);
-}
-
-.benefitAccentBl::before {
-  bottom: 0;
-  left: 0;
-  border-bottom: 3px solid var(--color-primary);
-  border-left: 3px solid var(--color-primary);
-  border-bottom-left-radius: var(--radius-xl);
-}
-
-.benefitAccentTc::before,
-.benefitAccentBc::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  width: 56px;
-  height: 3px;
-  transform: translateX(-50%);
-  background: var(--color-primary);
-  pointer-events: none;
-}
-
-.benefitAccentTc::before {
-  top: 0;
-}
-
-.benefitAccentBc::before {
-  bottom: 0;
+.benefitCard:hover .benefitDesc {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 /* ── Pricing ── */
@@ -1816,20 +1883,16 @@
   }
 
   .benefitsGrid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
   }
 
-  .benefitsGrid > article:nth-child(-n + 3) {
-    grid-column: span 2;
+  .benefitsGrid > *:nth-child(5) {
+    grid-column: 2;
   }
 
-  .benefitsGrid > article:nth-child(4) {
-    grid-column: 2 / span 2;
-  }
-
-  .benefitsGrid > article:nth-child(5) {
-    grid-column: 4 / span 2;
+  .benefitsGrid > *:nth-child(6) {
+    grid-column: 3;
   }
 
   .aiVoiceAvatar {
@@ -1926,7 +1989,16 @@
   .featureCard:hover,
   .taglineCard:hover,
   .pricingCard:hover,
-  .pricingCardFeatured:hover {
+  .pricingCardFeatured:hover,
+  .benefitCard:hover {
     transform: none;
+  }
+
+  .benefitCardHoverBg {
+    transition: none;
+  }
+
+  .benefitCard:hover .benefitCardHoverBg {
+    transform: translate3d(0, 0, 0);
   }
 }

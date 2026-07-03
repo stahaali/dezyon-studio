@@ -655,7 +655,7 @@
   }
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1366px) and (max-width: 1919.98px) {
   .heroBg {
     height: 720px;
   }
@@ -679,7 +679,7 @@
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1400px) and (max-width: 1919.98px) {
   .hero {
     min-height: auto;
     padding-bottom: 72px;
@@ -694,7 +694,9 @@
     align-items: start;
     gap: 0;
   }
+}
 
+@media (min-width: 1400px) {
   .heroText {
     max-width: 960px;
   }
@@ -749,6 +751,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100svh;
     min-height: 100dvh;
     padding-top: var(--header-height);
     padding-bottom: 48px;
@@ -756,7 +759,8 @@
 
   .heroBg {
     inset: 0;
-    height: auto;
+    height: 100%;
+    min-height: 100%;
   }
 
   .hero .heroOuter {

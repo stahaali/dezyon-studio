@@ -58,7 +58,11 @@ export function VideoEditingContent() {
                 ))}
               </div>
               <div className={styles.heroCtas}>
-                <Button href={videoEditingHero.cta.href} size="lg">
+                <Button
+                  href={videoEditingHero.cta.href}
+                  size="lg"
+                  className={styles.heroCtaButton}
+                >
                   {videoEditingHero.cta.label}
                   <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
                 </Button>

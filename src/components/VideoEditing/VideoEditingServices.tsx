@@ -56,6 +56,7 @@ export function VideoEditingServices() {
           {videoEditingServices.map((service, index) => {
             const Icon = serviceIcons[service.icon] ?? Sparkles;
             const tone = videoEditingServiceTones[index];
+            const stepLabel = String(index + 1).padStart(2, "0");
 
             return (
               <ScrollReveal
@@ -64,18 +65,37 @@ export function VideoEditingServices() {
                 as="article"
                 className={styles.serviceCard}
               >
-                <div className={styles.iconFloating} aria-hidden="true">
-                  <TalkingWebsiteGradientIcon
-                    icon={Icon}
-                    tone={tone}
-                    size="feature"
+                <span className={styles.indexBadge}>{stepLabel}</span>
+
+                <div className={styles.iconArea}>
+                  <span
+                    className={`${styles.iconGlow} ${styles[`glow${tone}`]}`}
+                    aria-hidden="true"
                   />
+                  <div className={styles.iconFlipShell}>
+                    <div className={styles.iconFlip}>
+                      <div className={styles.iconFace}>
+                        <TalkingWebsiteGradientIcon
+                          icon={Icon}
+                          tone={tone}
+                          size="feature"
+                          className={styles.iconCircle}
+                        />
+                      </div>
+                      <div className={`${styles.iconFace} ${styles.iconFaceBack}`}>
+                        <TalkingWebsiteGradientIcon
+                          icon={Icon}
+                          tone="leads"
+                          size="feature"
+                          className={styles.iconCircle}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className={styles.cardInner}>
-                  <h3 className={styles.serviceTitle}>{service.title}</h3>
-                  <p className={styles.serviceIntro}>{service.intro}</p>
-                </div>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
+                <p className={styles.serviceIntro}>{service.intro}</p>
               </ScrollReveal>
             );
           })}

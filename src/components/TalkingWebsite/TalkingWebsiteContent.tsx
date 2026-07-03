@@ -3,6 +3,7 @@ import {
   Brain,
   Briefcase,
   Building2,
+  Calendar,
   Check,
   Clock,
   Cloud,
@@ -63,15 +64,7 @@ const useCaseIcons = [
   Cloud,
 ] as const;
 
-const benefitIcons = [TrendingUp, Zap, DollarSign, Bell, Users] as const;
-
-const benefitAccentClasses = [
-  styles.benefitAccentTl,
-  styles.benefitAccentTc,
-  styles.benefitAccentTr,
-  styles.benefitAccentBl,
-  styles.benefitAccentBc,
-] as const;
+const benefitIcons = [TrendingUp, Zap, DollarSign, Bell, Users, Calendar] as const;
 
 const taglineIcons = [MessageCircle, Sparkles, Users] as const;
 
@@ -124,7 +117,7 @@ export function TalkingWebsiteContent() {
                 ))}
               </div>
               <div className={styles.heroCtas}>
-                <TalkingWebsiteHeroCta label={talkingWebsiteHero.ctas.primary.label} />
+                <TalkingWebsiteHeroCta />
               </div>
               <ul className={styles.heroMetrics} aria-label="Product highlights">
                 {heroMetrics.map(({ icon: Icon, label }, index) => (
@@ -257,19 +250,28 @@ export function TalkingWebsiteContent() {
               const Icon = benefitIcons[index];
 
               return (
-                <ScrollReveal key={benefit.title} delay={index * 0.05} as="article">
-                  <article
-                    className={`${styles.benefitCard} ${benefitAccentClasses[index]} ${index === 1 ? styles.benefitCardActive : ""}`}
-                  >
-                    <TalkingWebsiteGradientIcon
-                      icon={Icon}
-                      tone={talkingWebsiteBenefitTones[index]}
-                      size="feature"
-                      className={styles.benefitIcon}
-                    />
-                    <span className={styles.benefitStat}>{benefit.stat}</span>
-                    <h3 className={styles.benefitTitle}>{benefit.title}</h3>
-                    <p className={styles.benefitDesc}>{benefit.description}</p>
+                <ScrollReveal key={benefit.title} delay={index * 0.05}>
+                  <article className={styles.benefitCard}>
+                    <div className={styles.benefitCardHover} aria-hidden="true">
+                      <span className={`${styles.benefitCardHoverBg} ${styles.benefitCardHoverBg1}`} />
+                      <span className={`${styles.benefitCardHoverBg} ${styles.benefitCardHoverBg2}`} />
+                      <span className={`${styles.benefitCardHoverBg} ${styles.benefitCardHoverBg3}`} />
+                      <span className={`${styles.benefitCardHoverBg} ${styles.benefitCardHoverBg4}`} />
+                    </div>
+                    <div className={styles.benefitCardMain}>
+                      <div className={styles.benefitIconBox}>
+                        <TalkingWebsiteGradientIcon
+                          icon={Icon}
+                          tone={talkingWebsiteBenefitTones[index]}
+                          size="feature"
+                          className={styles.benefitIcon}
+                        />
+                      </div>
+                      <div className={styles.benefitCopy}>
+                        <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+                        <p className={styles.benefitDesc}>{benefit.description}</p>
+                      </div>
+                    </div>
                   </article>
                 </ScrollReveal>
               );

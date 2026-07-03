@@ -66,9 +66,12 @@ export function TypewriterTitle({
       id={id}
       className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title} ${className}`.trim()}
     >
-      <span className={styles.prefix}>{prefix}</span>
+      <span className={styles.firstLine}>
+        <span className={styles.prefix}>{prefix}</span>
+        {suffix ? <span className={styles.suffixInline}> {suffix}</span> : null}
+      </span>
       <span className={styles.secondLine}>
-        {suffix ? <span className={styles.suffix}>{suffix} </span> : null}
+        {suffix ? <span className={styles.suffixWithHighlight}>{suffix}</span> : null}
         <span className={styles.wordHighlight}>
           <span className={styles.typewriter} aria-live="polite">
             <span className={styles.typewriterText}>{displayText}</span>

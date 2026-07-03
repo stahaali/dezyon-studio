@@ -8,11 +8,8 @@
 
   position: relative;
   padding-block: var(--tw-section-y);
-  overflow: visible;
-}
-
-.bgPattern {
-  display: none;
+  overflow: hidden;
+  background-color: #000200;
 }
 
 .introContainer {

@@ -27,17 +27,13 @@ export function MarketingWhyChoose() {
 
         <div className={styles.grid}>
           {marketingWhyChoose.items.map((item, index) => (
-            <ScrollReveal key={item.id} delay={index * 0.06} as="article">
-              <article className={styles.card}>
-                <div className={styles.iconSlot}>
-                  <MarketingWhyChooseIcon
-                    iconId={item.icon}
-                    className={styles.cardIcon}
-                  />
-                </div>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDesc}>{item.description}</p>
-              </article>
+            <ScrollReveal key={item.id} delay={index * 0.06} as="article" className={styles.card}>
+              <div className={styles.iconBadge}>
+                <MarketingWhyChooseIcon iconId={item.icon} className={styles.cardIcon} />
+              </div>
+
+              <h3 className={styles.cardTitle}>{item.title}</h3>
+              <p className={styles.cardDesc}>{item.description}</p>
             </ScrollReveal>
           ))}
         </div>

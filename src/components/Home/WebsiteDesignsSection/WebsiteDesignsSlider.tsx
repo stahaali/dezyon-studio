@@ -19,7 +19,7 @@ export function WebsiteDesignsSlider() {
         loop
         slidesPerView="auto"
         spaceBetween={18}
-        speed={5000}
+        speed={3800}
         autoplay={{
           delay: 0,
           disableOnInteraction: false,

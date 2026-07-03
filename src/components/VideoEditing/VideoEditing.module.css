@@ -321,14 +321,23 @@
   gap: 14px;
 }
 
+.heroCtaButton > span:not(:first-child) {
+  background: #ffffff;
+}
+
+.heroCtaButton:hover,
+.heroCtaButton:hover > span:first-child {
+  color: #000200 !important;
+}
+
 @media (min-width: 1400px) {
   .page {
     --tw-content-max: 1280px;
   }
 }
 
-/* Lock hero banner to the 1366px view from 1366px, 1600px, and 1920px */
-@media (min-width: 1366px) {
+/* Lock hero height to 720px from 1366px through 1919px */
+@media (min-width: 1366px) and (max-width: 1919.98px) {
   .page {
     --tw-content-max: 1280px;
   }
@@ -336,7 +345,9 @@
   .hero {
     min-height: 720px;
   }
+}
 
+@media (min-width: 1366px) {
   .heroSubtitle {
     font-size: 1.7rem;
     line-height: 1.28;
@@ -368,10 +379,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100svh;
     min-height: 100dvh;
     padding-top: var(--header-height);
     padding-bottom: 48px;
     padding-inline: 44px;
+  }
+
+  .heroBg {
+    inset: 0;
+    height: 100%;
+    min-height: 100%;
   }
 
   .hero .heroContainer {

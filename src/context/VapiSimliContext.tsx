@@ -36,6 +36,7 @@ type VapiSimliContextValue = {
   transcript: TranscriptEntry[];
   error: string | null;
   openWidget: () => void;
+  closeWidget: () => void;
   startCall: () => Promise<void>;
   endCall: () => void;
 };
@@ -309,6 +310,10 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     setIsWidgetVisible(true);
   }, []);
 
+  const closeWidget = useCallback(() => {
+    setIsWidgetVisible(false);
+  }, []);
+
   const startCall = useCallback(async () => {
     if (!isVapiConfigured()) {
       setError(
@@ -370,6 +375,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       transcript,
       error,
       openWidget,
+      closeWidget,
       startCall,
       endCall,
     }),
@@ -381,6 +387,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       transcript,
       error,
       openWidget,
+      closeWidget,
       startCall,
       endCall,
     ],

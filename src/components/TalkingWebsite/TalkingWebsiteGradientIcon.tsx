@@ -92,11 +92,12 @@ export const talkingWebsiteUseCaseTones: GradientTone[] = [
 ];
 
 export const talkingWebsiteBenefitTones: GradientTone[] = [
-  "fun",
+  "availability",
   "voice",
   "crm",
   "notify",
-  "leads",
+  "learn",
+  "language",
 ];
 
 export const talkingWebsiteTaglineTones: GradientTone[] = [

@@ -10,6 +10,7 @@ type TalkingWebsiteVoiceAssistantProps = {
   showContactAvatar?: boolean;
   avatarSrc?: string;
   avatarAlt?: string;
+  avatarHref?: string;
 };
 
 export function TalkingWebsiteVoiceAssistant({
@@ -17,12 +18,17 @@ export function TalkingWebsiteVoiceAssistant({
   showContactAvatar = false,
   avatarSrc,
   avatarAlt,
+  avatarHref,
 }: TalkingWebsiteVoiceAssistantProps) {
   return (
     <VapiSimliProvider>
       {children}
       {showContactAvatar && avatarSrc ? (
-        <ContactVoiceFloatingAvatar src={avatarSrc} alt={avatarAlt ?? ""} />
+        <ContactVoiceFloatingAvatar
+          src={avatarSrc}
+          alt={avatarAlt ?? ""}
+          href={avatarHref}
+        />
       ) : null}
       <VapiVoiceWidget />
     </VapiSimliProvider>

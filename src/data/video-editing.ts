@@ -132,8 +132,12 @@ export const videoEditingBenefitsIntro = {
 export const videoEditingWhyChooseVisual = {
   mainImage: "/assets/img/video-editing/video-3.webp",
   mainImageAlt: "Professional reviewing content on a tablet in a video editing studio",
-  insetImage: "/assets/img/video-editing/video-4.webp",
-  insetImageAlt: "Video production team working in a green screen studio",
+  experience: {
+    value: "11K",
+    label: "Experience",
+    icon: "/assets/img/web-apps/icon-experience.svg",
+    iconAlt: "Experience icon",
+  },
 } as const;
 
 export const videoEditingBenefits = [

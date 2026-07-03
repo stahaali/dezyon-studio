@@ -5,19 +5,25 @@
   overflow: visible;
 }
 
-.prefix {
+.firstLine {
   display: block;
-  color: #ffffff;
   white-space: nowrap;
+}
+
+.prefix,
+.suffixInline,
+.suffixWithHighlight {
+  display: inline;
+  color: #ffffff;
+}
+
+.suffixWithHighlight {
+  display: none;
 }
 
 .secondLine {
   display: block;
   margin-top: 4px;
-}
-
-.suffix {
-  color: #ffffff;
 }
 
 .wordHighlight {
@@ -63,7 +69,16 @@
 }
 
 @media (max-width: 576px) {
-  .prefix {
+  .firstLine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.14em;
+    white-space: normal;
+  }
+
+  .prefix,
+  .suffixInline {
     display: block;
     white-space: nowrap;
   }
@@ -74,11 +89,6 @@
     align-items: center;
     gap: 0.14em;
     margin-top: 2px;
-  }
-
-  .suffix {
-    display: block;
-    white-space: nowrap;
   }
 
   .title .wordHighlight {
@@ -111,6 +121,42 @@
       #92e13a 40%,
       #82d836 100%
     );
+  }
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(54px, 4.5vw, 61px);
+    line-height: 1.08;
+    max-width: 100%;
+  }
+
+  .firstLine {
+    white-space: nowrap;
+  }
+
+  .suffixInline {
+    display: none;
+  }
+
+  .suffixWithHighlight {
+    display: inline;
+    margin-right: 0.28em;
+    white-space: nowrap;
+  }
+
+  .secondLine {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.28em;
+    margin-top: 6px;
+    white-space: nowrap;
+  }
+
+  .wordHighlight {
+    white-space: nowrap;
   }
 }
 

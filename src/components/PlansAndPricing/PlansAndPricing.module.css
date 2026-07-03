@@ -947,3 +947,20 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+@media (min-width: 1920px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
+    padding-top: var(--header-height);
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  .heroContainer {
+    width: 100%;
+  }
+}

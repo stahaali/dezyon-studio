@@ -10,16 +10,19 @@ import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
+import heroStyles from "@/components/VideoEditing/VideoEditing.module.css";
 import styles from "./VideoEditingWhyChoose.module.css";
 
 export function VideoEditingWhyChoose() {
+  const { experience } = videoEditingWhyChooseVisual;
+
   return (
     <section className={styles.section} aria-labelledby="video-editing-benefits-heading">
       <Container className={styles.container}>
         <div className={styles.grid}>
           <ScrollReveal className={styles.visualCol}>
             <div className={styles.visualWrap}>
-              <div className={styles.dotPattern} aria-hidden="true" />
+              <span className={styles.bgShape} aria-hidden="true" />
               <figure className={styles.mainFigure}>
                 <Image
                   src={videoEditingWhyChooseVisual.mainImage}
@@ -29,15 +32,19 @@ export function VideoEditingWhyChoose() {
                   className={styles.image}
                 />
               </figure>
-              <figure className={styles.insetFigure}>
+              <div className={styles.experienceCard}>
                 <Image
-                  src={videoEditingWhyChooseVisual.insetImage}
-                  alt={videoEditingWhyChooseVisual.insetImageAlt}
-                  fill
-                  sizes="(min-width: 992px) 220px, 42vw"
-                  className={styles.image}
+                  src={experience.icon}
+                  alt={experience.iconAlt}
+                  width={48}
+                  height={48}
+                  className={styles.experienceIcon}
                 />
-              </figure>
+                <div className={styles.experienceCopy}>
+                  <span className={styles.experienceValue}>{experience.value}</span>
+                  <span className={styles.experienceLabel}>{experience.label}</span>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
 
@@ -65,7 +72,11 @@ export function VideoEditingWhyChoose() {
               ))}
             </ul>
             <div className={styles.actions}>
-              <Button href={videoEditingHero.cta.href} size="lg">
+              <Button
+                href={videoEditingHero.cta.href}
+                size="lg"
+                className={heroStyles.heroCtaButton}
+              >
                 {videoEditingHero.cta.label}
                 <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
               </Button>

@@ -67,8 +67,6 @@ function HexStep({ icon, title, message, tone }: HexStepProps) {
 export function TalkingWebsiteProcessSection() {
   return (
     <section className={styles.section} aria-labelledby="how-it-works-heading">
-      <div className={styles.bgPattern} aria-hidden="true" />
-
       <Container className={styles.introContainer}>
         <ScrollReveal>
           <div className={styles.intro}>

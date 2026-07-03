@@ -1,25 +1,21 @@
-"use client";
-
-import { ArrowRight } from "lucide-react";
+import { Phone } from "lucide-react";
+import { talkingWebsiteHero } from "@/data/talking-website";
 import { Button } from "@/components/Shared/Button";
-import { useVapiSimli } from "@/context/VapiSimliContext";
+import heroStyles from "@/components/VideoEditing/VideoEditing.module.css";
+import styles from "./TalkingWebsiteHeroCta.module.css";
 
-type TalkingWebsiteHeroCtaProps = {
-  label: string;
-};
-
-export function TalkingWebsiteHeroCta({ label }: TalkingWebsiteHeroCtaProps) {
-  const { openWidget, startCall } = useVapiSimli();
-
-  const handleClick = () => {
-    openWidget();
-    void startCall();
-  };
+export function TalkingWebsiteHeroCta() {
+  const { label, href } = talkingWebsiteHero.ctas.primary;
 
   return (
-    <Button type="button" size="lg" onClick={handleClick}>
+    <Button href={href} size="lg" className={heroStyles.heroCtaButton}>
+      <Phone
+        size={18}
+        strokeWidth={2}
+        aria-hidden="true"
+        className={styles.phoneIcon}
+      />
       {label}
-      <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
     </Button>
   );
 }

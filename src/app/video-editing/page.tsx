@@ -1,5 +1,4 @@
 import { VideoEditingContent } from "@/components/VideoEditing/VideoEditingContent";
-import { TalkingWebsiteVoiceAssistant } from "@/components/Vapi/TalkingWebsiteVoiceAssistant";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { createPageAlternates, createPageMetadata, PAGE_SEO } from "@/lib/seo";
 import { SERVICE_PAGE_DEFINITIONS } from "@/lib/structured-data";
@@ -25,9 +24,7 @@ export default function VideoEditingPage() {
         path={videoEditingSeo.path}
         services={SERVICE_PAGE_DEFINITIONS["/video-editing"]}
       />
-      <TalkingWebsiteVoiceAssistant>
-        <VideoEditingContent />
-      </TalkingWebsiteVoiceAssistant>
+      <VideoEditingContent />
     </>
   );
 }

@@ -79,12 +79,48 @@ export const marketingVideoReels = {
     "Today's customers spend hours every day watching short-form content on Facebook, Instagram, TikTok, YouTube Shorts, and other social platforms. Businesses that consistently publish engaging video content gain more visibility, more engagement, and more customers.",
   subtitle: "Our team creates professional reels designed to:",
   items: [
-    { id: "awareness", label: "Increase Brand Awareness", icon: "megaphone" },
-    { id: "leads", label: "Generate Quality Leads", icon: "users" },
-    { id: "showcase", label: "Showcase Your Products & Services", icon: "sparkles" },
-    { id: "trust", label: "Build Trust With Potential Customers", icon: "shield" },
-    { id: "traffic", label: "Drive More Website Visits", icon: "mouse-pointer" },
-    { id: "sales", label: "Increase Sales Opportunities", icon: "trending-up" },
+    {
+      id: "awareness",
+      label: "Increase Brand Awareness",
+      description:
+        "Reach wider audiences with scroll-stopping reels that put your brand in front of the right people.",
+      icon: "megaphone",
+    },
+    {
+      id: "leads",
+      label: "Generate Quality Leads",
+      description:
+        "Turn views into inquiries with content designed to attract and qualify potential customers.",
+      icon: "users",
+    },
+    {
+      id: "showcase",
+      label: "Showcase Your Products & Services",
+      description:
+        "Highlight what you offer with clear, compelling visuals that drive interest and action.",
+      icon: "sparkles",
+    },
+    {
+      id: "trust",
+      label: "Build Trust With Potential Customers",
+      description:
+        "Share authentic stories and value that help viewers feel confident choosing your business.",
+      icon: "shield",
+    },
+    {
+      id: "traffic",
+      label: "Drive More Website Visits",
+      description:
+        "Guide viewers from social feeds to your site with strong hooks and clear calls to action.",
+      icon: "mouse-pointer",
+    },
+    {
+      id: "sales",
+      label: "Increase Sales Opportunities",
+      description:
+        "Create momentum toward purchases with reels built to nurture demand and convert attention.",
+      icon: "trending-up",
+    },
   ],
 } as const;
 

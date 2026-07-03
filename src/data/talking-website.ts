@@ -7,10 +7,24 @@ export const talkingWebsiteHero = {
     "Imagine a website that doesn't just display information—it actively talks to your visitors, answers questions, guides customers, and helps generate leads around the clock.",
   ],
   ctas: {
-    primary: { label: "Get Started" },
+    primary: { label: "Call Lara", href: "/talking-website/call-lara" },
   },
   bannerImage: "/assets/img/marketing/marketing-banner.webp",
   bannerImageAlt: "Digital marketing and audience growth background",
+} as const;
+
+export const talkingWebsiteVoiceAgent = {
+  name: "Lara",
+  role: "AI Website Assistant",
+  language: "English (US)",
+  tags: ["Friendly", "Helpful"] as const,
+  talkTitle: "Talk to Lara",
+  description:
+    "Kind and professional assistant helping visitors learn about Dezyon Studio services, pricing, talking websites, and how to get started.",
+  welcomeMessage:
+    "Welcome to Dezyon Studio. I'm Lara, your AI website assistant. How can I help you today?",
+  avatarVideo: "/assets/img/brief-icons/lara-video.mp4",
+  avatarAlt: "Lara, AI website assistant",
 } as const;
 
 export const talkingWebsiteTaglines = [
@@ -169,5 +183,10 @@ export const talkingWebsiteBenefits = [
     title: "Scale Without Hiring",
     description: "Grow traffic and conversations without adding headcount or overhead.",
     stat: "∞",
+  },
+  {
+    title: "CRM Integration",
+    description: "Sync leads, call summaries, and appointments directly into your existing tools.",
+    stat: "Auto-sync",
   },
 ] as const;

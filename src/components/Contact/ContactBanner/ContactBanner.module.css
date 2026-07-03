@@ -144,3 +144,20 @@
     );
   }
 }
+
+@media (min-width: 1920px) {
+  .section {
+    display: flex;
+    align-items: center;
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
+    padding-top: var(--header-height);
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
