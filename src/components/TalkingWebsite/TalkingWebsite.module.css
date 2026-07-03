@@ -706,6 +706,45 @@
   opacity: 1;
 }
 
+.taglineDivider {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 220px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.taglineDividerDot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.taglineCard:hover .taglineDividerDot {
+  opacity: 1;
+  animation: taglineDividerTravel 2s ease-in-out infinite;
+}
+
+@keyframes taglineDividerTravel {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: calc(100% - 6px);
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
 .taglineCardText {
   position: relative;
   z-index: 1;
@@ -2000,5 +2039,12 @@
 
   .benefitCard:hover .benefitCardHoverBg {
     transform: translate3d(0, 0, 0);
+  }
+
+  .taglineCard:hover .taglineDividerDot {
+    animation: none;
+    opacity: 1;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

@@ -150,6 +150,9 @@ export function TalkingWebsiteContent() {
                       tone={talkingWebsiteTaglineTones[index]}
                       size="tagline"
                     />
+                    <span className={styles.taglineDivider} aria-hidden="true">
+                      <span className={styles.taglineDividerDot} />
+                    </span>
                     <p className={styles.taglineCardText}>{tagline}</p>
                   </article>
                 </ScrollReveal>
