@@ -344,15 +344,15 @@
   .section {
     display: flex;
     flex-direction: column;
-    min-height: 720px;
-    height: 720px;
-    max-height: 720px;
+    min-height: 100dvh;
+    height: auto;
+    max-height: none;
     box-sizing: border-box;
   }
 
   .heroCenter {
     flex: 1;
-    min-height: 0;
+    min-height: calc(100dvh - var(--header-height));
     padding: 48px 0 56px;
   }
 
