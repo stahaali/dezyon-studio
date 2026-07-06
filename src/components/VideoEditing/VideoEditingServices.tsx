@@ -56,7 +56,6 @@ export function VideoEditingServices() {
           {videoEditingServices.map((service, index) => {
             const Icon = serviceIcons[service.icon] ?? Sparkles;
             const tone = videoEditingServiceTones[index];
-            const stepLabel = String(index + 1).padStart(2, "0");
 
             return (
               <ScrollReveal
@@ -65,8 +64,6 @@ export function VideoEditingServices() {
                 as="article"
                 className={styles.serviceCard}
               >
-                <span className={styles.indexTab}>{stepLabel}.</span>
-
                 <div className={styles.cardHeader}>
                   <TalkingWebsiteGradientIcon
                     icon={Icon}

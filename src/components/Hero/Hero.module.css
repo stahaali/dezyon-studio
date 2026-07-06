@@ -65,7 +65,7 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 960px;
+  max-width: 1120px;
   margin-inline: auto;
   color: #ffffff;
 }
@@ -192,8 +192,8 @@
 
 .intro {
   margin-bottom: 12px;
-  max-width: 100%;
-  font-size: 25px;
+  max-width: min(1100px, 100%);
+  font-size: 28px;
 }
 
 .subtitle {
@@ -629,7 +629,7 @@
   }
 
   .intro {
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.55;
     max-width: 100%;
   }
@@ -656,8 +656,14 @@
 }
 
 @media (min-width: 1366px) and (max-width: 1919.98px) {
+  .hero {
+    min-height: 860px;
+    box-sizing: border-box;
+  }
+
   .heroBg {
-    height: 720px;
+    height: 100%;
+    min-height: 860px;
   }
 
   .heroGrid {
@@ -681,12 +687,14 @@
 
 @media (min-width: 1400px) and (max-width: 1919.98px) {
   .hero {
-    min-height: auto;
+    min-height: 860px;
     padding-bottom: 72px;
+    box-sizing: border-box;
   }
 
   .heroBg {
-    height: 720px;
+    height: 100%;
+    min-height: 860px;
   }
 
   .heroGrid {
@@ -698,7 +706,7 @@
 
 @media (min-width: 1400px) {
   .heroText {
-    max-width: 960px;
+    max-width: 1120px;
   }
 
   .title {

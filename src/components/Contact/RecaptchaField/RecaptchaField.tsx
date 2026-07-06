@@ -82,6 +82,14 @@ export function RecaptchaField({ widgetKey, onChange }: RecaptchaFieldProps) {
     let cancelled = false;
 
     const loadSiteKey = async () => {
+      const configuredKey = getClientRecaptchaSiteKey().trim();
+      if (configuredKey) {
+        setSiteKey(configuredKey);
+        setSiteKeyReady(true);
+        setLoadError("");
+        return;
+      }
+
       if (
         typeof window !== "undefined" &&
         isLocalRecaptchaHost(window.location.hostname)

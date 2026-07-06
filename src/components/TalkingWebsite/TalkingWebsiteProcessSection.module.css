@@ -183,18 +183,70 @@
 
 @media (max-width: 576px) {
   .section {
-    --hex-w: 270px;
+    --hex-w: min(280px, calc(100vw - 40px));
+    --hex-gap: 12px;
+    overflow: visible;
+  }
+
+  .intro {
+    margin-bottom: 36px;
   }
 
   .introText {
     font-size: 14px;
   }
 
+  .honeycombWrap {
+    justify-content: center;
+    overflow-x: visible;
+    padding-inline: var(--container-padding);
+  }
+
+  .honeycombGrid {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: auto;
+    gap: var(--hex-gap);
+    scroll-snap-type: none;
+  }
+
+  .column {
+    width: 100%;
+    max-width: var(--hex-w);
+    margin-left: 0;
+    scroll-snap-align: unset;
+  }
+
+  .columnMiddle {
+    margin-top: 0;
+  }
+
+  .hexCard {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.1547;
+  }
+
+  .hexCard + .hexCard {
+    margin-top: var(--hex-gap);
+  }
+
+  .hexShape {
+    width: 100%;
+    height: 100%;
+  }
+
   .hexInner {
-    padding: 18px 22px 16px;
+    padding: 18px 20px 16px;
   }
 
   .hexTitle {
     font-size: 13px;
+  }
+
+  .hexMessage {
+    font-size: 11px;
+    max-width: 90%;
   }
 }

@@ -27,16 +27,23 @@
 }
 
 .sizeHero {
-  font-size: clamp(36px, 5.5vw, 52px);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-size: 36px !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em !important;
 }
 
 @media (max-width: 576px) {
   .sizeHero {
-    font-size: clamp(24px, 7vw, 28px);
-    line-height: 1.12;
-    letter-spacing: -0.02em;
+    font-size: 28px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  .sizeHero {
+    font-size: 36px !important;
+    line-height: 1.08 !important;
   }
 }
 
@@ -62,31 +69,41 @@
   display: none;
 }
 
-@media (min-width: 1400px) {
-  .sizeHero {
-    font-size: 61px;
-    line-height: 1.08;
-    letter-spacing: inherit;
-  }
-}
-
 .breakVisible {
   display: block;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .sizeHero {
-    font-size: clamp(42px, 5vw, 62px);
+    font-size: 48px !important;
+    line-height: 1.08 !important;
   }
+}
 
+@media (min-width: 768px) {
   .breakOnSm {
     display: block;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1023px) {
   .sizeHero {
-    font-size: clamp(54px, 4.5vw, 80px);
-    line-height: 1.08;
+    font-size: 61px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sizeHero {
+    font-size: 61px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+@media (min-width: 1366px) {
+  .sizeHero {
+    font-size: 61px !important;
+    line-height: 1.08 !important;
+    letter-spacing: inherit !important;
   }
 }

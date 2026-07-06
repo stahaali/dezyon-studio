@@ -11,6 +11,10 @@ export const RECAPTCHA_SITE_KEY =
   (process.env.NODE_ENV === "development" ? RECAPTCHA_TEST_SITE_KEY : "");
 
 export function getClientRecaptchaSiteKey(): string {
+  if (PRODUCTION_SITE_KEY) {
+    return PRODUCTION_SITE_KEY;
+  }
+
   if (typeof window !== "undefined" && isLocalRecaptchaHost(window.location.hostname)) {
     return RECAPTCHA_TEST_SITE_KEY;
   }

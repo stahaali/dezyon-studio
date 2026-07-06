@@ -70,7 +70,6 @@ export function TalkingWebsiteProcessSection() {
       <Container className={styles.introContainer}>
         <ScrollReveal>
           <div className={styles.intro}>
-            <span className={styles.eyebrow}>Process</span>
             <PlansPricingHeading
               id="how-it-works-heading"
               prefix="How It "

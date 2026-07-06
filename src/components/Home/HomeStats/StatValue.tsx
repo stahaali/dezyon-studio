@@ -1,10 +1,11 @@
 "use client";
 
-import { useCountUp } from "@/hooks/useCountUp";
 import gridStyles from "@/components/Shared/StatsGrid/StatsGrid.module.css";
+import { StatOdometer } from "./StatOdometer";
 
 type StatValueProps = {
   value: string;
+  index?: number;
 };
 
 function parseStatValue(value: string) {
@@ -26,26 +27,21 @@ function parseStatValue(value: string) {
   return { type: "text" as const, text: value };
 }
 
-export function StatValue({ value }: StatValueProps) {
+export function StatValue({ value, index = 0 }: StatValueProps) {
   const parsed = parseStatValue(value);
-  const { count, ref } = useCountUp(
-    parsed.type === "count" ? parsed.target : 0,
-  );
-
   const valueClass = `${gridStyles.statValue} ${gridStyles.statValueDark}`.trim();
 
   if (parsed.type === "text") {
-    return (
-      <span ref={ref} className={valueClass}>
-        {parsed.text}
-      </span>
-    );
+    return <span className={valueClass}>{parsed.text}</span>;
   }
 
   return (
-    <span ref={ref} className={valueClass}>
-      {count}
-      {parsed.suffix}
+    <span className={valueClass}>
+      <StatOdometer
+        target={parsed.target}
+        suffix={parsed.suffix}
+        delay={index * 120}
+      />
     </span>
   );
 }

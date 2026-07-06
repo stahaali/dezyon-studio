@@ -34,6 +34,55 @@
   border-radius: 50%;
 }
 
+.useCaseSkewIcon {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.useCaseSkewIcon svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.useCaseSkewIcon.voice {
+  color: #f59e0b;
+}
+
+.useCaseSkewIcon.schedule {
+  color: #8b5cf6;
+}
+
+.useCaseSkewIcon.leads {
+  color: #22c55e;
+}
+
+.useCaseSkewIcon.learn {
+  color: #8b5cf6;
+}
+
+.useCaseSkewIcon.fun {
+  color: #22c55e;
+}
+
+.useCaseSkewIcon.notify {
+  color: #ec4899;
+}
+
+.useCaseSkewIcon.language {
+  color: #3b82f6;
+}
+
+.useCaseSkewIcon.crm {
+  color: #f97316;
+}
+
+.useCaseSkewIcon.availability {
+  color: #14b8a6;
+}
+
 .sizeInsight {
   width: 44px;
   height: 44px;

@@ -1,0 +1,38 @@
+.odometer {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+.column {
+  position: relative;
+  height: 1.1em;
+  overflow: hidden;
+}
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.digit {
+  display: block;
+  height: 1.1em;
+  line-height: 1.1em;
+}
+
+.suffix {
+  margin-left: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip {
+    transition: none;
+  }
+}

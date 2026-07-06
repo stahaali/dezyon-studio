@@ -28,6 +28,7 @@ import {
   talkingWebsiteTaglineTones,
   talkingWebsiteUseCaseTones,
 } from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon";
+import iconStyles from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon.module.css";
 import {
   talkingWebsiteBenefits,
   talkingWebsiteBenefitsIntro,
@@ -46,13 +47,6 @@ import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
 import styles from "./TalkingWebsite.module.css";
-
-const sectionEyebrows = {
-  features: "Capabilities",
-  industries: "Industries",
-  benefits: "Results",
-  pricing: "Plans",
-} as const;
 
 const useCaseIcons = [
   Building2,
@@ -168,7 +162,6 @@ export function TalkingWebsiteContent() {
         <Container className={styles.sectionContainer}>
           <ScrollReveal>
             <div className={styles.sectionIntro}>
-              <span className={styles.sectionEyebrow}>{sectionEyebrows.features}</span>
               <PlansPricingHeading
                 id="features-heading"
                 prefix="Powerful "
@@ -182,10 +175,18 @@ export function TalkingWebsiteContent() {
 
           <div className={styles.featuresGrid}>
             {talkingWebsiteFeatures.map((feature, index) => (
-              <ScrollReveal key={feature} delay={index * 0.04} as="article">
+              <ScrollReveal key={feature} delay={index * 0.04}>
                 <article className={styles.featureCard}>
-                  <TalkingWebsiteFeatureIcon index={index} />
-                  <h3 className={styles.featureTitle}>{feature}</h3>
+                  <div className={styles.featureCardInner}>
+                    <div className={styles.featureCardContent}>
+                      <div className={styles.featureCardBody}>
+                        <h3 className={styles.featureTitle}>{feature}</h3>
+                      </div>
+                    </div>
+                    <span className={styles.featureCardCorner}>
+                      <TalkingWebsiteFeatureIcon index={index} />
+                    </span>
+                  </div>
                 </article>
               </ScrollReveal>
             ))}
@@ -193,11 +194,10 @@ export function TalkingWebsiteContent() {
         </Container>
       </section>
 
-      <section className={styles.section} aria-labelledby="use-cases-heading">
+      <section className={`${styles.section} ${styles.industriesSection}`} aria-labelledby="use-cases-heading">
         <Container className={styles.sectionContainer}>
           <ScrollReveal>
             <div className={styles.sectionIntro}>
-              <span className={styles.sectionEyebrow}>{sectionEyebrows.industries}</span>
               <PlansPricingHeading
                 id="use-cases-heading"
                 prefix="Built For Every "
@@ -214,15 +214,19 @@ export function TalkingWebsiteContent() {
               const Icon = useCaseIcons[index];
 
               return (
-                <ScrollReveal key={useCase} delay={index * 0.04} as="article">
+                <ScrollReveal key={useCase} delay={index * 0.04}>
                   <article className={styles.useCaseCard}>
-                    <TalkingWebsiteGradientIcon
-                      icon={Icon}
-                      tone={talkingWebsiteUseCaseTones[index]}
-                      size="useCase"
-                      className={styles.useCaseGradientIcon}
-                    />
-                    <span>{useCase}</span>
+                    <span className={styles.useCaseIconSkew} aria-hidden="true">
+                      <span className={styles.useCaseIconInner}>
+                        <TalkingWebsiteGradientIcon
+                          icon={Icon}
+                          tone={talkingWebsiteUseCaseTones[index]}
+                          size="useCase"
+                          className={iconStyles.useCaseSkewIcon}
+                        />
+                      </span>
+                    </span>
+                    <span className={styles.useCaseLabel}>{useCase}</span>
                   </article>
                 </ScrollReveal>
               );
@@ -235,7 +239,6 @@ export function TalkingWebsiteContent() {
         <Container className={styles.sectionContainer}>
           <ScrollReveal>
             <div className={styles.sectionIntro}>
-              <span className={styles.sectionEyebrow}>{sectionEyebrows.benefits}</span>
               <PlansPricingHeading
                 id="benefits-heading"
                 prefix="Why Businesses "
@@ -287,7 +290,6 @@ export function TalkingWebsiteContent() {
         <Container className={styles.sectionContainer}>
           <ScrollReveal>
             <div className={styles.sectionIntro}>
-              <span className={styles.sectionEyebrow}>{sectionEyebrows.pricing}</span>
               <PlansPricingHeading
                 id="pricing-heading"
                 prefix="Simple "

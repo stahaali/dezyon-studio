@@ -3,6 +3,7 @@
 @import "../styles/variables.css";
 @import "../styles/responsive.css";
 @import "../styles/large-viewport-lock.css";
+@import "../styles/banner-headings.css";
 @import "swiper/css";
 
 @theme inline {
@@ -152,6 +153,12 @@ body.site-protected [contenteditable="true"] {
   vertical-align: baseline !important;
 }
 
+[class*="sizeHero"] [class*="wordHighlight"] {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
 [class*="Button_primary"],
 [class*="Button_secondary"],
 [class*="Button_outline"] {
@@ -179,6 +186,42 @@ body.site-protected [contenteditable="true"] {
   main section.section-reveal-visible {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Banner heading mobile lock — must load after wordHighlight globals */
+@media (max-width: 576px) {
+  [class*="sizeHero"] {
+    font-size: 28px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  [class*="sizeHero"] [class*="wordHighlight"] {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+  }
+}
+
+/* Banner heading desktop lock — 1024px+ */
+@media (min-width: 1024px) {
+  [class*="sizeHero"] {
+    font-size: 61px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  [class*="sizeHero"] [class*="wordHighlight"] {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+  }
+}
+
+@media (min-width: 1366px) {
+  [class*="sizeHero"] {
+    letter-spacing: inherit !important;
   }
 }
 

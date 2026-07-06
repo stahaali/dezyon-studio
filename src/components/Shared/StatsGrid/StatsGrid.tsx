@@ -27,11 +27,11 @@ export function StatsGrid({
         className={styles.statsGrid}
         data-count={visibleStats.length}
       >
-        {visibleStats.map((stat) => (
+        {visibleStats.map((stat, index) => (
           <div key={stat.id} className={styles.stat}>
             <StatIcon statId={stat.id} label={stat.label} colorful={colorful} />
             {animate ? (
-              <StatValue value={stat.value} />
+              <StatValue value={stat.value} index={index} />
             ) : (
               <span
                 className={`${styles.statValue} ${isDark ? styles.statValueDark : styles.statValueLight}`.trim()}

@@ -34,10 +34,8 @@ export function AboutHero() {
                 id="about-hero-heading"
                 className={`${splitTitleStyles.title} ${splitTitleStyles.sizeHero} ${styles.title}`}
               >
-                <span className={splitTitleStyles.lightOnDark}>
-                  {aboutHero.titlePrefix}
-                  <span className={styles.wordHighlight}>{aboutHero.titleHighlight}</span>
-                </span>
+                <span className={splitTitleStyles.lightOnDark}>{aboutHero.titlePrefix}</span>
+                <span className={styles.wordHighlight}>{aboutHero.titleHighlight}</span>
               </h1>
             </div>
             <p className={styles.description}>{aboutHero.description}</p>

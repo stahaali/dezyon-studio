@@ -23,7 +23,8 @@
     #164317 100%
   );
   --heading-highlight-bg: var(--brand-gradient);
-  --heading-highlight-font-size: clamp(28px, 4vw, 48px);
+  --heading-highlight-font-size: 36px;
+  --banner-heading-size: 36px;
   --heading-highlight-line-height: 1.15;
   --heading-highlight-letter-spacing: -0.03em;
   --heading-highlight-padding: 4px 13px;

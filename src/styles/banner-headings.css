@@ -1,0 +1,85 @@
+/**
+ * Banner heading font scale — 576 / 768 / 992 / 1024 / 1366 breakpoints.
+ */
+[class*="sizeHero"] {
+  font-size: 36px !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em !important;
+}
+
+[class*="sizeHero"] [class*="wordHighlight"] {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+@media (max-width: 576px) {
+  :root {
+    --heading-highlight-font-size: 28px;
+    --heading-highlight-line-height: 1.12;
+    --banner-heading-size: 28px;
+  }
+
+  [class*="sizeHero"] {
+    font-size: 28px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  :root {
+    --heading-highlight-font-size: 36px;
+    --heading-highlight-line-height: 1.08;
+    --banner-heading-size: 36px;
+  }
+
+  [class*="sizeHero"] {
+    font-size: 36px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  :root {
+    --heading-highlight-font-size: 48px;
+    --banner-heading-size: 48px;
+  }
+
+  [class*="sizeHero"] {
+    font-size: 48px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1023px) {
+  :root {
+    --heading-highlight-font-size: 61px;
+    --banner-heading-size: 61px;
+  }
+
+  [class*="sizeHero"] {
+    font-size: 61px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --heading-highlight-font-size: 61px;
+    --banner-heading-size: 61px;
+  }
+
+  [class*="sizeHero"] {
+    font-size: 61px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+@media (min-width: 1366px) {
+  [class*="sizeHero"] {
+    font-size: 61px !important;
+    line-height: 1.08 !important;
+    letter-spacing: inherit !important;
+  }
+}

@@ -40,9 +40,9 @@ export const heroContent = {
     "Social Marketing",
   ],
   intro:
-    "Where creators become brands and brands become businesses.",
+    "See What's Stopping Your Website From Growing.",
   subtitle:
-    "Build & Design, Powerful Brands, High-Performing Websites & Digital Solutions That Drive Growth.",
+    "Enter your website URL and get an instant Website Performance Report with your overall score, SEO, Speed, Security, and User Experience analysis—plus expert recommendations to help you rank higher, load faster, and generate more leads.",
   form: {
     placeholder: "Enter a web URL for audit",
     submitLabel: "Analyze",

@@ -49,7 +49,7 @@ export const aboutHelps = {
     { label: "Modern Video Equipment", tone: "schedule" },
   ] as const,
   visuals: {
-    image: `${ABOUT_ASSETS}/about-2.webp`,
+    image: `${ABOUT_ASSETS}/about-3.webp`,
     imageAlt: "Dezyon Studio professional presenting business growth insights",
   },
 } as const;

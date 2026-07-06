@@ -77,22 +77,22 @@
 
 .wordHighlight {
   display: inline-block;
-  padding: 0.05em 0.26em 0.07em !important;
-  margin-inline: 0.04em !important;
-  border-radius: 0.2em !important;
-  background: linear-gradient(
-    180deg,
-    #b4f252 0%,
-    #92e13a 38%,
-    #7dcc32 100%
-  ) !important;
-  background-color: transparent !important;
-  color: #000200 !important;
-  -webkit-text-fill-color: #000200 !important;
+  padding: 0.06em 0.32em 0.1em;
+  margin-inline: 0.04em;
+  border-radius: 0.22em;
+  background: var(--brand-gradient);
+  color: #000200;
+  -webkit-text-fill-color: #000200;
   transform: rotate(-2.5deg);
   transform-origin: center center;
   vertical-align: baseline;
   box-shadow: 0 2px 14px rgba(146, 225, 58, 0.22);
+}
+
+.title .wordHighlight {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
 }
 
 .description {
@@ -158,15 +158,6 @@
   }
 
   .wordHighlight {
-    padding: 0.05em 0.28em 0.08em !important;
-    background: linear-gradient(
-      180deg,
-      #b8f55a 0%,
-      #92e13a 40%,
-      #82d836 100%
-    ) !important;
-    transform: rotate(-2.5deg);
-    transform-origin: center center;
-    vertical-align: baseline;
+    padding: 0.06em 0.34em 0.1em;
   }
 }

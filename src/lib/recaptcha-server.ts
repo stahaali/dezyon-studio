@@ -4,13 +4,18 @@ import {
 } from "@/lib/recaptcha-keys";
 
 export function getServerRecaptchaSecret(host = ""): string {
+  const envSecret = process.env.RECAPTCHA_SECRET_KEY?.trim() || "";
+  if (envSecret) {
+    return envSecret;
+  }
+
   const hostname = host.split(":")[0] ?? "";
 
   if (isLocalRecaptchaHost(hostname)) {
     return RECAPTCHA_TEST_SECRET_KEY;
   }
 
-  return process.env.RECAPTCHA_SECRET_KEY?.trim() || "";
+  return "";
 }
 
 export async function verifyRecaptchaToken(

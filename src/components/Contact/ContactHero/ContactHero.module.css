@@ -180,10 +180,18 @@
   background: var(--button-bg) !important;
 }
 
+.submit > span:not(:first-child) {
+  background: #ffffff;
+}
+
+.submit[class*="Button_primary"]:hover:not(:disabled),
 .submit:hover:not(:disabled) {
-  color: #ffffff !important;
-  background: var(--button-bg-hover) !important;
-  box-shadow: 0 4px 16px rgba(var(--color-primary-rgb), 0.35);
+  color: #000200 !important;
+}
+
+.submit[class*="Button_primary"]:hover:not(:disabled) > span:first-child,
+.submit:hover:not(:disabled) > span:first-child {
+  color: #000200 !important;
 }
 
 .error {

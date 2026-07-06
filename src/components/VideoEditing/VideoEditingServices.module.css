@@ -71,41 +71,6 @@
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
 }
 
-.indexTab {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  min-width: 58px;
-  padding: 12px 16px;
-  border: 0;
-  border-left: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
-  outline: 0;
-  box-shadow: none;
-  border-radius: 0 0 0 14px;
-  background: #000200;
-  color: rgba(255, 255, 255, 0.42);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  transition: border-color 0.35s ease;
-}
-
-.indexTab::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  border: 0;
-  border-radius: 0 0 0 14px;
-  background: #000200;
-}
-
 .cardHeader {
   margin-bottom: 22px;
 }

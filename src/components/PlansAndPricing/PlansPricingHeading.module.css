@@ -33,6 +33,12 @@
   box-shadow: 0 2px 14px rgba(146, 225, 58, 0.22);
 }
 
+.heading .wordHighlight {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
 @media (min-width: 1400px) {
   .wordHighlight {
     padding: 0.05em 0.28em 0.08em;
