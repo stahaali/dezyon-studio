@@ -115,7 +115,7 @@
 .hexShape {
   width: var(--hex-w);
   height: var(--hex-h);
-  background: #0d0d0d;
+  background: rgb(16, 18, 16);
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 

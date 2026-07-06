@@ -46,7 +46,7 @@ export function MarketingVideoReelsIcon({
       aria-hidden="true"
     >
       <Icon
-        size={isSmall ? 16 : 42}
+        size={isSmall ? 16 : 28}
         strokeWidth={isSmall ? 2 : 1.5}
         color="currentColor"
       />

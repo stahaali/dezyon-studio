@@ -65,37 +65,22 @@ export function VideoEditingServices() {
                 as="article"
                 className={styles.serviceCard}
               >
-                <span className={styles.indexBadge}>{stepLabel}</span>
+                <span className={styles.indexTab}>{stepLabel}.</span>
 
-                <div className={styles.iconArea}>
-                  <span
-                    className={`${styles.iconGlow} ${styles[`glow${tone}`]}`}
-                    aria-hidden="true"
+                <div className={styles.cardHeader}>
+                  <TalkingWebsiteGradientIcon
+                    icon={Icon}
+                    tone={tone}
+                    size="feature"
+                    className={styles.serviceIcon}
                   />
-                  <div className={styles.iconFlipShell}>
-                    <div className={styles.iconFlip}>
-                      <div className={styles.iconFace}>
-                        <TalkingWebsiteGradientIcon
-                          icon={Icon}
-                          tone={tone}
-                          size="feature"
-                          className={styles.iconCircle}
-                        />
-                      </div>
-                      <div className={`${styles.iconFace} ${styles.iconFaceBack}`}>
-                        <TalkingWebsiteGradientIcon
-                          icon={Icon}
-                          tone="leads"
-                          size="feature"
-                          className={styles.iconCircle}
-                        />
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <h3 className={styles.serviceTitle}>{service.title}</h3>
-                <p className={styles.serviceIntro}>{service.intro}</p>
+
+                <div className={styles.serviceIntroPanel}>
+                  <p className={styles.serviceIntro}>{service.intro}</p>
+                </div>
               </ScrollReveal>
             );
           })}

@@ -6,6 +6,7 @@ import { Star } from "lucide-react";
 import { heroAvatars, heroBannerImage, heroBannerImageAlt, heroContent, heroRating } from "@/data/hero";
 import { BrandSlider } from "@/components/Hero/BrandSlider";
 import { HeroTypewriterHighlight } from "@/components/Hero/HeroTypewriterHighlight";
+import { BannerLineAnimation } from "@/components/Shared/BannerLineAnimation/BannerLineAnimation";
 // import { HeroImageSlider } from "@/components/Hero/HeroImageSlider";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
@@ -138,6 +139,7 @@ export function Hero() {
           </div> */}
           </div>
         </Container>
+        <BannerLineAnimation />
       </section>
 
       <section className={styles.brandsSection} aria-label="Partner brands">
