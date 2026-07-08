@@ -37,6 +37,13 @@
   display: block;
 }
 
+.intro {
+  margin: 20px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .wordHighlight {
   display: inline-block;
   padding: 0.06em 0.32em 0.1em;
@@ -149,6 +156,10 @@
 
   .heading {
     margin-bottom: 64px;
+  }
+
+  .intro {
+    font-size: 16px;
   }
 
   .grid {

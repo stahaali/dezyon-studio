@@ -22,6 +22,7 @@ export function MarketingWhyChoose() {
                 </span>
               </span>
             </h2>
+            <p className={styles.intro}>{marketingWhyChoose.intro}</p>
           </div>
         </ScrollReveal>
 

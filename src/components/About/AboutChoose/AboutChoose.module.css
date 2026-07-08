@@ -1,0 +1,195 @@
+.choose {
+  background-color: transparent;
+  padding: 56px 0;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.card {
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow:
+    0 16px 36px rgba(0, 2, 0, 0.08),
+    0 4px 12px rgba(0, 2, 0, 0.04);
+}
+
+.cardLight {
+  background: #ffffff;
+  border: 1px solid rgba(0, 2, 0, 0.08);
+}
+
+.cardDark {
+  background: #000200;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cardInner {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  margin: 0;
+  padding: 56px 20px;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 36rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.cardLight .cardTitle {
+  color: #000200;
+}
+
+.cardDark .cardTitle {
+  color: #92e13a;
+}
+
+.cardDescription {
+  margin: 0;
+  max-width: 34rem;
+  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+.cardLight .cardDescription {
+  color: rgba(0, 2, 0, 0.68);
+}
+
+.cardDark .cardDescription {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.ctaButton {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: #92e13a !important;
+  color: #000200 !important;
+  font-weight: 600;
+  border-radius: 999px;
+  padding-inline: 28px !important;
+}
+
+.media {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 412px;
+}
+
+.mediaFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 412 / 217;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000200;
+}
+
+.cardLight .mediaFrame {
+  background: #ece8e0;
+}
+
+.mediaVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@container (min-width: 768px) {
+  .cardInner {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    padding: 56px 24px;
+  }
+
+  .content {
+    flex: 1 1 58%;
+    max-width: none;
+    gap: 20px;
+  }
+
+  .media {
+    flex: 0 0 min(412px, 42%);
+    max-width: 42%;
+    margin-left: auto;
+  }
+}
+
+@container (min-width: 1000px) {
+  .cardInner {
+    gap: 40px;
+    padding: 56px 32px;
+  }
+
+  .content {
+    gap: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .choose {
+    padding: 56px 0;
+  }
+
+  .cardList {
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardTitle {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .choose {
+    padding: 56px 0;
+  }
+
+  .card {
+    border-radius: 20px;
+  }
+
+  .cardInner {
+    gap: 20px;
+    padding: 56px 16px;
+  }
+
+  .content {
+    gap: 12px;
+  }
+}

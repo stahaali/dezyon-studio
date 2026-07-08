@@ -1,5 +1,6 @@
 import { AboutHelps } from "@/components/About/AboutHelps/AboutHelps";
 import { AboutHero } from "@/components/About/AboutHero/AboutHero";
+import { AboutChoose } from "@/components/About/AboutChoose/AboutChoose";
 import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner";
 import { AboutValues } from "@/components/About/AboutValues/AboutValues";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
@@ -32,7 +33,8 @@ export default function AboutPage() {
         <AboutHero />
         <AboutHelps />
         <AboutValues />
-        <Testimonials noPaddingTop />
+        <Testimonials noPaddingTop noPaddingBottom />
+        <AboutChoose />
         <AboutCtaBanner />
       </div>
     </>

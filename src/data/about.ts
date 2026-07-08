@@ -49,8 +49,8 @@ export const aboutHelps = {
     { label: "Modern Video Equipment", tone: "schedule" },
   ] as const,
   visuals: {
-    image: `${ABOUT_ASSETS}/about-3.webp`,
-    imageAlt: "Dezyon Studio professional presenting business growth insights",
+    image: `${ABOUT_ASSETS}/about-4.webp`,
+    imageAlt: "Professional working on laptop with business analytics and growth data",
   },
 } as const;
 
@@ -168,6 +168,54 @@ export const aboutTimeline = [
     image: `${PROCESS_ASSETS}/timeline-06.webp`,
   },
 ] as const;
+
+export const aboutChoose = {
+  title: "Why brands choose Dezyon Studio?",
+  cards: [
+    {
+      id: "services",
+      variant: "light" as const,
+      title: "Every service you need to grow, all in one place",
+      description:
+        "Where creative design meets AI, built for brands that want to scale. Websites, video, marketing, and everything in between—alongside intelligent tools that save time, sharpen your presence, and keep every channel on-brand.",
+      video: {
+        src: "https://assets.elements.envato.com/apps/storefront/categories.compressed-da70d422014faf4cd1a0.webm",
+        width: 412,
+        height: 217,
+        alt: "Creative services and digital assets showcase",
+      },
+      cta: null,
+    },
+    {
+      id: "ai-tools",
+      variant: "light" as const,
+      title: "AI tools built for how you actually work",
+      description:
+        "From AI video and voice-driven websites to intelligent marketing campaigns—we build systems that save time, scale output, and keep your brand consistent across every channel.",
+      video: {
+        src: "https://assets.elements.envato.com/apps/storefront/assets.compressed-927e2a8084f1868f310b.webm",
+        width: 412,
+        height: 217,
+        alt: "AI-powered creative tools in action",
+      },
+      cta: null,
+    },
+    {
+      id: "partnership",
+      variant: "light" as const,
+      title: "The best value in one partnership",
+      description:
+        "One team for strategy, design, video, and growth—so you spend less time coordinating vendors and more time building your business.",
+      video: {
+        src: "https://assets.elements.envato.com/apps/storefront/unlimited.compressed-d5c358ace72cad376519.webm",
+        width: 412,
+        height: 217,
+        alt: "Dezyon Studio partnership and growth showcase",
+      },
+      cta: { label: "Start now", href: "/contact" },
+    },
+  ],
+} as const;
 
 export const aboutCareers = {
   title: "We're looking for people who share our vision!",

@@ -7,6 +7,10 @@
   padding-top: 0;
 }
 
+.section.noPaddingBottom {
+  padding-bottom: 0;
+}
+
 .sectionHeading {
   max-width: 100%;
   overflow: visible;

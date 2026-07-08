@@ -1,35 +1,36 @@
 import {
-  BarChart3,
-  CalendarDays,
+  AtSign,
+  Briefcase,
+  Camera,
   Clapperboard,
-  Palette,
-  Sparkles,
-  Target,
-  TrendingUp,
+  Film,
+  Megaphone,
+  Search,
   Users,
+  Video,
   type LucideIcon,
 } from "lucide-react";
 import styles from "./MarketingWhyChooseIcon.module.css";
 
 type MarketingWhyChooseIconId =
-  | "team"
-  | "ai"
-  | "reels"
-  | "graphics"
-  | "social"
-  | "leads"
-  | "growth"
-  | "results";
+  | "instagram"
+  | "facebook"
+  | "tiktok"
+  | "linkedin"
+  | "twitter"
+  | "google-ads"
+  | "video-editing"
+  | "video-ads";
 
 const iconMap: Record<MarketingWhyChooseIconId, LucideIcon> = {
-  team: Users,
-  ai: Sparkles,
-  reels: Clapperboard,
-  graphics: Palette,
-  social: CalendarDays,
-  leads: Target,
-  growth: TrendingUp,
-  results: BarChart3,
+  instagram: Camera,
+  facebook: Users,
+  tiktok: Clapperboard,
+  linkedin: Briefcase,
+  twitter: AtSign,
+  "google-ads": Search,
+  "video-editing": Film,
+  "video-ads": Video,
 };
 
 type MarketingWhyChooseIconProps = {

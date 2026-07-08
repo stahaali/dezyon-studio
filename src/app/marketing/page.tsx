@@ -1,7 +1,7 @@
 import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
 import { MarketingSolutions } from "@/components/Marketing/MarketingSolutions/MarketingSolutions";
-import { MarketingVideoReels } from "@/components/Marketing/MarketingVideoReels/MarketingVideoReels";
 import { MarketingWhyChoose } from "@/components/Marketing/MarketingWhyChoose/MarketingWhyChoose";
+import { MarketingVideoReels } from "@/components/Marketing/MarketingVideoReels/MarketingVideoReels";
 import { ServicesHero } from "@/components/Services/ServicesHero/ServicesHero";
 import { PageSchema } from "@/components/Seo/schemas/PageSchema";
 import { buildPageSeoMetadata, PAGE_SEO } from "@/lib/seo";

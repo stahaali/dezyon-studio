@@ -12,62 +12,64 @@ export const marketingIntro = {
 export const marketingWhyChoose = {
   titlePrefix: "Why Businesses Choose",
   titleHighlight: "Dezyon Studio",
+  intro:
+    "At Dezyon Studio, we help businesses build a powerful online presence through professional web design, website development, branding, SEO services, UI/UX design, and digital marketing. Our creative team delivers customized solutions that attract customers, improve search rankings, and drive long-term business growth.",
   items: [
     {
-      id: "team",
-      title: "Professional Marketing Team",
+      id: "instagram",
+      title: "Instagram Marketing",
       description:
-        "Dedicated strategists, designers, and creators working as an extension of your business.",
-      icon: "team",
+        "Increase followers, engagement, and sales with Instagram Reels, Stories, Carousel Posts, Influencer Marketing, Content Strategy, Hashtag Optimization, and Instagram Ads.",
+      icon: "instagram",
     },
     {
-      id: "ai",
-      title: "AI-Powered Content Creation",
+      id: "facebook",
+      title: "Facebook Marketing",
       description:
-        "Smart tools combined with human expertise to produce high-quality content at scale.",
-      icon: "ai",
+        "Generate more leads through Facebook Business Management, Facebook Ads, Content Creation, Community Management, and Remarketing Campaigns.",
+      icon: "facebook",
     },
     {
-      id: "reels",
-      title: "High-Converting Video Reels",
+      id: "tiktok",
+      title: "TikTok Marketing",
       description:
-        "Short-form videos designed to capture attention and turn viewers into customers.",
-      icon: "reels",
+        "Create viral TikTok content, short-form videos, influencer campaigns, and TikTok Ads that maximize reach and engagement.",
+      icon: "tiktok",
     },
     {
-      id: "graphics",
-      title: "Custom Branded Graphics & Images",
+      id: "linkedin",
+      title: "LinkedIn Marketing",
       description:
-        "On-brand visuals that strengthen recognition across every marketing channel.",
-      icon: "graphics",
+        "Build authority with LinkedIn content marketing, B2B lead generation, company page management, LinkedIn Ads, and professional branding.",
+      icon: "linkedin",
     },
     {
-      id: "social",
-      title: "Social Media Content Planning & Posting",
+      id: "twitter",
+      title: "X (Twitter) Marketing",
       description:
-        "Consistent posting schedules and content calendars managed for you.",
-      icon: "social",
+        "Grow your audience through strategic posting, trending content, audience engagement, and X Ads.",
+      icon: "twitter",
     },
     {
-      id: "leads",
-      title: "Lead Generation & Customer Engagement",
+      id: "google-ads",
+      title: "Google Ads Management",
       description:
-        "Campaigns built to attract qualified leads and keep your audience engaged.",
-      icon: "leads",
+        "Increase website traffic and generate qualified leads with expertly managed Google Ads campaigns.",
+      icon: "google-ads",
     },
     {
-      id: "growth",
-      title: "Consistent Brand Growth Strategy",
+      id: "video-editing",
+      title: "Professional Video Editing Services",
       description:
-        "Long-term plans that build visibility, trust, and momentum month after month.",
-      icon: "growth",
+        "High-quality videos are the key to successful digital marketing. Our creative editors produce engaging videos that increase watch time, improve engagement, and drive more conversions.",
+      icon: "video-editing",
     },
     {
-      id: "results",
-      title: "Results-Focused Marketing Approach",
+      id: "video-ads",
+      title: "Video Ads for Social Media",
       description:
-        "Every campaign is measured, optimized, and aligned with your business goals.",
-      icon: "results",
+        "Turn viewers into customers with professionally designed video advertisements optimized for every platform.",
+      icon: "video-ads",
     },
   ],
 } as const;
@@ -76,58 +78,58 @@ export const marketingVideoReels = {
   titlePrefix: "Video Reels Are Driving",
   titleHighlight: "Modern Business Growth",
   intro:
-    "Today's customers spend hours every day watching short-form content on Facebook, Instagram, TikTok, YouTube Shorts, and other social platforms. Businesses that consistently publish engaging video content gain more visibility, more engagement, and more customers.",
+    "Looking for professional video editing services that help your business stand out? We create high-quality social media videos, Instagram Reels, TikTok videos, YouTube Shorts, and promotional videos designed to increase brand awareness, generate qualified leads, and drive more sales. Our creative team delivers engaging video content optimized for every major platform to help your business grow faster.",
   subtitle: "Our team creates professional reels designed to:",
   items: [
     {
       id: "awareness",
       label: "Increase Brand Awareness",
       description:
-        "Reach wider audiences with scroll-stopping reels that put your brand in front of the right people.",
+        "Reach a wider audience with professionally edited Instagram Reels, Facebook Reels, TikTok videos, and YouTube Shorts that grab attention, increase visibility, and strengthen your brand presence.",
       icon: "megaphone",
     },
     {
       id: "leads",
       label: "Generate Quality Leads",
       description:
-        "Turn views into inquiries with content designed to attract and qualify potential customers.",
+        "Convert viewers into customers with high-converting video marketing content designed to drive inquiries, website visits, and qualified leads.",
       icon: "users",
     },
     {
       id: "showcase",
       label: "Showcase Your Products & Services",
       description:
-        "Highlight what you offer with clear, compelling visuals that drive interest and action.",
+        "Promote your products with engaging product videos, commercial video editing, and promotional videos that highlight your brand and encourage customers to take action.",
       icon: "sparkles",
     },
     {
       id: "trust",
-      label: "Build Trust With Potential Customers",
+      label: "Build Trust & Authority",
       description:
-        "Share authentic stories and value that help viewers feel confident choosing your business.",
+        "Professional corporate videos, customer testimonials, and educational content help establish credibility and build long-term customer trust.",
       icon: "shield",
     },
     {
       id: "traffic",
-      label: "Drive More Website Visits",
+      label: "Drive More Website Traffic",
       description:
-        "Guide viewers from social feeds to your site with strong hooks and clear calls to action.",
+        "Increase website visitors through strategic social media video marketing, compelling calls-to-action, and SEO-friendly video content.",
       icon: "mouse-pointer",
     },
     {
       id: "sales",
-      label: "Increase Sales Opportunities",
+      label: "Increase Sales & Conversions",
       description:
-        "Create momentum toward purchases with reels built to nurture demand and convert attention.",
+        "Boost revenue with engaging video ads, eCommerce product videos, and short-form video content designed to improve conversions and maximize ROI.",
       icon: "trending-up",
     },
   ],
 } as const;
 
 export const marketingSolutions = {
-  titlePrefix: "Complete Done-For-You",
-  titleHighlight: "Marketing Solution",
-  subtitle: "Leave everything to the Dezyon Studio team:",
+  titlePrefix: "Everything Your Business Needs to",
+  titleHighlight: "Grow Online",
+  subtitle: "From strategy and content creation to paid advertising and website optimization, our team handles every aspect of your digital marketing. We help businesses increase brand awareness, generate qualified leads, drive website traffic, and boost sales with proven, results-driven marketing solutions.",
   items: [
     {
       id: "reels",
