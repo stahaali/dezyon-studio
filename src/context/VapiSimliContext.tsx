@@ -10,6 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 import type VapiClient from "@vapi-ai/web";
 import type { SimliClient } from "simli-client";
 import { isSimliConfigured, SIMLI_API_KEY, SIMLI_FACE_ID } from "@/lib/simli-config";
@@ -22,6 +23,15 @@ import {
   createVapiTransferAssistantOverrides,
   isTransferCallMessage,
 } from "@/lib/vapi-transfer-tool";
+
+const CALL_LARA_PATH = "/talking-website/call-lara";
+
+let simliModulePromise: Promise<typeof import("simli-client")> | null = null;
+
+function loadSimliModule() {
+  simliModulePromise ??= import("simli-client");
+  return simliModulePromise;
+}
 
 type TranscriptEntry = {
   role: string;
@@ -37,6 +47,7 @@ type VapiSimliContextValue = {
   error: string | null;
   openWidget: () => void;
   closeWidget: () => void;
+  prefetchVoiceClients: () => Promise<void>;
   startCall: () => Promise<void>;
   endCall: () => void;
 };
@@ -61,6 +72,7 @@ function muteVapiInternalAudio() {
 }
 
 export function VapiSimliProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const vapiRef = useRef<VapiClient | null>(null);
   const simliRef = useRef<SimliClient | null>(null);
   const avatarVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -68,6 +80,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
   const transferActiveRef = useRef(false);
   const intentionalDisconnectRef = useRef(false);
   const endCallRef = useRef<() => void>(() => {});
+  const audioBridgeTimerRef = useRef<number | null>(null);
 
   const [isWidgetVisible, setIsWidgetVisible] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -112,6 +125,30 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     return false;
   }, []);
 
+  const ensureAudioBridge = useCallback(() => {
+    if (audioBridgeTimerRef.current !== null) {
+      window.clearTimeout(audioBridgeTimerRef.current);
+      audioBridgeTimerRef.current = null;
+    }
+
+    let attempts = 0;
+
+    const tryConnect = () => {
+      if (connectVapiAudioToSimli()) {
+        return;
+      }
+
+      attempts += 1;
+      if (attempts >= 25) {
+        return;
+      }
+
+      audioBridgeTimerRef.current = window.setTimeout(tryConnect, 200);
+    };
+
+    tryConnect();
+  }, [connectVapiAudioToSimli]);
+
   const attachVapiListeners = useCallback(
     (vapi: VapiClient) => {
       vapi.on("call-start", () => {
@@ -119,12 +156,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
         setIsConnected(true);
         setIsLoading(false);
         setError(null);
-
-        if (!connectVapiAudioToSimli()) {
-          window.setTimeout(() => {
-            connectVapiAudioToSimli();
-          }, 250);
-        }
+        ensureAudioBridge();
       });
 
       vapi.on("call-end", () => {
@@ -205,7 +237,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
         console.error("Vapi error:", vapiError);
       });
     },
-    [connectVapiAudioToSimli],
+    [ensureAudioBridge],
   );
 
   const ensureVapi = useCallback(async () => {
@@ -220,8 +252,27 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     return vapi;
   }, [attachVapiListeners]);
 
+  const prefetchVoiceClients = useCallback(async () => {
+    const tasks: Promise<unknown>[] = [ensureVapi()];
+
+    if (isSimliConfigured()) {
+      tasks.push(loadSimliModule());
+    }
+
+    await Promise.all(tasks);
+  }, [ensureVapi]);
+
+  useEffect(() => {
+    if (pathname === CALL_LARA_PATH) {
+      void prefetchVoiceClients();
+    }
+  }, [pathname, prefetchVoiceClients]);
+
   useEffect(() => {
     return () => {
+      if (audioBridgeTimerRef.current !== null) {
+        window.clearTimeout(audioBridgeTimerRef.current);
+      }
       simliRef.current?.stop();
       vapiRef.current?.stop();
       vapiRef.current = null;
@@ -254,7 +305,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       generateSimliSessionToken,
       LogLevel,
       SimliClient: SimliClientConstructor,
-    } = await import("simli-client");
+    } = await loadSimliModule();
 
     const simliConfig = {
       faceId: SIMLI_FACE_ID,
@@ -263,12 +314,14 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       maxIdleTime: 600,
     };
 
-    const { session_token } = await generateSimliSessionToken({
-      apiKey: SIMLI_API_KEY,
-      config: simliConfig,
-    });
+    const [{ session_token }, iceServers] = await Promise.all([
+      generateSimliSessionToken({
+        apiKey: SIMLI_API_KEY,
+        config: simliConfig,
+      }),
+      generateIceServers(SIMLI_API_KEY),
+    ]);
 
-    const iceServers = await generateIceServers(SIMLI_API_KEY);
     const simli = new SimliClientConstructor(
       session_token,
       video,
@@ -283,7 +336,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     simli.on("start", () => {
       setIsAvatarLive(true);
       simli.sendAudioData(new Uint8Array(6000).fill(0));
-      void startVapiCall();
+      ensureAudioBridge();
     });
 
     simli.on("stop", () => {
@@ -304,7 +357,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     });
 
     await simli.start();
-  }, [startVapiCall]);
+  }, [ensureAudioBridge]);
 
   const openWidget = useCallback(() => {
     setIsWidgetVisible(true);
@@ -328,10 +381,13 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     setIsLoading(true);
 
     try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
+      await Promise.all([
+        prefetchVoiceClients(),
+        navigator.mediaDevices.getUserMedia({ audio: true }),
+      ]);
 
       if (isSimliConfigured()) {
-        await startSimliSession();
+        await Promise.all([startSimliSession(), startVapiCall()]);
         return;
       }
 
@@ -345,12 +401,17 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       );
       console.error("Failed to start voice session:", startError);
     }
-  }, [startSimliSession, startVapiCall]);
+  }, [prefetchVoiceClients, startSimliSession, startVapiCall]);
 
   const endCall = useCallback((fromTransfer = false) => {
     if (fromTransfer || transferActiveRef.current) {
       intentionalDisconnectRef.current = true;
       setError(null);
+    }
+
+    if (audioBridgeTimerRef.current !== null) {
+      window.clearTimeout(audioBridgeTimerRef.current);
+      audioBridgeTimerRef.current = null;
     }
 
     transferActiveRef.current = false;
@@ -376,6 +437,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       error,
       openWidget,
       closeWidget,
+      prefetchVoiceClients,
       startCall,
       endCall,
     }),
@@ -388,6 +450,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       error,
       openWidget,
       closeWidget,
+      prefetchVoiceClients,
       startCall,
       endCall,
     ],

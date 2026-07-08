@@ -190,3 +190,11 @@ export const talkingWebsiteBenefits = [
     stat: "Auto-sync",
   },
 ] as const;
+
+export const talkingWebsiteCtaBanner = {
+  src: "/assets/img/about/about-cta1.webp",
+  alt: "Video reels are driving modern business growth. Get in touch with Dezyon Studio",
+  href: "/contact",
+  width: 1024,
+  height: 341,
+} as const;

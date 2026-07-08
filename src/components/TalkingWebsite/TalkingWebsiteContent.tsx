@@ -32,6 +32,7 @@ import iconStyles from "@/components/TalkingWebsite/TalkingWebsiteGradientIcon.m
 import {
   talkingWebsiteBenefits,
   talkingWebsiteBenefitsIntro,
+  talkingWebsiteCtaBanner,
   talkingWebsiteFeatures,
   talkingWebsiteHero,
   talkingWebsitePricing,
@@ -40,7 +41,7 @@ import {
 } from "@/data/talking-website";
 import { TalkingWebsiteHeroCta } from "@/components/TalkingWebsite/TalkingWebsiteHeroCta";
 import { TalkingWebsiteProcessSection } from "@/components/TalkingWebsite/TalkingWebsiteProcessSection";
-import { AboutCtaBanner } from "@/components/About/AboutCtaBanner/AboutCtaBanner";
+import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
 import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
@@ -344,7 +345,7 @@ export function TalkingWebsiteContent() {
         </Container>
       </section>
 
-      <AboutCtaBanner />
+      <MarketingCtaBanner banner={talkingWebsiteCtaBanner} />
     </div>
   );
 }

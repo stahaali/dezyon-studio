@@ -24,6 +24,7 @@ export function TalkingWebsiteVoicePage() {
     isLoading,
     transcript,
     error,
+    prefetchVoiceClients,
     startCall,
     endCall,
   } = useVapiSimli();
@@ -43,6 +44,10 @@ export function TalkingWebsiteVoicePage() {
       : isConnected
         ? latestAssistantLine
         : talkingWebsiteVoiceAgent.welcomeMessage;
+
+  useEffect(() => {
+    void prefetchVoiceClients();
+  }, [prefetchVoiceClients]);
 
   useEffect(() => {
     if (hasStartedRef.current) {

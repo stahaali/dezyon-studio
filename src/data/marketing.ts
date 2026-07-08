@@ -86,42 +86,42 @@ export const marketingVideoReels = {
       label: "Increase Brand Awareness",
       description:
         "Reach a wider audience with professionally edited Instagram Reels, Facebook Reels, TikTok videos, and YouTube Shorts that grab attention, increase visibility, and strengthen your brand presence.",
-      icon: "megaphone",
+      icon: "eye",
     },
     {
       id: "leads",
       label: "Generate Quality Leads",
       description:
         "Convert viewers into customers with high-converting video marketing content designed to drive inquiries, website visits, and qualified leads.",
-      icon: "users",
+      icon: "magnet",
     },
     {
       id: "showcase",
       label: "Showcase Your Products & Services",
       description:
         "Promote your products with engaging product videos, commercial video editing, and promotional videos that highlight your brand and encourage customers to take action.",
-      icon: "sparkles",
+      icon: "package",
     },
     {
       id: "trust",
       label: "Build Trust & Authority",
       description:
         "Professional corporate videos, customer testimonials, and educational content help establish credibility and build long-term customer trust.",
-      icon: "shield",
+      icon: "award",
     },
     {
       id: "traffic",
       label: "Drive More Website Traffic",
       description:
         "Increase website visitors through strategic social media video marketing, compelling calls-to-action, and SEO-friendly video content.",
-      icon: "mouse-pointer",
+      icon: "globe",
     },
     {
       id: "sales",
       label: "Increase Sales & Conversions",
       description:
         "Boost revenue with engaging video ads, eCommerce product videos, and short-form video content designed to improve conversions and maximize ROI.",
-      icon: "trending-up",
+      icon: "shopping-cart",
     },
   ],
 } as const;

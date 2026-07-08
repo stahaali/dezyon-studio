@@ -1,29 +1,29 @@
 import {
-  Megaphone,
-  MousePointerClick,
-  ShieldCheck,
-  Sparkles,
-  TrendingUp,
-  Users,
+  Award,
+  Eye,
+  Globe,
+  Magnet,
+  Package,
+  ShoppingCart,
   type LucideIcon,
 } from "lucide-react";
 import styles from "./MarketingVideoReelsIcon.module.css";
 
 type MarketingVideoReelsIconId =
-  | "megaphone"
-  | "users"
-  | "sparkles"
-  | "shield"
-  | "mouse-pointer"
-  | "trending-up";
+  | "eye"
+  | "magnet"
+  | "package"
+  | "award"
+  | "globe"
+  | "shopping-cart";
 
 const iconMap: Record<MarketingVideoReelsIconId, LucideIcon> = {
-  megaphone: Megaphone,
-  users: Users,
-  sparkles: Sparkles,
-  shield: ShieldCheck,
-  "mouse-pointer": MousePointerClick,
-  "trending-up": TrendingUp,
+  eye: Eye,
+  magnet: Magnet,
+  package: Package,
+  award: Award,
+  globe: Globe,
+  "shopping-cart": ShoppingCart,
 };
 
 type MarketingVideoReelsIconProps = {

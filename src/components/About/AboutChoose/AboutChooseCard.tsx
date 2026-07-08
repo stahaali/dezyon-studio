@@ -5,7 +5,9 @@ import type { aboutChoose } from "@/data/about";
 import { Button } from "@/components/Shared/Button";
 import styles from "./AboutChoose.module.css";
 
-type ChooseCard = (typeof aboutChoose.cards)[number];
+type ChooseCard = Omit<(typeof aboutChoose.cards)[number], "variant"> & {
+  variant: "light" | "dark";
+};
 
 type AboutChooseCardProps = {
   card: ChooseCard;

@@ -29,15 +29,13 @@ export function AppShell({ children }: { children: ReactNode }) {
       <VapiSimliProvider>
         <SectionScrollAnimator />
         <SiteSecurity />
-        {!isAuditPage ? <GoogleTranslatePreload /> : null}
-        {!isAuditPage ? <Header /> : null}
+        <GoogleTranslatePreload />
+        <Header />
         <main className="flex-1">{children}</main>
-        {!isAuditPage ? (
-          <Footer />
-        ) : null}
-        {!isAuditPage ? <LeftSideRail /> : null}
-        {!isAuditPage ? <SideRail /> : null}
-        {!isAuditPage ? <BackToTop /> : null}
+        <Footer />
+        <LeftSideRail />
+        <SideRail />
+        <BackToTop />
         {showVoiceAssistant ? (
           <ContactVoiceFloatingAvatar
             src={contactVoiceWidgetAvatar.src}
