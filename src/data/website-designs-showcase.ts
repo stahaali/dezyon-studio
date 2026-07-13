@@ -1,7 +1,7 @@
 export const websiteDesignsShowcase = {
   eyebrowLines: ["Anything but", '"cookie cutter"'] as const,
-  titleHighlight: "Website",
-  titleLight: "Template",
+  titleLine1: "BECOME OUR NEXT",
+  titleHighlight: "SUCCESS STORY",
   templates: [
     {
       id: "mock-1",

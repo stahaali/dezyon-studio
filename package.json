@@ -13,6 +13,7 @@
     "build:hostinger": "npm run build",
     "build:vercel": "next build",
     "package:hostinger": "npm run build && node scripts/package-out.js",
+    "preview:static": "npx --yes serve out -p 4173",
     "start": "next start",
     "lint": "eslint",
     "images:webp": "node scripts/convert-images-to-webp.js",

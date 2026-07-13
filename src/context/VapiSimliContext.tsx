@@ -17,20 +17,31 @@ import { isSimliConfigured, SIMLI_API_KEY, SIMLI_FACE_ID } from "@/lib/simli-con
 import {
   isVapiConfigured,
   VAPI_ASSISTANT_ID,
-  VAPI_PUBLIC_KEY,
 } from "@/lib/vapi-config";
 import {
   createVapiTransferAssistantOverrides,
   isTransferCallMessage,
 } from "@/lib/vapi-transfer-tool";
+import { getVapiClient } from "@/lib/vapi-client";
 
 const CALL_LARA_PATH = "/talking-website/call-lara";
+const TALKING_WEBSITE_PATH = "/talking-website";
 
 let simliModulePromise: Promise<typeof import("simli-client")> | null = null;
+let microphonePromise: Promise<MediaStream> | null = null;
 
 function loadSimliModule() {
   simliModulePromise ??= import("simli-client");
   return simliModulePromise;
+}
+
+function shouldUseSimli(pathname: string) {
+  return isSimliConfigured() && pathname !== CALL_LARA_PATH;
+}
+
+function warmMicrophone() {
+  microphonePromise ??= navigator.mediaDevices.getUserMedia({ audio: true });
+  return microphonePromise;
 }
 
 type TranscriptEntry = {
@@ -48,6 +59,7 @@ type VapiSimliContextValue = {
   openWidget: () => void;
   closeWidget: () => void;
   prefetchVoiceClients: () => Promise<void>;
+  warmLaraSession: () => void;
   startCall: () => Promise<void>;
   endCall: () => void;
 };
@@ -81,6 +93,8 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
   const intentionalDisconnectRef = useRef(false);
   const endCallRef = useRef<() => void>(() => {});
   const audioBridgeTimerRef = useRef<number | null>(null);
+  const listenersAttachedRef = useRef(false);
+  const callStartingRef = useRef(false);
 
   const [isWidgetVisible, setIsWidgetVisible] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -149,17 +163,42 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     tryConnect();
   }, [connectVapiAudioToSimli]);
 
+  const markCallReady = useCallback(() => {
+    setIsConnected(true);
+    setIsLoading(false);
+    setError(null);
+  }, []);
+
   const attachVapiListeners = useCallback(
     (vapi: VapiClient) => {
+      if (listenersAttachedRef.current) {
+        return;
+      }
+
+      listenersAttachedRef.current = true;
+
+      vapi.on("call-start-progress", (event) => {
+        if (
+          event.stage === "daily-call-join" &&
+          event.status === "completed"
+        ) {
+          markCallReady();
+        }
+      });
+
+      vapi.on("call-start-success", () => {
+        markCallReady();
+      });
+
       vapi.on("call-start", () => {
         transferActiveRef.current = false;
-        setIsConnected(true);
-        setIsLoading(false);
-        setError(null);
+        callStartingRef.current = false;
+        markCallReady();
         ensureAudioBridge();
       });
 
       vapi.on("call-end", () => {
+        callStartingRef.current = false;
         setIsConnected(false);
         setIsSpeaking(false);
         setIsAvatarLive(false);
@@ -225,6 +264,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       });
 
       vapi.on("error", (vapiError) => {
+        callStartingRef.current = false;
         if (intentionalDisconnectRef.current || transferActiveRef.current) {
           intentionalDisconnectRef.current = false;
           setError(null);
@@ -237,36 +277,39 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
         console.error("Vapi error:", vapiError);
       });
     },
-    [ensureAudioBridge],
+    [ensureAudioBridge, markCallReady],
   );
 
-  const ensureVapi = useCallback(async () => {
-    if (vapiRef.current || !isVapiConfigured()) {
-      return vapiRef.current;
+  const ensureVapi = useCallback(() => {
+    const vapi = getVapiClient();
+    if (!vapi) {
+      return null;
     }
 
-    const { default: Vapi } = await import("@vapi-ai/web");
-    const vapi = new Vapi(VAPI_PUBLIC_KEY);
     vapiRef.current = vapi;
     attachVapiListeners(vapi);
     return vapi;
   }, [attachVapiListeners]);
 
   const prefetchVoiceClients = useCallback(async () => {
-    const tasks: Promise<unknown>[] = [ensureVapi()];
+    ensureVapi();
 
-    if (isSimliConfigured()) {
-      tasks.push(loadSimliModule());
+    if (shouldUseSimli(pathname)) {
+      await loadSimliModule();
     }
-
-    await Promise.all(tasks);
-  }, [ensureVapi]);
+  }, [ensureVapi, pathname]);
 
   useEffect(() => {
     if (pathname === CALL_LARA_PATH) {
-      void prefetchVoiceClients();
+      ensureVapi();
+      warmMicrophone().catch(() => {});
+      return;
     }
-  }, [pathname, prefetchVoiceClients]);
+
+    if (pathname === TALKING_WEBSITE_PATH) {
+      ensureVapi();
+    }
+  }, [pathname, ensureVapi]);
 
   useEffect(() => {
     return () => {
@@ -281,15 +324,26 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const startVapiCall = useCallback(async () => {
-    const vapi = await ensureVapi();
+    const vapi = ensureVapi();
     if (!vapi) {
       throw new Error("Vapi is not initialized.");
     }
 
-    await vapi.start(
-      VAPI_ASSISTANT_ID,
-      createVapiTransferAssistantOverrides(),
-    );
+    if (callStartingRef.current) {
+      return;
+    }
+
+    callStartingRef.current = true;
+
+    try {
+      await vapi.start(
+        VAPI_ASSISTANT_ID,
+        createVapiTransferAssistantOverrides(),
+      );
+    } catch (startError) {
+      callStartingRef.current = false;
+      throw startError;
+    }
   }, [ensureVapi]);
 
   const startSimliSession = useCallback(async () => {
@@ -359,6 +413,17 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     await simli.start();
   }, [ensureAudioBridge]);
 
+  const beginSimliSession = useCallback(() => {
+    void startSimliSession().catch((simliError) => {
+      console.warn("Simli session failed, continuing with voice only:", simliError);
+    });
+  }, [startSimliSession]);
+
+  const warmLaraSession = useCallback(() => {
+    ensureVapi();
+    warmMicrophone().catch(() => {});
+  }, [ensureVapi]);
+
   const openWidget = useCallback(() => {
     setIsWidgetVisible(true);
   }, []);
@@ -381,17 +446,23 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     setIsLoading(true);
 
     try {
-      await Promise.all([
-        prefetchVoiceClients(),
-        navigator.mediaDevices.getUserMedia({ audio: true }),
-      ]);
+      ensureVapi();
 
-      if (isSimliConfigured()) {
-        await Promise.all([startSimliSession(), startVapiCall()]);
-        return;
+      const micTask = warmMicrophone();
+      if (shouldUseSimli(pathname)) {
+        beginSimliSession();
       }
 
-      await startVapiCall();
+      await micTask;
+      void startVapiCall().catch((startError) => {
+        setIsLoading(false);
+        setError(
+          startError instanceof Error
+            ? startError.message
+            : "Could not start the voice assistant.",
+        );
+        console.error("Failed to start voice session:", startError);
+      });
     } catch (startError) {
       setIsLoading(false);
       setError(
@@ -401,7 +472,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       );
       console.error("Failed to start voice session:", startError);
     }
-  }, [prefetchVoiceClients, startSimliSession, startVapiCall]);
+  }, [beginSimliSession, ensureVapi, pathname, startVapiCall]);
 
   const endCall = useCallback((fromTransfer = false) => {
     if (fromTransfer || transferActiveRef.current) {
@@ -415,6 +486,8 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
     }
 
     transferActiveRef.current = false;
+    callStartingRef.current = false;
+    microphonePromise = null;
     simliRef.current?.stop();
     vapiRef.current?.stop();
     setIsConnected(false);
@@ -438,6 +511,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       openWidget,
       closeWidget,
       prefetchVoiceClients,
+      warmLaraSession,
       startCall,
       endCall,
     }),
@@ -451,6 +525,7 @@ export function VapiSimliProvider({ children }: { children: ReactNode }) {
       openWidget,
       closeWidget,
       prefetchVoiceClients,
+      warmLaraSession,
       startCall,
       endCall,
     ],

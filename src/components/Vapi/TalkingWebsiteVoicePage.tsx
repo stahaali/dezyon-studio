@@ -24,7 +24,7 @@ export function TalkingWebsiteVoicePage() {
     isLoading,
     transcript,
     error,
-    prefetchVoiceClients,
+    warmLaraSession,
     startCall,
     endCall,
   } = useVapiSimli();
@@ -39,24 +39,20 @@ export function TalkingWebsiteVoicePage() {
 
   const statusLine = isLoading
     ? "Connecting to Lara..."
-    : isSpeaking
+    : isSpeaking || isConnected
       ? latestAssistantLine
-      : isConnected
-        ? latestAssistantLine
-        : talkingWebsiteVoiceAgent.welcomeMessage;
+      : talkingWebsiteVoiceAgent.welcomeMessage;
 
   useEffect(() => {
-    void prefetchVoiceClients();
-  }, [prefetchVoiceClients]);
+    warmLaraSession();
 
-  useEffect(() => {
     if (hasStartedRef.current) {
       return;
     }
 
     hasStartedRef.current = true;
     void startCall();
-  }, [startCall]);
+  }, [warmLaraSession, startCall]);
 
   useEffect(() => {
     return () => {

@@ -7,7 +7,7 @@ import { WebsiteDesignsSlider } from "@/components/Home/WebsiteDesignsSection/We
 import styles from "./WebsiteDesignsSection.module.css";
 
 export function WebsiteDesignsSection() {
-  const { titleHighlight, titleLight } = websiteDesignsShowcase;
+  const { titleLine1, titleHighlight } = websiteDesignsShowcase;
 
   return (
     <section
@@ -21,13 +21,11 @@ export function WebsiteDesignsSection() {
             <div className={styles.headingBlock}>
               <h2
                 id="website-designs-heading"
-                className={`${splitTitleStyles.title} ${styles.titleComposition}`}
+                className={`${splitTitleStyles.title} ${splitTitleStyles.sizeSection} ${styles.title}`}
               >
-                <span className={`${styles.headingWord} ${styles.wordHighlight}`}>
-                  {titleHighlight}
-                </span>
-                <span className={`${styles.headingWord} ${styles.wordLight}`}>
-                  {titleLight}
+                <span className={styles.titleLine}>{titleLine1}</span>
+                <span className={styles.titleLine}>
+                  <span className={styles.wordHighlight}>{titleHighlight}</span>
                 </span>
               </h2>
             </div>

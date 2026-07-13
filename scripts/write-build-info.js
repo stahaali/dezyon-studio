@@ -59,6 +59,9 @@ const buildInfo = [
   "Upload ALL files inside out/ to public_html (replace old files).",
   "Required folders: _next/, assets/, api/, and every page folder.",
   "",
+  "Do NOT open out/index.html by double-clicking (file://). CSS/JS will not load.",
+  "Preview locally: npm run preview:static then open http://localhost:4173",
+  "",
   "After upload, verify on live:",
   `- ${siteUrl}/BUILD.txt (must show this build time)`,
   ...(pricingCssChunks[0]

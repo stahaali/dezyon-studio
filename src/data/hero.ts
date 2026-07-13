@@ -21,7 +21,8 @@ export const heroBrands = [
 ] as const;
 
 export const HERO_POSTER = "/assets/video/thumbnail1.jpg";
-export const HERO_VIDEO = "/assets/video/video1.mp4";
+export const heroBannerVideo = "/assets/video/home-video1.mp4";
+export const HERO_VIDEO = heroBannerVideo;
 
 export const heroRating = {
   value: "4.9",

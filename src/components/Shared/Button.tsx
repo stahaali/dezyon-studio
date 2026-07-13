@@ -1,9 +1,13 @@
 import Link from "next/link";
-import type { ReactNode, ButtonHTMLAttributes } from "react";
+import type { ComponentProps, ReactNode, ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
+type LinkHandlerProps = Pick<
+  ComponentProps<typeof Link>,
+  "onMouseEnter" | "onFocus" | "onMouseLeave" | "onBlur"
+>;
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -45,6 +49,10 @@ export function Button({
   children,
   className = "",
   animated = true,
+  onMouseEnter,
+  onFocus,
+  onMouseLeave,
+  onBlur,
   ...props
 }: ButtonProps) {
   const useAnimation = animated && variant !== "ghost";
@@ -52,8 +60,15 @@ export function Button({
     `${styles.button} ${styles[variant]} ${styles[size]} ${useAnimation ? styles.animated : ""} ${className}`.trim();
 
   if (href) {
+    const linkHandlers: LinkHandlerProps = {
+      onMouseEnter: onMouseEnter as LinkHandlerProps["onMouseEnter"],
+      onFocus: onFocus as LinkHandlerProps["onFocus"],
+      onMouseLeave: onMouseLeave as LinkHandlerProps["onMouseLeave"],
+      onBlur: onBlur as LinkHandlerProps["onBlur"],
+    };
+
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} {...linkHandlers}>
         <ButtonInner variant={variant} animated={useAnimation}>
           {children}
         </ButtonInner>
