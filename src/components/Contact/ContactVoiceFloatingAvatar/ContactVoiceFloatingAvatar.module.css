@@ -1,8 +1,9 @@
 .avatarWrap {
   position: fixed;
-  right: 20px;
-  bottom: 78px;
-  z-index: 11;
+  /* Sit on same baseline as Crisp launcher (~56px), left of it */
+  right: 88px;
+  bottom: 20px;
+  z-index: 1000000;
   display: block;
   padding: 0;
   border: none;
@@ -25,8 +26,8 @@
 
 .avatar {
   display: block;
-  width: 80px;
-  height: 80px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-primary);
@@ -36,13 +37,24 @@
 
 @media (min-width: 577px) {
   .avatarWrap {
-    right: 60px;
-    bottom: 82px;
+    right: 96px;
+    bottom: 24px;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (max-width: 480px) {
   .avatarWrap {
-    right: 20px;
+    right: 80px;
+    bottom: 16px;
+  }
+
+  .avatar {
+    width: 52px;
+    height: 52px;
   }
 }

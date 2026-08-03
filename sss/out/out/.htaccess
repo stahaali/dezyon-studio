@@ -1,0 +1,55 @@
+Options -Indexes +FollowSymLinks
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # www -> non-www (301 permanent)
+  RewriteCond %{HTTP_HOST} ^www\.dezyonstudio\.com$ [NC]
+  RewriteRule ^(.*)$ https://dezyonstudio.com/$1 [R=301,L]
+
+  # Force HTTPS on apex domain
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} ^dezyonstudio\.com$ [NC]
+  RewriteRule ^(.*)$ https://dezyonstudio.com/$1 [R=301,L]
+
+  # Legacy packages route -> logo pricing
+  RewriteRule ^packages/?$ pricing/logo/ [R=301,L]
+
+  # API PHP scripts must never fall through to SPA HTML
+  RewriteRule ^api/.+\.php$ - [L]
+
+  # Serve existing files and folders
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Next.js static export: /contact -> /contact/index.html
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+</IfModule>
+
+# Always fetch fresh HTML so live updates appear after upload
+<FilesMatch "\.(html|htm)$">
+  FileETag None
+  Header unset ETag
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
+</FilesMatch>
+
+# Hashed Next.js assets can be cached long-term
+<FilesMatch "\.(css|js|woff2|woff|ttf|svg|png|jpg|jpeg|webp|gif|ico)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# Hostinger LiteSpeed cache: do not cache HTML
+<IfModule LiteSpeed>
+  RewriteEngine On
+  RewriteRule \.html$ - [E=Cache-Control:no-cache]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>

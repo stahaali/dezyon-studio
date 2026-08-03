@@ -1,0 +1,39 @@
+.circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  background: rgba(var(--color-primary-rgb), 0.12);
+  box-shadow: 0 0 16px rgba(var(--color-primary-rgb), 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+  transition:
+    width 160ms ease,
+    height 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    opacity 160ms ease;
+  will-change: transform;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hover {
+  width: 44px;
+  height: 44px;
+  background: rgba(var(--color-primary-rgb), 0.22);
+  border-color: #a3eb4a;
+}
+
+@media (pointer: coarse) {
+  .circle {
+    display: none;
+  }
+}

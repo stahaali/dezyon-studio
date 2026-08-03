@@ -41,9 +41,9 @@ export function WebsiteDesignsSlider() {
               <Image
                 src={template.image}
                 alt={template.alt}
-                width={400}
-                height={810}
-                sizes="(max-width: 640px) 42vw, 220px"
+                width={280}
+                height={580}
+                sizes="(max-width: 640px) 42vw, 231px"
                 className={styles.cardImage}
               />
             </div>

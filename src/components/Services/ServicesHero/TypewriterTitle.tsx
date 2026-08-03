@@ -13,6 +13,7 @@ interface TypewriterTitleProps {
   typingSpeed?: number;
   deletingSpeed?: number;
   pauseMs?: number;
+  startDelayMs?: number;
 }
 
 export function TypewriterTitle({
@@ -21,15 +22,28 @@ export function TypewriterTitle({
   phrases,
   id,
   className = "",
-  typingSpeed = 85,
-  deletingSpeed = 50,
-  pauseMs = 2400,
+  typingSpeed = 55,
+  deletingSpeed = 30,
+  pauseMs = 1800,
+  startDelayMs = 2800,
 }: TypewriterTitleProps) {
+  const firstPhrase = phrases[0] ?? "";
   const [phraseIndex, setPhraseIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState(firstPhrase);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [animationReady, setAnimationReady] = useState(false);
 
   useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setAnimationReady(true);
+    }, startDelayMs);
+
+    return () => window.clearTimeout(timeout);
+  }, [startDelayMs]);
+
+  useEffect(() => {
+    if (!animationReady) return;
+
     const currentPhrase = phrases[phraseIndex] ?? "";
     let timeout: ReturnType<typeof setTimeout>;
 
@@ -45,13 +59,14 @@ export function TypewriterTitle({
         setDisplayText(
           isDeleting
             ? currentPhrase.slice(0, displayText.length - 1)
-            : currentPhrase.slice(0, displayText.length + 1),
+            : currentPhrase.slice(0, displayText.length + 1)
         );
       }, speed);
     }
 
     return () => clearTimeout(timeout);
   }, [
+    animationReady,
     displayText,
     isDeleting,
     phraseIndex,
@@ -71,7 +86,9 @@ export function TypewriterTitle({
         {suffix ? <span className={styles.suffixInline}> {suffix}</span> : null}
       </span>
       <span className={styles.secondLine}>
-        {suffix ? <span className={styles.suffixWithHighlight}>{suffix}</span> : null}
+        {suffix ? (
+          <span className={styles.suffixWithHighlight}>{suffix}</span>
+        ) : null}
         <span className={styles.wordHighlight}>
           <span className={styles.typewriter} aria-live="polite">
             <span className={styles.typewriterText}>{displayText}</span>

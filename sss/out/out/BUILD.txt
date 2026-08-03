@@ -1,0 +1,25 @@
+Build time: 2026-07-22T21:44:44.848Z
+
+IMPORTANT: .module.css files are NOT uploaded separately.
+Next.js compiles them into hashed files inside _next/static/chunks/.
+
+PlansAndPricing.module.css is inside:
+- _next/static/chunks/3w46yq4ipih-z.css
+
+plans-and-pricing page loads these CSS files:
+- _next/static/chunks/262yji_486k7b.css
+- _next/static/chunks/2l_ok7oo0h1s7.css
+- _next/static/chunks/3w46yq4ipih-z.css
+- _next/static/chunks/3w_7hfa533m2q.css
+
+Upload ALL files inside out/ to public_html (replace old files).
+Required folders: _next/, assets/, api/, and every page folder.
+
+Do NOT open out/index.html by double-clicking (file://). CSS/JS will not load.
+Preview locally: npm run preview:static then open http://localhost:4173
+
+After upload, verify on live:
+- https://dezyonstudio.com/BUILD.txt (must show this build time)
+- https://dezyonstudio.com/_next/static/chunks/3w46yq4ipih-z.css (must open, not 404)
+
+Live CSS check: open the pricing CSS URL and search for planCard + height:auto

@@ -7,8 +7,8 @@ import { isSamePath } from "@/lib/paths";
 import styles from "./Logo.module.css";
 
 const LOGO_SRC = {
-  light: "/assets/img/logo-1.webp",
-  dark: "/assets/img/black-logo.webp",
+  light: "/assets/img/logo-1-322.webp",
+  dark: "/assets/img/black-logo-322.webp",
 } as const;
 
 interface LogoProps {
@@ -35,8 +35,9 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
         key={variant}
         src={LOGO_SRC[variant]}
         alt="Dezyon Studio"
-        width={296}
-        height={88}
+        width={200}
+        height={50}
+        sizes="161px"
         className={styles.image}
         priority={variant === "light"}
       />

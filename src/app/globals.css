@@ -1,15 +1,13 @@
 @import "tailwindcss";
-@import "../styles/fonts.css";
 @import "../styles/variables.css";
 @import "../styles/responsive.css";
 @import "../styles/large-viewport-lock.css";
 @import "../styles/banner-headings.css";
-@import "swiper/css";
 
 @theme inline {
   --color-background: var(--color-white);
   --color-foreground: var(--color-text);
-  --font-sans: var(--font-lexend);
+  --font-sans: var(--font-lexend), var(--font-lexend-fallback);
   --breakpoint-xs: 375px;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;

@@ -5,14 +5,14 @@ import {
   packageCategoryMeta,
   type PackageCategoryId,
 } from "@/data/packages";
-import { SITE_NAME } from "./constants";
+import { SITE_NAME, SITE_OG_IMAGE } from "./constants";
 import { CANONICAL_SITE_ORIGIN } from "@/lib/site-url";
 
-export const DEFAULT_OG_IMAGE = "/assets/img/web-app/mobile-app-img1.webp";
+export const DEFAULT_OG_IMAGE = SITE_OG_IMAGE;
 
 /** Homepage `<title>` — descriptive length for Bing/Google (≈55–65 chars). */
 export const HOME_DOCUMENT_TITLE =
-  "Dezyon Studio | AI Talking Websites & Digital Marketing Agency";
+  "Dezyon Studio | Custom Website Development & AI Call Assistant Automation";
 
 export type PageSeoKey =
   | "home"
@@ -29,7 +29,9 @@ export type PageSeoKey =
   | "privacyPolicy"
   | "termsAndConditions"
   | "refundPolicy"
-  | "thankYou";
+  | "thankYou"
+  | "blogWebsiteSalesperson"
+  | "seoServices";
 
 export type PageSeoConfig = {
   title: string;
@@ -37,49 +39,34 @@ export type PageSeoConfig = {
   keywords: string[];
   path: string;
   ogImage?: string;
+  ogDescription?: string;
+  twitterDescription?: string;
   noIndex?: boolean;
 };
 
 export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
   home: {
-    title: "AI Talking Websites & Digital Marketing Agency",
+    title: "Custom Website Development & AI Call Assistant Automation",
     description:
-      "Dezyon Studio helps businesses grow with AI Talking Websites, Custom Website Development, AI Video Creation, Digital Marketing, Video Editing, AI Receptionists, and Branding Solutions.",
+      "Dezyon Studio builds high-performance custom websites and AI call assistant automation solutions that help businesses generate more leads, automate customer interactions, and scale faster.",
     keywords: [
-      "AI Talking Website",
-      "AI Receptionist",
-      "AI Chat Bot",
-      "AI Video Creation Services",
-      "AI Video Marketing",
-      "AI Commercial Videos",
-      "AI Video Ads",
-      "AI TV Commercials",
-      "AI YouTube Ads",
-      "AI Marketing Agency",
-      "AI Content Creation",
-      "Custom Website Development Services",
-      "Web Design Agency Texas",
-      "Business Website Development",
-      "Professional Website Design",
-      "E-commerce Website Development",
       "Custom Website Development",
-      "Interactive Website Solutions",
-      "AI Website Assistant",
-      "Website Talking Chatbot Services",
-      "Ai Branding Agency",
-      "Ai Marketing Agency",
-      "Ai Influencer",
-      "Ai YouTube Channel Content Creation",
-      "Ai Business Branding Solutions",
-      "Corporate Branding Agency",
-      "Talking Website Agency USA / Canada",
-      "Website Development Company USA / Canada",
-      "AI Marketing Services USA / Canada",
-      "Video Editing Service USA / Canada",
-      "Web Design Agency Near me",
-      "Ai Custom Video Ads",
+      "AI Call Assistant",
+      "AI Voice Agent",
+      "Website Design",
+      "Next.js Development",
+      "SEO",
+      "Digital Marketing",
+      "Business Automation",
+      "Web Development",
+      "Dezyon Studio",
     ],
     path: "/",
+    ogImage: SITE_OG_IMAGE,
+    ogDescription:
+      "Grow your business with custom websites and AI-powered call assistants. We build modern, high-converting digital solutions that generate leads and automate customer support.",
+    twitterDescription:
+      "High-converting websites, AI call assistants, automation, SEO, and digital solutions that help your business grow.",
   },
   about: {
     title: "About Dezyon Studio | AI-Powered Digital Agency & Web Design",
@@ -276,6 +263,38 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/contact/thank-you",
     noIndex: true,
   },
+  blogWebsiteSalesperson: {
+    title:
+      "Your Website Isn't a Brochure. It's a Salesperson — Why That Matters",
+    description:
+      "More traffic won't fix a passive website. Learn why direct-response sites convert visitors into calls and bookings — and how Dezyon Studio builds the full conversion engine.",
+    keywords: [
+      "direct response website",
+      "website conversion",
+      "lead generation website",
+      "AI talking website",
+      "website that converts",
+      "Dezyon Studio blog",
+      "digital marketing response",
+    ],
+    path: "/blog/your-website-isnt-a-brochure",
+  },
+  seoServices: {
+    title: "SEO Services That Actually Show Up in Rankings — Not Just Reports",
+    description:
+      "Stop paying for monthly SEO reports that don't move rankings. Dezyon Studio delivers technical, local, and AI-ready SEO focused on calls, bookings, and real visibility.",
+    keywords: [
+      "SEO services",
+      "local SEO",
+      "technical SEO",
+      "AI search optimization",
+      "Google Business Profile",
+      "SEO agency",
+      "Dezyon Studio SEO",
+      "free SEO audit",
+    ],
+    path: "/seo",
+  },
 };
 
 const PRICING_CATEGORY_KEYWORDS: Record<PackageCategoryId, string[]> = {
@@ -418,6 +437,12 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
   const isPricingCategory = config.path.startsWith("/pricing/");
   const documentTitle = getDocumentTitle(config);
   const openGraphTitle = documentTitle;
+  const openGraphDescription = config.ogDescription ?? config.description;
+  const twitterDescription = config.twitterDescription ?? config.description;
+  const ogImageAlt =
+    config.path === "/"
+      ? "Dezyon Studio - Custom Website Development & AI Call Assistant Automation"
+      : `${config.title} — ${SITE_NAME}`;
 
   return {
     title:
@@ -453,21 +478,25 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
       url: canonical,
       siteName: SITE_NAME,
       title: openGraphTitle,
-      description: config.description,
+      description: openGraphDescription,
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${config.title} — ${SITE_NAME}`,
+          alt: ogImageAlt,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
       title: openGraphTitle,
-      description: config.description,
+      description: twitterDescription,
       images: [ogImage],
+      ...(isHome ? { creator: "@dezyonstudio" } : {}),
+    },
+    other: {
+      title: documentTitle,
     },
   };
 }

@@ -11,6 +11,7 @@ const HomepageScrollPathShell = dynamic(
     import("@/components/Home/HomepageScrollPath/HomepageScrollPathShell").then(
       (module) => module.HomepageScrollPathShell,
     ),
+  { ssr: true },
 );
 
 const CapabilitiesSection = dynamic(

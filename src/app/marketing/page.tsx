@@ -1,4 +1,3 @@
-import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
 import { MarketingSolutions } from "@/components/Marketing/MarketingSolutions/MarketingSolutions";
 import { MarketingWhyChoose } from "@/components/Marketing/MarketingWhyChoose/MarketingWhyChoose";
 import { MarketingVideoReels } from "@/components/Marketing/MarketingVideoReels/MarketingVideoReels";
@@ -18,7 +17,7 @@ export default function MarketingPage() {
       <PageSchema
         breadcrumbs={[
           { name: "Home", path: "/" },
-          { name: "Marketing", path: "/marketing" },
+          { name: "Marketing Studio", path: "/marketing" },
         ]}
         title={marketingSeo.title}
         description={marketingSeo.description}
@@ -30,7 +29,6 @@ export default function MarketingPage() {
         <MarketingWhyChoose />
         <MarketingVideoReels />
         <MarketingSolutions />
-        <MarketingCtaBanner />
       </div>
     </>
   );

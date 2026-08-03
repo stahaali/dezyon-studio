@@ -52,7 +52,7 @@ export const homeGrowthTeamMembers = [
 ] as const;
 
 export const homeGrowthTeamCta = {
-  logoSrc: "/assets/img/logo-1.webp",
+  logoSrc: "/assets/img/logo-1-322.webp",
   logoAlt: "Dezyon Studio",
   titlePrefix: "Ready to ",
   titleHighlight: "Grow",

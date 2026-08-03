@@ -10,12 +10,12 @@ export const pricingNav = {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Marketing", href: "/marketing" },
+  { label: "Marketing Studio", href: "/marketing" },
   { label: "Video Editing", href: "/video-editing" },
   { label: "Talking Website", href: "/talking-website" },
   // { label: "Combo Packages", href: "/combo-packages" },
   // { label: "Web Apps", href: "/web-apps" },
-  { label: "Contact", href: "/contact" },
+  { label: "SEO", href: "/seo" },
 ] as const;
 
 export const footerAbout =
@@ -24,7 +24,7 @@ export const footerAbout =
 export const footerInformationLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Marketing", href: "/marketing" },
+  { label: "Marketing Studio", href: "/marketing" },
   { label: "Video Editing", href: "/video-editing" },
   { label: "Contact Us", href: "/contact" },
 ] as const;

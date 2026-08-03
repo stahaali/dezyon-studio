@@ -30,7 +30,7 @@ export function ContactVoiceFloatingAvatar({
       aria-hidden="true"
     />
   ) : (
-    <Image src={src} alt={alt} width={80} height={80} className={styles.avatar} />
+    <Image src={src} alt={alt} width={60} height={60} className={styles.avatar} />
   );
 
   if (href) {

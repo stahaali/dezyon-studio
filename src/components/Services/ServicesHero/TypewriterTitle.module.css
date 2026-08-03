@@ -12,7 +12,8 @@
 
 .firstLine {
   display: block;
-  white-space: nowrap;
+  text-align: center;
+  white-space: normal;
 }
 
 .prefix,
@@ -27,8 +28,11 @@
 }
 
 .secondLine {
-  display: block;
-  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  text-align: center;
 }
 
 .wordHighlight {

@@ -98,7 +98,7 @@ export const talkingWebsitePricing = [
     setupPrice: "+ One Time Setup Fee",
     description: "Perfect for small businesses.",
     features: [
-      "100 AI Call Minutes Included",
+      "300 AI Call Minutes Included",
       "Lead Capture",
       "Google Sheets Integration",
       "Call Summaries",
@@ -118,7 +118,7 @@ export const talkingWebsitePricing = [
     setupPrice: "+ One Time Setup Fee",
     description: "For growing businesses needing automation.",
     features: [
-      "500 AI Call Minutes Included",
+      "1,000 AI Call Minutes Included",
       "WhatsApp Integration",
       "Email Integration",
       "Appointment Booking",
@@ -139,7 +139,7 @@ export const talkingWebsitePricing = [
     setupPrice: "+ One Time Setup Fee",
     description: "For high-volume businesses and agencies.",
     features: [
-      "1,500 AI Call Minutes Included",
+      "3,000 AI Call Minutes Included",
       "Custom Admin Portal",
       "Live Call Transfers",
       "Advanced Automations",

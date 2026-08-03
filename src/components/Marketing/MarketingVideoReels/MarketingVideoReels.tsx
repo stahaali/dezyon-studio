@@ -23,7 +23,11 @@ export function MarketingVideoReels() {
                 </span>
               </span>
             </h2>
-            <p className={styles.intro}>{marketingVideoReels.intro}</p>
+            <div className={styles.intro}>
+              {marketingVideoReels.intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
 

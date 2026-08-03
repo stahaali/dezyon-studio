@@ -10,10 +10,12 @@ export const marketingIntro = {
 } as const;
 
 export const marketingWhyChoose = {
-  titlePrefix: "Why Businesses Choose",
-  titleHighlight: "Dezyon Studio",
-  intro:
-    "At Dezyon Studio, we help businesses build a powerful online presence through professional web design, website development, branding, SEO services, UI/UX design, and digital marketing. Our creative team delivers customized solutions that attract customers, improve search rankings, and drive long-term business growth.",
+  titlePrefix: "Your Website Isn't a Brochure",
+  titleHighlight: "It's a Salesperson",
+  intro: [
+    "Quick question: if a stranger landed on your website right now, would they know exactly what to do next? Call you? Book a slot? Ask about pricing?",
+    'If the honest answer is "kind of... eventually," you don\'t have a marketing problem. You have a response problem.',
+  ],
   items: [
     {
       id: "instagram",
@@ -75,10 +77,13 @@ export const marketingWhyChoose = {
 } as const;
 
 export const marketingVideoReels = {
-  titlePrefix: "Video Reels Are Driving",
-  titleHighlight: "Modern Business Growth",
-  intro:
-    "Looking for professional video editing services that help your business stand out? We create high-quality social media videos, Instagram Reels, TikTok videos, YouTube Shorts, and promotional videos designed to increase brand awareness, generate qualified leads, and drive more sales. Our creative team delivers engaging video content optimized for every major platform to help your business grow faster.",
+  titlePrefix: 'Why "just get more traffic"',
+  titleHighlight: "isn't the real fix",
+  intro: [
+    'Every real estate agent, home services business, dental clinic, or gym owner we talk to has the same worry: "I need more leads." So the instinct is always more ads, more traffic, more spend.',
+    "But here's the uncomfortable truth: more traffic to a passive website just means more people leaving without calling you. You're not short on visitors. You're short on a site that knows how to ask for the business.",
+    'Think about it like this — a good salesperson doesn\'t wait for the customer to figure out what to do. They guide them: "Here\'s what we offer, here\'s why it\'s right for you, here\'s how to get started today." Your website should do the exact same thing, automatically, 24/7.',
+  ],
   subtitle: "Our team creates professional reels designed to:",
   items: [
     {

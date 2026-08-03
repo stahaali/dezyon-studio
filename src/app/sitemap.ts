@@ -23,6 +23,8 @@ const SITEMAP_CONFIG: Record<
   termsAndConditions: { changeFrequency: "yearly", priority: 0.3 },
   refundPolicy: { changeFrequency: "yearly", priority: 0.3 },
   thankYou: { changeFrequency: "yearly", priority: 0.1 },
+  blogWebsiteSalesperson: { changeFrequency: "monthly", priority: 0.7 },
+  seoServices: { changeFrequency: "weekly", priority: 0.9 },
 };
 
 const INDEXABLE_PAGE_KEYS = (Object.keys(PAGE_SEO) as PageSeoKey[]).filter(

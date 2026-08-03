@@ -72,6 +72,17 @@ function buildMarketingFloatingIcons(): FloatingIcon[] {
 
 export const marketingHero = {
   ...servicesHero,
+  titlePrefix: "Digital Advertising Solutions for",
+  titleSuffix: "",
+  typewriterPhrases: ["Advertisers", "Entrepreneur", "Startups"],
+  description: [
+    "Dezyon Studio can connect you to new avenues of advertising with many publications that are multi-channel brands with a valuable online presence that includes digital advertising. Our advertising specialists can help you determine which represented websites and online advertising opportunities can broaden and expand your target audience reach on these trusted information resources.",
+    "Dezyon Studio offers online banner, recruitment and classified listing options. When applicable, our creative graphic arts team can help you design a banner that will drive traffic to your website.",
+  ],
+  cta: {
+    label: "Connect Team",
+    href: "/contact",
+  },
   bannerImage: "/assets/img/talking-website/talking-website-banner.webp",
   bannerImageAlt: "Hands holding smartphones showing social media and digital content",
   floatingIcons: buildMarketingFloatingIcons(),

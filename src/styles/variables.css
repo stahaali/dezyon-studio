@@ -1,5 +1,6 @@
 :root {
-  --font-lexend: "Lexend", system-ui, sans-serif;
+  /* Set by next/font on <html> via --font-lexend; keep stack fallback here */
+  --font-lexend-fallback: system-ui, sans-serif;
   --font-weight-light: 300;
   --font-weight-bold: 700;
   --color-primary: #92e13a;

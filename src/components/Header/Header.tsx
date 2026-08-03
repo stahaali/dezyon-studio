@@ -41,7 +41,7 @@ function NavLinkItem({
 export function Header() {
   const pathname = usePathname();
   const [hasMounted, setHasMounted] = useState(false);
-  const { isScrolled, isHeaderVisible } = useStickyHeader();
+  const { isScrolled } = useStickyHeader();
   const { isOpen: mobileOpen, closeMenu, toggleMenu } = useMobileMenu();
   useLockBodyScroll(mobileOpen);
 
@@ -49,7 +49,6 @@ export function Header() {
     setHasMounted(true);
   }, []);
 
-  const showHeader = isHeaderVisible || mobileOpen;
   const currentPath = normalizePathname(pathname);
   const isPricingActive =
     hasMounted &&
@@ -62,7 +61,7 @@ export function Header() {
   return (
     <>
       <header
-        className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${mobileOpen ? styles.menuOpen : ""} ${showHeader ? "" : styles.headerHidden}`}
+        className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${mobileOpen ? styles.menuOpen : ""}`}
       >
         <Container as="nav" className={styles.nav} aria-label="Main navigation">
           <Logo variant="light" className={styles.logo} />
@@ -81,11 +80,6 @@ export function Header() {
               label={navLinks[4].label}
               isActive={isLinkActive(navLinks[4].href)}
             />
-            <NavLinkItem
-              href={pricingNav.href}
-              label={pricingNav.label}
-              isActive={isPricingActive}
-            />
             {navLinks.slice(5).map((link) => (
               <NavLinkItem
                 key={link.href}
@@ -94,6 +88,11 @@ export function Header() {
                 isActive={isLinkActive(link.href)}
               />
             ))}
+            <NavLinkItem
+              href={pricingNav.href}
+              label={pricingNav.label}
+              isActive={isPricingActive}
+            />
           </ul>
 
           <div className={styles.headerActions}>
@@ -178,19 +177,6 @@ export function Header() {
               </Link>
             </li>
 
-            <li>
-              <Link
-                href={pricingNav.href}
-                className={`${styles.mobileLink} ${
-                  isPricingActive ? styles.mobileLinkActive : ""
-                }`}
-                onClick={closeMenu}
-                aria-current={isPricingActive ? "page" : undefined}
-              >
-                {pricingNav.label}
-              </Link>
-            </li>
-
             {navLinks.slice(5).map((link) => {
               const isActive = isLinkActive(link.href);
 
@@ -207,6 +193,19 @@ export function Header() {
                 </li>
               );
             })}
+
+            <li>
+              <Link
+                href={pricingNav.href}
+                className={`${styles.mobileLink} ${
+                  isPricingActive ? styles.mobileLinkActive : ""
+                }`}
+                onClick={closeMenu}
+                aria-current={isPricingActive ? "page" : undefined}
+              >
+                {pricingNav.label}
+              </Link>
+            </li>
           </ul>
         </div>
 

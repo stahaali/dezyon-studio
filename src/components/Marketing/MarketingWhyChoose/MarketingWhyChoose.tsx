@@ -22,7 +22,11 @@ export function MarketingWhyChoose() {
                 </span>
               </span>
             </h2>
-            <p className={styles.intro}>{marketingWhyChoose.intro}</p>
+            <div className={styles.intro}>
+              {marketingWhyChoose.intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
 

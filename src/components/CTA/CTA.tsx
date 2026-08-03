@@ -25,10 +25,10 @@ export function CTA({
             <Image
               src={homeCtaImages.banner}
               alt={homeCtaImages.bannerAlt}
-              width={1600}
-              height={533}
+              width={1300}
+              height={433}
               className={styles.bannerImage}
-              sizes="(min-width: 1280px) 1280px, 100vw"
+              sizes="(min-width: 1280px) 1280px, (min-width: 768px) 90vw, 100vw"
             />
           </figure>
         </ScrollReveal>
