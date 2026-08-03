@@ -118,7 +118,7 @@ export const seoPage = {
   },
   banner: {
     src: "/assets/img/seo/seo-banner7.webp",
-    alt: "SEO keyboard graphic — get in touch with Dezyon Studio",
+    alt: "Get SEO that ranks — contact Dezyon Studio",
     href: "/contact",
     width: 1280,
     height: 423,
