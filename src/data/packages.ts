@@ -652,16 +652,17 @@ const seoPlans: PackagePlan[] = [
     price: 360,
     wasPrice: 700,
     features: [
-      "Website Audit",
+      "Website & Technical SEO Audit",
       "10 Selected Keywords Targeting",
-      "Keyword Research",
-      "Keyword Grouping",
-      "Keyword Mapping",
+      "Keyword Research & Mapping",
       "On-Page Optimization",
-      "SEO Road Map",
+      "Meta Tags Creation",
+      "FAQ Schema Markup (AEO)",
+      "AI Answer Optimization (Basic)",
+      "SEO Roadmap",
       "Blog Creation",
     ],
-    note: "Suitable for newly formed organizations or small incubated startups.",
+    note: "Suitable for newly formed businesses",
   },
   {
     id: "seo-scaling",
@@ -670,15 +671,16 @@ const seoPlans: PackagePlan[] = [
     wasPrice: 1400,
     features: [
       "Business Analysis",
-      "Consumer Analysis",
       "Competitor Analysis",
       "35 Selected Keywords Targeting",
       "15 Pages Keyword Targeted",
       "Webpage Optimization",
       "Meta Tags Creation",
-      "Keyword Optimization",
+      "Full Schema Markup (FAQ, Article, HowTo)",
+      "AI Citation Tracking (ChatGPT, Perplexity, Gemini)",
+      "Local SEO (Google Business Profile)",
     ],
-    note: "Suitable for newly formed organizations or small incubated startups.",
+    note: "Suitable for growing businesses",
   },
   {
     id: "seo-venture",
@@ -692,10 +694,11 @@ const seoPlans: PackagePlan[] = [
       "60+ Selected Keywords Targeting",
       "30 Pages Keyword Targeted",
       "Webpage Optimization",
-      "Meta Tags Creation",
-      "Keyword Optimization",
+      "Advanced Schema & Knowledge Graph Optimization",
+      "Full AI Visibility Strategy (AEO across all platforms)",
+      "Monthly AI Citation & Share-of-Voice Report",
     ],
-    note: "Suitable for newly formed organizations or small incubated startups.",
+    note: "Suitable for scaling & multi-location businesses",
   },
 ];
 
@@ -806,8 +809,8 @@ export const packageCategoryMeta: Record<
   },
 };
 
-export function getPricingCategoryPath(categoryId: PackageCategoryId) {
-  return `/pricing/${categoryId}`;
+export function getPricingCategoryPath(_categoryId: PackageCategoryId) {
+  return "/plans-and-pricing";
 }
 
 export function isPackageCategoryId(value: string): value is PackageCategoryId {

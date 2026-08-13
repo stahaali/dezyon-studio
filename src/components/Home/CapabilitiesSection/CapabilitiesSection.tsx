@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { CapabilitiesLogoSlider } from "@/components/Home/CapabilitiesSection/CapabilitiesLogoSlider";
 import {
   homeCapabilitiesSection,
@@ -10,6 +11,8 @@ import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
 import styles from "./CapabilitiesSection.module.css";
+
+const TAB_ROTATE_INTERVAL_MS = 1000;
 
 function getCapabilityTagRows(
   tabId: string,
@@ -27,9 +30,21 @@ function getCapabilityTagRows(
 }
 
 export function CapabilitiesSection() {
+  const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const activeTab = homeCapabilitiesTabs[activeIndex];
   const tagRows = getCapabilityTagRows(activeTab.id, activeTab.tags);
+
+  useEffect(() => {
+    if (prefersReducedMotion || isPaused) return;
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % homeCapabilitiesTabs.length);
+    }, TAB_ROTATE_INTERVAL_MS);
+
+    return () => window.clearInterval(timer);
+  }, [isPaused, prefersReducedMotion]);
 
   return (
     <section
@@ -54,85 +69,92 @@ export function CapabilitiesSection() {
             </p>
           </header>
 
-          <div className={styles.tabBar}>
-            <ul className={styles.tabList} role="tablist">
-              {homeCapabilitiesTabs.map((tab, index) => (
-                <li key={tab.id} role="presentation">
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeIndex === index}
-                    aria-controls={`capabilities-panel-${tab.id}`}
-                    id={`capabilities-tab-${tab.id}`}
-                    className={`${styles.tabBtn} ${activeIndex === index ? `${styles.tabBtnActive} ${styles[`tabBtnActive${tab.id}`]}` : ""}`.trim()}
-                    onClick={() => setActiveIndex(index)}
-                  >
-                    {tab.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div
-            key={activeTab.id}
-            id={`capabilities-panel-${activeTab.id}`}
-            role="tabpanel"
-            aria-labelledby={`capabilities-tab-${activeTab.id}`}
-            className={`${styles.panel} ${styles[`panel${activeTab.id}`]}`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onFocusCapture={() => setIsPaused(true)}
+            onBlurCapture={() => setIsPaused(false)}
           >
-            <div
-              className={`${styles.panelBg} ${styles[`panelBg${activeTab.id}`]}`}
-              aria-hidden="true"
-            >
-              {activeTab.backgroundImage ? (
-                <span
-                  className={styles.panelBgImage}
-                  style={{
-                    backgroundImage: `url(${activeTab.backgroundImage})`,
-                  }}
-                />
-              ) : null}
-              <span className={styles.panelBgOverlay} />
-              <span className={styles.shapeOne} />
-              <span className={styles.shapeTwo} />
-              <span className={styles.shapeThree} />
-              <span className={styles.shapeFour} />
+            <div className={styles.tabBar}>
+              <ul className={styles.tabList} role="tablist">
+                {homeCapabilitiesTabs.map((tab, index) => (
+                  <li key={tab.id} role="presentation">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={activeIndex === index}
+                      aria-controls={`capabilities-panel-${tab.id}`}
+                      id={`capabilities-tab-${tab.id}`}
+                      className={`${styles.tabBtn} ${activeIndex === index ? `${styles.tabBtnActive} ${styles[`tabBtnActive${tab.id}`]}` : ""}`.trim()}
+                      onClick={() => setActiveIndex(index)}
+                    >
+                      {tab.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className={styles.panelContent}>
-              <p className={styles.badge}>{activeTab.badge}</p>
-              <h3 className={styles.panelTitle}>{activeTab.title}</h3>
-              <p className={styles.panelDesc}>{activeTab.description}</p>
+            <div
+              key={activeTab.id}
+              id={`capabilities-panel-${activeTab.id}`}
+              role="tabpanel"
+              aria-labelledby={`capabilities-tab-${activeTab.id}`}
+              className={`${styles.panel} ${styles[`panel${activeTab.id}`]}`}
+            >
+              <div
+                className={`${styles.panelBg} ${styles[`panelBg${activeTab.id}`]}`}
+                aria-hidden="true"
+              >
+                {activeTab.backgroundImage ? (
+                  <span
+                    className={styles.panelBgImage}
+                    style={{
+                      backgroundImage: `url(${activeTab.backgroundImage})`,
+                    }}
+                  />
+                ) : null}
+                <span className={styles.panelBgOverlay} />
+                <span className={styles.shapeOne} />
+                <span className={styles.shapeTwo} />
+                <span className={styles.shapeThree} />
+                <span className={styles.shapeFour} />
+              </div>
 
-              <div className={styles.tagsWrap}>
-                <span className={styles.tagsLabel}>Included services:</span>
-                {tagRows ? (
-                  <div className={styles.tagsRows}>
-                    {tagRows.map((row, rowIndex) => (
-                      <ul key={rowIndex} className={styles.tagsRow}>
-                        {row.map((tag) => (
-                          <li key={tag}>
-                            <span className={styles.tag}>{tag}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ))}
-                  </div>
-                ) : (
-                  <ul className={styles.tags}>
-                    {activeTab.tags.map((tag) => (
-                      <li key={tag}>
-                        <span className={styles.tag}>{tag}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              <div className={styles.panelContent}>
+                <p className={styles.badge}>{activeTab.badge}</p>
+                <h3 className={styles.panelTitle}>{activeTab.title}</h3>
+                <p className={styles.panelDesc}>{activeTab.description}</p>
+
+                <div className={styles.tagsWrap}>
+                  <span className={styles.tagsLabel}>Included services:</span>
+                  {tagRows ? (
+                    <div className={styles.tagsRows}>
+                      {tagRows.map((row, rowIndex) => (
+                        <ul key={rowIndex} className={styles.tagsRow}>
+                          {row.map((tag) => (
+                            <li key={tag}>
+                              <span className={styles.tag}>{tag}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className={styles.tags}>
+                      {activeTab.tags.map((tag) => (
+                        <li key={tag}>
+                          <span className={styles.tag}>{tag}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
             </div>
-
-            <CapabilitiesLogoSlider />
           </div>
+
+          <CapabilitiesLogoSlider />
         </ScrollReveal>
       </Container>
     </section>

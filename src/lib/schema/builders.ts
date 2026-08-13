@@ -240,14 +240,14 @@ export function buildServicesCatalogSchema() {
       description:
         "Professional, responsive web design services for businesses that need high-converting, modern websites.",
       serviceType: "Web Design",
-      path: "/pricing/website-design",
+      path: "/plans-and-pricing",
     },
     {
       name: "Branding",
       description:
         "Complete branding services including logo design, brand identity systems, and visual guidelines.",
       serviceType: "Branding",
-      path: "/pricing/branding",
+      path: "/plans-and-pricing",
     },
     {
       name: "Automation",

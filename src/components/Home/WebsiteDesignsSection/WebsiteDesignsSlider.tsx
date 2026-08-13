@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { websiteDesignsShowcase } from "@/data/website-designs-showcase";
@@ -37,16 +38,26 @@ export function WebsiteDesignsSlider() {
             key={`${template.id}-${index}`}
             className={styles.slide}
           >
-            <div className={styles.card}>
+            <a
+              className={styles.card}
+              href={template.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open the ${template.name} website in a new tab`}
+            >
               <Image
                 src={template.image}
                 alt={template.alt}
                 width={280}
                 height={580}
-                sizes="(max-width: 640px) 42vw, 231px"
+                sizes="(max-width: 640px) 50vw, 264px"
                 className={styles.cardImage}
               />
-            </div>
+              <span className={styles.cardLabel}>
+                <span className={styles.cardLabelText}>{template.name}</span>
+                <ArrowUpRight size={14} aria-hidden="true" />
+              </span>
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>

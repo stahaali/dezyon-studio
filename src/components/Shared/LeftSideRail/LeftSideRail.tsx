@@ -1,5 +1,11 @@
+"use client";
+
+import { useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { leftRailLinks } from "@/data/site";
 import styles from "./LeftSideRail.module.css";
+
+const HIGHLIGHT_INTERVAL_MS = 1000;
 
 const railIcons = {
   contact: (
@@ -33,6 +39,20 @@ const railIcons = {
 } as const;
 
 export function LeftSideRail() {
+  const prefersReducedMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion || isPaused) return;
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % leftRailLinks.length);
+    }, HIGHLIGHT_INTERVAL_MS);
+
+    return () => window.clearInterval(timer);
+  }, [isPaused, prefersReducedMotion]);
+
   return (
     <aside className={styles.rail} aria-label="Quick contact">
       <svg width="0" height="0" aria-hidden="true" className={styles.gradientDefs}>
@@ -45,12 +65,22 @@ export function LeftSideRail() {
         </defs>
       </svg>
 
-      <ul className={styles.list}>
-        {leftRailLinks.map(({ href, label, type }) => (
+      <ul
+        className={styles.list}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocusCapture={() => setIsPaused(true)}
+        onBlurCapture={() => setIsPaused(false)}
+      >
+        {leftRailLinks.map(({ href, label, type }, index) => (
           <li key={type}>
             <a
               href={href}
-              className={styles.item}
+              className={`${styles.item} ${
+                !prefersReducedMotion && !isPaused && index === activeIndex
+                  ? styles.itemActive
+                  : ""
+              }`.trim()}
               aria-label={label}
               {...(type === "whatsapp"
                 ? { target: "_blank", rel: "noopener noreferrer" }

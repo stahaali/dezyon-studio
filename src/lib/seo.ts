@@ -1,10 +1,4 @@
 import type { Metadata } from "next";
-import {
-  getPricingCategoryPath,
-  packageCategories,
-  packageCategoryMeta,
-  type PackageCategoryId,
-} from "@/data/packages";
 import { SITE_NAME, SITE_OG_IMAGE } from "./constants";
 import { CANONICAL_SITE_ORIGIN } from "@/lib/site-url";
 
@@ -18,20 +12,19 @@ export type PageSeoKey =
   | "home"
   | "about"
   | "services"
-  | "portfolio"
   | "videoEditing"
   | "webApps"
   | "contact"
   | "websiteAudit"
   | "talkingWebsite"
   | "plansAndPricing"
-  | "comboPackages"
   | "privacyPolicy"
   | "termsAndConditions"
   | "refundPolicy"
   | "thankYou"
   | "blogWebsiteSalesperson"
-  | "seoServices";
+  | "seoServices"
+  | "bookPublishing";
 
 export type PageSeoConfig = {
   title: string;
@@ -94,19 +87,6 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
       "animation services",
     ],
     path: "/marketing",
-  },
-  portfolio: {
-    title: "Portfolio of Websites, Brands & Digital Projects",
-    description:
-      "View Dezyon Studio's portfolio of websites, branding projects, e-commerce builds, and digital experiences crafted for startups and established brands.",
-    keywords: [
-      "web design portfolio",
-      "branding portfolio",
-      "digital agency case studies",
-      "website project showcase",
-      "creative design work",
-    ],
-    path: "/portfolio",
   },
   videoEditing: {
     title: "Video Editing Dezyon Studio | AI-Powered Video Editing",
@@ -203,19 +183,6 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     ],
     path: "/plans-and-pricing",
   },
-  comboPackages: {
-    title: "Combo Packages — Logo, Website & Branding Bundles",
-    description:
-      "Explore Dezyon Studio combo packages — bundled logo, website, and branding solutions at special prices for startups and growing businesses.",
-    keywords: [
-      "combo design packages",
-      "logo and website bundle",
-      "branding package deals",
-      "startup design bundle",
-      "website branding combo",
-    ],
-    path: "/combo-packages",
-  },
   privacyPolicy: {
     title: "Privacy Policy | Dezyon Studio — Data Protection & Cookies",
     description:
@@ -228,6 +195,7 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
       "Dezyon Studio privacy",
     ],
     path: "/privacy-policy",
+    noIndex: true,
   },
   termsAndConditions: {
     title: "Terms & Conditions | Dezyon Studio Website & Services",
@@ -280,14 +248,20 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     path: "/blog/your-website-isnt-a-brochure",
   },
   seoServices: {
-    title: "SEO Services That Actually Show Up in Rankings — Not Just Reports",
+    title: "SEO & AEO Services — Rank Higher on Google, Get Recommended by AI",
     description:
-      "Stop paying for monthly SEO reports that don't move rankings. Dezyon Studio delivers technical, local, and AI-ready SEO focused on calls, bookings, and real visibility.",
+      "Dezyon Studio builds SEO and AEO systems that rank you on Google and get your business recommended by ChatGPT, Gemini, Claude and Perplexity. Start with a free SEO audit.",
     keywords: [
       "SEO services",
+      "AEO",
+      "answer engine optimization",
+      "AI search optimization",
+      "generative engine optimization",
+      "ChatGPT SEO",
       "local SEO",
       "technical SEO",
-      "AI search optimization",
+      "Core Web Vitals optimization",
+      "schema markup services",
       "Google Business Profile",
       "SEO agency",
       "Dezyon Studio SEO",
@@ -295,63 +269,24 @@ export const PAGE_SEO: Record<PageSeoKey, PageSeoConfig> = {
     ],
     path: "/seo",
   },
-};
-
-const PRICING_CATEGORY_KEYWORDS: Record<PackageCategoryId, string[]> = {
-  logo: [
-    "logo design packages",
-    "custom logo pricing",
-    "brand logo design cost",
-    "logo design plans",
-  ],
-  "website-design": [
-    "website design packages",
-    "custom website pricing",
-    "web design plans",
-    "business website cost",
-  ],
-  branding: [
-    "branding packages",
-    "brand identity pricing",
-    "corporate branding plans",
-    "logo branding bundle",
-  ],
-  ecommerce: [
-    "e-commerce website packages",
-    "online store pricing",
-    "ecommerce development plans",
-    "shop setup packages",
-  ],
-  wordpress: [
-    "WordPress website packages",
-    "WordPress development pricing",
-    "WordPress design plans",
-    "business WordPress site cost",
-  ],
-  shopify: [
-    "Shopify store packages",
-    "Shopify development pricing",
-    "Shopify design plans",
-    "e-commerce Shopify cost",
-  ],
-  "video-animation": [
-    "video animation packages",
-    "explainer video pricing",
-    "2D animation plans",
-    "promo video production cost",
-  ],
-  seo: [
-    "SEO packages",
-    "search engine optimization pricing",
-    "SEO service plans",
-    "website SEO cost",
-  ],
-  "web-portal": [
-    "web portal development packages",
-    "custom portal pricing",
-    "enterprise portal plans",
-    "B2B portal development cost",
-  ],
+  bookPublishing: {
+    title: "Book Publishing Dezyon Studio | Cover Design, Formatting & KDP",
+    description:
+      "Professional book publishing services for authors — custom cover design, interior formatting, Kindle & KDP setup, print-ready files, and author branding from Dezyon Studio.",
+    keywords: [
+      "book publishing services",
+      "book cover design",
+      "Kindle publishing",
+      "KDP setup",
+      "book formatting",
+      "author branding",
+      "ebook publishing",
+      "print ready book files",
+      "Amazon book publishing",
+      "Dezyon Studio book publishing",
+    ],
+    path: "/book-publishing",
+  },
 };
 
 export function getCanonicalOrigin(): string {
@@ -404,13 +339,13 @@ export function getDocumentTitle(config: PageSeoConfig): string {
     config.path === "/talking-website" ||
     config.path === "/plans-and-pricing" ||
     config.path === "/video-editing" ||
+    config.path === "/book-publishing" ||
     config.path === "/contact" ||
     config.path === "/privacy-policy" ||
     config.path === "/terms-and-conditions" ||
     config.path === "/refund-policy" ||
     config.path === "/packages" ||
-    config.path === "/contact/thank-you" ||
-    config.path.startsWith("/pricing/")
+    config.path === "/contact/thank-you"
   ) {
     return config.title;
   }
@@ -428,13 +363,13 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
   const isTalkingWebsite = config.path === "/talking-website";
   const isPlansAndPricing = config.path === "/plans-and-pricing";
   const isVideoEditing = config.path === "/video-editing";
+  const isBookPublishing = config.path === "/book-publishing";
   const isContact = config.path === "/contact";
   const isPrivacyPolicy = config.path === "/privacy-policy";
   const isTermsAndConditions = config.path === "/terms-and-conditions";
   const isRefundPolicy = config.path === "/refund-policy";
   const isPackages = config.path === "/packages";
   const isThankYou = config.path === "/contact/thank-you";
-  const isPricingCategory = config.path.startsWith("/pricing/");
   const documentTitle = getDocumentTitle(config);
   const openGraphTitle = documentTitle;
   const openGraphDescription = config.ogDescription ?? config.description;
@@ -446,7 +381,7 @@ export function buildPageMetadata(config: PageSeoConfig): Metadata {
 
   return {
     title:
-      isHome || isAbout || isMarketing || isTalkingWebsite || isPlansAndPricing || isVideoEditing || isContact || isPrivacyPolicy || isTermsAndConditions || isRefundPolicy || isPackages || isThankYou || isPricingCategory
+      isHome || isAbout || isMarketing || isTalkingWebsite || isPlansAndPricing || isVideoEditing || isBookPublishing || isContact || isPrivacyPolicy || isTermsAndConditions || isRefundPolicy || isPackages || isThankYou
         ? { absolute: documentTitle }
         : config.title,
     description: config.description,
@@ -539,17 +474,4 @@ export function buildPageSeoMetadata(key: PageSeoKey): Metadata {
       images: [ogImage],
     },
   };
-}
-
-export function createPricingCategoryMetadata(categoryId: PackageCategoryId): Metadata {
-  const label =
-    packageCategories.find((item) => item.id === categoryId)?.label ?? "Pricing";
-  const meta = packageCategoryMeta[categoryId];
-
-  return buildPageMetadata({
-    title: `Dezyon Studio ${label} Packages — Pricing, Plans & Services`,
-    description: meta.description,
-    keywords: PRICING_CATEGORY_KEYWORDS[categoryId],
-    path: getPricingCategoryPath(categoryId),
-  });
 }

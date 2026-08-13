@@ -71,9 +71,9 @@ export default function HomePage() {
         <CapabilitiesSection />
         <WebsiteDesignsSection />
         <HomeStats className={styles.aboveScrollPath} />
-        <CTA />
         <Testimonials className={styles.aboveScrollPath} />
         <ContactFAQ twoColumn sectionClassName={styles.aboveScrollPath} />
+        <CTA />
       </HomepageScrollPathShell>
     </>
   );

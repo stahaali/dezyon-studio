@@ -297,3 +297,23 @@
     height: 28px;
   }
 }
+
+@media (min-width: 1400px) {
+  .footerContainer {
+    max-width: calc(100vw - 88px);
+    padding-inline: 72px 24px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 80px;
+  }
+
+  .brandCol {
+    max-width: 560px;
+  }
+
+  .contactCol {
+    max-width: 420px;
+  }
+}

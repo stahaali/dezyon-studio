@@ -4,7 +4,6 @@ import {
   Briefcase,
   Building2,
   Calendar,
-  Check,
   Clock,
   Cloud,
   DollarSign,
@@ -35,14 +34,12 @@ import {
   talkingWebsiteCtaBanner,
   talkingWebsiteFeatures,
   talkingWebsiteHero,
-  talkingWebsitePricing,
   talkingWebsiteTaglines,
   talkingWebsiteUseCases,
 } from "@/data/talking-website";
 import { TalkingWebsiteHeroCta } from "@/components/TalkingWebsite/TalkingWebsiteHeroCta";
 import { TalkingWebsiteProcessSection } from "@/components/TalkingWebsite/TalkingWebsiteProcessSection";
 import { MarketingCtaBanner } from "@/components/Marketing/MarketingCtaBanner/MarketingCtaBanner";
-import { Button } from "@/components/Shared/Button";
 import { Container } from "@/components/Shared/Container";
 import { ScrollReveal } from "@/components/Shared/ScrollReveal";
 import splitTitleStyles from "@/components/Shared/SplitTitle.module.css";
@@ -283,64 +280,6 @@ export function TalkingWebsiteContent() {
                 </ScrollReveal>
               );
             })}
-          </div>
-        </Container>
-      </section>
-
-      <section className={styles.pricingSection} aria-labelledby="pricing-heading">
-        <Container className={styles.sectionContainer}>
-          <ScrollReveal>
-            <div className={styles.sectionIntro}>
-              <PlansPricingHeading
-                id="pricing-heading"
-                prefix="Simple "
-                highlight="Pricing"
-                size="section"
-                align="center"
-                className={styles.sectionHeading}
-              />
-            </div>
-          </ScrollReveal>
-
-          <div className={styles.pricingGrid}>
-            {talkingWebsitePricing.map((plan, index) => (
-              <ScrollReveal key={plan.id} delay={index * 0.06} as="article">
-                <article
-                  className={`${styles.pricingCard} ${plan.featured ? styles.pricingCardFeatured : ""}`}
-                >
-                  {plan.featured ? (
-                    <span className={styles.pricingBadge}>Most Popular</span>
-                  ) : null}
-                  <h3 className={styles.pricingName}>{plan.name}</h3>
-                  <div className={styles.pricingAmountWrap}>
-                    <div className={styles.pricingAmount}>
-                      <span className={styles.pricingPrice}>{plan.price}</span>
-                      <span className={styles.pricingNote}>{plan.priceNote}</span>
-                    </div>
-                    <p className={styles.pricingSetup}>{plan.setupPrice}</p>
-                  </div>
-                  <p className={styles.pricingDescription}>{plan.description}</p>
-                  <div className={styles.pricingCardScrollBody}>
-                    <ul className={styles.pricingFeatures}>
-                      {plan.features.map((feature) => (
-                        <li key={feature}>
-                          <Check size={16} strokeWidth={2.5} aria-hidden="true" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <Button
-                    href={plan.cta.href}
-                    size="md"
-                    animated={false}
-                    className={styles.pricingCta}
-                  >
-                    {plan.cta.label}
-                  </Button>
-                </article>
-              </ScrollReveal>
-            ))}
           </div>
         </Container>
       </section>

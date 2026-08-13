@@ -16,6 +16,7 @@
     "build:clean": "node scripts/clean-build.js && npm run build",
     "build": "node scripts/strip-dev-api.js --remove && node scripts/build-static.js && node scripts/strip-dev-api.js --restore",
     "postbuild": "node scripts/sync-api-config.js && node scripts/write-build-info.js",
+    "fix:relative-paths": "node scripts/fix-relative-asset-paths.js",
     "build:hostinger": "npm run build",
     "build:vercel": "next build",
     "package:hostinger": "npm run build && node scripts/package-out.js",

@@ -49,8 +49,9 @@ export const aboutHelps = {
     { label: "Modern Video Equipment", tone: "schedule" },
   ] as const,
   visuals: {
-    image: `${ABOUT_ASSETS}/about-4.webp`,
-    imageAlt: "Professional working on laptop with business analytics and growth data",
+    image: `${ABOUT_ASSETS}/about-helps.webp`,
+    imageAlt:
+      "Digital strategist working on a laptop with an analytics dashboard",
   },
 } as const;
 

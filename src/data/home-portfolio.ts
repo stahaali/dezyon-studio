@@ -4,7 +4,7 @@ export const homePortfolioSection = {
   titleSuffix: "",
   description:
     "Explore how we help brands grow with AI-powered video, voice-driven websites, and intelligent marketing campaigns.",
-  cta: { label: "View Full Portfolio", href: "/portfolio" },
+  cta: { label: "View Our Work", href: "/#portfolio" },
 } as const;
 
 function folderImages(folder: string, files: readonly string[]) {
@@ -108,12 +108,12 @@ export const homePortfolioTabs = [
   {
     id: "ai-video-creation",
     label: "AI Video Creation",
-    href: "/portfolio",
+    href: "/#portfolio",
     projects: buildTabProjects(
       "video",
       aiVideoTitles,
       aiVideoImages,
-      "/portfolio",
+      "/#portfolio",
     ),
   },
   {
@@ -130,12 +130,12 @@ export const homePortfolioTabs = [
   {
     id: "ai-marketing",
     label: "AI Marketing",
-    href: "/portfolio",
+    href: "/#portfolio",
     projects: buildTabProjects(
       "marketing",
       aiMarketingTitles,
       aiMarketingImages,
-      "/portfolio",
+      "/#portfolio",
     ),
   },
 ] as const;

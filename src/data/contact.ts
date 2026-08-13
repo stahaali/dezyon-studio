@@ -298,7 +298,7 @@ export const contactFaq = {
           type: "paragraph",
           parts: [
             { kind: "text", value: "Yes! Visit our " },
-            { kind: "link", label: "Portfolio page", href: "/portfolio/" },
+            { kind: "link", label: "portfolio section", href: "/#portfolio" },
             { kind: "text", value: " to view our latest projects." },
           ],
         },

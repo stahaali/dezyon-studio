@@ -1,5 +1,8 @@
 import { flaticonIcons } from "@/data/icons";
+import { bookPublishingNav } from "@/data/book-publishing-menu";
 import { pricingMenuItems } from "@/data/pricing-menu";
+
+export { bookPublishingNav };
 
 export const pricingNav = {
   label: "Plans & Pricing",
@@ -15,7 +18,7 @@ export const navLinks = [
   { label: "Talking Website", href: "/talking-website" },
   // { label: "Combo Packages", href: "/combo-packages" },
   // { label: "Web Apps", href: "/web-apps" },
-  { label: "SEO", href: "/seo" },
+  { label: "SEO+AEO", href: "/seo" },
 ] as const;
 
 export const footerAbout =
@@ -26,12 +29,13 @@ export const footerInformationLinks = [
   { label: "About Us", href: "/about" },
   { label: "Marketing Studio", href: "/marketing" },
   { label: "Video Editing", href: "/video-editing" },
-  { label: "Contact Us", href: "/contact" },
 ] as const;
 
 export const footerInformationLinksSecondary = [
   { label: "Talking Website", href: "/talking-website" },
   { label: "Plans & Pricing", href: "/plans-and-pricing" },
+  { label: "Book Publishing", href: "/book-publishing" },
+  { label: "Contact Us", href: "/contact" },
 ] as const;
 
 export const footerOffices = [

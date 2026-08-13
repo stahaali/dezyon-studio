@@ -7,12 +7,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 44px;
+  width: 30px;
   height: 100vh;
   height: 100dvh;
   padding: 0 0 32px;
-  background: #ffffff;
-  border-left: 1px solid rgba(0, 2, 0, 0.08);
+  background: rgba(228, 228, 233, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .menuButton {
@@ -71,8 +73,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   color: #000200;
   transition:
     color var(--transition-fast),
@@ -86,43 +88,63 @@
 }
 
 .socialLink:hover,
-.socialLink:focus-visible {
-  transform: scale(1.08);
+.socialLink:focus-visible,
+.socialLinkActive {
+  transform: scale(1.18);
 }
 
 .socialLink[data-social="facebook"]:hover,
-.socialLink[data-social="facebook"]:focus-visible {
+.socialLink[data-social="facebook"]:focus-visible,
+.socialLink[data-social="facebook"].socialLinkActive {
   color: #1877f2;
 }
 
 .socialLink[data-social="twitter"]:hover,
-.socialLink[data-social="twitter"]:focus-visible {
+.socialLink[data-social="twitter"]:focus-visible,
+.socialLink[data-social="twitter"].socialLinkActive {
   color: #000000;
 }
 
 .socialLink[data-social="instagram"]:hover,
-.socialLink[data-social="instagram"]:focus-visible {
+.socialLink[data-social="instagram"]:focus-visible,
+.socialLink[data-social="instagram"].socialLinkActive {
   color: #e4405f;
 }
 
 .socialLink[data-social="pinterest"]:hover,
-.socialLink[data-social="pinterest"]:focus-visible {
+.socialLink[data-social="pinterest"]:focus-visible,
+.socialLink[data-social="pinterest"].socialLinkActive {
   color: #bd081c;
 }
 
 .socialLink[data-social="linkedin"]:hover,
-.socialLink[data-social="linkedin"]:focus-visible {
+.socialLink[data-social="linkedin"]:focus-visible,
+.socialLink[data-social="linkedin"].socialLinkActive {
   color: #0a66c2;
 }
 
 .socialLink[data-social="youtube"]:hover,
-.socialLink[data-social="youtube"]:focus-visible {
+.socialLink[data-social="youtube"]:focus-visible,
+.socialLink[data-social="youtube"].socialLinkActive {
   color: #ff0000;
 }
 
 .socialLink[data-social="tiktok"]:hover,
-.socialLink[data-social="tiktok"]:focus-visible {
+.socialLink[data-social="tiktok"]:focus-visible,
+.socialLink[data-social="tiktok"].socialLinkActive {
   color: #ee1d52;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialLink {
+    transition: none;
+  }
+
+  .socialLink:hover,
+  .socialLink:focus-visible,
+  .socialLinkActive {
+    transform: none;
+  }
 }
 
 @media (max-width: 576px) {

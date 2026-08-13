@@ -3,6 +3,7 @@ import {
   Clapperboard,
   Globe,
   MessageCircle,
+  Search,
   Sparkles,
   Video,
 } from "lucide-react";
@@ -40,6 +41,13 @@ export function PlansPricingSidebarIcon({ id }: PlansPricingSidebarIconProps) {
       return (
         <>
           <Clapperboard size={16} strokeWidth={2} aria-hidden="true" />
+          <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
+        </>
+      );
+    case "seo-aeo":
+      return (
+        <>
+          <Search size={16} strokeWidth={2} aria-hidden="true" />
           <Sparkles className={styles.sparkle} size={8} strokeWidth={2} aria-hidden="true" />
         </>
       );

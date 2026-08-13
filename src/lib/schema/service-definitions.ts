@@ -33,11 +33,11 @@ export const SERVICE_PAGE_DEFINITIONS: Record<string, ServiceSchemaInput> = {
     description: PAGE_SEO.plansAndPricing.description,
     path: "/plans-and-pricing",
   },
-  "/combo-packages": {
-    name: "Branding & Website Bundles",
-    serviceType: "Branding",
-    description: PAGE_SEO.comboPackages.description,
-    path: "/combo-packages",
+  "/book-publishing": {
+    name: "Book Publishing",
+    serviceType: "Book Publishing",
+    description: PAGE_SEO.bookPublishing.description,
+    path: "/book-publishing",
   },
 };
 
@@ -61,6 +61,6 @@ export function getPricingServiceDefinition(category: PackageCategoryId): Servic
     name: labels.name,
     serviceType: labels.serviceType,
     description: meta.description,
-    path: `/pricing/${category}`,
+    path: `/plans-and-pricing`,
   };
 }

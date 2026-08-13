@@ -3,18 +3,29 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone, X } from "lucide-react";
-import { footerContact, navLinks, pricingNav, sideRailSocialLinks } from "@/data/site";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import {
+  bookPublishingNav,
+  footerContact,
+  navLinks,
+  pricingNav,
+  sideRailSocialLinks,
+} from "@/data/site";
 import { useMobileMenu } from "@/context/MobileMenuContext";
 import { useStickyHeader, useLockBodyScroll } from "@/hooks/useStickyHeader";
 import { Container } from "@/components/Shared/Container";
 import { Logo } from "@/components/Shared/Logo";
 import { SocialIcon } from "@/components/Shared/SocialIcon";
 import { LanguageTranslator } from "@/components/Header/LanguageTranslator";
-import { isPathActive, normalizePathname } from "@/lib/paths";
+import { isPathActive } from "@/lib/paths";
 import styles from "./Header.module.css";
 
 const headerPhoneHref = `tel:${footerContact.phone.replace(/\D/g, "")}`;
+
+type NavMenuItem = {
+  label: string;
+  href: string;
+};
 
 function NavLinkItem({
   href,
@@ -38,9 +49,44 @@ function NavLinkItem({
   );
 }
 
+function NavDropdown({
+  href,
+  label,
+  isActive,
+  items,
+}: {
+  href: string;
+  label: string;
+  isActive: boolean;
+  items: readonly NavMenuItem[];
+}) {
+  return (
+    <li className={styles.dropdown}>
+      <Link
+        href={href}
+        className={`${styles.link} ${styles.dropdownTrigger} ${isActive ? styles.linkActive : ""}`}
+        aria-current={isActive ? "page" : undefined}
+      >
+        {label}
+        <ChevronDown size={14} className={styles.dropdownCaret} aria-hidden="true" />
+      </Link>
+      <ul className={`${styles.dropdownMenu} ${styles.dropdownMenuPlain}`}>
+        {items.map((item) => (
+          <li key={item.href + item.label}>
+            <Link href={item.href} className={styles.dropdownItem}>
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
 export function Header() {
   const pathname = usePathname();
   const [hasMounted, setHasMounted] = useState(false);
+  const [bookPublishingOpen, setBookPublishingOpen] = useState(false);
   const { isScrolled } = useStickyHeader();
   const { isOpen: mobileOpen, closeMenu, toggleMenu } = useMobileMenu();
   useLockBodyScroll(mobileOpen);
@@ -49,14 +95,17 @@ export function Header() {
     setHasMounted(true);
   }, []);
 
-  const currentPath = normalizePathname(pathname);
-  const isPricingActive =
-    hasMounted &&
-    (isPathActive(pathname, pricingNav.href) ||
-      currentPath.startsWith("/pricing"));
+  const isPricingActive = hasMounted && isPathActive(pathname, pricingNav.href);
+  const isBookPublishingActive =
+    hasMounted && isPathActive(pathname, bookPublishingNav.href);
 
   const isLinkActive = (href: string) =>
     hasMounted && isPathActive(pathname, href);
+
+  const closeMobileMenu = () => {
+    setBookPublishingOpen(false);
+    closeMenu();
+  };
 
   return (
     <>
@@ -75,12 +124,13 @@ export function Header() {
                 isActive={isLinkActive(link.href)}
               />
             ))}
-            <NavLinkItem
-              href={navLinks[4].href}
-              label={navLinks[4].label}
-              isActive={isLinkActive(navLinks[4].href)}
+            <NavDropdown
+              href={bookPublishingNav.href}
+              label={bookPublishingNav.label}
+              isActive={isBookPublishingActive}
+              items={bookPublishingNav.menuItems}
             />
-            {navLinks.slice(5).map((link) => (
+            {navLinks.slice(4).map((link) => (
               <NavLinkItem
                 key={link.href}
                 href={link.href}
@@ -123,7 +173,7 @@ export function Header() {
         aria-label="Close menu"
         aria-hidden={!mobileOpen}
         tabIndex={mobileOpen ? 0 : -1}
-        onClick={closeMenu}
+        onClick={closeMobileMenu}
       />
 
       <nav
@@ -136,7 +186,7 @@ export function Header() {
           <button
             type="button"
             className={styles.mobileMenuClose}
-            onClick={closeMenu}
+            onClick={closeMobileMenu}
             aria-label="Close menu"
           >
             <X size={22} strokeWidth={2} />
@@ -153,7 +203,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ""}`}
-                    onClick={closeMenu}
+                    onClick={closeMobileMenu}
                     aria-current={isActive ? "page" : undefined}
                   >
                     {link.label}
@@ -163,21 +213,50 @@ export function Header() {
             })}
 
             <li>
-              <Link
-                href={navLinks[4].href}
-                className={`${styles.mobileLink} ${
-                  isLinkActive(navLinks[4].href) ? styles.mobileLinkActive : ""
+              <button
+                type="button"
+                className={`${styles.mobileLink} ${styles.mobileDropdownBtn} ${
+                  isBookPublishingActive ? styles.mobileLinkActive : ""
                 }`}
-                onClick={closeMenu}
-                aria-current={
-                  isLinkActive(navLinks[4].href) ? "page" : undefined
-                }
+                aria-expanded={bookPublishingOpen}
+                onClick={() => setBookPublishingOpen((open) => !open)}
               >
-                {navLinks[4].label}
-              </Link>
+                <span>{bookPublishingNav.label}</span>
+                <ChevronDown
+                  size={18}
+                  className={`${styles.mobileDropdownCaret} ${
+                    bookPublishingOpen ? styles.mobileDropdownCaretOpen : ""
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+              {bookPublishingOpen ? (
+                <ul className={styles.mobileSubmenu}>
+                  <li>
+                    <Link
+                      href={bookPublishingNav.href}
+                      className={styles.mobileSubmenuLink}
+                      onClick={closeMobileMenu}
+                    >
+                      All Book Publishing
+                    </Link>
+                  </li>
+                  {bookPublishingNav.menuItems.map((item) => (
+                    <li key={item.id}>
+                      <Link
+                        href={item.href}
+                        className={styles.mobileSubmenuLink}
+                        onClick={closeMobileMenu}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </li>
 
-            {navLinks.slice(5).map((link) => {
+            {navLinks.slice(4).map((link) => {
               const isActive = isLinkActive(link.href);
 
               return (
@@ -185,7 +264,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ""}`}
-                    onClick={closeMenu}
+                    onClick={closeMobileMenu}
                     aria-current={isActive ? "page" : undefined}
                   >
                     {link.label}
@@ -200,7 +279,7 @@ export function Header() {
                 className={`${styles.mobileLink} ${
                   isPricingActive ? styles.mobileLinkActive : ""
                 }`}
-                onClick={closeMenu}
+                onClick={closeMobileMenu}
                 aria-current={isPricingActive ? "page" : undefined}
               >
                 {pricingNav.label}
@@ -210,7 +289,7 @@ export function Header() {
         </div>
 
         <div className={styles.mobileMenuFooter}>
-          <a href={headerPhoneHref} className={styles.mobilePhoneLink} onClick={closeMenu}>
+          <a href={headerPhoneHref} className={styles.mobilePhoneLink} onClick={closeMobileMenu}>
             <Phone size={18} aria-hidden="true" />
             <span>{footerContact.phone}</span>
           </a>

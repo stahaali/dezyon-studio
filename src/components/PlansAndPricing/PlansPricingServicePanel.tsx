@@ -6,6 +6,7 @@ import { SITE_NAME } from "@/lib/constants";
 import { PlansPricingAiVideoCreationCards } from "@/components/PlansAndPricing/PlansPricingAiVideoCreationCards";
 import { PlansPricingCustomWebsiteCards } from "@/components/PlansAndPricing/PlansPricingCustomWebsiteCards";
 import { PlansPricingHeading } from "@/components/PlansAndPricing/PlansPricingHeading";
+import { PlansPricingSeoAeoCards } from "@/components/PlansAndPricing/PlansPricingSeoAeoCards";
 import { PlansPricingTalkingWebsiteCards } from "@/components/PlansAndPricing/PlansPricingTalkingWebsiteCards";
 import { PlansPricingUniversalCards } from "@/components/PlansAndPricing/PlansPricingUniversalCards";
 import { PlansPricingVideoEditingCards } from "@/components/PlansAndPricing/PlansPricingVideoEditingCards";
@@ -51,6 +52,8 @@ export function PlansPricingServicePanel({ activeTab }: PlansPricingServicePanel
         <PlansPricingAiVideoCreationCards />
       ) : activeTab === "video-editing" ? (
         <PlansPricingVideoEditingCards />
+      ) : activeTab === "seo-aeo" ? (
+        <PlansPricingSeoAeoCards />
       ) : (
         <PlansPricingUniversalCards />
       )}

@@ -16,12 +16,6 @@ export function PlansPricingTalkingWebsiteCards() {
           {plan.featured ? <span className={styles.planBadge}>Most Popular</span> : null}
           <div className={styles.planCardInner}>
             <h3 className={styles.planName}>{plan.name}</h3>
-            <div className={styles.planPricing}>
-              <div className={styles.planPriceRow}>
-                <p className={styles.planPrice}>{plan.price}</p>
-                <span className={styles.planMeta}>{plan.priceNote}</span>
-              </div>
-            </div>
             <p className={styles.planDescription}>{plan.description}</p>
 
             <div className={styles.planCardScrollBody}>

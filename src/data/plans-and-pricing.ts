@@ -117,6 +117,13 @@ export const plansPricingServiceTabs = [
     description:
       "Polished edits, motion graphics, and platform-ready content that help your business stand out across social, ads, and YouTube.",
   },
+  {
+    id: "seo-aeo",
+    label: "SEO / AEO",
+    title: "SEO & AEO Plans Built for Search Visibility",
+    description:
+      "Improve your visibility across Google and AI-powered answer engines with technical optimization, targeted content, and measurable growth.",
+  },
 ] as const;
 
 export type PlansPricingServiceTabId =

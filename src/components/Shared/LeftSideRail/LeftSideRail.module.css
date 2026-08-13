@@ -7,12 +7,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 44px;
+  width: 30px;
   height: 100vh;
   height: 100dvh;
   padding: calc(var(--header-height) + 28px) 0 32px;
-  background: #ffffff;
-  border-right: 1px solid rgba(0, 2, 0, 0.08);
+  background: rgba(228, 228, 233, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .list {
@@ -42,7 +44,8 @@
 }
 
 .item:hover .labelText,
-.item:focus-visible .labelText {
+.item:focus-visible .labelText,
+.itemActive .labelText {
   background: var(--brand-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -50,17 +53,20 @@
 }
 
 .item:hover .icon svg :is(path, circle)[stroke="currentColor"],
-.item:focus-visible .icon svg :is(path, circle)[stroke="currentColor"] {
+.item:focus-visible .icon svg :is(path, circle)[stroke="currentColor"],
+.itemActive .icon svg :is(path, circle)[stroke="currentColor"] {
   stroke: url(#leftRailBrandGradient);
 }
 
 .item:hover .icon svg[fill="currentColor"],
-.item:focus-visible .icon svg[fill="currentColor"] {
+.item:focus-visible .icon svg[fill="currentColor"],
+.itemActive .icon svg[fill="currentColor"] {
   fill: url(#leftRailBrandGradient);
 }
 
 .item:hover .icon svg circle[fill="currentColor"],
-.item:focus-visible .icon svg circle[fill="currentColor"] {
+.item:focus-visible .icon svg circle[fill="currentColor"],
+.itemActive .icon svg circle[fill="currentColor"] {
   fill: url(#leftRailBrandGradient);
 }
 
